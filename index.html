@@ -1,1 +1,43 @@
-hello world
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello, world!</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="src/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="src/styles/range.css" />
+    <link rel="stylesheet" type="text/css" href="src/styles/index.css" />
+    <link rel="icon" href="favicon.png">
+    <script src="src/load.js"></script>
+</head>
+
+<body>
+    <canvas id ='lines'></canvas>
+    <section id = "title-section" class="section">
+        <div id="me-box">
+        <h1 id="me">Hi! I'm Michael Levy</h1>
+        </div>
+        <p class="title-text">A full stack developer in Wellington, New Zealand</p>
+        <p id="scroll-text" class="title-text">Scroll Down <img class="next-arrow" src="resources/arrow.svg" width="10" height="10"></img></p>
+        <aside id="title-sliders">
+            <div class="title-slider">
+                <label>Line length</label>
+                <input type="range"></input>
+            </div>
+            <div class="title-slider">
+                <label>Inner radius</label>
+                <input type="range"></input>
+            </div>
+            <div class="title-slider">
+                <label>Outer radius</label>
+                <input type="range"></input>
+            </div>
+        </aside>
+    </section>
+    <script src="src/lines.js" type="module"></script>
+</body>
+
+</html>
