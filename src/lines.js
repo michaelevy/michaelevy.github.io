@@ -2,20 +2,71 @@
 let canvas = document.getElementById("lines");
 const ctx = canvas.getContext("2d");
 
+
+let lineNumber = 3;
+let ringNumber =  Math.round(300 / lineNumber);
 /** @type{Line[][]} */
 let rings = new Array(ringNumber);
-let lineNumber = 3;
-let ringNumber =  Math.round(100 / lineNumber);
 
+let insideScale = 1
+let outsideScale = 0.5
 let inside;
 let outside;
-let timeDelta = 0.125;
+let timeDelta = 0.05;
 let radiusDelta = 0.5;
-let lineLength = 480;
+let lineLength = 120;
 let frame = 0;
-
+let colour = window.getComputedStyle(document.documentElement).getPropertyValue('--accent');
 let offset = 800
 
+const setArrays = () => {
+    for (let i = 0; i < ringNumber; i++) {
+        rings[i] = []
+        for (let k = 0; k < lineNumber; k++) {
+            rings[i][k] = new Line(
+                k * (360 / lineNumber) + ((360 / lineNumber) * i) / ringNumber,
+                ((outside - inside) / ringNumber) * i + inside
+            );
+        }
+    }
+}
+
+function handleResize() {
+    // Size of canvas not size of drawing
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * devicePixelRatio;
+    canvas.height = rect.height * devicePixelRatio;
+    setBounds();
+    setArrays();
+}
+
+function lineLengthChange(event){
+    lineLength = event.target.value;
+}
+
+function insideChange(event){
+    insideScale = event.target.value;
+    handleResize();
+}
+
+function outsideChange(event){
+    outsideScale = event.target.value;
+    handleResize();
+}
+
+document.querySelector("#line-length").addEventListener('input', lineLengthChange);
+document.querySelector("#line-length").value = lineLength
+document.querySelector("#inside-scale").addEventListener('input', insideChange);
+document.querySelector("#inside-scale").value = insideScale
+document.querySelector("#outside-scale").addEventListener('input', outsideChange);
+document.querySelector("#outside-scale").value = outsideScale
+
+const setBounds = () => {
+    // Size of drawing
+    outside = canvas.width * outsideScale;
+    inside = outside / 2 * insideScale;
+    offset = canvas.width / 3
+};
 
 /**
  * @param {number} angle
@@ -45,12 +96,12 @@ class Line {
 
 
     move() {
-        ctx.strokeStyle = `rgb(212,76, 80)`;
+        ctx.strokeStyle = colour;
         // trigonometry makes them go in a circle
         let x1 = this.r * Math.cos(toRadians(this.t)) + canvas.width / 2;
-        let y1 = this.r * Math.sin(toRadians(this.t)) + canvas.height / 2;
+        let y1 = this.r * Math.sin(toRadians(this.t)) + canvas.width / 4;
         let x2 = this.r * Math.cos(toRadians(this.t - lineLength)) + canvas.width / 2;
-        let y2 = this.r * Math.sin(toRadians(this.t - lineLength)) + canvas.height / 2;
+        let y2 = this.r * Math.sin(toRadians(this.t - lineLength)) + canvas.width / 4;
 
         ctx.beginPath();
         ctx.moveTo(x1+offset, y1);
@@ -79,31 +130,6 @@ class Line {
 
 
 function draw() {
-    const setBounds = () => {
-        outside = Math.min(canvas.width, canvas.height) * outsideScale;
-        inside = outside / 2 * insideScale;
-    };
-
-    const setArrays = () => {
-        for (let i = 0; i < ringNumber; i++) {
-            rings[i] = []
-            for (let k = 0; k < lineNumber; k++) {
-                rings[i][k] = new Line(
-                    k * (360 / lineNumber) + ((360 / lineNumber) * i) / ringNumber,
-                    ((outside - inside) / ringNumber) * i + inside
-                );
-            }
-        }
-    }
-
-    function handleResize() {
-        const rect = canvas.getBoundingClientRect();
-        canvas.width = rect.width * devicePixelRatio;
-        canvas.height = rect.height * devicePixelRatio;
-        setBounds();
-        setArrays();
-    }
-    
     window.addEventListener("resize", handleResize);
 
     drawBackground();
@@ -120,7 +146,6 @@ function draw() {
     //         console.log(Math.abs((outside - inside) - (t % ((outside - inside)) * 2)))
     //     }
     // }
-    
 
     for (let i = 0; i < ringNumber; i++) {
         for (let k = 0; k < lineNumber; k++) {
@@ -135,7 +160,6 @@ function draw() {
 draw()
 
 function drawBackground() {
-    ctx.fillStyle = "#0e141b";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
