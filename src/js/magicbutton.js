@@ -1,12 +1,19 @@
 // source: https://www.joshwcomeau.com/react/rainbow-button/
 
 const rainbowColors = [
-    'hsl(270deg, 100%, 40%)',
-    'hsl(280deg, 100%, 35%)',
-    'hsl(300deg, 100%, 25%)',
-    'hsl(230deg, 100%, 35%)',
-    'hsl(240deg, 100%, 45%)',
-    'hsl(260deg, 100%, 55%)'
+    'hsl(212deg 32% 8%)',
+    'hsl(251deg 41% 24%)',
+    'hsl(288deg 51% 40%)',
+    'hsl(326deg 61% 56%)',
+    'hsl(337deg 61% 56%)',
+    'hsl(348deg 61% 56%)',
+    'hsl(358deg 61% 56%)',
+    'hsl(348deg 61% 56%)',
+    'hsl(337deg 61% 56%)',
+    'hsl(326deg 61% 56%)',
+    'hsl(288deg 51% 40%)',
+    'hsl(251deg 41% 24%)',
+    'hsl(212deg 32% 8%)'
   ];
   const paletteSize = rainbowColors.length;
   
@@ -30,7 +37,7 @@ const rainbowColors = [
     });
   });
   
-  let buttonElem = document.querySelector('.magic-button');
+  let buttonElems = document.querySelectorAll('.magic-button');
   
   let cycleIndex = 0;
   
@@ -47,16 +54,14 @@ const rainbowColors = [
       rainbowColors[(cycleIndex + 3) % paletteSize],
     ];
 
-    if(!buttonElem) {
-        buttonElem = document.querySelector('.magic-button');
+    if(buttonElems.length === 0) {
+        buttonElems = document.querySelectorAll('.magic-button');
         return;
     }
 
-    console.log(buttonElem)
-  
     // Apply these new colors, update the DOM.
     colorNames.forEach((name, index) => {
-      buttonElem.style.setProperty(name, nextColors[index]);
+        buttonElems.forEach((b)=> b.style.setProperty(name, nextColors[index]));
     });
   
     // increment the cycle count, so that we advance

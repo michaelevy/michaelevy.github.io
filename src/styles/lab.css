@@ -54,8 +54,8 @@
 
         /* just testing colour values */
         --e:hsl(270deg, 100%, 40%);
-        --e:hsl(280deg, 100%, 35%);
-        --e:hsl(300deg, 100%, 25%);
+        --e:hsl(19, 100%, 35%);
+        --e:hsl(24, 97%, 45%);
         --e:hsl(230deg, 100%, 35%);
         --e:hsl(240deg, 100%, 45%);
         --e:hsl(260deg, 100%, 55%);

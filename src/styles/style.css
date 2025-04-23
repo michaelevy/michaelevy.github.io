@@ -41,6 +41,7 @@ nav {
   justify-content: center;
   align-items: left;
   flex-direction: column;
+  padding-top: 10%;
   
   .nav-links {
     display: flex;
@@ -60,6 +61,11 @@ nav {
   a {
     padding: 2.5%;
     font-size: large;
+  }
+
+  #square{
+    display: inline;
+    margin-left: 2.5%;
   }
 }
 
