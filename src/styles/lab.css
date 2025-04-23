@@ -1,0 +1,64 @@
+.experiment{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--secondary);
+    border-radius: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+    column-gap: 5%;
+
+    h2 {
+        font-size: larger;
+        margin: 0
+    }
+}
+
+.gradient {
+    background: linear-gradient(
+      170deg,
+      hsl(270deg, 100%, 40%),
+      hsl(280deg, 100%, 35%)
+    );
+
+    color: white;
+    font-family: 'Fira Code', monospace;
+    transition: scale 0.2s ease-in-out;
+
+    &:hover{
+        scale: 1.05;
+        transition:
+        --magic-rainbow-color-0 1000ms linear,
+        --magic-rainbow-color-1 1000ms linear,
+        --magic-rainbow-color-2 1000ms linear;
+    }
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .gradient {
+      --magic-rainbow-color-0: hsl(270deg, 100%, 40%);
+      --magic-rainbow-color-1: hsl(280deg, 100%, 35%);
+      --magic-rainbow-color-2: hsl(300deg, 100%, 25%);
+  
+      background: linear-gradient(
+        170deg,
+        var(--magic-rainbow-color-0),
+        var(--magic-rainbow-color-1),
+        var(--magic-rainbow-color-2)
+      );
+  
+      transition:
+        --magic-rainbow-color-0 1000ms linear,
+        --magic-rainbow-color-1 1000ms linear,
+        --magic-rainbow-color-2 1000ms linear;
+
+        /* just testing colour values */
+        --e:hsl(270deg, 100%, 40%);
+        --e:hsl(280deg, 100%, 35%);
+        --e:hsl(300deg, 100%, 25%);
+        --e:hsl(230deg, 100%, 35%);
+        --e:hsl(240deg, 100%, 45%);
+        --e:hsl(260deg, 100%, 55%);
+    }
+
+  }

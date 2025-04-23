@@ -121,20 +121,6 @@ h1, p{
     }
 }
 
-@keyframes slide-in {
-    from {
-        transform: translateY(-100%);
-    }
-
-    50% {
-        opacity: 1;
-    }
-
-    to {
-        transform: translateY(100%);
-    }
-}
-
 #title-sliders {
     color: var(--secondary);
     filter: opacity(25%);
@@ -178,14 +164,6 @@ h1, p{
     #scroll-text {
         padding-top: 10lvh;
         font-size: small;
-    }
-
-    .next-arrow {
-        display: inline;
-        animation: slide-in 1500ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: cubic-bezier(0, 0.75, 1, 0.25);
-        opacity: 1;
     }
 }
 

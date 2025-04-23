@@ -49,9 +49,13 @@ nav {
   }
 
   h1 {
-    font-family: 'garamond';
     margin:0;
     display: inline;
+    text-transform: uppercase;
+  }
+
+  h1, a {
+    font-family: 'MondiaThin','garamond';
   }
   a {
     padding: 2.5%;
@@ -97,6 +101,12 @@ a {
 
 }
 
+a.button {
+  padding: 5px;
+  text-decoration: none;
+}
+
+
 p, h1, h2, h3, h4, h5, h6, li {
   overflow-wrap: break-word;
   font-family: 'FiraCode','Courier New', Courier, monospace;
@@ -105,7 +115,7 @@ p, h1, h2, h3, h4, h5, h6, li {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 30px;
   margin-bottom: 10px;
-  font-family: 'garamond';
+  font-family: 'Arial';
   font-size: 15px;
 }
 
@@ -133,6 +143,33 @@ footer {
   }
 }
 
+canvas {
+  width: 100%;
+  height: 100dvh;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+button {
+  display: block;
+  margin: 0;
+  margin-left: 0px;
+  padding: 5px;
+  border:none;
+  border-radius: 2px;
+  background:transparent;
+  cursor: pointer;
+  text-align: left;
+  font:inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+
 #root, #__next {
   isolation: isolate;
 }
@@ -155,3 +192,33 @@ footer {
   margin: 10% 0 10%;
 }
 
+@keyframes slide {
+  from {
+      transform: translateY(-100%);
+  }
+
+  50% {
+      opacity: 1;
+  }
+
+  to {
+      transform: translateY(100%);
+  }
+}
+
+.down-arrow {
+  display: inline;
+  animation: slide 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 0.75, 1, 0.25);
+  opacity: 1;
+}
+
+.back-arrow {
+  display: inline;
+  animation: slide 1500ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: cubic-bezier(0, 0.75, 1, 0.25);
+  opacity: 1;
+  rotate: 90deg;
+}
