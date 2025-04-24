@@ -1,5 +1,6 @@
 :root{
   --background: #ffffff;
+  --background-dark: #afafaf;
   --accent: rgb(212,76, 80);
   --accent-trans: #d44c5077;
   --secondary: rgb(27, 27, 27);
@@ -81,6 +82,9 @@ p, li{
   line-height: 1.6;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
+  @media only screen and (max-width: 800px) {
+    font-size: 12px;
+  }
 }
 
 img, picture, video, canvas, svg {
@@ -167,7 +171,7 @@ button {
   padding: 5px;
   border:none;
   border-radius: 2px;
-  background:transparent;
+  background: var(--accent);
   cursor: pointer;
   text-align: left;
   font:inherit;
@@ -227,4 +231,25 @@ button {
   animation-timing-function: cubic-bezier(0, 0.75, 1, 0.25);
   opacity: 1;
   rotate: 90deg;
+}
+
+textarea, input[type="text"] {
+  /* input fix defaults */
+  
+  resize: none;
+  overflow: hidden;
+  width: 90%;
+  background-color: var(--background);
+  color: var(--secondary);
+  font-family: 'FiraCode', 'Courier New', Courier, monospace;
+  margin: 5px;
+  padding: 5px;
+
+
+  border-style: solid;
+  border-width: 2px;
+
+  &:focus {
+      outline: none;
+  }
 }
