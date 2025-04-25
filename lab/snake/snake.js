@@ -8,7 +8,10 @@ let grid = ['0']
 let colours = ['r','g','b','y','m','c']
 let events = []
 let fps = 5;
-
+let curseStrings = ['GET IT OFF ME!!', 'ARGH', 'OWWWW', 'HELP ME',
+                    'GET IT OFF ME!!', 'ARGH', 'OWWWW', 'HELP ME',
+                    'OOF','MY TAIL!','!!!!','!','!!','!!!','!!!',
+                    'I LOOKED UPON GOD\'S VISAGE AND SAW THAT HE HAS FORSAKEN US']
 
 var frameCount = 0;
 var fpsInterval, startTime, now, then, elapsed;
@@ -37,6 +40,11 @@ function handleResize() {
     rowNum = Math.floor(canvas.height / squareSize);
 }
 
+function curseString(){
+    let curse = Math.floor(Math.random() * curseStrings.length);
+    return curseStrings[curse]
+}
+
 class Snake{
     constructor(x, y, direction, length, colour, id) {
         this.x = x;
@@ -45,7 +53,7 @@ class Snake{
         this.prevDirection = direction;
         this.length = length;
         this.body = [[x, y]];
-        this.appendages = [[x,y]];
+        this.curses = [];
         this.colour = colour;
         this.dead = false
         this.id = id;
@@ -87,9 +95,13 @@ class Snake{
         } else {
             if (grid[newX][newY] == 'f'){
                 this.length += 1;
-
-                    grid[newX][newY] = this.colour;
+                if (Math.random() > 0.95 && this.length > 5){
+                    addEvent(grid, new SnakeEvent(newX,newY,'CURSED', 'p', frame), this)
+                    this.curses.push(Math.round(Math.random() * this.body.length))
+                } else{
                     addEvent(grid, new SnakeEvent(newX,newY,'EATEN', this.colour, frame), this)
+                }
+                grid[newX][newY] = this.colour;
 
             }
             else if (grid[newX][newY] != '0' ) {
@@ -118,8 +130,6 @@ class Snake{
             let old =  this.body.pop();
             grid[old[0]][old[1]] = '0';
         }
-
-
     }
 
     drawSnake(grid){
@@ -127,6 +137,21 @@ class Snake{
             let x = this.body[i][0];
             let y = this.body[i][1];
             grid[x][y] = this.colour;
+            if(this.curses.length > 0 && this.curses.includes(i)){
+                if (Math.random() > 0.95){
+                    addEvent(grid, new SnakeEvent(x,y,curseString(), 'r', frame), this)
+                }
+                grid[x][y] = this.colour;
+                if (this.direction == 'up') {
+                    grid[x][y-1] = this.colour;
+                } else if (this.direction == 'down') {
+                    grid[x][y+1] = this.colour;
+                } else if (this.direction == 'left') {
+                    grid[x-1][y] = this.colour;
+                } else if (this.direction == 'right') {
+                    grid[x+1][y] = this.colour;
+                }
+            }
         }
 
     }
@@ -140,6 +165,7 @@ class Snake{
         this.body = [[this.x, this.y]];
         this.dead = false
         this.totalScore += this.length;
+        this.curses = [];
     }
 }
 
@@ -195,6 +221,8 @@ function setColour(character, squareColour = 'white') {
         ctx.fillStyle = '#007777';
     } else if (character == 'f'){
         ctx.fillStyle = 'orange';
+    } else if (character == 'p'){
+        ctx.fillStyle = 'purple';
     }
     else {
         ctx.fillStyle = squareColour;
@@ -202,7 +230,6 @@ function setColour(character, squareColour = 'white') {
 }
 
 function keyPress(event,snakes){
-    console.log(event.key)
     if (event.key == "ArrowUp") {
         snakes[0].direction = 'up';
         event.preventDefault();
@@ -239,7 +266,43 @@ function keyPress(event,snakes){
     } else if (event.key == "l") {
         event.preventDefault();
         snakes[2].direction = 'right';
+    } else if (event.keyCode = 104){
+        event.preventDefault();
+        snakes[4].direction = 'up';
+    } else if (event.keyCode = 101){
+        event.preventDefault();
+        snakes[4].direction = 'down';
+    } else if (event.keyCode = 100){
+        event.preventDefault();
+        snakes[4].direction = 'left';
+    } else if (event.keyCode = 102){
+        event.preventDefault();
+        snakes[4].direction = 'right';
     }
+}
+
+function mousePress(event,snakes){
+    let x = event.clientX;
+    console.log(event.button)
+    if       (event.button==0 && snakes[3].direction =="left") {
+        snakes[3].direction = 'down';   
+    } else if(event.button==0&& snakes[3].direction =="right") {
+        snakes[3].direction = 'up';   
+    } else if (event.button==0 && snakes[3].direction =="up") {
+        snakes[3].direction = 'left';   
+    } else if(event.button==0&& snakes[3].direction =="down") {
+        snakes[3].direction = 'right';   
+    } else if(event.button==2 && snakes[3].direction =="left") {
+        snakes[3].direction = 'up';   
+    } else if(event.button==2&& snakes[3].direction =="right") {
+        snakes[3].direction = 'down';   
+    } else if(event.button==2 && snakes[3].direction =="up") {
+        snakes[3].direction = 'right';   
+    } else if(event.button==2&& snakes[3].direction =="down") {
+        snakes[3].direction = 'left';   
+    }
+    event.preventDefault();
+    event.stopPropagation();
 }
 
 function segmentIndexToGridCoords(index){
@@ -340,7 +403,15 @@ function drawSegment(segments, x, y, snake, grid) {
     });
 }
 
-function init(snakeNum) {
+
+function init() {
+    let promptResult = prompt("HOW MANY PLAYERS YE HAVE LAD??")
+    let snakeNum = parseInt(promptResult);
+
+    if (isNaN(snakeNum) || snakeNum < 1 || snakeNum > 6) {
+        snakeNum = 3;
+    }
+
     canvas = document.getElementById("snake");
     ctx = canvas.getContext("2d");
     ctx.font = "48px serif";
@@ -350,7 +421,9 @@ function init(snakeNum) {
 
     let colour = window.getComputedStyle(document.documentElement).getPropertyValue('--accent');
     let squareColour = window.getComputedStyle(document.documentElement).getPropertyValue('--background-light');
+
     window.addEventListener("resize", handleResize);
+    document.addEventListener('contextmenu', event => event.preventDefault());
 
     grid = new Array(columnNum).fill('0').map(() => new Array(rowNum).fill('0'));
     let snakes = []
@@ -359,7 +432,7 @@ function init(snakeNum) {
         let y = Math.floor(Math.random() * rowNum);
         let direction = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
         let length = Math.random() > 0.8 ? Math.floor(Math.random() * 10) + 1 : 3;
-        let colour = colours[i % (colours.length - 1)];
+        let colour = colours[i % (colours.length)];
         snakes.push(new Snake(x, y, direction, length, colour, i+1));
     }
    
@@ -368,6 +441,13 @@ function init(snakeNum) {
             started = true;
         }
         keyPress(e,snakes)
+    }, false);
+
+    addEventListener("mousedown",(e) => {
+        if (!started) {
+            started = true;
+        }
+        mousePress(e,snakes)
     }, false);
 
     fpsInterval = 1000 / fps;
