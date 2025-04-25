@@ -105,7 +105,7 @@ class Snake{
                     this.curses.push(Math.round(Math.random() * this.body.length))
                 } else if(Math.random() > 0.95 && this.length > 15){
                     addEvent(grid, new SnakeEvent(newX,newY,'SPEEEED', 'p', frame))
-                    fps =  fps * 2
+                    fps = fps + 5
                     fpsInterval = 1000 / fps;
                 }else{
                     addEvent(grid, new SnakeEvent(newX,newY,'EATEN', this.colour, frame))
@@ -170,10 +170,10 @@ class Snake{
         this.y = Math.floor(Math.random() * rowNum);
         this.direction = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
         this.prevDirection = 'none'
+        this.totalScore += this.length;
         this.length = Math.random() > 0.8 ? Math.floor(Math.random() * 10) + 1 : 3;
         this.body = [[this.x, this.y]];
         this.dead = false
-        this.totalScore += this.length;
         this.curses = [];
     }
 }
@@ -389,7 +389,7 @@ function drawScore(grid, snake){
 
 function drawTotalScore(grid, snake){
     let segments = numberToSegmentDisplay(snake.totalScore);
-    let x = grid.length - 15;
+    let x = grid.length - 50;
     let y = 5;
     drawSegment(segments, x, y, snake, grid);
 }
@@ -501,6 +501,9 @@ function init() {
 
             if ((snakeNum > 1 && liveSnakes <= 1 )||(snakeNum ==1 && liveSnakes == 0) ){
                 started = false;
+                snakes.filter(snake => !snake.dead).forEach(snake => {
+                    snake.totalScore += snake.length;
+                })
                 snakes.forEach(snake => {
                     snake.reset()
                 });
@@ -508,6 +511,7 @@ function init() {
                 fpsInterval = 1000 / fps;
                 grid = new Array(columnNum).fill('0').map(() => new Array(rowNum).fill('0'));
                 frame = 0
+                events = []
             }
     
             if (started && (frame % 20) == 0){
