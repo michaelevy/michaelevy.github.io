@@ -148,17 +148,16 @@ class Snake{
             grid[x][y] = this.colour;
             if(this.curses.length > 0 && this.curses.includes(i)){
                 if (Math.random() > 0.95){
-                    addEvent(grid, new SnakeEvent(x,y,curseString(), 'r', frame), this)
+                    addEvent(grid, new SnakeEvent(x,y,curseString(), 'r', frame))
                 }
-                grid[x][y] = this.colour;
                 if (this.direction == 'up') {
-                    grid[x][y-1] = this.colour;
+                    grid[x][y-1] = this.id;
                 } else if (this.direction == 'down') {
-                    grid[x][y+1] = this.colour;
+                    grid[x][y+1] = this.id;
                 } else if (this.direction == 'left') {
-                    grid[x-1][y] = this.colour;
+                    grid[x-1][y] = this.id;
                 } else if (this.direction == 'right') {
-                    grid[x+1][y] = this.colour;
+                    grid[x+1][y] = this.id;
                 }
             }
         }
@@ -389,7 +388,7 @@ function drawScore(grid, snake){
 
 function drawTotalScore(grid, snake){
     let segments = numberToSegmentDisplay(snake.totalScore);
-    let x = grid.length - 50;
+    let x = grid.length - 20;
     let y = 5;
     drawSegment(segments, x, y, snake, grid);
 }
@@ -458,6 +457,7 @@ function init() {
         let y = Math.floor(Math.random() * rowNum);
         let direction = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
         let length = Math.random() > 0.8 ? Math.floor(Math.random() * 10) + 1 : 3;
+        length = Math.random() > 0.99 ? 100 : length;
         let colour = colours[i % (colours.length)];
         snakes.push(new Snake(x, y, direction, length, colour, i+1));
     }
@@ -465,6 +465,7 @@ function init() {
     addEventListener("keydown",(e) => {
         if (!started) {
             started = true;
+            frame = 0;
         }
         keyPress(e,snakes)
     }, false);
@@ -472,6 +473,7 @@ function init() {
     addEventListener("mousedown",(e) => {
         if (!started) {
             started = true;
+            frame = 0;
         }
         mousePress(e,snakes)
     }, false);
