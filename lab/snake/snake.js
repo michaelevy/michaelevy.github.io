@@ -7,7 +7,7 @@ let rowNum = 10
 let grid = ['0']
 let colours = ['r','g','b','y','m','c']
 let events = []
-let fps = 5;
+let fps = 6;
 let curseStrings = ['GET IT OFF ME!!', 'ARGH', 'OWWWW', 'HELP ME',
                     'GET IT OFF ME!!', 'ARGH', 'OWWWW', 'HELP ME',
                     'OOF','MY TAIL!','!!!!','!','!!','!!!','!!!',
@@ -26,7 +26,7 @@ class SnakeEvent {
     }
 }
 
-function addEvent(grid, event, snake) {
+function addEvent(grid, event) {
     events.push(event);
     console.log(`Event added: ${event.colour} ${event.type} at frame ${event.frame}`);
 }
@@ -50,7 +50,7 @@ class Snake{
         this.x = x;
         this.y = y;
         this.direction = direction;
-        this.prevDirection = direction;
+        this.prevDirection = 'none';
         this.length = length;
         this.body = [[x, y]];
         this.curses = [];
@@ -58,6 +58,7 @@ class Snake{
         this.dead = false
         this.id = id;
         this.totalScore = 0;
+        this.directionChanged = false;
     }
 
     update(grid, started){
@@ -86,27 +87,35 @@ class Snake{
             newX += 1;
         }
 
+        if (frame < 5){
+            die = false
+        }
+
         if (die === true){
-            addEvent(grid,new SnakeEvent(newX,newY, 'BACKWARDS MOMENT', this.colour, frame), this)
+            addEvent(grid,new SnakeEvent(newX,newY, 'BACKWARDS MOMENT', this.colour, frame))
         }
         else if (newX < 0 || newX >= columnNum || newY < 0 || newY >= rowNum || die) {
             die = true
-            addEvent(grid, new SnakeEvent(newX,newY,'WALL', this.colour, frame), this)
+            addEvent(grid, new SnakeEvent(newX,newY,'WALL', this.colour, frame))
         } else {
             if (grid[newX][newY] == 'f'){
-                this.length += 1;
-                if (Math.random() > 0.95 && this.length > 5){
-                    addEvent(grid, new SnakeEvent(newX,newY,'CURSED', 'p', frame), this)
+                this.length += 3;
+                if (Math.random() > 0.95 && this.length > 25){
+                    addEvent(grid, new SnakeEvent(newX,newY,'CURSED', 'p', frame))
                     this.curses.push(Math.round(Math.random() * this.body.length))
-                } else{
-                    addEvent(grid, new SnakeEvent(newX,newY,'EATEN', this.colour, frame), this)
+                } else if(Math.random() > 0.95 && this.length > 15){
+                    addEvent(grid, new SnakeEvent(newX,newY,'SPEEEED', 'p', frame))
+                    fps =  fps * 2
+                    fpsInterval = 1000 / fps;
+                }else{
+                    addEvent(grid, new SnakeEvent(newX,newY,'EATEN', this.colour, frame))
                 }
                 grid[newX][newY] = this.colour;
 
             }
             else if (grid[newX][newY] != '0' ) {
                 die = true
-                addEvent(grid, new SnakeEvent(newX,newY,'SNAKED', this.colour, frame), this)
+                addEvent(grid, new SnakeEvent(newX,newY,'SNAKED', this.colour, frame))
             }
         }
 
@@ -123,7 +132,7 @@ class Snake{
 
         this.x = newX;
         this.y = newY;
-        this.prevDirection = this.direction;
+        this.directionChanged = false;
 
         this.body.unshift([newX, newY]);
         if (this.body.length > this.length) {
@@ -230,55 +239,72 @@ function setColour(character, squareColour = 'white') {
 }
 
 function keyPress(event,snakes){
-    if (event.key == "ArrowUp") {
-        snakes[0].direction = 'up';
+    if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.key) && !snakes[0].directionChanged) {
+        snakes[0].prevDirection = snakes[0].direction;
+
+
+        snakes[0].directionChanged = true;
         event.preventDefault();
-    } else if (event.key == "ArrowDown") {
-        snakes[0].direction = 'down';
-        event.preventDefault();
-    } else if (event.key == "ArrowLeft") {
-        event.preventDefault();
-        snakes[0].direction = 'left';
-    } else if (event.key == "ArrowRight") {
-        event.preventDefault();
-        snakes[0].direction = 'right';
-    } else if (event.key == "w") {
+        if (event.key == "ArrowUp") {
+            snakes[0].direction = 'up';
+        } else if (event.key == "ArrowDown") {
+            snakes[0].direction = 'down';
+        } else if (event.key == "ArrowLeft") {
+            snakes[0].direction = 'left';
+        } else if (event.key == "ArrowRight") {
+            snakes[0].direction = 'right';
+        }
+    }
+    if (event.key == "w") {
+        snakes[1].prevDirection = snakes[1].direction;
         event.preventDefault();
         snakes[1].direction = 'up';
     } else if (event.key == "s") {
+        snakes[1].prevDirection = snakes[1].direction;
         event.preventDefault();
         snakes[1].direction = 'down';
     } else if (event.key == "a") {
+        snakes[1].prevDirection = snakes[1].direction;
         event.preventDefault();
         snakes[1].direction = 'left';
     } else if (event.key == "d") {
+        snakes[1].prevDirection = snakes[1].direction;
         event.preventDefault();
         snakes[1].direction = 'right';
     } else if (event.key == "i") {
+        snakes[2].prevDirection = snakes[2].direction;
         event.preventDefault();
         snakes[2].direction = 'up';
     } else if (event.key == "k") {
+        snakes[2].prevDirection = snakes[2].direction;
         event.preventDefault();
         snakes[2].direction = 'down';
     } else if (event.key == "j") {
+        snakes[2].prevDirection = snakes[2].direction;
         event.preventDefault();
         snakes[2].direction = 'left';
     } else if (event.key == "l") {
+        snakes[2].prevDirection = snakes[2].direction;
         event.preventDefault();
         snakes[2].direction = 'right';
     } else if (event.keyCode = 104){
+        snakes[4].prevDirection = snakes[4].direction;
         event.preventDefault();
         snakes[4].direction = 'up';
     } else if (event.keyCode = 101){
+        snakes[4].prevDirection = snakes[4].direction;
         event.preventDefault();
         snakes[4].direction = 'down';
     } else if (event.keyCode = 100){
+        snakes[4].prevDirection = snakes[4].direction;
         event.preventDefault();
         snakes[4].direction = 'left';
     } else if (event.keyCode = 102){
+        snakes[4].prevDirection = snakes[4].direction;
         event.preventDefault();
         snakes[4].direction = 'right';
     }
+
 }
 
 function mousePress(event,snakes){
@@ -473,20 +499,28 @@ function init() {
                 drawTotalScore(grid, snake);
             });
 
-            if (liveSnakes <= 1){
+            if ((snakeNum > 1 && liveSnakes <= 1 )||(snakeNum ==1 && liveSnakes == 0) ){
                 started = false;
                 snakes.forEach(snake => {
                     snake.reset()
                 });
+                fps = 6
+                fpsInterval = 1000 / fps;
                 grid = new Array(columnNum).fill('0').map(() => new Array(rowNum).fill('0'));
+                frame = 0
             }
     
-            if (started && frame % 50 == 0){
+            if (started && (frame % 20) == 0){
                 let food = 'f'
                 let x = Math.floor(Math.random() * columnNum);
                 let y = Math.floor(Math.random() * rowNum);
                 grid[x][y] = food;
-                addEvent(grid, new SnakeEvent(x,y,'FOOD', food, frame), snakes[0])
+                addEvent(grid, new SnakeEvent(x,y,'FOOD', 'f', frame))
+            }
+            if(started && (frame % 100 == 0)){
+                fps += 1
+                fpsInterval = 1000 / fps;
+                addEvent(grid, new SnakeEvent(canvas.width / 2,canvas.height /2,'SPEEEEED', 'w', frame))
             }
     
             drawGrid(grid, squareColour);
