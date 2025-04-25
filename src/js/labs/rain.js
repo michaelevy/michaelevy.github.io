@@ -156,6 +156,7 @@ function init(compass, rainColour, useSquareEnds, useRandom, layers) {
     if (compass){
         canvas.addEventListener('mousemove', event => {onMouseMove(event)})
     }
+    window.addEventListener("resize", handleResize);
 
     colour = window.getComputedStyle(document.documentElement).getPropertyValue('--accent');
 
@@ -173,8 +174,6 @@ function init(compass, rainColour, useSquareEnds, useRandom, layers) {
     });
 
     function draw() {
-        window.addEventListener("resize", handleResize);
-
         drawBackground();
 
         drops.forEach(drop => {
