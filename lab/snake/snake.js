@@ -254,56 +254,34 @@ function keyPress(event,snakes){
             snakes[0].direction = 'right';
         }
     }
-    if (event.key == "w") {
+    if(['w','a','s','d'].includes(event.key) && !snakes[1].directionChanged){
         snakes[1].prevDirection = snakes[1].direction;
+        snakes[1].directionChanged = true;
         event.preventDefault();
-        snakes[1].direction = 'up';
-    } else if (event.key == "s") {
-        snakes[1].prevDirection = snakes[1].direction;
-        event.preventDefault();
-        snakes[1].direction = 'down';
-    } else if (event.key == "a") {
-        snakes[1].prevDirection = snakes[1].direction;
-        event.preventDefault();
-        snakes[1].direction = 'left';
-    } else if (event.key == "d") {
-        snakes[1].prevDirection = snakes[1].direction;
-        event.preventDefault();
-        snakes[1].direction = 'right';
-    } else if (event.key == "i") {
-        snakes[2].prevDirection = snakes[2].direction;
-        event.preventDefault();
-        snakes[2].direction = 'up';
-    } else if (event.key == "k") {
-        snakes[2].prevDirection = snakes[2].direction;
-        event.preventDefault();
-        snakes[2].direction = 'down';
-    } else if (event.key == "j") {
-        snakes[2].prevDirection = snakes[2].direction;
-        event.preventDefault();
-        snakes[2].direction = 'left';
-    } else if (event.key == "l") {
-        snakes[2].prevDirection = snakes[2].direction;
-        event.preventDefault();
-        snakes[2].direction = 'right';
-    } else if (event.keyCode = 104){
-        snakes[4].prevDirection = snakes[4].direction;
-        event.preventDefault();
-        snakes[4].direction = 'up';
-    } else if (event.keyCode = 101){
-        snakes[4].prevDirection = snakes[4].direction;
-        event.preventDefault();
-        snakes[4].direction = 'down';
-    } else if (event.keyCode = 100){
-        snakes[4].prevDirection = snakes[4].direction;
-        event.preventDefault();
-        snakes[4].direction = 'left';
-    } else if (event.keyCode = 102){
-        snakes[4].prevDirection = snakes[4].direction;
-        event.preventDefault();
-        snakes[4].direction = 'right';
+        if (event.key == "w") {
+            snakes[1].direction = 'up';
+        } else if (event.key == "s") {
+            snakes[1].direction = 'down';
+        } else if (event.key == "a") {
+            snakes[1].direction = 'left';
+        } else if (event.key == "d") {
+            snakes[1].direction = 'right';
+        }
     }
-
+    if (['i','j','k','l'].includes(event.key) && !snakes[2].directionChanged){
+        snakes[2].prevDirection = snakes[2].direction;
+        snakes[2].directionChanged = true;
+        event.preventDefault();
+        if (event.key == "i") {
+            snakes[2].direction = 'up';
+        } else if (event.key == "k") {
+            snakes[2].direction = 'down';
+        } else if (event.key == "j") {
+            snakes[2].direction = 'left';
+        } else if (event.key == "l") {
+            snakes[2].direction = 'right';
+        }
+    }
 }
 
 function mousePress(event,snakes){
