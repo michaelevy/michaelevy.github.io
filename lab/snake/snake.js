@@ -453,8 +453,8 @@ function init() {
     grid = new Array(columnNum).fill('0').map(() => new Array(rowNum).fill('0'));
     let snakes = []
     for (let i = 0; i < snakeNum; i++) {
-        let x = Math.floor(Math.random() * columnNum);
-        let y = Math.floor(Math.random() * rowNum);
+        let x = Math.floor(Math.random() * (columnNum - 5 * 6)) + 5 * 2;
+        let y = Math.floor(Math.random() * (rowNum- 5 * 4)) + 5 * 2
         let direction = ['up', 'down', 'left', 'right'][Math.floor(Math.random() * 4)];
         let length = Math.random() > 0.8 ? Math.floor(Math.random() * 10) + 1 : 3;
         length = Math.random() > 0.99 ? 100 : length;
