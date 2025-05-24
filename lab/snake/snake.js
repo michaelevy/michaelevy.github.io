@@ -1,4 +1,3 @@
-//@ts-check
 let canvas, ctx, frame = 0;
 let squareSize = 25
 let margin = 5
