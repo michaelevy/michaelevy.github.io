@@ -88,3 +88,39 @@ h1, p{
     }
 }
 
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    width: 800px;
+    background-color: black;
+    padding: 5px;
+    width: 100%;
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: row;
+    height: 16%;
+}
+
+.grid-square {
+    background-color: white;
+    margin: 5px;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
+.active {
+    background-color: var(--accent);
+}
+
+.button {
+    /* button css */
+    background-color: var(--secondary)
+    
+}
+
+button {
+    padding: 20px;
+}

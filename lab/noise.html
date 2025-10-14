@@ -4,24 +4,30 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Text | Michael Levy</title>
+    <title>Sequencer | Michael Levy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="../src/styles/style.css" />
     <link rel="stylesheet" type="text/css" href="lab.css" />
-    <script src="../src/js/labs/coloured-text.js" /></script>
-    <script src="../src/js/utility.js" /></script>
-    <link rel="icon" href="../resources/favicon.png">
+    <link rel="stylesheet" type="text/css" href="note.css" />
+    <script src="https://unpkg.com/tone"></script>
+    <script src="../src/js/sol.js" /></script>
+    <script src="../src/js/labs/sequencer.js" /></script>
     <script src="../src/js/load.js"></script>
+    <link rel="icon" href="../resources/favicon.png">
 </head>
 
-<body onLoad="init();">
+<body onload="generateGrid(8,4)">
     <div id="escape">
         <img class="back-arrow" src="../resources/arrow.svg" width="10" height="10"></img>       
         <a href="../lab.html" >Escape</a>
     </div>
     <main>
-        <canvas id="coloured-text"></canvas>
+        <button id="pause-button" class="button" onclick="pause()"></button>  
+        
+        <div class="grid" id="sequencer-grid">
+           
+        </div>
     </main>
 </body>
 
