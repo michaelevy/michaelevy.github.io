@@ -2,10 +2,13 @@ let voice
 let id = 0
 let activeCells =[]
 let initialised = false
+let bars = 2
+let beats = 4
+const highestNote = 4
 
 function initSequence(){
     Brain.init()
-    voice = Brain.newVoice()
+    voice = Brain.newVoice(beats, bars)
     initialised = true
 }
 
@@ -23,7 +26,7 @@ function toggleCell(event) {
     const noteId = target.id;
     const note = numberFromAttribute(target, 'note');
     const beat = numberFromAttribute(target, 'beat');
-
+    const octave = -Math.floor(note / 7) + highestNote
     const hierarchyId = { GridId: id, PageId: 0, BeatId: beat, NoteId: note }
 
     console.log(`${hierarchyId}`)
@@ -33,7 +36,7 @@ function toggleCell(event) {
         activeCells.push(noteId)
         voice.addNote({
             id: hierarchyId,
-            note: notes[note % 7] + 4,
+            note: notes[notes.length - 1 - (note % 7)] + octave,
             beat: `${beat}`,
             duration: '16n'
         })
@@ -49,39 +52,34 @@ function isActive(key) {
     return activeCells.value.includes(key)
 }
 
-function generateGrid(horizontal, vertical) {
-    // Get the grid container
+function generateGrid(horizontal, vertical, beats, bars) {
     const gridContainer = document.getElementById("sequencer-grid");
 
-    // Clear the existing grid
     gridContainer.innerHTML = "";
 
-    let beatIncrement = 4/horizontal;
-    // Loop through columns
+    this.bars = bars;
+    this.beats = beats;
+    let beatIncrement = beats * bars / horizontal;
+    console.log(`Generating a ${horizontal}x${vertical} grid with ${beats} beats and ${bars} bars (beat increment: ${beatIncrement})`)
     for (let col = 0; col < vertical; col++) {
-        // Create a column div
         const columnDiv = document.createElement("div");
         columnDiv.classList.add("grid-column");
         columnDiv.id = `column-${col}`;
 
-        // Loop through rows
         for (let row = 0; row < horizontal; row++) {
-            // Create a square div
             const squareDiv = document.createElement("div");
             squareDiv.classList.add("grid-square");
             squareDiv.id = `cell-${col}-${row}`;
 
-            // Set attributes
             squareDiv.setAttribute("note", col);
             squareDiv.setAttribute("beat", row * beatIncrement); // Beat attribute logic
             squareDiv.setAttribute("onclick", "toggleCell(event)");
 
-            // Append square to column
-            columnDiv.appendChild(squareDiv);
+            gridContainer.appendChild(squareDiv);
         }
 
         // Append column to grid container
-        gridContainer.appendChild(columnDiv);
+        // gridContainer.appendChild(columnDiv);
     }
 }
 

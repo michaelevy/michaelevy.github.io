@@ -23,13 +23,13 @@ function noteHierarchyEquals(note1, note2) {
 
 // Voice.js
 class Voice {
-    constructor(id) {
+    constructor(id, beats, bars) {
         this.id = id;
         this.synth = new Tone.PolySynth(Tone.Synth);
         this.notes = [];
         this.noteDict = new Map();
         this.key = Note.C;
-        this.length = 4;
+        this.length = beats * bars;
 
         const filter = new Tone.Filter(250, "lowpass").toDestination();
         Tone.connect(this.synth, filter);
@@ -102,6 +102,7 @@ class Brain {
                 let sequenceDuration = voice.length * beatDurationSeconds;
                 let sequencePartialDuration = sequenceTotalDuration > 0 ? time % sequenceTotalDuration : time;
 
+                let lastNote = 0
                 for (const note of voice.getNotes()) {
                     let noteTime = note.beat * beatDurationSeconds
                     let scheduleTime;
@@ -114,20 +115,20 @@ class Brain {
                     if (scheduleTime < time + this.lookahead && scheduleTime > Brain.scheduled) {
                         console.log(`${time}: Scheduling note ${note.note} at time ${scheduleTime}`);
                         voice.schedule(note, scheduleTime);
-                        if (scheduleTime > Brain.scheduled){
-                            Brain.scheduled = scheduleTime
-                        }
+                        lastNote = Math.max(lastNote, scheduleTime)
                     } else{
                         // console.log(`${time}: Skipping note ${note.note} at time ${scheduleTime} (too far in the future)`);
                     }
                 }
+
+                Brain.scheduled = Math.max(Brain.scheduled, lastNote);
             }
             Brain.loop()
         }, this.interval);
     }
 
-    static newVoice() {
-        const v = new Voice(this.voices.length);
+    static newVoice(beats, bars) {
+        const v = new Voice(this.voices.length, beats, bars);
         this.voices.push(v);
         return v;
     }
