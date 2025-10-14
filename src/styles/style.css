@@ -18,13 +18,13 @@
 body{
   background-color: var(--background);
   color: var(--secondary);
-  margin: 1% 35% 0%;
-  width: 30%;
-  @media only screen and (max-width: 1400px) {
+  margin: 1% 32.5% 0%;
+  width: 35%;
+  @media only screen and (max-width: 1600px) {
     width: 50%;
     margin: 1% 25% 0%;
   }
-  @media only screen and (max-width: 900px) {
+  @media only screen and (max-width: 1000px) {
     width: 80%;
     margin: 1% 10% 0%;
   }
