@@ -85,6 +85,7 @@ class Brain {
         Tone.start();
         Tone.getTransport().bpm.value = this.bpm;
         this.loop()
+        this.drawLoop()
         Tone.getTransport().start("+0.1");
     }
 
@@ -93,18 +94,18 @@ class Brain {
         setTimeout(() => {
             let time = Tone.getTransport().seconds
 
-            let beatDurationSeconds = Tone.Time("4n").toSeconds();
-            let beatTotal = Math.floor(time / beatDurationSeconds);
+            let quarterNoteDuration = Tone.Time("4n").toSeconds();
+            let beatTotal = Math.floor(time / quarterNoteDuration);
             
             for (const voice of this.voices) {
                 let sequenceTotal = Math.floor(beatTotal / voice.length)
-                let sequenceTotalDuration = sequenceTotal * beatDurationSeconds * voice.length;
-                let sequenceDuration = voice.length * beatDurationSeconds;
+                let sequenceTotalDuration = sequenceTotal * quarterNoteDuration * voice.length;
+                let sequenceDuration = voice.length * quarterNoteDuration;
                 let sequencePartialDuration = sequenceTotalDuration > 0 ? time % sequenceTotalDuration : time;
 
                 let lastNote = 0
                 for (const note of voice.getNotes()) {
-                    let noteTime = note.beat * beatDurationSeconds
+                    let noteTime = note.beat * quarterNoteDuration
                     let scheduleTime;
                     if (noteTime < sequencePartialDuration) {
                         scheduleTime = time - sequencePartialDuration + sequenceDuration + noteTime;
@@ -113,7 +114,7 @@ class Brain {
                     }
                     
                     if (scheduleTime < time + this.lookahead && scheduleTime > Brain.scheduled) {
-                        console.log(`${time}: Scheduling note ${note.note} at time ${scheduleTime}`);
+                        // console.log(`${time}: Scheduling note ${note.note} at time ${scheduleTime}`);
                         voice.schedule(note, scheduleTime);
                         lastNote = Math.max(lastNote, scheduleTime)
                     } else{
@@ -125,6 +126,38 @@ class Brain {
             }
             Brain.loop()
         }, this.interval);
+    }
+
+    static drawLoop(){
+
+        var loop = new Tone.Loop(function(time){
+            Tone.Draw.schedule(() => {
+                Brain.voices.forEach(voice => {
+                    const currentTimeOfEightNote = Tone.getTransport().seconds / Tone.Time("4n").toSeconds();
+                    const currentBeat = currentTimeOfEightNote % voice.length;
+                    const roundedBeat = Math.round(currentBeat * 2) / 2;
+                    Brain.highlightCurrentBeat(roundedBeat);
+                });
+
+            }, time)
+        },"32n")
+
+        loop.start(0);
+    }
+
+    static highlightCurrentBeat(currentBeat){
+        console.log(`Highlighting beat ${currentBeat}`);
+        const beatElements = document.getElementsByClassName("grid-square");
+        // grid-squares from sequencer.js
+        for (let i = 0; i < beatElements.length; i++) {
+            const element = beatElements[i];
+            const beat = element.getAttribute("beat");
+            if (beat == currentBeat) {
+                element.classList.add("current-beat");
+            } else {
+                element.classList.remove("current-beat");
+            }
+        }
     }
 
     static newVoice(beats, bars) {

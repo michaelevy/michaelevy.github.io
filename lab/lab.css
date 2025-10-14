@@ -90,9 +90,9 @@ h1, p{
 
 .grid {
     display: grid;
-    gap: 1px;
+    gap: 1%;
     background-color: black;
-    padding: 5px;
+    padding: 5%;
     height: 90vh;
     grid-template-columns: repeat(16, 1fr); /* Creates 3 columns, each taking 1/3 of the available width */
     grid-template-rows: repeat(16, 1fr);    /* Creates 2 rows, each taking 1/2 of the available height */
@@ -105,8 +105,13 @@ h1, p{
 }
 
 .grid-square {
-    background-color: white;
+    background-color: var(--background-light);
     margin: 5px;
+
+}
+
+.current-beat{
+    border: 2px solid var(--accent-trans);
 }
 
 .active {
