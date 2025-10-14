@@ -39,10 +39,10 @@ class Voice {
                 type: "sawtooth"
             },
             envelope: {
-                attack: 0.01,
+                attack: 0.5,
                 decay: 0.1,
                 sustain: 0.5,
-                release: 0.3
+                release: 1
             }
         });    
     }
@@ -77,8 +77,8 @@ class Voice {
 class Brain {
     static bpm = 120;
     static voices = [];
-    static lookahead = 0.5
-    static interval = 0.1;
+    static lookahead = 0.25
+    static interval = 0.05;
     static scheduled = 0;
 
     static init() {
@@ -92,11 +92,6 @@ class Brain {
 
         setTimeout(() => {
             let time = Tone.getTransport().seconds
-            if (time < Brain.scheduled) {
-                 console.log(`${time}`);
-                 Brain.loop()
-                return;
-            }
 
             let beatDurationSeconds = Tone.Time("4n").toSeconds();
             let beatTotal = Math.floor(time / beatDurationSeconds);
@@ -116,15 +111,17 @@ class Brain {
                         scheduleTime = time - sequencePartialDuration + noteTime;
                     }
                     
-                    if (scheduleTime < time + this.lookahead){
+                    if (scheduleTime < time + this.lookahead && scheduleTime > Brain.scheduled) {
                         console.log(`${time}: Scheduling note ${note.note} at time ${scheduleTime}`);
                         voice.schedule(note, scheduleTime);
+                        if (scheduleTime > Brain.scheduled){
+                            Brain.scheduled = scheduleTime
+                        }
                     } else{
                         // console.log(`${time}: Skipping note ${note.note} at time ${scheduleTime} (too far in the future)`);
                     }
                 }
             }
-            Brain.scheduled = time + this.lookahead;
             Brain.loop()
         }, this.interval);
     }
