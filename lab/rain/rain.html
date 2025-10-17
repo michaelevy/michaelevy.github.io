@@ -4,36 +4,30 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>Rain 2 | Michael Levy</title>
+    <title>Rain | Michael Levy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="../src/styles/style.css" />
     <link rel="stylesheet" type="text/css" href="lab.css" />
-    <script src="../lib/pixi.min.js"></script>
+    <script src="../src/js/labs/rain.js" /></script>
     <script src="../src/js/utility.js" /></script>
     <link rel="icon" href="../resources/favicon.png">
-    <script type="module">
-        init(PIXI, 1, '#d44c50', 0, true, [
-            { drops: 5, size: 20, speed: 3, length: 100, tailStep: 5 },
-            // { drops: 20, size: 15, speed: 2, length: 20, tailStep: 5 },
-            // { drops: 25, size: 10, speed: 1, length: 15, tailStep: 5 }
-        ]);
-    </script>
-    <script src="../src/js/labs/rain2.js" /></script>
-
     <script src="../src/js/load.js"></script>
-
 </head>
 
-<body>
+<body onLoad="init(
+    1,'#d44c50', 0, true, [
+    {drops: 15, size: 20, speed: 3, length: 25, tailStep: 5},
+    {drops: 20, size: 15, speed: 2, length: 20, tailStep: 5},
+    {drops: 25, size: 10, speed: 1, length: 15, tailStep: 5}
+]);">
     <div id="escape">     
         <img class="back-arrow" src="../resources/arrow.svg" width="10" height="10"></img>       
-        <a href="../lab.html" >Escape</a>
+        <a href="/lab/" >Escape</a>
     </div>
     <main>
         <canvas id="rain"></canvas>
     </main>
-
 </body>
 
 </html>
