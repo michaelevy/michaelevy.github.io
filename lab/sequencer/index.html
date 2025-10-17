@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sequencer | Michael Levy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/lab/lab.css" />
+    <script src="https://unpkg.com/tone"></script>
+    <script src="/src/js/sol.js" /></script>
+    <script src="sequencer.js" /></script>
+    <script src="/src/js/load.js"></script>
+    <link rel="icon" href="/resources/favicon.png">
+</head>
+
+<body onload="generateGrid(16,16,4,2)">
+    <div id="escape">
+        <img class="back-arrow" src="/resources/arrow.svg" width="10" height="10"></img>       
+        <a href="/lab" >Escape</a>
+    </div>
+    <main>
+        <!-- <button id="pause-button" class="button" onclick="pause()"></button>   -->
+        
+        <div class="grid" id="sequencer-grid">
+           
+        </div>
+    </main>
+</body>
+
+</html>
