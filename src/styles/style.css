@@ -42,7 +42,7 @@ nav {
   justify-content: center;
   align-items: left;
   flex-direction: column;
-  padding-top: 10%;
+  padding-top: 2%;
   
   .nav-links {
     display: flex;
@@ -200,7 +200,7 @@ button {
 .head-image {
   max-width: 100%;
   height: auto;
-  margin: 10% 0 10%;
+  margin: 2% 0 2%;
 }
 
 @keyframes slide {
