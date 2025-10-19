@@ -49,6 +49,7 @@ nav {
     flex-direction: row;
     justify-content: left;
     align-items: center;
+    flex-wrap: wrap;
   }
 
   h1 {
