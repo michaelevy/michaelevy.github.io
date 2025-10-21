@@ -1,11 +1,36 @@
 :root {
-    --background: #ffffff;
+    --background: rgb(255, 255, 255);
     --background-dark: #afafaf;
     --accent: rgb(212, 76, 80);
     --accent-trans: #d44c5077;
-    --secondary: rgb(27, 27, 27);
-    --secondary-trans: #1b1b1b77;
+    --secondary: #600;
+    --text: #2a2722;
+    --secondary-trans: #66000082;
     width: 100vw;
+}
+
+@font-face {
+    font-family: MondiaThin;
+    src: url("/resources/fonts/MondiaThin.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: Latitude;
+    src: url("/resources/fonts/Deghest/Latitude-Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: BasalteFond;
+    src: url("/resources/fonts/Deghest/Basalte-Fond.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: FiraCode;
+    src: url("/resources/fonts/FiraCode-Regular.ttf") format("truetype");
+    font-display: swap;
 }
 
 *,
@@ -20,7 +45,7 @@
 
 body {
     background-color: var(--background);
-    color: var(--secondary);
+    color: var(--text);
     margin: 1% 33% 0%;
     width: 35%;
     @media only screen and (max-width: 1600px) {
@@ -64,13 +89,13 @@ nav {
         text-transform: uppercase;
     }
 
-    #me-link {
-        width: 100%;
+    #me {
+        font-family: MondiaThin;
     }
 
     h1,
     a {
-        font-family: "MondiaThin", "garamond";
+        font-family: MondiaThin, "garamond";
     }
     a {
         padding: 1%;
@@ -94,7 +119,7 @@ nav {
 p,
 li {
     line-height: 1.6;
-    font-size: 15px;
+    font-size: 1rem;
     -webkit-font-smoothing: antialiased;
     @media only screen and (max-width: 800px) {
         font-size: 12px;
@@ -156,7 +181,7 @@ h5,
 h6 {
     margin-top: 30px;
     margin-bottom: 10px;
-    font-family: "Arial";
+    font-family: BasalteFond;
 }
 
 h1 {
