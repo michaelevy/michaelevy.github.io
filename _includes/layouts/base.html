@@ -19,11 +19,11 @@
 
 <body>
     <nav>
-        <div class = "nav-links" id="me-link">
+        <div class = "flex-row width-full" id="me-link">
             <img id="square" src="/resources/rect2.svg" width="20" height="20" alt="An orange square"></img>
-            <a href = "/"><h1 id="me">Michael Levy</h1></a>
+            <a href = "/"><h1 class="mondia-thin">Michael Levy</h1></a>
         </div>
-        <div class="nav-links">
+        <div class="nav-links flex-row width-full mondia-thin">
             <a href="/">Home</a>
             <img src="/resources/circle.svg" class="svg" alt="Decorative circle"></img>
             <a href="/works/">Works</a>
@@ -39,7 +39,7 @@
     </nav>
 
     {{ content }}
-        <footer>
+        <footer class="flex-column">
         <div class="footer-list"><p><a href="michaelevy.com">michaelevy.com</a> personal website © 2025</p></div>
         <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com">Email</a> | <a href="https://github.com/michaelevy">GitHub</a></p></div>
         <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></div>
