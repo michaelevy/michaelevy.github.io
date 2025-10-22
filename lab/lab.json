@@ -1,0 +1,24 @@
+{
+  "experiments": [
+    {
+      "title": "SEQUENCER",
+      "desc": "Simple music sequencer",
+      "url": "/lab/sequencer"
+    },
+    {
+      "title": "SNAKE",
+      "desc": "The 3 hour beta version of <a href=\"https://www.badsnake.xyz/\">Bad Snake</a>",
+      "url": "/lab/snake"
+    },
+    {
+      "title": "NOTE",
+      "desc": "Leave a message",
+      "url": "/lab/note"
+    },
+    {
+      "title": "RAIN",
+      "desc": "Move your mouse and watch the sky drift past",
+      "url": "/lab/rain"
+    }
+  ]
+}
