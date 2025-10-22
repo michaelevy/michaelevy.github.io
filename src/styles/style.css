@@ -4,9 +4,9 @@
     --accent: rgb(212, 76, 80);
     --accent-trans: #d44c5077;
     --secondary: #600;
-    --text: #2a2722;
-    --text-light:#2a2722;
     --secondary-trans: #66000082;
+    --text: #2a2722;
+    --text-light:#2a2722aa;
     width: 100vw;
 }
 
@@ -137,7 +137,7 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text-light);
+    background-color: var(--text);
 }
 
 .bar::after {
@@ -146,7 +146,7 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text-light);;
+    background-color: var(--text);;
 }
 
 .bar{
@@ -194,7 +194,30 @@ a {
     &:hover {
         text-underline-offset: 3px;
         text-decoration-thickness: 2px;
+        color: var(--secondary);
+        transition: 0.1s ease-in-out;
     }
+}
+
+.animated-links{
+    a {
+        color: var(--secondary);
+        border-radius: 2px;
+        transition-property: color,background-size;
+        text-decoration: none;
+        text-wrap: balance;
+        background-image: linear-gradient(currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-position: 0 calc(100% - 1px);
+        background-size: 0 1px;
+        paint-order: stroke fill;
+        justify-self:start;
+
+    &:hover {
+        background-size:100% 1px
+    }
+    }
+
 }
 
 a.button {
@@ -295,6 +318,8 @@ button {
     max-width: 100%;
     height: auto;
     margin: 2% 0 2%;
+    padding: 1%;
+    outline: 0.2rem solid var(--text);
 }
 
 @keyframes slide {
