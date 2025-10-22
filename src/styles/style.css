@@ -6,7 +6,7 @@
     --secondary: #600;
     --secondary-trans: #66000082;
     --text: #2a2722;
-    --text-light:#2a2722aa;
+    --text-light:#2a2722cc;
     width: 100vw;
 }
 
@@ -95,7 +95,7 @@ nav {
     height: 5px;
     fill: var(--secondary);
     display: inline;
-    vertical-align: 2px;
+    vertical-align: 5px;
 }
 
 .flex-row {
@@ -137,7 +137,7 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text);
+    background-color: currentColor;
 }
 
 .bar::after {
@@ -146,15 +146,62 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text);;
+    background-color: currentColor;
 }
 
-.bar{
+.bar
+{
     display: flex;
     column-gap: .1em;
     align-items: center;
     max-width: unset;
     height: min-content;
+}
+
+.bar-right {
+    display: flex;
+    column-gap: .5em;
+    align-items: center;
+    max-width: unset;
+    height: min-content;
+}
+
+.bar-right::after {
+    display: block;
+    flex: 1;
+    height: 0.5em;
+    content: "";
+    transform:translateY(-0.1em);
+    background-color: currentColor;
+}
+
+.card {
+    padding: 2rem;
+    position: relative;
+    margin: 1rem 0 1rem 0;
+
+    @media only screen and (min-width: 800px){
+        margin: 1rem;
+    }
+}
+
+.inverted {
+    background-color: var(--text);
+    color: var(--background);
+
+    &::before{
+        position: absolute;
+        inset: 0.5rem;
+        display: block;
+        content: "";
+        user-select: none;
+        pointer-events: none;
+        border: 1px solid var(--background);
+    }
+}
+
+.center-aligned {
+    text-align: center;
 }
 
 p,
@@ -250,10 +297,13 @@ h6 {
 
 h1 {
     font-size: 2.5em;
+    letter-spacing: 0.1rem;
 }
 
 h2 {
     font-size: 1.5em;
+    letter-spacing: 0.1rem;
+    font-weight: normal;
 }
 
 h3 {
