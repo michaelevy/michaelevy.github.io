@@ -6,7 +6,7 @@
     --secondary: #600;
     --secondary-trans: #66000082;
     --text: #2a2722;
-    --text-light:#2a2722aa;
+    --text-light:#2a2722cc;
     width: 100vw;
 }
 
@@ -137,7 +137,7 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text);
+    background-color: currentColor;
 }
 
 .bar::after {
@@ -146,7 +146,7 @@ nav {
     align-self: flex-start;
     height: 1em;
     content: "";
-    background-color: var(--text);;
+    background-color: currentColor;
 }
 
 .bar
@@ -156,6 +156,23 @@ nav {
     align-items: center;
     max-width: unset;
     height: min-content;
+}
+
+.bar-right {
+    display: flex;
+    column-gap: .5em;
+    align-items: center;
+    max-width: unset;
+    height: min-content;
+}
+
+.bar-right::after {
+    display: block;
+    flex: 1;
+    height: 0.5em;
+    content: "";
+    transform:translateY(-0.1em);
+    background-color: currentColor;
 }
 
 .card {
@@ -280,10 +297,13 @@ h6 {
 
 h1 {
     font-size: 2.5em;
+    letter-spacing: 0.1rem;
 }
 
 h2 {
     font-size: 1.5em;
+    letter-spacing: 0.1rem;
+    font-weight: normal;
 }
 
 h3 {
