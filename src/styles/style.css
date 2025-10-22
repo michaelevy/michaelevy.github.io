@@ -95,7 +95,7 @@ nav {
     height: 5px;
     fill: var(--secondary);
     display: inline;
-    vertical-align: 2px;
+    vertical-align: 5px;
 }
 
 .flex-row {
@@ -149,12 +149,42 @@ nav {
     background-color: var(--text);;
 }
 
-.bar{
+.bar
+{
     display: flex;
     column-gap: .1em;
     align-items: center;
     max-width: unset;
     height: min-content;
+}
+
+.card {
+    padding: 2rem;
+    position: relative;
+    margin: 1rem 0 1rem 0;
+
+    @media only screen and (min-width: 800px){
+        margin: 1rem;
+    }
+}
+
+.inverted {
+    background-color: var(--text);
+    color: var(--background);
+
+    &::before{
+        position: absolute;
+        inset: 0.5rem;
+        display: block;
+        content: "";
+        user-select: none;
+        pointer-events: none;
+        border: 1px solid var(--background);
+    }
+}
+
+.center-aligned {
+    text-align: center;
 }
 
 p,
