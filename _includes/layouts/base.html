@@ -40,6 +40,9 @@
             <a href="/splash/">Splash</a>
         </div>
     </nav>
+    {%if heading %}
+        <div><h1 class="bar">{{heading}}</h1></div>
+    {% endif %}
 
     {{ content }}
         <footer class="flex-column">

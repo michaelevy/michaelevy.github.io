@@ -130,6 +130,32 @@ nav {
     padding: 1%;
 }
 
+.bar::before {
+    display: block;
+    flex: 0.25;
+    align-self: flex-start;
+    height: 1em;
+    content: "";
+    background-color: var(--text-light);
+}
+
+.bar::after {
+    display: block;
+    flex: 0.75;
+    align-self: flex-start;
+    height: 1em;
+    content: "";
+    background-color: var(--text-light);;
+}
+
+.bar{
+    display: flex;
+    column-gap: .1em;
+    align-items: center;
+    max-width: unset;
+    height: min-content;
+}
+
 p,
 li {
     line-height: 1.6;
