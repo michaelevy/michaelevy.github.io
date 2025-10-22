@@ -359,6 +359,10 @@ button {
     color: inherit;
 }
 
+.magic-button:hover {
+    color: var(--background);
+}
+
 #root,
 #__next {
     isolation: isolate;
