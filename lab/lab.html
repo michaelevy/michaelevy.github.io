@@ -2,6 +2,7 @@
 layout: layouts/base.html
 title: Lab | Michael Levy
 heading: The laboratory
+accent: rgb(45, 158, 255)
 css:
   - /src/styles/lab.css
 ---
@@ -12,7 +13,7 @@ css:
         <div class="experiment flex-row">
             <h2 class="experiment-title">{{ experiment.title }}</h2>
             <p class="experiment-desc">{{ experiment.desc }}</p>
-            <a class="gradient magic-button button experiment-button" href="{{ experiment.url }}">Visit</a>
+            <a class="magic button experiment-button" href="{{ experiment.url }}">Visit</a>
         </div>
         {% endfor %}
     </main>
