@@ -1,24 +1,24 @@
 // source: https://www.joshwcomeau.com/react/rainbow-button/
 
 const rainbowColors = [
-    'hsl(212deg 32% 8%)',
-    'hsl(251deg 41% 24%)',
-    'hsl(288deg 51% 40%)',
-    'hsl(326deg 61% 56%)',
-    'hsl(337deg 61% 56%)',
-    'hsl(348deg 61% 56%)',
-    'hsl(358deg 61% 56%)',
-    'hsl(348deg 61% 56%)',
-    'hsl(337deg 61% 56%)',
-    'hsl(326deg 61% 56%)',
-    'hsl(288deg 51% 40%)',
-    'hsl(251deg 41% 24%)',
-    'hsl(212deg 32% 8%)'
+  'hsl(208deg 100% 59%',
+  'hsl(232deg 83% 72%)',
+  'hsl(269deg 59% 67%)',
+  'hsl(305deg 46% 59%)',
+  'hsl(328deg 62% 59%)',
+  'hsl(343deg 67% 58%)',
+  'hsl(358deg 61% 56%)',
+  'hsl(343deg 67% 58%)',
+  'hsl(328deg 62% 59%)',
+  'hsl(305deg 46% 59%)',
+  'hsl(269deg 59% 67%)',
+  'hsl(232deg 83% 72%)',
+  'hsl(208deg 100% 59%)'
   ];
   const paletteSize = rainbowColors.length;
 
   // Number of milliseconds for each update
-  const intervalDelay = 1000;
+  const intervalDelay = 2000;
 
   const colorNames = [
     '--magic-rainbow-color-0',
@@ -37,7 +37,7 @@ const rainbowColors = [
     });
   });
 
-  let buttonElems = document.querySelectorAll('.magic-button');
+  let buttonElems = document.querySelectorAll('.magic');
 
   let cycleIndex = 0;
 
@@ -51,7 +51,7 @@ window.setInterval(() => {
   //
   //
   if (buttonElems.length === 0) {
-    buttonElems = document.querySelectorAll('.magic-button');
+    buttonElems = document.querySelectorAll('.magic');
     return;
   }
 

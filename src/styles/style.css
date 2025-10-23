@@ -3,10 +3,9 @@
     --background-dark: #afafaf;
     --accent: rgb(212, 76, 80);
     --accent-trans: #d44c5077;
-    --secondary: #600;
+    --secondary: rgb(45, 158, 255);
     --secondary-trans: #66000082;
     --text: #2a2722;
-    --text-light:#2a2722cc;
     width: 100vw;
 }
 
@@ -48,15 +47,19 @@ body {
     background-color: var(--background);
     color: var(--text);
     width: 80%;
-    margin: 1% 10% 0%;
-    @media only screen and (min-width: 1000px) {
-        width: 50%;
-        margin: 1% 25% 0%;
+    margin: 1% auto 0%;
+    @media screen and (min-width: 930px) {
+        max-width: 900px;
     }
-    @media only screen and (min-width: 1600px) {
-        width: 35%;
-        margin: 1% 33% 0%;
+    /*@media screen and (min-width: 1130px) {
+        max-width: 1100px;
+    }*/
+    /*@media screen and (min-width: 1374px) {
+        max-width: 1120px;
     }
+    @media screen and (min-width: 1460px) {
+        max-width: 1430px;
+    }*/
 }
 
 main {
@@ -78,6 +81,7 @@ nav {
         padding: 1%;
         padding-inline: 2.5%;
         font-size: 1.2rem;
+        color: var(--text) !important
     }
 
     .nav-links {
@@ -179,9 +183,29 @@ nav {
     padding: 2rem;
     position: relative;
     margin: 1rem 0 1rem 0;
+    border: 2px solid var(--text);
+
+    h2{
+        margin-top: 0;
+    }
 
     @media only screen and (min-width: 800px){
         margin: 1rem;
+    }
+}
+
+.secondary {
+    color: var(--secondary);
+    &:hover{
+        color: var(--secondary);
+    }
+}
+
+
+.accent {
+    color: var(--accent);
+    &:hover{
+        color: var(--accent);
     }
 }
 
@@ -270,6 +294,14 @@ a {
 a.button {
     padding: 5px;
     text-decoration: none;
+
+    &:hover {
+        scale: 1.05;
+        transition:
+            --magic-rainbow-color-0 2000ms linear,
+            --magic-rainbow-color-1 2000ms linear,
+            --magic-rainbow-color-2 2000ms linear;
+    }
 }
 
 p,
@@ -293,6 +325,7 @@ h6 {
     margin-top: 30px;
     margin-bottom: 10px;
     font-family: BasalteFond;
+    color: var(--text);
 }
 
 h1 {
@@ -359,7 +392,7 @@ button {
     color: inherit;
 }
 
-.magic-button:hover {
+.magic:hover {
     color: var(--background);
 }
 
@@ -425,5 +458,48 @@ input[type="text"] {
 
     &:focus {
         outline: none;
+    }
+}
+
+
+.magic {
+    background: linear-gradient(
+        170deg,
+        hsl(208deg 100% 59%),
+        hsl(218deg 95% 67%)
+    );
+
+    color: white;
+    font-family: "Fira Code", monospace;
+    transition: scale 0.2s ease-in-out;
+    outline: none;
+    border: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .magic {
+        --magic-rainbow-color-0: hsl(218deg 95% 67%);
+        --magic-rainbow-color-1: hsl(218deg 95% 67%);
+        --magic-rainbow-color-2: hsl(218deg 95% 67%);
+
+        background: linear-gradient(
+            170deg,
+            var(--magic-rainbow-color-0),
+            var(--magic-rainbow-color-1),
+            var(--magic-rainbow-color-2)
+        );
+
+        transition:
+            --magic-rainbow-color-0 2000ms linear,
+            --magic-rainbow-color-1 2000ms linear,
+            --magic-rainbow-color-2 2000ms linear;
+
+        /* just testing colour values */
+        --e: hsl(270deg, 100%, 40%);
+        --e: hsl(19, 100%, 35%);
+        --e: hsl(24, 97%, 45%);
+        --e: hsl(230deg, 100%, 35%);
+        --e: hsl(240deg, 100%, 45%);
+        --e: hsl(260deg, 100%, 55%);
     }
 }
