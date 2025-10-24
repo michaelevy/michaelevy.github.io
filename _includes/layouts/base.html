@@ -18,8 +18,12 @@
     {% if accent or secondary %}
     <style>
         main, #page-heading {
-            {% if accent %}--accent: {{ accent }};{% endif %}
-            {% if secondary %}--secondary: {{ secondary }};{% endif %}
+            {% if accent == 'orange' %}--accent: var(--orange);--accent-light: var(--orange-light);{% endif %}
+            {% if accent == 'blue' %}--accent: var(--blue);--accent-light: var(--blue-light);{% endif %}
+            {% if accent == 'black' %}--accent: var(--grey-dark);--accent-light: var(--grey-dark);{% endif %}
+            {% if secondary == 'orange' %}--secondary: var(--orange);--secondary-light: var(--orange-light);{% endif %}
+            {% if secondary == 'blue' %}--secondary: var(--blue);--secondary-light: var(--blue-light);{% endif %}
+            {% if secondary == 'black' %}--secondary: var(--grey-dark);--secondary-light: var(--grey-dark);{% endif %}
         }
     </style>
     {% endif %}
@@ -54,10 +58,12 @@
     {% endif %}
 
     {{ content }}
-        <footer class="flex-column">
-        <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
-        <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
-        <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></div>
+    <footer>
+        <div class="flex-column">
+            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
+            <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
+            <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></div>
+        </div>
     </footer>
 </body>
 

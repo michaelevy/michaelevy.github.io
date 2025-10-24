@@ -1,11 +1,19 @@
 :root {
-    --background: rgb(255, 255, 255);
-    --background-dark: #afafaf;
-    --accent: rgb(212, 76, 80);
-    --accent-trans: #d44c5077;
-    --secondary: rgb(45, 158, 255);
-    --secondary-trans: #66000082;
-    --text: #2a2722;
+    --orange: rgb(212, 76, 80);
+    --orange-light:  #600;
+    --white: white;
+    --grey:  #afafaf;
+    --grey-dark: #2a2722;
+    --blue: rgb(45, 158, 240);
+    --blue-light: rgb(188, 232, 255);
+
+    --background: var(--white);
+    --background-dark:var(--grey);
+    --accent: var(--orange);
+    --accent-light:var(--orange-light);
+    --secondary: var(--blue);
+    --secondary-trans: var(--blue-light);
+    --text: var(--grey-dark);
     width: 100vw;
 }
 
@@ -46,6 +54,11 @@
 body {
     background-color: var(--background);
     color: var(--text);
+}
+
+main {
+    margin-block: 0 10%;
+    margin-top: 20px;
     width: 80%;
     margin: 1% auto 0%;
     @media screen and (min-width: 930px) {
@@ -60,11 +73,6 @@ body {
     @media screen and (min-width: 1460px) {
         max-width: 1430px;
     }*/
-}
-
-main {
-    margin-block: 0 10%;
-    margin-top: 20px;
 }
 
 nav {
@@ -91,6 +99,11 @@ nav {
     #square {
         display: inline;
         vertical-align: middle;
+    }
+
+    @media screen and (min-width: 930px) {
+        max-width: 900px;
+        margin: auto
     }
 }
 
@@ -166,7 +179,7 @@ nav {
     display: flex;
     column-gap: .5em;
     align-items: center;
-    max-width: unset;
+    width: 100%;
     height: min-content;
 }
 
@@ -194,6 +207,39 @@ nav {
     }
 }
 
+.no-list{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.clickable {
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: auto 1fr auto auto;
+    border: none;
+}
+
+.card-title{
+    max-width: 100%;
+}
+
+.card-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+  border: 2px solid var(--accent-light);
+  border-radius: 0.5rem;
+  transition: border-color 200ms;
+}
+
+.card-title:hover::before,
+.card-title:focus-visible::before {
+    border: 3px solid var(--accent);
+    border-radius: 1rem;
+}
+
 .secondary {
     color: var(--secondary);
     &:hover{
@@ -209,9 +255,15 @@ nav {
     }
 }
 
-.inverted {
-    background-color: var(--text);
+.secondary-bg {
+    background-color: var(--secondary);
+}
+
+
+.accent-bg {
+    background-color: var(--accent);
     color: var(--background);
+    border: none;
 
     &::before{
         position: absolute;
@@ -221,6 +273,19 @@ nav {
         user-select: none;
         pointer-events: none;
         border: 1px solid var(--background);
+    }
+}
+
+.inverted {
+    background-color: var(--text);
+    color: var(--background);
+
+    &::before{
+        position: absolute;
+        inset: 3px;
+        display: block;
+        content: "";
+        border: 2px solid var(--background);
     }
 }
 
@@ -354,8 +419,8 @@ ul {
 }
 
 footer {
+    margin-top: 15vh;
     margin: 10%;
-    margin-top: 20%;
     p {
         line-height: 3;
         font-size: small;

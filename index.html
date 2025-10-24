@@ -2,7 +2,8 @@
 layout: layouts/base.html
 title: Home | Michael Levy
 heading: Hello
-accent: rgb(45, 158, 255)
+accent: blue
+secondary: orange
 css:
   - /src/styles/home.css
 ---
@@ -11,22 +12,18 @@ css:
         <div class="card inverted center-aligned magic">
         <p>I'm Michael, and this is my website.<br>Here are some things you could look at:</p>
         </div>
-        <h2><a href="works" class="bar-right accent">WORKS</a></h2>
-        <ul>
-            <li><a href="https://thelibrarycat.vercel.app/">The Library Cat</a>, a blog on which I intermittently post short book reviews</li>
-            <li><a href="lab">The Lab</a>, code testing ground</li>
-            <li class="coming-soon"><a>Tales</a>, audiovisual stories, Coming Soon™</li>
-        </ul>
-        <h2><a href="music" class="bar-right accent">MUSIC</a></h2>
-        <ul>
-            <li><a>It's a secret</a></li>
-        </ul>
-        <h2 class="bar-right accent">SAY HI</h2>
-        <ul>
-            <li><a href="about">Wait, who are you?</a></li>
-            <li>I reside within <a href="https://bsky.app/profile/michaelevy.com">BlueSky</a></li>
-            <li>I am contactable via <a href="mailto:michaelfeehanlevy@gmail.com">electronic mail</a></li>
-            <li>This website, among other things, is on <a href="https://github.com/michaelevy">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/michaelvy/">LinkedIn</a>, if you must</li>
+        <ul class="no-list">
+            <li class="card clickable" id="works">
+                <a href="works" class="accent"><h2 class="accent card-title">WORKS</h2></a>
+                <p>These are the things I have done</p>
+            </li>
+            <li class="card clickable" id="music">
+                <a href="music" class="accent"><h2 class="accent card-title">MUSIC</h2></a>
+                <p>I like it</p>
+            </li>
+            <li class="card clickable" id="say hi">
+                <a href="about" class="accent"><h2 class="accent card-title">SAY HI</h2></a>
+                <p>hi hi hi hi hi</p>
+            </li>
         </ul>
     </main>
