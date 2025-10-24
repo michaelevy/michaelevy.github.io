@@ -9,20 +9,33 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/src/styles/style.css">
     <link rel="stylesheet" type="text/css" href="/src/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css">
     <script src="/src/js/magicbutton.js"></script>
     
         
             <link rel="stylesheet" type="text/css" href="/src/styles/lab.css">
         
     
-    
     <style>
+        
         main, #page-heading {
-            --accent: rgb(45, 158, 255);
+            
+            --accent: var(--blue);--accent-light: var(--blue-light);
+            
+            
+            --secondary: var(--blue);--secondary-light: var(--blue-light);
             
         }
+        
+
+        
+        @media screen and (min-width: 930px) {
+            main {
+                max-width: 900px;
+            }
+        }
+        
     </style>
-    
     <link rel="icon" href="/resources/favicon.png">
     <link rel="webmention" href="https://webmention.io/michaelevy.com/webmention">
 </head>
@@ -83,10 +96,12 @@
         
     </main>
 
-        <footer class="flex-column">
-        <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
-        <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
-        <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></p></div>
+    <footer>
+        <div class="flex-column">
+            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
+            <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
+            <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></p></div>
+        </div>
     </footer>
 </body>
 

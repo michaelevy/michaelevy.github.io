@@ -1,37 +1,23 @@
 :root {
-    --background: rgb(255, 255, 255);
-    --background-dark: #afafaf;
-    --accent: rgb(212, 76, 80);
-    --accent-trans: #d44c5077;
-    --secondary: rgb(45, 158, 255);
-    --secondary-trans: #66000082;
-    --text: #2a2722;
+    --orange: rgb(212, 76, 80);
+    --orange-dark:  #600;
+    --orange-light: rgb(255, 180, 200);
+    --white: white;
+    --grey:  #afafaf;
+    --grey-dark: #2a2722;
+    --blue: rgb(45, 158, 240);
+    --blue-light: rgb(188, 232, 255);
+
+    --background: var(--white);
+    --background-dark:var(--grey);
+    --accent: var(--orange);
+    --accent-light:var(--orange-light);
+    --secondary: var(--blue);
+    --secondary-trans: var(--blue-light);
+    --text: var(--grey-dark);
     width: 100vw;
 }
 
-@font-face {
-    font-family: MondiaThin;
-    src: url("/resources/fonts/MondiaThin.otf") format("opentype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Latitude;
-    src: url("/resources/fonts/Deghest/Latitude-Regular.woff2") format("woff2");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: BasalteFond;
-    src: url("/resources/fonts/Deghest/Basalte-Fond.woff2") format("woff2");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: FiraCode;
-    src: url("/resources/fonts/FiraCode-Regular.ttf") format("truetype");
-    font-display: swap;
-}
 
 *,
 *::before,
@@ -46,25 +32,13 @@
 body {
     background-color: var(--background);
     color: var(--text);
-    width: 80%;
-    margin: 1% auto 0%;
-    @media screen and (min-width: 930px) {
-        max-width: 900px;
-    }
-    /*@media screen and (min-width: 1130px) {
-        max-width: 1100px;
-    }*/
-    /*@media screen and (min-width: 1374px) {
-        max-width: 1120px;
-    }
-    @media screen and (min-width: 1460px) {
-        max-width: 1430px;
-    }*/
 }
 
 main {
     margin-block: 0 10%;
     margin-top: 20px;
+    width: 80%;
+    margin: 1% auto 0%;
 }
 
 nav {
@@ -91,6 +65,11 @@ nav {
     #square {
         display: inline;
         vertical-align: middle;
+    }
+
+    @media screen and (min-width: 930px) {
+        max-width: 900px;
+        margin: auto
     }
 }
 
@@ -166,7 +145,7 @@ nav {
     display: flex;
     column-gap: .5em;
     align-items: center;
-    max-width: unset;
+    width: 100%;
     height: min-content;
 }
 
@@ -179,11 +158,15 @@ nav {
     background-color: currentColor;
 }
 
+.round {
+    border-radius: 0.5rem;
+}
+
 .card {
     padding: 2rem;
     position: relative;
     margin: 1rem 0 1rem 0;
-    border: 2px solid var(--text);
+    border: 2px solid var(--accent-light);
 
     h2{
         margin-top: 0;
@@ -192,6 +175,39 @@ nav {
     @media only screen and (min-width: 800px){
         margin: 1rem;
     }
+}
+
+.no-list{
+    list-style: none;
+    padding-left: 0px;
+}
+
+.clickable {
+    display: grid;
+    gap: 1rem;
+    grid-template-rows: auto 1fr auto auto;
+    border: none;
+}
+
+.card-title{
+    max-width: 100%;
+}
+
+.card-title::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: pointer;
+  border: 2px solid var(--accent-light);
+  border-radius: 0.5rem;
+  transition: border-color 200ms;
+}
+
+.card-title:hover::before,
+.card-title:focus-visible::before {
+    border: 3px solid var(--accent);
+    border-radius: 1rem;
 }
 
 .secondary {
@@ -209,9 +225,15 @@ nav {
     }
 }
 
-.inverted {
-    background-color: var(--text);
+.secondary-bg {
+    background-color: var(--secondary);
+}
+
+
+.accent-bg {
+    background-color: var(--accent);
     color: var(--background);
+    border: none;
 
     &::before{
         position: absolute;
@@ -221,6 +243,19 @@ nav {
         user-select: none;
         pointer-events: none;
         border: 1px solid var(--background);
+    }
+}
+
+.inverted {
+    background-color: var(--text);
+    color: var(--background);
+
+    &::before{
+        position: absolute;
+        inset: 3px;
+        display: block;
+        content: "";
+        border: 2px solid var(--background);
     }
 }
 
@@ -293,7 +328,11 @@ a {
 
 a.button {
     padding: 5px;
+    padding-right: 2.5rem;
     text-decoration: none;
+    font-family: Karrik;
+    position: relative;
+    justify-content: center;
 
     &:hover {
         scale: 1.05;
@@ -301,6 +340,12 @@ a.button {
             --magic-rainbow-color-0 2000ms linear,
             --magic-rainbow-color-1 2000ms linear,
             --magic-rainbow-color-2 2000ms linear;
+    }
+
+    .forward-arrow {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.5rem;
     }
 }
 
@@ -354,8 +399,8 @@ ul {
 }
 
 footer {
+    margin-top: 15vh;
     margin: 10%;
-    margin-top: 20%;
     p {
         line-height: 3;
         font-size: small;
@@ -390,6 +435,7 @@ button {
     font: inherit;
     font-size: inherit;
     color: inherit;
+    position: relative;
 }
 
 .magic:hover {
@@ -439,6 +485,16 @@ button {
     opacity: 1;
     rotate: 90deg;
 }
+
+.forward-arrow {
+    display: inline;
+    animation: slide 1500ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0, 0.75, 1, 0.25);
+    opacity: 1;
+    rotate: -90deg;
+}
+
 
 textarea,
 input[type="text"] {

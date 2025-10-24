@@ -9,20 +9,33 @@
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/src/styles/style.css">
     <link rel="stylesheet" type="text/css" href="/src/styles/index.css">
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css">
     <script src="/src/js/magicbutton.js"></script>
     
         
             <link rel="stylesheet" type="text/css" href="/src/styles/about.css">
         
     
-    
     <style>
+        
         main, #page-heading {
-            --accent: #2a2722;
+            
+            
+            --accent: var(--grey-dark);--accent-light: var(--grey-dark);
+            
+            
             
         }
+        
+
+        
+        @media screen and (min-width: 930px) {
+            main {
+                max-width: 900px;
+            }
+        }
+        
     </style>
-    
     <link rel="icon" href="/resources/favicon.png">
     <link rel="webmention" href="https://webmention.io/michaelevy.com/webmention">
 </head>
@@ -61,7 +74,7 @@
         <br>
         <p>Outside of software I play, make, and listen to music. I read a lot of books, play some football, and write some words.</p>
         <br>
-        <p>The website you see around you was built with the <a href="https://www.11ty.dev/">Eleventy</a> static site generator.</p>
+        <p>The website you see around you was built with the <a href="https://www.11ty.dev/">Eleventy</a> static site generator, using <a href="/fonts">these fonts</a>.</p>
         <br>
         <p>If anything is of interest you, feel free to contact me. I am not very scary. You can click on one of the buttons in the footer.</p>
     </main>
@@ -69,10 +82,12 @@
 
 </html>
 
-        <footer class="flex-column">
-        <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
-        <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
-        <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></p></div>
+    <footer>
+        <div class="flex-column">
+            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
+            <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
+            <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></p></div>
+        </div>
     </footer>
 
 

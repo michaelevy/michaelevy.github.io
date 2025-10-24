@@ -1,5 +1,5 @@
 .experiment {
-    border: 1px solid var(--text);
+    border: 1px solid var(--grey-dark);
     border-radius: 10px;
     padding: 10px;
     flex-wrap: nowrap;
