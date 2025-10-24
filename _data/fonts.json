@@ -1,0 +1,62 @@
+[
+  {
+    "id": "CormorantGaramond",
+    "name": "Cormorant Garamond",
+    "attribution": "By Catharsis Fonts",
+    "url": "https://github.com/CatharsisFonts/Cormorant"
+  },
+  {
+    "id": "MondiaThin",
+    "name": "Mondia Thin",
+    "attribution": "By Studio Nasir",
+    "url": "https://studionasir.com/fonts/mondia/"
+  },
+  {
+    "id": "Latitude",
+    "name": "Latitude",
+    "attribution": "By Velvetyne and Degheest",
+    "url": "https://velvetyne.fr/fonts/degheest/"
+  },
+  {
+    "id": "BasalteFond",
+    "name": "Basalte Fond",
+    "attribution": "By Velvetyne and Degheest",
+    "url": "https://velvetyne.fr/fonts/degheest/"
+  },
+  {
+    "id": "FiraCode",
+    "name": "Fira Code",
+    "attribution": "Open Source",
+    "url": "https://github.com/tonsky/FiraCode"
+  },
+  {
+    "id": "Combat",
+    "name": "Combat",
+    "attribution": "By Velvetyne",
+    "url": "https://velvetyne.fr/"
+  },
+  {
+    "id": "Karrik",
+    "name": "Karrik",
+    "attribution": "By Velvetyne",
+    "url": "https://velvetyne.fr/"
+  },
+  {
+    "id": "Abordage",
+    "name": "Abordage",
+    "attribution": "By Velvetyne and Degheest",
+    "url": "https://velvetyne.fr/fonts/degheest/"
+  },
+  {
+    "id": "BasalteMulticolor",
+    "name": "Basalte Multicolor",
+    "attribution": "By Velvetyne and Degheest",
+    "url": "https://velvetyne.fr/fonts/degheest/"
+  },
+  {
+    "id": "Equateur",
+    "name": "Equateur",
+    "attribution": "By Velvetyne and Degheest",
+    "url": "https://velvetyne.fr/fonts/degheest/"
+  }
+]

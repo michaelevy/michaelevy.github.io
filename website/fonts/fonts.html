@@ -1,0 +1,22 @@
+---
+layout: layouts/base.html
+title: Typography | Michael Levy
+heading: Typography
+permalink: fonts.html
+width: full
+css:
+- /website/fonts/fonts.css
+---
+
+    <main>
+        <p>All of these are <a href="https://openfontlicense.org/">open fonts</a> (except mondia)</p>
+        {% for font in fonts %}
+        <div class="card round font-card" id="{{ font.id }}">
+            <h2>{{ font.name }}</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            {% if font.url %}
+            <a href="{{ font.url }}" class="button magic flex-row">{{ font.attribution }}<img class="forward-arrow" src="/resources/arrow.svg" width="10" height="10" alt="forward arrow"></img></a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </main>

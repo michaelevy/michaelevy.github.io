@@ -9,14 +9,15 @@
     <meta name="description" content="" />
     <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
     <link rel="stylesheet" type="text/css" href="/src/styles/index.css" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css" />
     <script src="/src/js/magicbutton.js"/></script>
     {% if css %}
         {% for file in css %}
             <link rel="stylesheet" type="text/css" href="{{ file }}" />
         {% endfor %}
     {% endif %}
-    {% if accent or secondary %}
     <style>
+        {% if accent or secondary %}
         main, #page-heading {
             {% if accent == 'orange' %}--accent: var(--orange);--accent-light: var(--orange-light);{% endif %}
             {% if accent == 'blue' %}--accent: var(--blue);--accent-light: var(--blue-light);{% endif %}
@@ -25,8 +26,26 @@
             {% if secondary == 'blue' %}--secondary: var(--blue);--secondary-light: var(--blue-light);{% endif %}
             {% if secondary == 'black' %}--secondary: var(--grey-dark);--secondary-light: var(--grey-dark);{% endif %}
         }
+        {% endif %}
+
+        {% if width == 'full' %}
+        main {
+            width: 98%;
+            max-width: none;
+            @media screen and (min-width: 930px) {
+                main {
+                    max-width: 90%;
+                }
+            }
+        }
+        {% else %}
+        @media screen and (min-width: 930px) {
+            main {
+                max-width: 900px;
+            }
+        }
+        {% endif %}
     </style>
-    {% endif %}
     <link rel="icon" href="/resources/favicon.png">
     <link rel="webmention" href="https://webmention.io/michaelevy.com/webmention" />
 </head>

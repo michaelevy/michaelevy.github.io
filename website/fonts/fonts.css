@@ -1,0 +1,79 @@
+#CormorantGaramond h2,
+#CormorantGaramond p {
+    font-family: CormorantGaramond;
+}
+
+#MondiaThin h2,
+#MondiaThin p {
+    font-family: MondiaThin;
+}
+
+#Latitude h2,
+#Latitude p {
+    font-family: Latitude;
+}
+
+#BasalteFond h2,
+#BasalteFond p {
+    font-family: BasalteFond;
+}
+
+#FiraCode h2,
+#FiraCode p {
+    font-family: FiraCode;
+}
+
+#Combat h2,
+#Combat p {
+    font-family: Combat;
+}
+
+#Karrik h2,
+#Karrik p {
+    font-family: Karrik;
+}
+
+#Abordage h2,
+#Abordage p {
+    font-family: Abordage;
+}
+
+#BasalteMulticolor h2,
+#BasalteMulticolor p {
+    font-family: BasalteMulticolor;
+}
+
+#BasalteVolume h2,
+#BasalteVolume p {
+    font-family: BasalteVolume;
+}
+
+#Equateur h2,
+#Equateur p {
+    font-family: Equateur;
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 500px));
+    gap: 0rem;
+    @media screen and (min-width: 930px) {
+        gap: 2rem;
+    }
+    justify-content: center;
+}
+
+main > p {
+    grid-column: 1 / -1;
+}
+
+.card{
+    grid-template-rows: auto 1fr auto;
+    gap: 1rem;
+    display: grid;
+    max-width: 500px;
+}
