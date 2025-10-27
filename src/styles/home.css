@@ -234,6 +234,8 @@ picture:has(.head-image) {
     gap: 0rem;
     padding: 1rem;
     width: 100%;
+    min-width: min-content;
+
 
     @media (min-width: 900px) {
         width: 45%;
