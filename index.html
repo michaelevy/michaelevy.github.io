@@ -4,26 +4,61 @@ title: Home | Michael Levy
 heading: Hello
 accent: blue
 secondary: orange
+width: full
 css:
   - /src/styles/home.css
 ---
     <main>
-        <img src="resources/mersey.jpg" class="head-image" alt="Most of the image is a plain monochrome sky, with a lonely aeroplane passing through it. At the bottom runs the River Mersey."></img>
-        <div class="card inverted center-aligned magic">
-        <p>I'm Michael, and this is my website.<br>Here are some things you could look at:</p>
+        <div id="header-grid">
+            <div id="marquee-back" class="marquee">
+                <div class="marquee_item reverse">
+                    {%- for item in marquee.items %}
+                    <span> {{ item }} &bull; </span>
+                    {%- endfor %}
+                </div>
+                <div class="marquee_item reverse">
+                    {%- for item in marquee.items %}
+                    <span> {{ item }} &bull; </span>
+                    {%- endfor %}
+                </div>
+            </div>
+            <img src="resources/mersey.jpg" class="head-image" alt="Most of the image is a plain monochrome sky, with a lonely aeroplane passing through it. At the bottom runs the River Mersey."></img>
+            <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div>
+            <div id="marquee" class="marquee">
+                <div class="marquee_item">
+                    {%- for item in marquee.items %}
+                    <span> {{ item }} &bull; </span>
+                    {%- endfor %}
+                </div>
+                <div class="marquee_item">
+                    {%- for item in marquee.items %}
+                    <span> {{ item }} &bull; </span>
+                    {%- endfor %}
+                </div>
+            </div>
+            <div id="spotify"><span>UNDER CONSTRUCTION</span></div>
+            <div class="card inverted center-aligned flex-column" id="welcome">
+                <p>I'm Michael, and this is my website.</p>
+                <p>This is the home page, and on it there are some things that you can look at.</p>
+                <p>I change this site regularly, so expect it to shift, and watch for hidden dangers.</p>
+            </div>
         </div>
-        <ul class="no-list">
-            <li class="card clickable" id="works">
-                <a href="works" class="accent"><h2 class="accent card-title">WORKS</h2></a>
+        <ul id="home-links" class="no-list flex-row">
+            <li class="home-card card clickable">
+                <a href="works" class="accent"><h2 class="accent card-title" id="works">WORKS</h2></a>
                 <p>These are the things I have done</p>
             </li>
-            <li class="card clickable" id="music">
+            <li class="home-card card clickable" id="music">
                 <a href="music" class="accent"><h2 class="accent card-title">MUSIC</h2></a>
                 <p>I like it</p>
             </li>
-            <li class="card clickable" id="say hi">
+            <li class="home-card card clickable" id="say hi">
                 <a href="about" class="accent"><h2 class="accent card-title">SAY HI</h2></a>
                 <p>hi hi hi hi hi</p>
+            </li>
+            <li class="home-card card clickable" id="typography">
+                <a href="fonts" class="accent"><h2 class="accent card-title">FONTS</h2></a>
+                <p>The fonts from this website</p>
             </li>
         </ul>
     </main>

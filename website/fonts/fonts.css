@@ -53,6 +53,32 @@
     font-family: Equateur;
 }
 
+#NyghtSerif h2,
+#NyghtSerif p {
+    font-family: NyghtSerif;
+}
+
+#Isenheim h2,
+#Isenheim p {
+    font-family: Isenheim;
+}
+
+#Barlow h2,
+#Barlow p {
+    font-family: Barlow;
+}
+
+#Punctata h2,
+#Punctata p {
+    font-family: Punctata;
+}
+
+#SupernotoriousDot h2,
+#SupernotoriousDot p {
+    font-family: SupernotoriousDot;
+}
+
+
 h2 {
     text-transform: uppercase;
 }

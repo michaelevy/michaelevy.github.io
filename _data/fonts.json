@@ -12,12 +12,6 @@
     "url": "https://studionasir.com/fonts/mondia/"
   },
   {
-    "id": "Latitude",
-    "name": "Latitude",
-    "attribution": "By Velvetyne and Degheest",
-    "url": "https://velvetyne.fr/fonts/degheest/"
-  },
-  {
     "id": "BasalteFond",
     "name": "Basalte Fond",
     "attribution": "By Velvetyne and Degheest",
@@ -28,12 +22,6 @@
     "name": "Fira Code",
     "attribution": "Open Source",
     "url": "https://github.com/tonsky/FiraCode"
-  },
-  {
-    "id": "Combat",
-    "name": "Combat",
-    "attribution": "By Velvetyne",
-    "url": "https://velvetyne.fr/"
   },
   {
     "id": "Karrik",
@@ -48,15 +36,33 @@
     "url": "https://velvetyne.fr/fonts/degheest/"
   },
   {
-    "id": "BasalteMulticolor",
-    "name": "Basalte Multicolor",
-    "attribution": "By Velvetyne and Degheest",
-    "url": "https://velvetyne.fr/fonts/degheest/"
-  },
-  {
     "id": "Equateur",
     "name": "Equateur",
     "attribution": "By Velvetyne and Degheest",
     "url": "https://velvetyne.fr/fonts/degheest/"
+  },
+  {
+    "id": "Isenheim",
+    "name": "Isenheim",
+    "attribution": "By Tunera Type Foundry",
+    "url": "https://tunera.xyz/"
+  },
+  {
+    "id": "Barlow",
+    "name": "Barlow",
+    "attribution": "By Typothèque",
+    "url": "https://typotheque.le75.be/"
+  },
+  {
+    "id": "Punctata",
+    "name": "Punctata",
+    "attribution": "By Typothèque",
+    "url": "https://typotheque.le75.be/"
+  },
+  {
+    "id": "SupernotoriousDot",
+    "name": "SupernotoriousDot",
+    "attribution": "By Typothèque",
+    "url": "https://typotheque.le75.be/"
   }
 ]

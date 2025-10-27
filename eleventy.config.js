@@ -7,5 +7,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("**/*.ttf");
   eleventyConfig.addPassthroughCopy("**/*.otf");
   eleventyConfig.addPassthroughCopy("**/*.woff2");
+  eleventyConfig.addPassthroughCopy("**/leaf.svg");
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
 }

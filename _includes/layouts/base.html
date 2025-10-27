@@ -30,18 +30,19 @@
 
         {% if width == 'full' %}
         main {
-            width: 98%;
-            max-width: none;
-            @media screen and (min-width: 930px) {
-                main {
-                    max-width: 90%;
-                }
+            max-width: 98%;
+            margin: 1% 5% 0%;
+        }
+        @media screen and (min-width: 930px) {
+            main {
+                width: 90%;
             }
         }
+
         {% else %}
         @media screen and (min-width: 930px) {
             main {
-                max-width: 900px;
+                width: 900px;
             }
         }
         {% endif %}
@@ -79,7 +80,7 @@
     {{ content }}
     <footer>
         <div class="flex-column">
-            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
+            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website</p></div>
             <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
             <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></div>
         </div>
