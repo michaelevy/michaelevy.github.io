@@ -38,7 +38,8 @@ body {
 main {
     margin-block: 0 10%;
     margin-top: 20px;
-    margin: 1% min(1%,auto) 0%;
+    margin-inline: max(5%, calc((100vw - 900px) / 2));
+    margin-bottom: 0%;
 }
 
 nav {
