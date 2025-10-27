@@ -29,11 +29,16 @@
         
 
         
+        main {
+            max-width: 98%;
+            margin: 1% 5% 0%;
+        }
         @media screen and (min-width: 930px) {
             main {
-                max-width: 900px;
+                width: 90%;
             }
         }
+
         
     </style>
     <link rel="icon" href="/resources/favicon.png">
@@ -67,29 +72,71 @@
     
 
         <main>
-        <picture><source type="image/webp" srcset="/KZhpW9JCEx-2864.webp 2864w"><img src="/KZhpW9JCEx-2864.jpeg" class="head-image" alt="Most of the image is a plain monochrome sky, with a lonely aeroplane passing through it. At the bottom runs the River Mersey." width="2864" height="1608"></picture>
-        <div class="card inverted center-aligned magic">
-        <p>I'm Michael, and this is my website.<br>Here are some things you could look at:</p>
+        <div id="header-grid">
+            <div id="marquee-back" class="marquee">
+                <div class="marquee_item reverse">
+                    <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
+                    <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
+                    <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
+                    <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
+                    <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
+                </div>
+                <div class="marquee_item reverse">
+                    <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
+                    <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
+                    <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
+                    <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
+                    <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
+                </div>
+            </div>
+            <picture><source type="image/webp" srcset="/KZhpW9JCEx-2864.webp 2864w"><img src="/KZhpW9JCEx-2864.jpeg" class="head-image" alt="Most of the image is a plain monochrome sky, with a lonely aeroplane passing through it. At the bottom runs the River Mersey." width="2864" height="1608"></picture>
+            <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div>
+            <div id="marquee" class="marquee">
+                <div class="marquee_item">
+                    <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
+                    <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
+                    <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
+                    <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
+                    <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
+                </div>
+                <div class="marquee_item">
+                    <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
+                    <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
+                    <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
+                    <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
+                    <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
+                </div>
+            </div>
+            <div id="spotify"><span>UNDER CONSTRUCTION</span></div>
+            <div class="card inverted center-aligned flex-column" id="welcome">
+                <p>I'm Michael, and this is my website.</p>
+                <p>This is the home page, and on it there are some things that you can look at.</p>
+                <p>I change this site regularly, so expect it to shift, and watch for hidden dangers.</p>
+            </div>
         </div>
-        <ul class="no-list">
-            <li class="card clickable" id="works">
-                <a href="works" class="accent"><h2 class="accent card-title">WORKS</h2></a>
+        <ul id="home-links" class="no-list flex-row">
+            <li class="home-card card clickable">
+                <a href="works" class="accent"><h2 class="accent card-title" id="works">WORKS</h2></a>
                 <p>These are the things I have done</p>
             </li>
-            <li class="card clickable" id="music">
+            <li class="home-card card clickable" id="music">
                 <a href="music" class="accent"><h2 class="accent card-title">MUSIC</h2></a>
                 <p>I like it</p>
             </li>
-            <li class="card clickable" id="say hi">
+            <li class="home-card card clickable" id="say hi">
                 <a href="about" class="accent"><h2 class="accent card-title">SAY HI</h2></a>
                 <p>hi hi hi hi hi</p>
+            </li>
+            <li class="home-card card clickable" id="typography">
+                <a href="fonts" class="accent"><h2 class="accent card-title">FONTS</h2></a>
+                <p>The fonts from this website</p>
             </li>
         </ul>
     </main>
 
     <footer>
         <div class="flex-column">
-            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website © 2025</p></div>
+            <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website</p></div>
             <div class="footer-list"><p><a href="https://bsky.app/profile/michaelevy.com" rel="me">BlueSky</a> | <a href="mailto:michaelfeehanlevy@gmail.com" rel="me">Email</a> | <a href="https://github.com/michaelevy" rel="me">GitHub</a></p></div>
             <div class="footer-list"><p>Powered by <a href="https://www.11ty.dev/">Eleventy</a></p></div>
         </div>

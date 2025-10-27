@@ -6,12 +6,6 @@
 }
 
 @font-face {
-    font-family: Latitude;
-    src: url("/resources/fonts/Deghest/Latitude-Regular.woff2") format("woff2");
-    font-display: swap;
-}
-
-@font-face {
     font-family: BasalteFond;
     src: url("/resources/fonts/Deghest/Basalte-Fond.woff2") format("woff2");
     font-display: swap;
@@ -20,12 +14,6 @@
 @font-face {
     font-family: FiraCode;
     src: url("/resources/fonts/FiraCode-Regular.ttf") format("truetype");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: Combat;
-    src: url("/resources/fonts/Combat.otf") format("opentype");
     font-display: swap;
 }
 
@@ -46,12 +34,6 @@
 @font-face {
     font-family: Abordage;
     src: url("/resources/fonts/Deghest/Abordage-Regular.woff2") format("woff2");
-    font-display: swap;
-}
-
-@font-face {
-    font-family: BasalteMulticolor;
-    src: url("/resources/fonts/Deghest/Basalte-Multicolor.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -137,4 +119,47 @@
     font-display: swap;
     font-weight: 400;
     font-style: italic;
+}
+
+@font-face {
+    font-family: CormorantGaramond;
+    src: url("/resources/fonts/Cormorant/CormorantGaramond-BoldItalic.woff2") format("woff2");
+    font-display: swap;
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Isenheim;
+    src: url("/resources/fonts/Tunera/Isenheim_Fin.otf") format("opentype");
+    font-display: swap;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: Isenheim;
+    src: url("/resources/fonts/Tunera/Isenheim_Regulier.otf") format("opentype");
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Barlow;
+    src: url("/resources/fonts/Tunera/Barlow-TypoDesBois.otf") format("opentype");
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: Punctata;
+    src: url("/resources/fonts/PUNCTATA-Regular.otf") format("opentype");
+    font-display: swap;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: SupernotoriousDot;
+    src: url("/resources/fonts/SupernotoriousDot.otf") format("opentype");
+    font-display: swap;
+    font-weight: 500;
 }
