@@ -159,7 +159,7 @@
 
 @font-face {
     font-family: SupernotoriousDot;
-    src: url("/resources/fonts/SupernotoriousDot.otf") format("opentype");
+    src: url("/resources/fonts/SuperNotoriousDot.otf") format("opentype");
     font-display: swap;
     font-weight: 500;
 }
