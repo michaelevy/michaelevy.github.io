@@ -1,33 +1,14 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <title>Rain | Michael Levy</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
-    <link rel="stylesheet" type="text/css" href="/lab/lab.css" />
-    <script src="rain.js" /></script>
-    <script src="/src/js/utility.js" /></script>
-    <link rel="icon" href="/resources/favicon.png">
+---
+layout: layouts/experiment.html
+title: RAIN
+pageTitle: Rain
+description: Move your mouse and watch the sky drift past
+draft: false
+order: 1
+onload: "init(1,'#d44c50', 0, true, [{drops: 15, size: 20, speed: 3, length: 25, tailStep: 5}, {drops: 20, size: 15, speed: 2, length: 20, tailStep: 5}, {drops: 25, size: 10, speed: 1, length: 15, tailStep: 5}])"
+customHead: |
+    <script src="rain.js"></script>
+    <script src="/src/js/utility.js"></script>
     <script src="/src/js/load.js"></script>
-</head>
-
-<body onLoad="init(
-    1,'#d44c50', 0, true, [
-    {drops: 15, size: 20, speed: 3, length: 25, tailStep: 5},
-    {drops: 20, size: 15, speed: 2, length: 20, tailStep: 5},
-    {drops: 25, size: 10, speed: 1, length: 15, tailStep: 5}
-]);">
-    <div id="escape">
-        <img class="back-arrow" src="/resources/arrow.svg" width="10" height="10" alt="back arrow"></img>
-        <a href="/lab/" >Escape</a>
-    </div>
-    <main>
-        <canvas id="rain"></canvas>
-    </main>
-</body>
-
-</html>
+---
+<canvas id="rain"></canvas>

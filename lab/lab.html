@@ -6,15 +6,19 @@ accent: blue
 secondary: blue
 css:
   - /src/styles/lab.css
+eleventyNavigation:
+    key: Lab
+    parent: Works
+    title: The Laboratory
 ---
     <main>
         <img src="/resources/road.jpg" class="head-image" alt="A gravel road curls into the mist. A sign warns that the road is dangerous"></img>
         <p>Code experiments. Unlikely to work on mobile. I take no responsibility for the safety of your CPU.</p>
-        {% for experiment in experiments %}
+        {%- for experiment in collections.publishedExperiments reversed -%}
         <div class="experiment flex-row">
-            <h2 class="experiment-title">{{ experiment.title }}</h2>
-            <p class="experiment-desc">{{ experiment.desc }}</p>
+            <h2 class="experiment-title">{{ experiment.data.title }}</h2>
+            <p class="experiment-desc">{{ experiment.data.description }}</p>
             <a class="magic button experiment-button" href="{{ experiment.url }}">Visit</a>
         </div>
-        {% endfor %}
+        {%- endfor -%}
     </main>

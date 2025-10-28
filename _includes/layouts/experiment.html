@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ pageTitle | default: title }} | Michael Levy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="{{ description | default: '' }}" />
+    
+    <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css" />
+    <link rel="stylesheet" type="text/css" href="/lab/lab.css" />
+    <link rel="icon" href="/resources/favicon.png">
+    {%- if customHead %}
+    {{ customHead }}
+    {%- endif %}
+</head>
+
+<body{% if onload %} onload="{{ onload }}"{% endif %}>
+    <div id="escape">
+        <img class="back-arrow" src="/resources/arrow.svg" width="10" height="10" alt="back arrow"></img>
+        <a href="/lab">Escape</a>
+    </div>
+    <main>
+        {{ content }}
+    </main>
+</body>
+</html>

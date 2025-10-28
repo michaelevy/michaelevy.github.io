@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <title>Text | Michael Levy</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="" />
-    <link rel="stylesheet" type="text/css" href="../src/styles/style.css" />
-    <link rel="stylesheet" type="text/css" href="lab.css" />
-    <script src="../src/js/labs/coloured-text.js" /></script>
-    <script src="../src/js/utility.js" /></script>
-    <link rel="icon" href="/resources/favicon.png">
-    <script src="../src/js/load.js"></script>
-</head>
-
-<body onLoad="init();">
-    <div id="escape">
-        <img class="back-arrow" src="/resources/arrow.svg" width="10" height="10" alt="back arrow"></img>
-        <a href="/lab/" >Escape</a>
-    </div>
-    <main>
-        <canvas id="coloured-text"></canvas>
-    </main>
-</body>
-
-</html>
+---
+layout: layouts/experiment.html
+title: TEXT
+pageTitle: Text
+description: Colored text experiment
+draft: true
+onload: init()
+customHead: |
+    <script src="/src/js/labs/coloured-text.js"></script>
+    <script src="/src/js/utility.js"></script>
+    <script src="/src/js/load.js"></script>
+---
+<canvas id="coloured-text"></canvas>
