@@ -78,6 +78,16 @@
     font-family: SupernotoriousDot;
 }
 
+#EBGaramond h2,
+#EBGaramond p {
+    font-family: EBGaramond;
+}
+
+#WorkSans h2,
+#WorkSans p {
+    font-family: WorkSans;
+}
+
 
 h2 {
     text-transform: uppercase;
