@@ -163,3 +163,35 @@
     font-display: swap;
     font-weight: 500;
 }
+
+@font-face {
+    font-family: EBGaramond;
+    src: url("/resources/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: EBGaramond;
+    src: url("/resources/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    font-display: swap;
+    font-weight: 400 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: WorkSans;
+    src: url("/resources/fonts/WorkSans[wght].ttf") format("truetype");
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: WorkSans;
+    src: url("/resources/fonts/WorkSans-Italic[wght].ttf") format("truetype");
+    font-display: swap;
+    font-weight: 100 900;
+    font-style: italic;
+}

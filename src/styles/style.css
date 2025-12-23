@@ -8,14 +8,19 @@
     --blue: rgb(45, 158, 240);
     --blue-dark: #124f7aff;
     --blue-light: rgb(188, 232, 255);
+    --black: oklch(18% 0.003 17.5);
+    --bright_grey: oklch(47% 0.005 17.3);
+    --brighter_grey: oklch(0.6068 0.005 17.3);
+    --bright_white: oklch(94.75% 0.04 73);
+    --dark-white: oklch(0.8027 0.04 73);
 
-    --background: var(--white);
+    --background: var(--bright_white);
     --background-dark:var(--grey);
     --accent: var(--orange);
-    --accent-light:var(--orange-light);
-    --secondary: var(--blue);
-    --secondary-trans: var(--blue-light);
-    --text: var(--grey-dark);
+    --accent-light:var(--dark-white);
+    --secondary: var(--bright_grey);
+    --secondary-trans: var(--brighter_grey);
+    --text: var(--black);
     width: 100vw;
 }
 
@@ -36,10 +41,9 @@ body {
 }
 
 main {
-    margin-block: 0 10%;
-    margin-top: 20px;
-    margin-inline: max(5%, calc((100vw - 900px) / 2));
-    margin-bottom: 0%;
+    max-width: 1440px;
+    padding-inline: 44px;
+    margin: 0 auto;
 }
 
 nav {

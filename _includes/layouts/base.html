@@ -17,33 +17,14 @@
         {% endfor %}
     {% endif %}
     <style>
-        {% if accent or secondary %}
-        main, #page-heading {
-            {% if accent == 'orange' %}--accent: var(--orange);--accent-light: var(--orange-light);{% endif %}
-            {% if accent == 'blue' %}--accent: var(--blue);--accent-light: var(--blue-light);{% endif %}
-            {% if accent == 'black' %}--accent: var(--grey-dark);--accent-light: var(--grey-dark);{% endif %}
-            {% if secondary == 'orange' %}--secondary: var(--orange);--secondary-light: var(--orange-light);{% endif %}
-            {% if secondary == 'blue' %}--secondary: var(--blue);--secondary-light: var(--blue-light);{% endif %}
-            {% if secondary == 'black' %}--secondary: var(--grey-dark);--secondary-light: var(--grey-dark);{% endif %}
-        }
-        {% endif %}
-
         {% if width == 'full' %}
         main {
-            max-width: 98%;
-            margin: 1% 1% 0%;
+            max-width: 1800px;
         }
-        @media screen and (min-width: 930px) {
-            main {
-                width: 90%;
-                margin: 1% 5% 0%;
-            }
-        }
-
         {% else %}
         @media screen and (min-width: 930px) {
             main {
-                width: 900px;
+                max-width: 900px;
             }
         }
         {% endif %}

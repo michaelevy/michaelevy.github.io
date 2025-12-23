@@ -2,45 +2,29 @@
 layout: layouts/base.html
 title: Home | Michael Levy
 heading: Hello
-accent: blue
-secondary: orange
 width: full
 css:
   - /src/styles/home.css
 ---
     <main>
         <div id="header-grid">
-            <div id="marquee-back" class="marquee">
-                <div class="marquee_item reverse">
-                    {%- for item in marquee.items %}
-                    <span> {{ item }} &bull; </span>
-                    {%- endfor %}
-                </div>
-                <div class="marquee_item reverse">
-                    {%- for item in marquee.items %}
-                    <span> {{ item }} &bull; </span>
-                    {%- endfor %}
-                </div>
-            </div>
-            <img src="resources/mersey.jpg" class="head-image" alt="Most of the image is a plain monochrome sky, with a lonely aeroplane passing through it. At the bottom runs the River Mersey."></img>
             <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div>
-            <div id="marquee" class="marquee">
-                <div class="marquee_item">
-                    {%- for item in marquee.items %}
-                    <span> {{ item }} &bull; </span>
-                    {%- endfor %}
-                </div>
-                <div class="marquee_item">
-                    {%- for item in marquee.items %}
-                    <span> {{ item }} &bull; </span>
-                    {%- endfor %}
-                </div>
-            </div>
-            <div id="spotify"><span>UNDER CONSTRUCTION</span></div>
-            <div class="card inverted center-aligned flex-column" id="welcome">
-                <p>I'm Michael, and this is my website.</p>
+            <div id="welcome">
+                <h1>I'm Michael, and this is my website.</h1>
                 <p>This is the home page, and on it there are some things that you can look at.</p>
                 <p>I change this site regularly, so expect it to shift, and watch for hidden dangers.</p>
+            </div>
+        </div>
+        <div id="marquee-back" class="marquee">
+            <div class="marquee_item reverse">
+                {%- for item in marquee.items %}
+                <span> {{ item }} &bull; </span>
+                {%- endfor %}
+            </div>
+            <div class="marquee_item reverse">
+                {%- for item in marquee.items %}
+                <span> {{ item }} &bull; </span>
+                {%- endfor %}
             </div>
         </div>
         <ul id="home-links" class="no-list flex-row">
