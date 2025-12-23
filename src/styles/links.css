@@ -1,0 +1,22 @@
+.computing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0;
+    align-items: start;
+}
+
+.inspiration-span {
+    grid-row: span 2;
+}
+
+@media only screen and (max-width: 800px) {
+    .computing-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+    }
+
+    .inspiration-span {
+        grid-row: auto;
+    }
+}
