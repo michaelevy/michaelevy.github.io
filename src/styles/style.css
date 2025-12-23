@@ -19,7 +19,7 @@
     --accent: var(--orange);
     --accent-light:var(--dark-white);
     --secondary: var(--bright_grey);
-    --secondary-trans: var(--brighter_grey);
+    --secondary-light: var(--brighter_grey);
     --text: var(--black);
     width: 100vw;
 }
@@ -44,6 +44,7 @@ main {
     max-width: 1440px;
     padding-inline: 44px;
     margin: 0 auto;
+    min-height: 60vh;
 }
 
 nav {
@@ -271,16 +272,6 @@ nav {
     text-align: center;
 }
 
-p,
-li {
-    line-height: 1.6;
-    font-size: 0.9rem;
-    -webkit-font-smoothing: antialiased;
-    @media only screen and (min-width: 800px) {
-        font-size: 1rem;
-    }
-}
-
 img,
 picture,
 video,
@@ -356,16 +347,14 @@ a.button {
     }
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-li {
-    overflow-wrap: break-word;
-    font-family: "FiraCode", "Courier New", Courier, monospace;
+p, li {
+    line-height: 1.6;
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    @media only screen and (min-width: 800px) {
+        font-size: 1.1rem;
+    }
+    font-family: "FiraCode";
 }
 
 h1,
@@ -378,6 +367,7 @@ h6 {
     margin-bottom: 10px;
     font-family: BasalteFond;
     color: var(--text);
+    overflow-wrap: break-word;
 }
 
 h1 {
@@ -410,7 +400,7 @@ footer {
     margin: 2.5vh;
     p {
         line-height: 3;
-        font-size: small;
+        font-size: 0.9rem;
     }
 
     .footer-list {
