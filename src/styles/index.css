@@ -1,6 +1,6 @@
 .coming-soon{
-    color: var(--secondary-trans);
+    color: var(--secondary-light);
     a {
-        color: var(--secondary-trans);
+        color: var(--secondary-light);
     }
 }

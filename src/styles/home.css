@@ -176,7 +176,7 @@
     }
 
     .card-title {
-        color: var(--secondary);
+        color: var(--black);
         font-family: Barlow;
         font-size: min(23cqi, 6.5rem);
         line-height: min(23cqi, 6.5rem);
