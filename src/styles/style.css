@@ -518,8 +518,8 @@ input[type="text"] {
 .magic {
     background: linear-gradient(
         170deg,
-        hsl(208deg 100% 59%),
-        hsl(218deg 95% 67%)
+        hsl(358deg 61% 56%),
+        hsl(343deg 67% 58%)
     );
 
     color: white;
@@ -531,9 +531,9 @@ input[type="text"] {
 
 @media (prefers-reduced-motion: no-preference) {
     .magic {
-        --magic-rainbow-color-0: hsl(218deg 95% 67%);
-        --magic-rainbow-color-1: hsl(218deg 95% 67%);
-        --magic-rainbow-color-2: hsl(218deg 95% 67%);
+        --magic-rainbow-color-0: hsl(358deg 61% 56%);
+        --magic-rainbow-color-1: hsl(343deg 67% 58%);
+        --magic-rainbow-color-2: hsl(328deg 62% 59%);
 
         background: linear-gradient(
             170deg,
