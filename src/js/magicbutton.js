@@ -39,7 +39,7 @@ const rainbowColors = [
 
   let buttonElems = document.querySelectorAll('.magic');
 
-  let cycleIndex = 0;
+  let cycleIndex = 8;
 
 window.setInterval(() => {
   // Shift every color up by one position.
@@ -52,7 +52,6 @@ window.setInterval(() => {
   //
   if (buttonElems.length === 0) {
     buttonElems = document.querySelectorAll('.magic');
-    return;
   }
 
   buttonElems.forEach((b,index) => {
