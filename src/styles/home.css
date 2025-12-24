@@ -184,8 +184,8 @@
     }
 
     p {
-        font-family: MondiaThin;
-        color: var(--secondary-light);
+        font-family: Barlow;
+        color: var(--black);
         width: 100%;
         border-bottom: 2px solid var(--secondary-light);
     }
