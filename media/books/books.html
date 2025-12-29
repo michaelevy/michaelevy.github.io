@@ -41,15 +41,14 @@ eleventyNavigation:
         padding: 1rem;
         background-color: var(--accent);
         color: var(--background);
-        cursor: pointer;
         user-select: none;
     }
 
-    .book-table th:hover {
+    .sortable:hover {
         background-color: var(--orange-dark);
     }
 
-    .book-table th::after {
+    .sortable::after {
         content: ' ↕';
         opacity: 0.5;
     }
@@ -59,25 +58,38 @@ eleventyNavigation:
         border-bottom: 1px solid var(--accent-light);
     }
 
-    .book-table tr:hover {
+    .series-row {
+        background-color: var(--background);
+        font-weight: bold;
+    }
+
+    .series-row.expandable {
+        cursor: pointer;
+    }
+
+    .series-row.expandable:hover {
+        cursor: pointer;
         background-color: var(--accent-light);
     }
 
+    .book-row {
+        display: none;
+        border-left: 3px solid var(--background);
+
+    }
+
+    .book-row.expanded {
+        display: table-row;
+        border-left: 3px solid var(--accent);
+    }
+
     .book-title {
-        font-weight: bold;
+        padding-left: 2rem !important;
     }
 
     .book-rating {
         color: var(--accent);
         font-weight: bold;
-    }
-
-    .book-status {
-        display: inline-block;
-        padding: 0.25rem 0.5rem;
-        border-radius: 3px;
-        font-size: 0.8rem;
-        background-color: var(--secondary-light);
     }
 
     @media (max-width: 800px) {
@@ -88,6 +100,10 @@ eleventyNavigation:
         .book-table th,
         .book-table td {
             padding: 0.5rem;
+        }
+
+        .book-title {
+            padding-left: 1rem;
         }
     }
 </style>
@@ -100,149 +116,338 @@ eleventyNavigation:
             <option value="Read" selected>Read</option>
             <option value="Unread">Unread</option>
         </select>
-        <span id="bookCount">{{ books | size }} books</span>
+        <span id="bookCount"></span>
     </div>
 
     <div style="overflow-x: auto;">
         <table class="book-table" id="bookTable">
             <thead>
                 <tr>
-                    <th data-column="title">Title</th>
-                    <th data-column="author">Author</th>
-                    <th data-column="series">Series</th>
-                    <th data-column="rating">Rating</th>
-                    <th data-column="date_finished">Date</th>
+                    <th data-column="series" class="sortable">Series / Title</th>
+                    <th data-column="author" class="sortable">Author</th>
+                    <th data-column="rating" class="sortable">Avg Rating</th>
+                    <th data-column="date" class="sortable">Latest Date</th>
+                    <th>Notes</th>
                 </tr>
             </thead>
-            <tbody>
-                {%- for book in books %}
-                <tr data-status="{{ book.read }}" data-title="{{ book.title | downcase }}" data-author="{{ book.author | downcase }}" data-series="{{ book.series | downcase }}" data-notes="{{ book.notes | downcase }}">
-                    <td class="book-title">{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.series }}</td>
-                    <td><span class="book-rating">{{ book.rating }}</span></td>
-                    <td>{{ book.date_finished }}</td>
-                </tr>
-                {%- endfor %}
+            <tbody id="tableBody">
             </tbody>
         </table>
     </div>
 </main>
 
 <script>
+    const books = {{ books | json }};
     const searchInput = document.getElementById('searchInput');
     const statusFilter = document.getElementById('statusFilter');
-    const bookTable = document.getElementById('bookTable');
     const bookCount = document.getElementById('bookCount');
-    const tbody = bookTable.querySelector('tbody');
-    const rows = Array.from(tbody.querySelectorAll('tr'));
+    const tbody = document.getElementById('tableBody');
 
-    // Filter function
-    function filterBooks() {
-        const searchTerm = searchInput.value.toLowerCase();
-        const status = statusFilter.value;
+    // Group books by series
+    function groupBooksBySeries() {
+        const seriesMap = {};
 
-        let visibleCount = 0;
+        books.forEach(book => {
+            const seriesName = book.series && book.series.trim() !== '' ? book.series : book.title;
 
-        rows.forEach(row => {
-            const rowStatus = row.dataset.status;
-            const title = row.dataset.title;
-            const author = row.dataset.author;
-            const series = row.dataset.series;
-            const notes = row.dataset.notes;
-
-            const matchesStatus = !status || rowStatus === status;
-            const matchesSearch = !searchTerm ||
-                title.includes(searchTerm) ||
-                author.includes(searchTerm) ||
-                series.includes(searchTerm) ||
-                notes.includes(searchTerm);
-
-            if (matchesStatus && matchesSearch) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
+            if (!seriesMap[seriesName]) {
+                seriesMap[seriesName] = {
+                    name: seriesName,
+                    author: book.author,
+                    books: [],
+                    isSeries: book.series && book.series.trim() !== ''
+                };
             }
+
+            seriesMap[seriesName].books.push(book);
         });
 
-        bookCount.textContent = `${visibleCount} books`;
+        return Object.values(seriesMap);
     }
 
     // Parse date in DD/MM/YY format
     function parseDate(dateStr) {
         if (!dateStr) return 0;
-        
-        // Take last date if multiple (e.g., "Before 2020, 18/01/22" -> use "18/01/22")
+
         const dates = dateStr.split(',');
         const lastDate = dates[dates.length - 1].trim();
-        
+
         if (lastDate.includes('Before 2020')) return new Date('2019-12-31').getTime();
-        
+
         const parts = lastDate.split('/');
         if (parts.length === 3) {
             const day = parseInt(parts[0]);
             const month = parseInt(parts[1]) - 1;
             let year = parseInt(parts[2]);
-            
-            // Convert 2-digit year to 4-digit
             year = year < 100 ? (year < 50 ? 2000 + year : 1900 + year) : year;
-            
             return new Date(year, month, day).getTime();
         }
-        
+
         return 0;
     }
 
-    // Sorting function
-    let sortDirection = {};
-    document.querySelectorAll('th[data-column]').forEach(th => {
-        const column = th.dataset.column;
-        sortDirection[column] = 1;
+    // Calculate average rating for a series
+    function calculateAvgRating(seriesBooks) {
+        const ratings = seriesBooks
+            .map(b => parseFloat(b.rating))
+            .filter(r => !isNaN(r) && r > 0);
 
-        th.addEventListener('click', () => {
-            const isNumeric = column === 'rating';
-            const isDate = column === 'date_finished';
+        if (ratings.length === 0) return 0;
+        return (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
+    }
 
-            rows.sort((a, b) => {
-                let aVal = a.querySelector(`td:nth-child(${Array.from(th.parentNode.children).indexOf(th) + 1})`).textContent;
-                let bVal = b.querySelector(`td:nth-child(${Array.from(th.parentNode.children).indexOf(th) + 1})`).textContent;
+    // Get latest date from series
+    function getLatestDate(seriesBooks) {
+        const dates = seriesBooks
+            .map(b => {
+                const dateStr = b.date_finished;
+                if (!dateStr) return null;
 
-                if (isNumeric) {
-                    aVal = parseFloat(aVal) || 0;
-                    bVal = parseFloat(bVal) || 0;
-                } else if (isDate) {
-                    aVal = parseDate(aVal);
-                    bVal = parseDate(bVal);
+                // Get the last date from comma-separated list
+                const dateParts = dateStr.split(',');
+                const lastDate = dateParts[dateParts.length - 1].trim();
+
+                return { str: lastDate, val: parseDate(dateStr) };
+            })
+            .filter(d => d && d.val > 0);
+
+        if (dates.length === 0) return '';
+        dates.sort((a, b) => b.val - a.val);
+        return dates[0].str;
+    }
+
+    // Render table
+    function renderTable(seriesGroups) {
+        tbody.innerHTML = '';
+
+        seriesGroups.forEach((series, seriesIdx) => {
+            const avgRating = calculateAvgRating(series.books);
+            const latestDate = getLatestDate(series.books);
+            const bookCount = series.books.length;
+
+            // Series row
+            const seriesRow = document.createElement('tr');
+            const isExpandable = series.isSeries && bookCount > 1;
+            seriesRow.className = isExpandable ? 'series-row expandable' : 'series-row';
+            seriesRow.dataset.series = series.name.toLowerCase();
+            seriesRow.dataset.author = series.author.toLowerCase();
+            const singleBook = bookCount === 1 ? series.books[0] : null;
+            const hasNotes = singleBook && singleBook.notes && singleBook.notes.trim() !== '';
+
+            seriesRow.innerHTML = `
+                <td><span style="cursor: pointer;">${isExpandable ? '▶ ' : ''}${series.name}</span></td>
+                <td>${series.author}</td>
+                <td><span class="book-rating">${avgRating}</span></td>
+                <td>${latestDate}</td>
+                <td>
+                    ${!isExpandable && hasNotes ?
+                        '<button class="notes-toggle-single" data-series-idx="' + seriesIdx + '" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); border: 1px solid var(--accent); color: var(--text);">+</button>'
+                        : ''}
+                </td>
+            `;
+            tbody.appendChild(seriesRow);
+
+            // Add notes row for single-book series
+            if (!isExpandable && hasNotes) {
+                const notesRow = document.createElement('tr');
+                notesRow.className = 'single-notes-row';
+                notesRow.dataset.seriesIdx = seriesIdx;
+                notesRow.style.display = 'none';
+                notesRow.innerHTML = `
+                    <td colspan="6" style="padding: 1rem; background-color: var(--accent-light); font-style: italic;">${singleBook.notes}</td>
+                `;
+                tbody.appendChild(notesRow);
+            }
+
+            // Individual book rows (only for series with multiple books)
+            if (isExpandable) {
+                series.books.forEach(book => {
+                    const bookRow = document.createElement('tr');
+                    bookRow.className = 'book-row';
+                    bookRow.dataset.seriesIdx = seriesIdx;
+                    bookRow.dataset.status = book.read;
+                    bookRow.dataset.title = book.title.toLowerCase();
+                    bookRow.dataset.author = book.author.toLowerCase();
+                    bookRow.dataset.series = series.name.toLowerCase();
+                    bookRow.dataset.notes = (book.notes || '').toLowerCase();
+
+                    bookRow.innerHTML = `
+                        <td class="book-title">${book.title}</td>
+                        <td>${book.author}</td>
+                        <td><span class="book-rating">${book.rating}</span></td>
+                        <td>${book.date_finished}</td>
+                        <td>
+                            ${book.notes && book.notes.trim() !== '' ?
+                                '<button class="notes-toggle" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); border: 1px solid var(--accent); color: var(--text);">+</button>'
+                                : ''}
+                        </td>
+                    `;
+                    tbody.appendChild(bookRow);
+
+                    // Notes row
+                    if (book.notes && book.notes.trim() !== '') {
+                        const notesRow = document.createElement('tr');
+                        notesRow.className = 'notes-row';
+                        notesRow.dataset.seriesIdx = seriesIdx;
+                        notesRow.dataset.bookNotesRow = 'true';
+                        notesRow.style.display = 'none';
+                        notesRow.innerHTML = `
+                            <td colspan="6" style="padding: 1rem; background-color: var(--accent-light); font-style: italic; border-left: 3px solid var(--accent);">${book.notes}</td>
+                        `;
+                        tbody.appendChild(notesRow);
+                    }
+                });
+            }
+
+            // Add click handler for series row
+            if (isExpandable) {
+                seriesRow.addEventListener('click', function() {
+                    const bookRows = tbody.querySelectorAll(`.book-row[data-series-idx="${seriesIdx}"]`);
+                    const notesRows = tbody.querySelectorAll(`.notes-row[data-series-idx="${seriesIdx}"][data-book-notes-row="true"]`);
+                    const isExpanded = bookRows[0].classList.contains('expanded');
+                    const arrow = this.querySelector('span');
+
+                    if (isExpanded) {
+                        bookRows.forEach(row => row.classList.remove('expanded'));
+                        // Hide all notes rows when collapsing
+                        notesRows.forEach(row => {
+                            row.style.display = 'none';
+                            const btn = row.previousElementSibling?.querySelector('.notes-toggle');
+                            if (btn) btn.textContent = '+';
+                        });
+                        arrow.textContent = '▶ ' + series.name;
+                    } else {
+                        bookRows.forEach(row => row.classList.add('expanded'));
+                        arrow.textContent = '▼ ' + series.name;
+                    }
+                });
+            }
+        });
+
+        // Add notes toggle handlers for multi-book series
+        tbody.querySelectorAll('.notes-toggle').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const bookRow = this.closest('tr');
+                const notesRow = bookRow.nextElementSibling;
+
+                if (notesRow && notesRow.classList.contains('notes-row')) {
+                    if (notesRow.style.display === 'none') {
+                        notesRow.style.display = '';
+                        this.textContent = '−';
+                    } else {
+                        notesRow.style.display = 'none';
+                        this.textContent = '+';
+                    }
                 }
-
-                if (aVal < bVal) return -1 * sortDirection[column];
-                if (aVal > bVal) return 1 * sortDirection[column];
-                return 0;
             });
+        });
 
-            sortDirection[column] *= -1;
+        // Add notes toggle handlers for single-book series
+        tbody.querySelectorAll('.notes-toggle-single').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const seriesIdx = this.dataset.seriesIdx;
+                const notesRow = tbody.querySelector(`.single-notes-row[data-series-idx="${seriesIdx}"]`);
 
-            rows.forEach(row => tbody.appendChild(row));
+                if (notesRow) {
+                    if (notesRow.style.display === 'none') {
+                        notesRow.style.display = '';
+                        this.textContent = '−';
+                    } else {
+                        notesRow.style.display = 'none';
+                        this.textContent = '+';
+                    }
+                }
+            });
+        });
+    }
+
+    // Sorting state
+    let currentSortColumn = 'rating';
+    let sortDirection = -1; // -1 for descending, 1 for ascending
+
+    // Filter and sort
+    function updateDisplay() {
+        let seriesGroups = groupBooksBySeries();
+        const searchTerm = searchInput.value.toLowerCase();
+        const status = statusFilter.value;
+
+        // Filter
+        if (searchTerm || status) {
+            seriesGroups = seriesGroups.map(series => {
+                const filteredBooks = series.books.filter(book => {
+                    const matchesStatus = !status || book.read === status;
+                    const matchesSearch = !searchTerm ||
+                        book.title.toLowerCase().includes(searchTerm) ||
+                        book.author.toLowerCase().includes(searchTerm) ||
+                        (book.series && book.series.toLowerCase().includes(searchTerm)) ||
+                        (book.notes && book.notes.toLowerCase().includes(searchTerm));
+                    return matchesStatus && matchesSearch;
+                });
+
+                return { ...series, books: filteredBooks };
+            }).filter(series => series.books.length > 0);
+        }
+
+        // Sort based on current sort column
+        seriesGroups.sort((a, b) => {
+            let aVal, bVal;
+
+            switch(currentSortColumn) {
+                case 'series':
+                    aVal = a.name.toLowerCase();
+                    bVal = b.name.toLowerCase();
+                    break;
+                case 'author':
+                    aVal = a.author.toLowerCase();
+                    bVal = b.author.toLowerCase();
+                    break;
+                case 'count':
+                    aVal = a.books.length;
+                    bVal = b.books.length;
+                    break;
+                case 'rating':
+                    aVal = parseFloat(calculateAvgRating(a.books));
+                    bVal = parseFloat(calculateAvgRating(b.books));
+                    break;
+                case 'date':
+                    aVal = parseDate(getLatestDate(a.books));
+                    bVal = parseDate(getLatestDate(b.books));
+                    break;
+            }
+
+            if (aVal < bVal) return -1 * sortDirection;
+            if (aVal > bVal) return 1 * sortDirection;
+            return 0;
+        });
+
+        renderTable(seriesGroups);
+
+        const totalBooks = seriesGroups.reduce((sum, s) => sum + s.books.length, 0);
+        bookCount.textContent = `${seriesGroups.length} series, ${totalBooks} books`;
+    }
+
+    // Add sorting click handlers
+    document.querySelectorAll('.sortable').forEach(th => {
+        th.addEventListener('click', function() {
+            const column = this.dataset.column;
+
+            if (currentSortColumn === column) {
+                sortDirection *= -1; // Toggle direction
+            } else {
+                currentSortColumn = column;
+                sortDirection = -1; // Default to descending
+            }
+
+            updateDisplay();
         });
     });
 
     // Event listeners
-    searchInput.addEventListener('input', filterBooks);
-    statusFilter.addEventListener('change', filterBooks);
+    searchInput.addEventListener('input', updateDisplay);
+    statusFilter.addEventListener('change', updateDisplay);
 
-    // Sort by date descending by default
-    function sortByDate() {
-        rows.sort((a, b) => {
-            const aVal = parseDate(a.querySelector('td:nth-child(5)').textContent);
-            const bVal = parseDate(b.querySelector('td:nth-child(5)').textContent);
-            return bVal - aVal; // Descending order (most recent first)
-        });
-        rows.forEach(row => tbody.appendChild(row));
-        sortDirection['date_finished'] = 1; // Next click will sort ascending
-    }
-
-    // Initial sort and filter
-    sortByDate();
-    filterBooks();
+    // Initial render
+    updateDisplay();
 </script>
