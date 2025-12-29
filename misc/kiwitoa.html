@@ -40,6 +40,23 @@ heading: Kiwitoa Posts Archive
         pointer-events: none;
         border: 1px solid var(--background);
     }
+
+    .toc-list {
+        list-style: none;
+        columns: 2;
+        column-gap: 2rem;
+    }
+
+    .toc-list li {
+        break-inside: avoid;
+        font-family: "EBGaramond";
+    }
+
+    @media (max-width: 800px) {
+        .toc-list {
+            columns: 1;
+        }
+    }
 </style>
 
 <main>
@@ -48,8 +65,17 @@ heading: Kiwitoa Posts Archive
         <p style="margin: 0;"><strong>Total Posts:</strong> {{ kiwitoa.total_posts }}</p>
     </div>
 
+    <nav class="toc card">
+        <h2>Table of Contents</h2>
+        <ul class="toc-list">
+            {%- for section in kiwitoa.threads %}
+            <li><a href="#{{ section.heading | slugify }}">{{ section.heading }}</a></li>
+            {%- endfor %}
+        </ul>
+    </nav>
+
     {%- for section in kiwitoa.threads %}
-    <div class="thread-section">
+    <div class="thread-section" id="{{ section.heading | slugify }}">
         <h2 class="thread-heading">{{ section.heading }}</h2>
 
         {%- for thread in section.threads %}
