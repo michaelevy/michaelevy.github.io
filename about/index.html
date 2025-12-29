@@ -19,7 +19,7 @@
     <style>
         
         @media screen and (min-width: 930px) {
-            main {
+            .content-width {
                 max-width: 900px;
             }
         }
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-    <nav class="animated-links">
+    <nav class="main-nav animated-links">
         <div class="flex-row width-full center-aligned" id="me-link">
             <picture><source type="image/webp" srcset="/img/bnHyl0iqfn-20.webp 20w"><img id="square" src="/img/bnHyl0iqfn-20.jpeg" width="20" height="20" alt="An orange square"></picture>
             <a href="/"><h1 class="mondia-thin accent">Michael Levy</h1></a>
@@ -42,7 +42,7 @@
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
             <a href="/lab/">Lab</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
-            <a href="/music/">Music</a>
+            <a href="/media/">Media</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
             <a href="/about/">About</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
@@ -52,8 +52,15 @@
     
         <div id="page-heading"><h1 class="bar accent">About Me</h1></div>
     
+    
+    <nav class="breadcrumb content-width" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span> / </span>
+        <span>About</span>
+    </nav>
+    
 
-        <main>
+        <main class="content-width">
         <picture><source type="image/webp" srcset="/img/c8L7mbPZSd-2856.webp 2856w"><img src="/img/c8L7mbPZSd-2856.jpeg" class="head-image" alt="Magnus, my cat, is looking at you" width="2856" height="1608"></picture>
         <p>My name is Michael Levy. I'm a professional software developer, and studied computer science at Victoria University.
             I currently work as an Analyst Developer at <a href="https://fnz.com/">FNZ</a>. I live in Wellington, New Zealand, and use he/they pronouns.

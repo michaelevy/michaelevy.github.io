@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Home | Michael Levy</title>
+    <title>Media | Michael Levy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="">
     <link rel="stylesheet" type="text/css" href="/src/styles/style.css">
@@ -18,8 +18,10 @@
     
     <style>
         
-        .content-width {
-            max-width: 1800px;
+        @media screen and (min-width: 930px) {
+            .content-width {
+                max-width: 900px;
+            }
         }
         
     </style>
@@ -48,51 +50,26 @@
         </div>
     </nav>
     
-        <div id="page-heading"><h1 class="bar accent">Hello</h1></div>
+        <div id="page-heading"><h1 class="bar accent">Media</h1></div>
     
+    
+    <nav class="breadcrumb content-width" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span> / </span>
+        <span>Media</span>
+    </nav>
     
 
-        <main class="content-width">
-        <div id="header-grid">
-            <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div>
-            <div id="welcome">
-                <h1>I'm Michael, and this is my website.</h1>
-                <p>This is the home page, and on it there are some things that you can look at.</p>
-                <p>I change this site regularly, so expect it to shift, and watch for hidden dangers.</p>
-            </div>
-        </div>
-        <div id="marquee-back" class="marquee">
-            <div class="marquee_item reverse">
-                <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
-                <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
-                <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
-                <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
-                <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
-            </div>
-            <div class="marquee_item reverse">
-                <span> THIS WEBSITE IS LEGITIMATE SALVAGE &bull; </span>
-                <span> THIS WEBSITE IS BASED ON A TRUE STORY &bull; </span>
-                <span> THIS WEBSITE IS INDISTINGUISHABLE FROM MAGIC &bull; </span>
-                <span> THIS WEBSITE DOUBLES IN PROCESSING CAPACITY EVERY TWO YEARS &bull; </span>
-                <span> TRANS RIGHTS ARE HUMAN RIGHTS &bull; </span>
-            </div>
-        </div>
-        <ul id="home-links" class="no-list flex-row">
+    
+    <main class="content-width">
+        <ul id="media-links" class="no-list flex-row" style="align-items: stretch;">
             <li class="home-card card clickable">
-                <a href="works" class="accent"><h2 class="accent card-title" id="works">WORKS</h2></a>
-                <p>These are the things I have done</p>
+                <a href="music" class="accent"><h2 class="accent card-title">MUSIC</h2></a>
+                <p>I like it</p>
             </li>
-            <li class="home-card card clickable" id="media">
-                <a href="media" class="accent"><h2 class="accent card-title">MEDIA</h2></a>
-                <p>Music, books, and more</p>
-            </li>
-            <li class="home-card card clickable" id="say hi">
-                <a href="about" class="accent"><h2 class="accent card-title">SAY HI</h2></a>
-                <p>hello</p>
-            </li>
-            <li class="home-card card clickable" id="typography">
-                <a href="fonts" class="accent"><h2 class="accent card-title">FONTS</h2></a>
-                <p>The fonts from this website</p>
+            <li class="home-card card clickable">
+                <a href="books" class="accent"><h2 class="accent card-title">BOOKS</h2></a>
+                <p>Books I've read, books I'm reading, books I want to read</p>
             </li>
         </ul>
     </main>

@@ -18,7 +18,7 @@
     
     <style>
         
-        main {
+        .content-width {
             max-width: 1800px;
         }
         
@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <nav class="animated-links">
+    <nav class="main-nav animated-links">
         <div class="flex-row width-full center-aligned" id="me-link">
             <picture><source type="image/webp" srcset="/img/bnHyl0iqfn-20.webp 20w"><img id="square" src="/img/bnHyl0iqfn-20.jpeg" width="20" height="20" alt="An orange square"></picture>
             <a href="/"><h1 class="mondia-thin accent">Michael Levy</h1></a>
@@ -40,7 +40,7 @@
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
             <a href="/lab/">Lab</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
-            <a href="/music/">Music</a>
+            <a href="/media/">Media</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
             <a href="/about/">About</a>
             <picture><source type="image/webp" srcset="/img/EXxJE3slO4-50.webp 50w"><img src="/img/EXxJE3slO4-50.jpeg" class="svg" alt="Decorative circle" width="50" height="50"></picture>
@@ -50,9 +50,16 @@
     
         <div id="page-heading"><h1 class="bar accent">Typography</h1></div>
     
+    
+    <nav class="breadcrumb content-width" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        <span> / </span>
+        <span>Fonts</span>
+    </nav>
+    
 
     
-    <main>
+    <main class="content-width">
         <p>All of these are <a href="https://openfontlicense.org/">open fonts</a> (except mondia)</p>
         
         <div class="card round font-card" id="CormorantGaramond">
