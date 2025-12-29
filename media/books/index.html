@@ -173,8 +173,8 @@
                 <tr>
                     <th data-column="series" class="sortable">Series / Title</th>
                     <th data-column="author" class="sortable">Author</th>
-                    <th data-column="rating" class="sortable">Avg Rating</th>
-                    <th data-column="date" class="sortable">Latest Date</th>
+                    <th data-column="rating" class="sortable">Rating</th>
+                    <th data-column="date" class="sortable">Last Read Date</th>
                     <th>Notes</th>
                 </tr>
             </thead>
@@ -289,7 +289,7 @@
                 <td>${latestDate}</td>
                 <td>
                     ${!isExpandable && hasNotes ?
-                        '<button class="notes-toggle-single" data-series-idx="' + seriesIdx + '" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); border: 1px solid var(--accent); color: var(--text);">+</button>'
+                        '<button class="notes-toggle-single" data-series-idx="' + seriesIdx + '" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text);">+</button>'
                         : ''}
                 </td>
             `;
@@ -326,7 +326,7 @@
                         <td>${book.date_finished}</td>
                         <td>
                             ${book.notes && book.notes.trim() !== '' ?
-                                '<button class="notes-toggle" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); border: 1px solid var(--accent); color: var(--text);">+</button>'
+                                '<button class="notes-toggle" style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: \'FiraCode\'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text);">+</button>'
                                 : ''}
                         </td>
                     `;
