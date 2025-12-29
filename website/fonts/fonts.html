@@ -6,9 +6,12 @@ permalink: fonts.html
 width: full
 css:
 - /website/fonts/fonts.css
+eleventyNavigation:
+  key: Fonts
+  order: 5
 ---
 
-    <main>
+    <main class="content-width">
         <p>All of these are <a href="https://openfontlicense.org/">open fonts</a> (except mondia)</p>
         {% for font in fonts %}
         <div class="card round font-card" id="{{ font.id }}">

@@ -1,0 +1,5960 @@
+[
+  {
+    "title": "The Spirit Thief",
+    "author": "Rachel Aaron",
+    "series": "The Legend of Eli Monpress",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": "can't be bothered with the rest"
+  },
+  {
+    "title": "The Blade Itself",
+    "author": "Joe Abercrombie",
+    "series": "The First Law",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "This is what grimdark should be"
+  },
+  {
+    "title": "Before They Are Hanged",
+    "author": "Joe Abercrombie",
+    "series": "The First Law",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Last Argument of Kings",
+    "author": "Joe Abercrombie",
+    "series": "The First Law",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": "It's like GOT but better"
+  },
+  {
+    "title": "Best Served Cold",
+    "author": "Joe Abercrombie",
+    "series": "First Law World",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Heroes",
+    "author": "Joe Abercrombie",
+    "series": "First Law World",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Red Country",
+    "author": "Joe Abercrombie",
+    "series": "First Law World",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Sharp Ends",
+    "author": "Joe Abercrombie",
+    "series": "First Law World",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Little Hatred",
+    "author": "Joe Abercrombie",
+    "series": "Age of Madness",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020, 18/01/22",
+    "notes": ""
+  },
+  {
+    "title": "The Trouble With Peace",
+    "author": "Joe Abercrombie",
+    "series": "Age of Madness",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "22/01/22",
+    "notes": ""
+  },
+  {
+    "title": "The Wisdom of Crowds",
+    "author": "Joe Abercrombie",
+    "series": "Age of Madness",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "01/03/22",
+    "notes": "literarily (?) speaking it's 10/10, but it sometimes falls on the wrong side of 'grimdark' and 'sickening'"
+  },
+  {
+    "title": "Half a King",
+    "author": "Joe Abercrombie",
+    "series": "Shattered Sea",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "22/01/20",
+    "notes": ""
+  },
+  {
+    "title": "Half the World",
+    "author": "Joe Abercrombie",
+    "series": "Shattered Sea",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "02/02/20",
+    "notes": ""
+  },
+  {
+    "title": "Half a War",
+    "author": "Joe Abercrombie",
+    "series": "Shattered Sea",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "12/02/20",
+    "notes": ""
+  },
+  {
+    "title": "The Goblin Emperor",
+    "author": "Katherine Addison",
+    "series": "The Goblin Emperor",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "29/01/22",
+    "notes": ""
+  },
+  {
+    "title": "Witness for the Dead",
+    "author": "Katherine Addison",
+    "series": "The Goblin Emperor",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "15/03/22",
+    "notes": "much quieter than the previous book, still good"
+  },
+  {
+    "title": "Grief of Stones",
+    "author": "Katherine Addison",
+    "series": "The Goblin Emperor",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "05/09/22",
+    "notes": ""
+  },
+  {
+    "title": "Light from Uncommon Stars",
+    "author": "Ryka Aoki",
+    "series": "Light from Uncommon Stars",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "16/12/21",
+    "notes": ""
+  },
+  {
+    "title": "Foundation",
+    "author": "Isaac Asimov",
+    "series": "Foundation",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Foundation and Empire",
+    "author": "Isaac Asimov",
+    "series": "Foundation",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Second Foundation",
+    "author": "Isaac Asimov",
+    "series": "Foundation",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "plot was good, characters weren't great"
+  },
+  {
+    "title": "Foundations Edge",
+    "author": "Isaac Asimov",
+    "series": "Foundation",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "other way around now? Most of the plot seemed to happen off screen.. it wasn't even mostly about the Empire"
+  },
+  {
+    "title": "Foundation and Earth",
+    "author": "Isaac Asimov",
+    "series": "Foundation",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Gods Themselves",
+    "author": "Isaac Asimov",
+    "series": "The Gods Themselves",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Emma",
+    "author": "Jane Austen",
+    "series": "Emma",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Best of 2019 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "25/02/20",
+    "notes": ""
+  },
+  {
+    "title": "Fall 2019 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "03/02/20",
+    "notes": ""
+  },
+  {
+    "title": "Winter 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "12/05/20",
+    "notes": "I don't know what to do with all the authors of a short story book, I had not prepared for this"
+  },
+  {
+    "title": "March-April 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "20/05/20",
+    "notes": ""
+  },
+  {
+    "title": "May-June 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "28/01/21",
+    "notes": ""
+  },
+  {
+    "title": "July-August 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "16/10/20",
+    "notes": ""
+  },
+  {
+    "title": "September-October 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "2/01/21",
+    "notes": ""
+  },
+  {
+    "title": "November-December 2020 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "13/01/21",
+    "notes": ""
+  },
+  {
+    "title": "January-February 2021 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "19/03/21",
+    "notes": ""
+  },
+  {
+    "title": "March-April 2021 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "15/05/21",
+    "notes": ""
+  },
+  {
+    "title": "January-February 2022 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "09/04/22",
+    "notes": ""
+  },
+  {
+    "title": "March-April 2022 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "17/06/22",
+    "notes": ""
+  },
+  {
+    "title": "September-October 2022 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "13/11/22",
+    "notes": ""
+  },
+  {
+    "title": "Spring 2023  TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "23/10/23",
+    "notes": ""
+  },
+  {
+    "title": "Summer 2023 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "28/11/23",
+    "notes": ""
+  },
+  {
+    "title": "Nov-Dec 2023 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "01/08/24",
+    "notes": ""
+  },
+  {
+    "title": "Jan-Feb 2024 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "14/06/24",
+    "notes": ""
+  },
+  {
+    "title": "March-April 2024 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "20/12/24",
+    "notes": ""
+  },
+  {
+    "title": "May-June 2024 TOR.com Short Fiction",
+    "author": "Many Authors",
+    "series": "TOR.com short fiction",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "20/01/25",
+    "notes": ""
+  },
+  {
+    "title": "Red Queen",
+    "author": "Victoria Aveyard",
+    "series": "Red Queen",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "12/02/20",
+    "notes": ""
+  },
+  {
+    "title": "The Windup Girl",
+    "author": "Paolo Bacigalupi",
+    "series": "The Windup Girl",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "09/10/23",
+    "notes": ""
+  },
+  {
+    "title": "The Darkness That Comes Before",
+    "author": "R. Scott Baker",
+    "series": "The Prince of Nothing",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Warrior Prophet",
+    "author": "R. Scott Baker",
+    "series": "The Prince of Nothing",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Thousandfold Thought",
+    "author": "R. Scott Baker",
+    "series": "The Prince of Nothing",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Senlin Ascends",
+    "author": "Josiah Bancroft",
+    "series": "The Books of Babel",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "19/10/22",
+    "notes": ""
+  },
+  {
+    "title": "Arm of the Sphinx",
+    "author": "Josiah Bancroft",
+    "series": "The Books of Babel",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "26/10/22",
+    "notes": ""
+  },
+  {
+    "title": "The Hod King",
+    "author": "Josiah Bancroft",
+    "series": "The Books of Babel",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "14/12/22",
+    "notes": ""
+  },
+  {
+    "title": "The Fall of Babel",
+    "author": "Josiah Bancroft",
+    "series": "The Books of Babel",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "21/11/23",
+    "notes": ""
+  },
+  {
+    "title": "Consider Phlebas",
+    "author": "Ian M. Banks",
+    "series": "Culture",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "02/12/23",
+    "notes": ""
+  },
+  {
+    "title": "The Language of Thorns: Midnight Tales and Dangerous Magic",
+    "author": "Leigh Bardugo",
+    "series": "The Language of Thorns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Proxima",
+    "author": "Stephen Baxter",
+    "series": "Proxima/Ultima",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Ultima",
+    "author": "Stephen Baxter",
+    "series": "Proxima/Ultima",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "Stupid long titles"
+  },
+  {
+    "title": "obelisk",
+    "author": "Stephen Baxter",
+    "series": "Obelisk",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long Earth",
+    "author": "Terry Pratchett and Stephen Baxter",
+    "series": "The Long Earth",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long War",
+    "author": "Terry Pratchett and Stephen Baxter",
+    "series": "The Long Earth",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long Mars",
+    "author": "Terry Pratchett and Stephen Baxter",
+    "series": "The Long Earth",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long Utopia",
+    "author": "Terry Pratchett and Stephen Baxter",
+    "series": "The Long Earth",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long Cosmos",
+    "author": "Terry Pratchett and Stephen Baxter",
+    "series": "The Long Earth",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Last Unicorn",
+    "author": "Peter Beagle",
+    "series": "The Last Unicorn",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "13/11/22",
+    "notes": ""
+  },
+  {
+    "title": "Circle of Friends",
+    "author": "Maeve Binchy",
+    "series": "Circle of Friends",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/07/20",
+    "notes": "Got progressively odder"
+  },
+  {
+    "title": "Servant of the Underworld",
+    "author": "Aliette de Bodard",
+    "series": "Obsidian and Blood",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "I didn't really.. get it?"
+  },
+  {
+    "title": "Harbinger of the Storm",
+    "author": "Aliette de Bodard",
+    "series": "Obsidian and Blood",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Master of the House of Darts",
+    "author": "Aliette de Bodard",
+    "series": "Obsidian and Blood",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Aleph and Other Stories",
+    "author": "Jorge Luis Borges",
+    "series": "The Aleph and Other Stories",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Green Rider",
+    "author": "Kristen Britain",
+    "series": "Green Rider",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "First Rider's Call",
+    "author": "Kristen Britain",
+    "series": "Green Rider",
+    "read": "Read",
+    "rating": "6",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Blackveil",
+    "author": "Kristen Britain",
+    "series": "Green Rider",
+    "read": "Read",
+    "rating": "6",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The High King's Tomb",
+    "author": "Kristen Britain",
+    "series": "Green Rider",
+    "read": "Read",
+    "rating": "6",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow of the Conquerer",
+    "author": "Shad Brooks",
+    "series": "Chronicles of Everfall",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Red Rising",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "I know I didn't finish the series, I just couldn't be bothered"
+  },
+  {
+    "title": "Golden Son",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Morning Star",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Iron Gold",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Dark Age",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Untitled",
+    "author": "Pierce Brown",
+    "series": "Red Rising Saga",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Sweetdark",
+    "author": "Savannah Brown",
+    "series": "Sweetdark",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "04/07/21, 16/06/23",
+    "notes": ""
+  },
+  {
+    "title": "Closer Baby Closer",
+    "author": "Savannah Brown",
+    "series": "Closer Baby Closer",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "28/02/23",
+    "notes": ""
+  },
+  {
+    "title": "The Truth About Keeping Secrets",
+    "author": "Savannah Brown",
+    "series": "The Truth About Keeping Secrets",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "26/02/24",
+    "notes": ""
+  },
+  {
+    "title": "Storm Front",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "12/11/22",
+    "notes": ""
+  },
+  {
+    "title": "Fool Moon",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Grave Peril",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Summer Knight",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Death Masks",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Blood Rites",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Dead Beat",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Proven Guilty",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "White Night",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Small Favor",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Turn Coat",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Changes",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Ghost Story",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Cold Days",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Skin Game",
+    "author": "Jim Butcher",
+    "series": "Dresden Files",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Furies of Calderon",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Academ's Fury",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Cursor's Fury",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Captain's Fury",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Princeps' Fury",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "First Lord's Fury",
+    "author": "Jim Butcher",
+    "series": "Codex Alera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Parable of the Sower",
+    "author": "Octavia E. Butler",
+    "series": "Earthseed",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Parable of the Talents",
+    "author": "Octavia E. Butler",
+    "series": "Earthseed",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Ender's Game",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020, 16/02/21",
+    "notes": ""
+  },
+  {
+    "title": "Speaker for the Dead",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Xenocide",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Children of the Mind",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Ender's Shadow",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow of the Hegemon",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow Puppets",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow of the Giant",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow's in Flight",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Ender in Exile",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Earth Unaware",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "Worse than the others"
+  },
+  {
+    "title": "Earth Afire",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Earth Awakens",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Swarm",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Children of the Fleet",
+    "author": "Orson Scott Card",
+    "series": "Ender's Game",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Graceling",
+    "author": "Kristen Cashore",
+    "series": "Graceling Realm",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Fire",
+    "author": "Kristen Cashore",
+    "series": "Graceling Realm",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Bitterblue",
+    "author": "Kristen Cashore",
+    "series": "Graceling Realm",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Long Way to a Small, Angry Planet",
+    "author": "Becky Chambers",
+    "series": "Wayfarers",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Closed and Common Orbit",
+    "author": "Becky Chambers",
+    "series": "Wayfarers",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Record of a Spaceborn Few",
+    "author": "Becky Chambers",
+    "series": "Wayfarers",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020, 25/01/20",
+    "notes": ""
+  },
+  {
+    "title": "To Be Taught, If Fortunate",
+    "author": "Becky Chambers",
+    "series": "To Be Taught, If Fortunate",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "3/07/20",
+    "notes": ""
+  },
+  {
+    "title": "A Psalm for the Wild-Built",
+    "author": "Becky Chambers",
+    "series": "A Psalm for the Wild-Built",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "18/02/22",
+    "notes": ""
+  },
+  {
+    "title": "A Prayer for the Crown-Shy",
+    "author": "Becky Chambers",
+    "series": "A Psalm for the Wild-Built",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "13/11/22",
+    "notes": "mmm"
+  },
+  {
+    "title": "The Galaxy, and the Ground Within",
+    "author": "Becky Chambers",
+    "series": "Wayfarers",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "28/03/21",
+    "notes": "\"it is enough to exist in the world and marvel at it\""
+  },
+  {
+    "title": "The Demon King",
+    "author": "Cinda Chima",
+    "series": "The Seven Realms",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Exiled Queen",
+    "author": "Cinda Chima",
+    "series": "The Seven Realms",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Gray Wolf Throne",
+    "author": "Cinda Chima",
+    "series": "The Seven Realms",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Crimson Crown",
+    "author": "Cinda Chima",
+    "series": "The Seven Realms",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Sorceror to the Crown",
+    "author": "Zen Cho",
+    "series": "Sorceror to the Crown",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Wicked As You Wish",
+    "author": "Rin Chupeco",
+    "series": "A Hundred Name for Magic",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Bones",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Ashes",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Glass",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Ciity of Fallen Angels",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Lost Souls",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Heavenly Fire",
+    "author": "Cassandra Clare",
+    "series": "The Mortal Instruments",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Haunting of Tram Cat 015",
+    "author": "P. Djèlí Clark",
+    "series": "Haunting of Tram Cat 015",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "28/11/20",
+    "notes": ""
+  },
+  {
+    "title": "Jonathan Strange and Mr Norrel",
+    "author": "Susanna Clarke",
+    "series": "Jonathan Strange and Mr Norrel",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "25/04/20",
+    "notes": ""
+  },
+  {
+    "title": "Leviathan Wakes",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "20/07/21",
+    "notes": ""
+  },
+  {
+    "title": "Caliban's War",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "1/08/21",
+    "notes": ""
+  },
+  {
+    "title": "Abbadon's Gate",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "19/08/21",
+    "notes": "Those miller on eros sequences were incredible"
+  },
+  {
+    "title": "Cibola Burn",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "28/09/21",
+    "notes": ""
+  },
+  {
+    "title": "Nemesis Games",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "29/11/21",
+    "notes": ""
+  },
+  {
+    "title": "Babylon's Ashes",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "5/12/21",
+    "notes": ""
+  },
+  {
+    "title": "Persepolis Rising",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "16/12/21",
+    "notes": ""
+  },
+  {
+    "title": "Tiamat's Wrath",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "28/12/21",
+    "notes": ""
+  },
+  {
+    "title": "Leviathan Falls",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "23/01/22",
+    "notes": ""
+  },
+  {
+    "title": "Memory's Legion",
+    "author": "James S.A. Corey",
+    "series": "The Expanse",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "28/04/22",
+    "notes": ""
+  },
+  {
+    "title": "The Mercy of Gods",
+    "author": "James S.A. Corey",
+    "series": "The Captive's War",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "01/07/25",
+    "notes": "Yes. A perfect end. Thank you."
+  },
+  {
+    "title": "The Faith of Beasts",
+    "author": "James S.A. Corey",
+    "series": "The Captive's War",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Sightwitch",
+    "author": "Susan Dennard",
+    "series": "Witchlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Truthwitch",
+    "author": "Susan Dennard",
+    "series": "Witchlands",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "17/05/20",
+    "notes": ""
+  },
+  {
+    "title": "Windwitch",
+    "author": "Susan Dennard",
+    "series": "Witchlands",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "8/09/20",
+    "notes": ""
+  },
+  {
+    "title": "Bloodwitch",
+    "author": "Susan Dennard",
+    "series": "Witchlands",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "17/11/20",
+    "notes": ""
+  },
+  {
+    "title": "Witchshadow",
+    "author": "Susan Dennard",
+    "series": "Witchlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Traitor Baru Cormorant",
+    "author": "Seth Dickinson",
+    "series": "The Masquerade",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020, 15/07/20",
+    "notes": ""
+  },
+  {
+    "title": "The Monster Baru Cormorant",
+    "author": "Seth Dickinson",
+    "series": "The Masquerade",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020, 01/10/20",
+    "notes": "honestly can't be bothered"
+  },
+  {
+    "title": "The Tyrant Baru Cormorant",
+    "author": "Seth Dickinson",
+    "series": "The Masquerade",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "06/10/20",
+    "notes": "aaaaaah"
+  },
+  {
+    "title": "Cloud Cuckoo Land",
+    "author": "Anthony Doerr",
+    "series": "Cloud Cuckoo Land",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "05/01/22",
+    "notes": "I feel uncomfortable"
+  },
+  {
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "series": "Crime and Punishment",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "wow alright"
+  },
+  {
+    "title": "BattleAxe",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Enchanter",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "StarMan",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Sinner",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Pilgrim",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Crusader",
+    "author": "Sara Douglas",
+    "series": "Wayfarer Redemption",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Out of My Mind",
+    "author": "Sharon M. Draper",
+    "series": "Out of My Mind",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "05/02/20",
+    "notes": ""
+  },
+  {
+    "title": "Miranda in Milan",
+    "author": "Katharine Duckett",
+    "series": "Miranda in Milan",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "05/08/20",
+    "notes": ""
+  },
+  {
+    "title": "On The Edge of Gone",
+    "author": "Corinne Duyvis",
+    "series": "On The Edge of Gone",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Kings of the Wyld",
+    "author": "Nicholas Eames",
+    "series": "The Band",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Bloody Rose",
+    "author": "Nicholas Eames",
+    "series": "The Band",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Outlaw Empire",
+    "author": "Nicholas Eames",
+    "series": "The Band",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Pawn of Prophecy",
+    "author": "David Eddings",
+    "series": "The Belgariad",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Queen of Sourcery",
+    "author": "David Eddings",
+    "series": "The Belgariad",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Magician's Gambit",
+    "author": "David Eddings",
+    "series": "The Belgariad",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Castle of Wizardry",
+    "author": "David Eddings",
+    "series": "The Belgariad",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Enchanter's End Game",
+    "author": "David Eddings",
+    "series": "The Belgariad",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Guardian's of the West",
+    "author": "David Eddings",
+    "series": "The Malloreon",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "King of the Murgos",
+    "author": "David Eddings",
+    "series": "The Malloreon",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Demon Lord of Karanda",
+    "author": "David Eddings",
+    "series": "The Malloreon",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Sorceress of Darshiva",
+    "author": "David Eddings",
+    "series": "The Malloreon",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Seeress of Kell",
+    "author": "David Eddings",
+    "series": "The Malloreon",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Axiom's End",
+    "author": "Lindsay Ellis",
+    "series": "Noumena",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "26/02/21",
+    "notes": ""
+  },
+  {
+    "title": "Truth of the Divine",
+    "author": "Lindsay Ellis",
+    "series": "Noumena",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "11/06/22",
+    "notes": ""
+  },
+  {
+    "title": "Gardens of the Moon",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "20/04/22",
+    "notes": ""
+  },
+  {
+    "title": "Deadhouse Gates",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "29/08/22",
+    "notes": "very well written but mainly just distressing"
+  },
+  {
+    "title": "Memories of Ice",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "01/09/22",
+    "notes": ""
+  },
+  {
+    "title": "House of Chains",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "04/10/22",
+    "notes": ""
+  },
+  {
+    "title": "Midnight Tides",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "10/11/22",
+    "notes": ""
+  },
+  {
+    "title": "The Bonehunters",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "04/01/24",
+    "notes": ""
+  },
+  {
+    "title": "Reaper's Gale",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "28/03/24",
+    "notes": ""
+  },
+  {
+    "title": "Toll the Hounds",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "10/05/24",
+    "notes": ""
+  },
+  {
+    "title": "Dust of Dreams",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "18/05/24",
+    "notes": "trull didn't deserve this"
+  },
+  {
+    "title": "The Crippled God",
+    "author": "Steven Erikson",
+    "series": "Malazan Book of the Fallen",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "16/06/24",
+    "notes": ""
+  },
+  {
+    "title": "Shoko's Smile",
+    "author": "Choi Eun-young",
+    "series": "Shoko's Smile",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Life and Times of Eddie McGrath",
+    "author": "Brigid Feehan",
+    "series": "The Life and Times of Eddie McGrath",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "04/05/21",
+    "notes": ""
+  },
+  {
+    "title": "My Murderous Summer",
+    "author": "Brigid Feehan",
+    "series": "My Murderoud Summer",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "12/01/24",
+    "notes": ""
+  },
+  {
+    "title": "Magician",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "who could have written this??"
+  },
+  {
+    "title": "Silverthorn",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Darkness at Sethanon",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Daughter of the Empire",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Servant of the Empire",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Misttress of the Empire",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Prince of the Blood",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The King's Buccaneer",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow of a Dark Queen",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Rise of a Merchant Prince",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Rage of a Demon King",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shards of a Broken Crown",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Krondor: The Betrayal",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Krondor: The Assassins",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Krondor: Tear of the Gods",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Jimmy and the Crawler",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Talon of the Silver Hawk",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "King of Foxes",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Exile's Return",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Flight of the Nighthaeks",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Into a Dark Realm",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Wrath of a Mad God",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Rides a Dread Legion",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "At the Gates of Darkness",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": "Did he seriously just do that? I mean (SPOILERS), as a general rule of thumb crashing moons into populated planets is a no - I understand there was a big monster, but everyone trying to kill it as opposed to the whole moon thing would be a course of action that I would feel is better. I mean, if he's capable of crashing a moon into a planet then I feel like there's a reasonable chance he can hit it hard enough to make it go away without also killing billions of people y'know?"
+  },
+  {
+    "title": "A Kingdom Besieged",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Crown Imperiled",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Magician's End",
+    "author": "Raymond Feist",
+    "series": "Riftwar Cycle",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "King of Ashes",
+    "author": "Raymond Feist",
+    "series": "The Firemane Saga",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "dead collections",
+    "author": "Isaac Fellman",
+    "series": "dead collections",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Sharp Objects",
+    "author": "Gillian Flynn",
+    "series": "Sharp Objects",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "Good story, but has a thing about sex"
+  },
+  {
+    "title": "The Ensemble",
+    "author": "Aja Gabel",
+    "series": "The Ensemble",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "29/11/23",
+    "notes": ""
+  },
+  {
+    "title": "Magic for Liars",
+    "author": "Sarah Gailey",
+    "series": "Magic for Liars",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "10/10/22",
+    "notes": ""
+  },
+  {
+    "title": "American Gods",
+    "author": "Neil Gaiman",
+    "series": "American Gods",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Good Omens",
+    "author": "Terry Pratchet and Neil Gaiman",
+    "series": "Good Omens",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 202",
+    "notes": ""
+  },
+  {
+    "title": "The Ocean at the End of the Lane",
+    "author": "Neil Gaiman",
+    "series": "The Ocean at the End of the Lane",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "series": "Sprawl",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Count Zero",
+    "author": "William Gibson",
+    "series": "Sprawl",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Mona Lisa Overdrive",
+    "author": "William Gibson",
+    "series": "Sprawl",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Three Parts Dead",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Two Serpents Rise",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Full Fathom Five",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "Why is this series all out of order and weird aah"
+  },
+  {
+    "title": "Last First Snow",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Four Roads Cross",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Ruin of Angels",
+    "author": "Max Gladstone",
+    "series": "Craft Sequence",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Empress of Forever",
+    "author": "Max Gladstone",
+    "series": "Empress of Forever",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "07/11/20",
+    "notes": ""
+  },
+  {
+    "title": "This is how you lose the time war",
+    "author": "Max Gladstone",
+    "series": "This is how you lose the time war",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "09/03/20",
+    "notes": ""
+  },
+  {
+    "title": "The Hands of the Emperor",
+    "author": "Victoria Goddard",
+    "series": "Nine Worlds",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Where the God-Knives Tread",
+    "author": "A.L. Goldfuss",
+    "series": "Where the God-Knives Tread",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "26/02/24",
+    "notes": ""
+  },
+  {
+    "title": "Paper Towns",
+    "author": "John Green",
+    "series": "Paper Towns",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "16/05/23",
+    "notes": ""
+  },
+  {
+    "title": "Turtles All the Way Down",
+    "author": "John Green",
+    "series": "Turtles All the Way Down",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "30/05/23",
+    "notes": ""
+  },
+  {
+    "title": "Malice",
+    "author": "John Gwynne",
+    "series": "The Faithful and the Fallen",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "09/06/21",
+    "notes": ""
+  },
+  {
+    "title": "Valor",
+    "author": "John Gwynne",
+    "series": "The Faithful and the Fallen",
+    "read": "Read",
+    "rating": "6",
+    "date_finished": "04/07/21",
+    "notes": ""
+  },
+  {
+    "title": "The Midnight Library",
+    "author": "Matt Haig",
+    "series": "The Midnight Library",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "22/11/23",
+    "notes": ""
+  },
+  {
+    "title": "Dragonsbane",
+    "author": "Barbara Hambly",
+    "series": "Winterlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Dragonshadow",
+    "author": "Barbara Hambly",
+    "series": "Winterlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Knight of the Demon Queen",
+    "author": "Barbara Hambly",
+    "series": "Winterlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "dragon"
+  },
+  {
+    "title": "Dragonstar",
+    "author": "Barbara Hambly",
+    "series": "Winterlands",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "dragon"
+  },
+  {
+    "title": "Ten Thousand Doors of January",
+    "author": "Alix Harrow",
+    "series": "Ten Thousand Doors of January",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "26/10/20, 31/06/22",
+    "notes": "KNIGHT OF THE DEMON QUEEN"
+  },
+  {
+    "title": "Dune",
+    "author": "Frank Herbet",
+    "series": "Dune",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "dragon"
+  },
+  {
+    "title": "Dune Messiah",
+    "author": "Frank Herbet",
+    "series": "Dune",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Assassin's Apprentice",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Royal Assassin",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Assassin's Quest",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Ship of Magic",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "30/06/20",
+    "notes": ""
+  },
+  {
+    "title": "The Mad Ship",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "10/08/20",
+    "notes": ""
+  },
+  {
+    "title": "Ship of Destiny",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "1/09/20",
+    "notes": "Excellent book if you're a masochist"
+  },
+  {
+    "title": "Fool's Errand",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Golden Fool",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "Almost enough to make the previous two books worth it"
+  },
+  {
+    "title": "Fool's Fate",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Dragon Keeper",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Dragon Haven",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "City of Dragons",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Blood of Dragons",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Fool's Assassin",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Fool's Quest",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Assassin's Fate",
+    "author": "Robin Hobb",
+    "series": "The Realm of the Elderlings",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Zero Sum Game",
+    "author": "S.L. Huang",
+    "series": "Zero Sum Game",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Light Brigade",
+    "author": "Kameron Hurley",
+    "series": "The Light Brigade",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Shadow of What Was Lost",
+    "author": "James Islington",
+    "series": "Licanius Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "An Echo of Things to Come",
+    "author": "James Islington",
+    "series": "Licanius Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Light of All That Falls",
+    "author": "James Islington",
+    "series": "Licanius Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Fifth Season",
+    "author": "N.K Jemisin",
+    "series": "The Broken Earth",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "15/03/20, 13/01/25",
+    "notes": ""
+  },
+  {
+    "title": "The Obelisk Gate",
+    "author": "N.K Jemisin",
+    "series": "The Broken Earth",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "22/03/20, 23/05/25",
+    "notes": ""
+  },
+  {
+    "title": "The Stone Sky",
+    "author": "N.K Jemisin",
+    "series": "The Broken Earth",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "17/06/20",
+    "notes": ""
+  },
+  {
+    "title": "The Hundred Thousand Kingdoms",
+    "author": "N.K. Jemisin",
+    "series": "The Inheritance Trilogy",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "8/01/21",
+    "notes": ""
+  },
+  {
+    "title": "The Broken Kingdoms",
+    "author": "N.K. Jemisin",
+    "series": "The Inheritance Trilogy",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "8/02/21",
+    "notes": "pain"
+  },
+  {
+    "title": "The Kingdom of Gods",
+    "author": "N.K. Jemisin",
+    "series": "The Inheritance Trilogy",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "10/02/21",
+    "notes": ""
+  },
+  {
+    "title": "The City We Became",
+    "author": "N.K. Jemisin",
+    "series": "Great Cities",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "10/08/22",
+    "notes": ""
+  },
+  {
+    "title": "Mr Pip",
+    "author": "Lloyd Jones",
+    "series": "Mr Pip",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "mildly disatisfying ending but as always jemisin's setting, character and themes are excellent"
+  },
+  {
+    "title": "Warrior of the Altaii",
+    "author": "Robert Jordan",
+    "series": "Warrior of the Altaii",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "20/06/20",
+    "notes": ""
+  },
+  {
+    "title": "New Spring",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "5/02/20",
+    "notes": "read for school"
+  },
+  {
+    "title": "The Eye of the World",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Great Hunt",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Dragon Reborn",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Shadow Rising",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Fires of Heaven",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Lord of Chaos",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Crown of Swords",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Path of Daggers",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Winter's Heart",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Crossroads of Twilight",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Knife of Dreams",
+    "author": "Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Towers of Midnight",
+    "author": "Brandon Sanderson & Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "It's just the last book again"
+  },
+  {
+    "title": "A Memory of Light",
+    "author": "Brandon Sanderson & Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Gathering Storm",
+    "author": "Brandon Sanderson & Robert Jordan",
+    "series": "Wheel of Time",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Tigana",
+    "author": "Guy Gavriel Kay",
+    "series": "Tigana",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "20/12/20",
+    "notes": "By the Light, what an ending!"
+  },
+  {
+    "title": "Hammers on Bone",
+    "author": "Cassandra Khaw",
+    "series": "Persons Non Grata",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "21/09/21",
+    "notes": ""
+  },
+  {
+    "title": "A Song for Quiet",
+    "author": "Cassandra Khaw",
+    "series": "Persons Non Grata",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "06/07/22",
+    "notes": ""
+  },
+  {
+    "title": "Dreamhunter",
+    "author": "Elizabeth Knox",
+    "series": "Dreamhunter Duet",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Dreamquake",
+    "author": "Elizabeth Knox",
+    "series": "Dreamhunter Duet",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Mortal Fire",
+    "author": "Elizabeth Knox",
+    "series": "Mortal Fire",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Calculating Stars",
+    "author": "Mary Robinette Kowal",
+    "series": "Lady Astronaut",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "Randomly introduced magic with no explanation???"
+  },
+  {
+    "title": "The Fated Sky",
+    "author": "Mary Robinette Kowal",
+    "series": "Lady Astronaut",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "ditto"
+  },
+  {
+    "title": "The Relentless Moon",
+    "author": "Mary Robinette Kowal",
+    "series": "Lady Astronaut",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "The Poppy War",
+    "author": "R.F. Kuang",
+    "series": "The Poppy War",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "The Dragon Republic",
+    "author": "R.F. Kuang",
+    "series": "The Poppy War",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Burning God",
+    "author": "R.F. Kuang",
+    "series": "The Poppy War",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "23/12/20",
+    "notes": "It started out being quite tropey but hang in there"
+  },
+  {
+    "title": "Babel",
+    "author": "R.F. Kuang",
+    "series": "Babel",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "11/01/23",
+    "notes": "I feel deeply uneasy"
+  },
+  {
+    "title": "Skullduggery Pleasant",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "sobs"
+  },
+  {
+    "title": "Playing with Fire",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Faceless One",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Dark Days",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Mortal Coil",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Death Bringer",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Kingdom of the Wicked",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Maleficent Seven",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Last Stand of Dead Men",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Dying of the Light",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Resurrection",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Midnight",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Armageddon Outta Here",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Bedlam",
+    "author": "Derek Landy",
+    "series": "Skullduggery Pleasant",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Unspoken Name",
+    "author": "A.K Larkwood",
+    "series": "The Serpent Gates",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "23/03/21",
+    "notes": ""
+  },
+  {
+    "title": "The Thousand Eyes",
+    "author": "A.K Larkwood",
+    "series": "The Serpent Gates",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "05/05/22",
+    "notes": ""
+  },
+  {
+    "title": "Prince of Thorns",
+    "author": "Mark Lawrence",
+    "series": "The Broken Empire",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "King of Thorns",
+    "author": "Mark Lawrence",
+    "series": "The Broken Empire",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Emperor of Thorns",
+    "author": "Mark Lawrence",
+    "series": "The Broken Empire",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Prince of Fools",
+    "author": "Mark Lawrence",
+    "series": "The Red Queen's War",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Liar's Key",
+    "author": "Mark Lawrence",
+    "series": "The Red Queen's War",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Wheel of Osheim",
+    "author": "Mark Lawrence",
+    "series": "The Red Queen's War",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Red Sister",
+    "author": "Mark Lawrence",
+    "series": "Book of the Ancestor",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Grey Sister",
+    "author": "Mark Lawrence",
+    "series": "Book of the Ancestor",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Holy Sister",
+    "author": "Mark Lawrence",
+    "series": "Book of the Ancestor",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Ancillary Justice",
+    "author": "Ann Leckie",
+    "series": "Imperial Radch",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "23/11/21",
+    "notes": ""
+  },
+  {
+    "title": "Extracurricular Activities",
+    "author": "Yoon Ha Lee",
+    "series": "The Machineries of Empire",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "25/08/21",
+    "notes": ""
+  },
+  {
+    "title": "Ninefox Gambit",
+    "author": "Yoon Ha Lee",
+    "series": "The Machineries of Empire",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "21/07/21",
+    "notes": "I feel confused and not intrigued enough to read the rest"
+  },
+  {
+    "title": "Raven Stratagem",
+    "author": "Yoon Ha Lee",
+    "series": "The Machineries of Empire",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "13/08/21",
+    "notes": ""
+  },
+  {
+    "title": "Revenant Gun",
+    "author": "Yoon Ha Lee",
+    "series": "The Machineries of Empire",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "02/09/21",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Jade City",
+    "author": "Fonda Lee",
+    "series": "The Green Bone Saga",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/05/21",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Jade War",
+    "author": "Fonda Lee",
+    "series": "The Green Bone Saga",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "16/06/21",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Jade Legacy",
+    "author": "Fonda Lee",
+    "series": "The Green Bone Saga",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "14/02/22",
+    "notes": ""
+  },
+  {
+    "title": "Bright Dead Things",
+    "author": "Ada Limon",
+    "series": "Bright Dead Things",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "08/07/21",
+    "notes": ""
+  },
+  {
+    "title": "The Grace of Kings",
+    "author": "Ken Liu",
+    "series": "Dandelion Dynasty",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Wall of Storms",
+    "author": "Ken Liu",
+    "series": "Dandelion Dynasty",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Veiled Throne",
+    "author": "Ken Liu",
+    "series": "Dandelion Dynasty",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Afterworld",
+    "author": "Lynnette Lounsbery",
+    "series": "Afterworld",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Three Body Problem",
+    "author": "Cixin Lu",
+    "series": "Remembrance of Earth's Past",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Dark Forest",
+    "author": "Cixin Lu",
+    "series": "Remembrance of Earth's Past",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Death's End",
+    "author": "Cixin Lu",
+    "series": "Remembrance of Earth's Past",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Lies of Locke Lamora",
+    "author": "Scott Lynch",
+    "series": "Gentleman Bastards",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Red Seas Under  Red Skies",
+    "author": "Scott Lynch",
+    "series": "Gentleman Bastards",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "13/06/20",
+    "notes": ""
+  },
+  {
+    "title": "The Republic of Thieves",
+    "author": "Scott Lynch",
+    "series": "Gentleman Bastards",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "20/08/20",
+    "notes": ""
+  },
+  {
+    "title": "A Game of Thrones",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "23/05/21",
+    "notes": ""
+  },
+  {
+    "title": "A Clash of Kings",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "20/06/21",
+    "notes": "Really good but terrible climax"
+  },
+  {
+    "title": "A Storm of Swords",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "15/07/21",
+    "notes": "okay, fine, it's quite good"
+  },
+  {
+    "title": "A Feast for Crows",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "09/08/21",
+    "notes": "I was really hoping I could hate this series and act all superior but it just hasn't happened for me"
+  },
+  {
+    "title": "A Dance with Dragons",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "17/10/21",
+    "notes": ""
+  },
+  {
+    "title": "The Winds of Winter",
+    "author": "George R. R. Martin",
+    "series": "A Song of Ice and Fire",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "I know people dying is the point but I would prefer cool characters stuck around"
+  },
+  {
+    "title": "A Memory Called Empire",
+    "author": "Arkady Martine",
+    "series": "Teixcalaan",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "08/02/20, 26/01/21, 30/08/21, 25/02/24",
+    "notes": ""
+  },
+  {
+    "title": "A Desolation called Peace",
+    "author": "Arkady Martine",
+    "series": "Teixcalaan",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "29/06/21",
+    "notes": ""
+  },
+  {
+    "title": "Rose/House",
+    "author": "Arkady Martine",
+    "series": "Rose/House",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "09/08/25",
+    "notes": "An exhausting and exhilirating political fantasy exploring the possibilities of a strange culture at breakneck pace"
+  },
+  {
+    "title": "Promise of Blood",
+    "author": "Brian McClellan",
+    "series": "Powder Mage",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "aljsfhaljkfjh"
+  },
+  {
+    "title": "The Crimson Campaign",
+    "author": "Brian McClellan",
+    "series": "Powder Mage",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "didn't quite live up to the first 60% which was excellent"
+  },
+  {
+    "title": "The Autumn Republic",
+    "author": "Brian McClellan",
+    "series": "Powder Mage",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "His last name is evil"
+  },
+  {
+    "title": "Sins of Empire",
+    "author": "Brian McClellan",
+    "series": "Gods of Blood and Powder",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Wrath of Empire",
+    "author": "Brian McClellan",
+    "series": "Gods of Blood and Powder",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Blood of Empire",
+    "author": "Brian McClellan",
+    "series": "Gods of Blood and Powder",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "20/01/20",
+    "notes": ""
+  },
+  {
+    "title": "Uncanny Collateral",
+    "author": "Brian McClellan",
+    "series": "Valkyrie Collections",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "13/05/20",
+    "notes": "excited for the ennnnd"
+  },
+  {
+    "title": "Blood Tally",
+    "author": "Brian McClellan",
+    "series": "Valkyrie Collections",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "21/07/20",
+    "notes": "oh"
+  },
+  {
+    "title": "New Moon",
+    "author": "Ian McDonald",
+    "series": "Luna",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "04/05/20",
+    "notes": ""
+  },
+  {
+    "title": "Wolf Moon",
+    "author": "Ian McDonald",
+    "series": "Luna",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "16/09/20",
+    "notes": ""
+  },
+  {
+    "title": "Moon Rising",
+    "author": "Ian McDonald",
+    "series": "Luna",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "05/11/20",
+    "notes": ""
+  },
+  {
+    "title": "The Menace from Farside",
+    "author": "Ian McDonald",
+    "series": "Luna",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "24/12/20",
+    "notes": ""
+  },
+  {
+    "title": "Every Heart a Doorway",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "05/08/20",
+    "notes": ""
+  },
+  {
+    "title": "Down Among the Sticks and Bones",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "03/03/20",
+    "notes": ""
+  },
+  {
+    "title": "Beneath the Sugar Sky",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "24/10/20",
+    "notes": "Good premise, bad plot"
+  },
+  {
+    "title": "In an Absent Dream",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "07/11/20",
+    "notes": ""
+  },
+  {
+    "title": "Come Tumbling Down",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "3/12/20",
+    "notes": ""
+  },
+  {
+    "title": "Across the Green Grass Fields",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "30/01/21",
+    "notes": ""
+  },
+  {
+    "title": "Where the Drowned Girls Go",
+    "author": "Seanan McGuire",
+    "series": "Wayward Children",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "14/04/22",
+    "notes": ""
+  },
+  {
+    "title": "Over the Woodward Wall",
+    "author": "Seanan McGuire",
+    "series": "Over the Woodward Wall",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "08/11/20",
+    "notes": "this series has really convinced me over time"
+  },
+  {
+    "title": "Live Coding: A User's Manual",
+    "author": "Geoff Cox, Thor Magnusson, Emma Cocker, Alan F. Blackwell, Alex McLean",
+    "series": "Live Coding: A User's Manual",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "18/09/24",
+    "notes": "fine I guess"
+  },
+  {
+    "title": "Perdido Street Station",
+    "author": "China Miéville",
+    "series": "New Crobuzon",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "29/12/22",
+    "notes": ""
+  },
+  {
+    "title": "Ignite the Stars",
+    "author": "Maura Milan",
+    "series": "Ignite the Stars",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/07/20",
+    "notes": ""
+  },
+  {
+    "title": "Eclipse the Skies",
+    "author": "Maura Milan",
+    "series": "Ignite the Stars",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "16/05/21",
+    "notes": ""
+  },
+  {
+    "title": "The Philosopher's Flight",
+    "author": "Tom Miller",
+    "series": "The Philosophers Series",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Philosopher's War",
+    "author": "Tom Miller",
+    "series": "The Philosophers Series",
+    "read": "Read",
+    "rating": "",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "What If? 2",
+    "author": "Randall Monroe",
+    "series": "What If?",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/12/22",
+    "notes": "...not the actual series name?"
+  },
+  {
+    "title": "Gideon the Ninth",
+    "author": "Tamsun Muir",
+    "series": "The Locked Tomb",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "20/10/21, 07/09/22, 01/07/23",
+    "notes": ""
+  },
+  {
+    "title": "Harrow the Ninth",
+    "author": "Tamsun Muir",
+    "series": "The Locked Tomb",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "24/10/21, 12/09/22, 01/08/23",
+    "notes": ""
+  },
+  {
+    "title": "Nona the Ninth",
+    "author": "Tamsun Muir",
+    "series": "The Locked Tomb",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "15/09/22, 01/09/23",
+    "notes": "fun but also ouch"
+  },
+  {
+    "title": "Alecto the Ninth",
+    "author": "Tamsun Muir",
+    "series": "The Locked Tomb",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "fun went down, ouch went up"
+  },
+  {
+    "title": "The History of What Comes Next",
+    "author": "Sylvain Neuvel",
+    "series": "Take Them to the Stars",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "18/12/21",
+    "notes": "fun went up, ouch stayed about the same"
+  },
+  {
+    "title": "Until the Last of Me",
+    "author": "Sylvain Neuvel",
+    "series": "Take Them to the Stars",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "03/08/22",
+    "notes": ""
+  },
+  {
+    "title": "The Future of Another Timeline",
+    "author": "Annalee Newitz",
+    "series": "The Future of Another Timeline",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "what was the moral here lads"
+  },
+  {
+    "title": "The Heavens",
+    "author": "Sandra Newman",
+    "series": "The Heavens",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/01/20",
+    "notes": "what was the MORAL here lads"
+  },
+  {
+    "title": "Seeker",
+    "author": "William Nicholson",
+    "series": "Noble Warrior Trilogy",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Jango",
+    "author": "William Nicholson",
+    "series": "Noble Warrior Trilogy",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": "The first third was meh, after that it was brilliant, until the end when it becamse meh again. The Emalia sections weren't great either. Also, I DON\"T READ BOOKS TO BECOME DEPRESSED"
+  },
+  {
+    "title": "Noman",
+    "author": "William Nicholson",
+    "series": "Noble Warrior Trilogy",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": "It's a poem pretending to be a book and doing it badly"
+  },
+  {
+    "title": "Spinning Sliver",
+    "author": "Naomi Novik",
+    "series": "Spinning Silver",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Uprooted",
+    "author": "Naomi Novik",
+    "series": "Uprooted",
+    "read": "Read",
+    "rating": "6",
+    "date_finished": "20/09/22",
+    "notes": ""
+  },
+  {
+    "title": "A Deadly Education",
+    "author": "Naomi Novik",
+    "series": "The Scholomance",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Infomocracy",
+    "author": "Malka Ann Older",
+    "series": "The Centenal Cycle",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "01/04/24",
+    "notes": ""
+  },
+  {
+    "title": "Null States",
+    "author": "Malka Ann Older",
+    "series": "The Centenal Cycle",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "State Tectonics",
+    "author": "Malka Ann Older",
+    "series": "The Centenal Cycle",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Riot Baby",
+    "author": "Tochi Onyebuchi",
+    "series": "Riot Baby",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "22/09/20",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "The Ghost Theatre",
+    "author": "Mat Osman",
+    "series": "The Ghost Theatre",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "13/05/23",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Eragon",
+    "author": "Christopher Paolini",
+    "series": "Inheritance Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Eldest",
+    "author": "Christopher Paolini",
+    "series": "Inheritance Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Brisingr",
+    "author": "Christopher Paolini",
+    "series": "Inheritance Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Inheritance",
+    "author": "Christopher Paolini",
+    "series": "Inheritance Cycle",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Fork, the Witch and the Worm",
+    "author": "Christopher Paolini",
+    "series": "Tales From Alagaesia",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "To Sleep in a Sea of Stars",
+    "author": "Christopher Paolini",
+    "series": "To Sleep in a Sea of Stars",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "03/05/21",
+    "notes": ""
+  },
+  {
+    "title": "She Who Became the Sun",
+    "author": "Shelley Parker-Chan",
+    "series": "She Who Became the Sun",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Angel Experiment",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "gets better throughout"
+  },
+  {
+    "title": "School's Out - Forever",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Saving the World and Other Extreme Sports",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Final Warning",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Max",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": "Annoyingly long title"
+  },
+  {
+    "title": "Fang",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Angel",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Nevermore",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": "...Angel? You good?"
+  },
+  {
+    "title": "Maximum Ride Forever",
+    "author": "James Patterson",
+    "series": "Maximum Ride",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow Prowler",
+    "author": "Alexey Pehov",
+    "series": "Chronicles of Siala",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "WOAH, WHAT just happened."
+  },
+  {
+    "title": "The Colour of Magic",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Light Fantastic",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Equal Rites",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Mort",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Sourcery",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Wyrd Sisters",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Guards! Guards!",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Eric",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Moving Pictures",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Reaper Man",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Witches Abroad",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Small Gods",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Lords and Ladies",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Men at Arms",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Soul Music",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Interesting Times",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Maskerade",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Feet of Clay",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Hogfather",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Jingo",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Last Continent",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Carpe Jugulum",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Fifth Elephant",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Truth",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Thief of Time",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Last Hero",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Amazing Maurice and His Educated Rodents",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Night Watch",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Wee Free Men",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": "Long title. Also, it's supposed to be the kids one but it was the most un-kids one to me - it was kind of like a horror story."
+  },
+  {
+    "title": "Monstrous Regiment",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Hat Full of Sky",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Going Postal",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Thud!",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Wintersmith",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Making Money",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Unseen Academicals",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "I Shall Wear Midnight",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Snuff",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Raising Steam",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Shepherds Crown",
+    "author": "Terry Pratchett",
+    "series": "Discworld",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Golden Compass",
+    "author": "Philip Pullman",
+    "series": "His Dark Materials",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Subtle Knife",
+    "author": "Philip Pullman",
+    "series": "His Dark Materials",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": "what a ride"
+  },
+  {
+    "title": "The Amber Spyglass",
+    "author": "Philip Pullman",
+    "series": "His Dark Materials",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "La Belle Sauvage",
+    "author": "Philip Pullman",
+    "series": "The Book of Dust",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "Before 2020, 04/04/20",
+    "notes": ""
+  },
+  {
+    "title": "The Secret Commonwealth",
+    "author": "Philip Pullman",
+    "series": "The Book of Dust",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "10/04/20",
+    "notes": ""
+  },
+  {
+    "title": "Least of All Possible Mistakes",
+    "author": "rageprufrock",
+    "series": "Mistakes",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "23/12/21",
+    "notes": ""
+  },
+  {
+    "title": "Mortal Engines",
+    "author": "Phillip Reeve",
+    "series": "Mortal Engines",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Predators Gold",
+    "author": "Phillip Reeve",
+    "series": "Mortal Engines",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": "I know, I know"
+  },
+  {
+    "title": "Infernal Devices",
+    "author": "Phillip Reeve",
+    "series": "Mortal Engines",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Darkling Plain",
+    "author": "Phillip Reeve",
+    "series": "Mortal Engines",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Fever Crumb",
+    "author": "Phillip Reeve",
+    "series": "Fever Crumb (Mortal Engines)",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "A Web of Air",
+    "author": "Phillip Reeve",
+    "series": "Fever Crumb (Mortal Engines)",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Scrivener's Moon",
+    "author": "Phillip Reeve",
+    "series": "Fever Crumb (Mortal Engines)",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Tiger's Daughter",
+    "author": "K Arsenanult Rivera",
+    "series": "The Tiger's Daughter",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "26/03/20",
+    "notes": ""
+  },
+  {
+    "title": "Trail of Lighting",
+    "author": "Rebecca Roanhorse",
+    "series": "The Sixth World",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Storm of Locusts",
+    "author": "Rebecca Roanhorse",
+    "series": "The Sixth World",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Black Sun",
+    "author": "Rebecca Roanhorse",
+    "series": "BlackSun",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Ministry for the Future",
+    "author": "Kim Stanley Robinson",
+    "series": "Ministry for the Future",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "28/06/22",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Divergent",
+    "author": "Veronica Roth",
+    "series": "Divergent Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Insurgent",
+    "author": "Veronica Roth",
+    "series": "Divergent Series",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Alliegent",
+    "author": "Veronica Roth",
+    "series": "Divergent Series",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Name of the Wind",
+    "author": "Patrick Rothfuss",
+    "series": "Kingkiller Chronicles",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Wise Man's Fear",
+    "author": "Patrick Rothfuss",
+    "series": "Kingkiller Chronicles",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "Went downhill"
+  },
+  {
+    "title": "The Slow Regard of Silent Things",
+    "author": "Patrick Rothfuss",
+    "series": "Kingkiller Chronicles",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020, 03/03/21",
+    "notes": ""
+  },
+  {
+    "title": "The Philosopher's Stone",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Chamber of Secrets",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Prisoner of Azkaban",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Order of the Phoenix",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Goblet of Fire",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Half Blood Prince",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Deathly Hallows",
+    "author": "J.K. Rowling",
+    "series": "Wizard Boy Series",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": "DRAGONS"
+  },
+  {
+    "title": "Empire of Silence",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "15/08/25",
+    "notes": ""
+  },
+  {
+    "title": "The Lesser Devil",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Howling Dark",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "06/09/25",
+    "notes": "nom"
+  },
+  {
+    "title": "Queen Amid Ashes",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Demon in White",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Read",
+    "rating": "",
+    "date_finished": "28/10/25",
+    "notes": ""
+  },
+  {
+    "title": "Kingdoms of Death",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Ashes of Man",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Disquiet Gods",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Shadows Upon Time",
+    "author": "Christopher Ruocchio",
+    "series": "Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tales of the Sun Eater 1",
+    "author": "Christopher Ruocchio",
+    "series": "Tales of the Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tales of the Sun Eater 2",
+    "author": "Christopher Ruocchio",
+    "series": "Tales of the Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tales of the Sun Eater 3",
+    "author": "Christopher Ruocchio",
+    "series": "Tales of the Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tales of the Sun Eater 4",
+    "author": "Christopher Ruocchio",
+    "series": "Tales of the Sun Eater",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Winner's Curse",
+    "author": "Marie Rutoski",
+    "series": "The Winner's Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Winner's Crime",
+    "author": "Marie Rutoski",
+    "series": "The Winner's Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Winner's Kiss",
+    "author": "Marie Rutoski",
+    "series": "The Winner's Trilogy",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Blood Song",
+    "author": "Anthony Ryan",
+    "series": "Raven's Shadow",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tower Lord",
+    "author": "Anthony Ryan",
+    "series": "Raven's Shadow",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Queen of Fire",
+    "author": "Anthony Ryan",
+    "series": "Raven's Shadow",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Way of Kings",
+    "author": "Brandon Sanderson",
+    "series": "Stormlight Archive",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Words of Radiance",
+    "author": "Brandon Sanderson",
+    "series": "Stormlight Archive",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Oathbringer",
+    "author": "Brandon Sanderson",
+    "series": "Stormlight Archive",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": "Woah"
+  },
+  {
+    "title": "Rythm of War",
+    "author": "Brandon Sanderson",
+    "series": "Stormlight Archive",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "26/11/20",
+    "notes": "Damn"
+  },
+  {
+    "title": "Wind and Truth",
+    "author": "Brandon Sanderson",
+    "series": "Stormlight Archive",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "20/12/24",
+    "notes": "WOOOOOOOOOOOOOAH"
+  },
+  {
+    "title": "The Final Empire",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 1)",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": "I am very scared for book 5"
+  },
+  {
+    "title": "The Well of Ascension",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 1)",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "ah well"
+  },
+  {
+    "title": "The Hero of Ages",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 1)",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Alloy of Law",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 2)",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadows of Self",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 2)",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "That ending... I mean damn. Feels."
+  },
+  {
+    "title": "Bands of Mourning",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 2)",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Lost Metal",
+    "author": "Brandon Sanderson",
+    "series": "Mistborn (Era 2)",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "18/11/22",
+    "notes": ""
+  },
+  {
+    "title": "Elantris",
+    "author": "Brandon Sanderson",
+    "series": "Elantris",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Warbreaker",
+    "author": "Brandon Sanderson",
+    "series": "Warbreaker",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "Before 2020",
+    "notes": ";-;"
+  },
+  {
+    "title": "Aether of Night",
+    "author": "Brandon Sanderson",
+    "series": "Aether of Night",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Steelheart",
+    "author": "Brandon Sanderson",
+    "series": "Reckoners",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Firefight",
+    "author": "Brandon Sanderson",
+    "series": "Reckoners",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": "Unpublished"
+  },
+  {
+    "title": "Calamity",
+    "author": "Brandon Sanderson",
+    "series": "Reckoners",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Arcanum Unbounded",
+    "author": "Brandon Sanderson",
+    "series": "Arcanum",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Rithmatist",
+    "author": "Brandon Sanderson",
+    "series": "The Rithmatist",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Skyward",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Starsight",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "16/01/20",
+    "notes": ""
+  },
+  {
+    "title": "Sunreach",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "29/09/21",
+    "notes": "How does he do it"
+  },
+  {
+    "title": "ReDawn",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "01/02/22",
+    "notes": ""
+  },
+  {
+    "title": "Cytonic",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "09/02/22",
+    "notes": "passable"
+  },
+  {
+    "title": "Evershore",
+    "author": "Brandon Sanderson",
+    "series": "Skyward",
+    "read": "Read",
+    "rating": "7",
+    "date_finished": "09/07/22",
+    "notes": ""
+  },
+  {
+    "title": "The Many Lives of Stephen Leeds",
+    "author": "Brandon Sanderson",
+    "series": "Legion",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Dawnshard",
+    "author": "Brandon Sanderson",
+    "series": "Dawnshard",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "18/11/20",
+    "notes": ""
+  },
+  {
+    "title": "Yumi and the Nightmare Painter",
+    "author": "Brandon Sanderson",
+    "series": "Yumi and the Nightmare Painter",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "28/09/23",
+    "notes": "Intense"
+  },
+  {
+    "title": "The Sunlit Man",
+    "author": "Brandon Sanderson",
+    "series": "The Sunlit Man",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "09/10/23",
+    "notes": ""
+  },
+  {
+    "title": "Tress of the Emerald Sea",
+    "author": "Brandon Sanderson",
+    "series": "Tress of the Emerald Sea",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "16/01/23",
+    "notes": ""
+  },
+  {
+    "title": "Sword of Destiny",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Last Wish",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Blood of Elves",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Time of Contempt",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Baptism of Fire",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Tower of the Swallow",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Lady of the Lake",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Season of Storms",
+    "author": "Andrzej Sapkowski",
+    "series": "The Witcher",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Collapsing Empire",
+    "author": "John Scalzi",
+    "series": "The Interdependency",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "10/05/20",
+    "notes": ""
+  },
+  {
+    "title": "The Consuming Fire",
+    "author": "John Scalzi",
+    "series": "The Interdependency",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "5/07/20",
+    "notes": ""
+  },
+  {
+    "title": "The Last Emperox",
+    "author": "John Scalzi",
+    "series": "The Interdependency",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "3/09/20",
+    "notes": ""
+  },
+  {
+    "title": "A Darker Shade of Magic",
+    "author": "V.E Schwab",
+    "series": "Shades of Magic",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "01/12/22",
+    "notes": "Everyone needs some fourth wall breaking political space-opera comedy in their lives"
+  },
+  {
+    "title": "Vicious",
+    "author": "V.E Schwab",
+    "series": "Villains",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "that plot got real wack"
+  },
+  {
+    "title": "Vengeful",
+    "author": "V.E Schwab",
+    "series": "Villains",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Old Drift",
+    "author": "Namwali Serpell",
+    "series": "The Old Drift",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "08/03/20",
+    "notes": ""
+  },
+  {
+    "title": "The Priory of the Orange Tree",
+    "author": "Samantha Shannon",
+    "series": "The Priory of the Orange Tree",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Hyperion",
+    "author": "Dan Simmons",
+    "series": "Hyperion",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "16/02/22, 09/02/23",
+    "notes": ""
+  },
+  {
+    "title": "Hyperion Falls",
+    "author": "Dan Simmons",
+    "series": "Hyperion",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "19/02/22, 14/04/23",
+    "notes": ""
+  },
+  {
+    "title": "Endymion",
+    "author": "Dan Simmons",
+    "series": "Hyperion",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "18/03/22",
+    "notes": ""
+  },
+  {
+    "title": "Rise of Endymion",
+    "author": "Dan Simmons",
+    "series": "Hyperion",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "04/04/22",
+    "notes": "but spiritually 10/10"
+  },
+  {
+    "title": "Permanent Record",
+    "author": "Edward Snowden",
+    "series": "Permanent Record",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "30/05/20",
+    "notes": ""
+  },
+  {
+    "title": "The Vela",
+    "author": "Yoon Ha Lee, Becky Chambers, S.L Huang, Rivers Solomon",
+    "series": "The Vela: Season 1",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "#REF!",
+    "notes": ""
+  },
+  {
+    "title": "The Emperor's Blades",
+    "author": "Brian Staveley",
+    "series": "Chronicles of the Unhewn Throne",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Providence of Fire",
+    "author": "Brian Staveley",
+    "series": "Chronicles of the Unhewn Throne",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Last Mortal Bond",
+    "author": "Brian Staveley",
+    "series": "Chronicles of the Unhewn Throne",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Emerald Atlas",
+    "author": "John Stephens",
+    "series": "Books of Beginning",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "28/05/21",
+    "notes": ""
+  },
+  {
+    "title": "Dawnhounds",
+    "author": "Sascha Stronach",
+    "series": "The Endsong",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "06/06/23",
+    "notes": ""
+  },
+  {
+    "title": "The Sunforge",
+    "author": "Sascha Stronach",
+    "series": "The Endsong",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "20/03/25",
+    "notes": ""
+  },
+  {
+    "title": "Today a Woman Went Mad in the Supermarket: Stories",
+    "author": "Elizabeth Strout",
+    "series": "Today a Woman Went Mad in the Supermarket: Stories",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Crown Conspiracy",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Avempartha",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Nyphron Rising",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Emerald Storm",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Wintertide",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Percepliquis",
+    "author": "Michael Sullivan",
+    "series": "The Riyria Revelations",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "All My Rage",
+    "author": "Sabaa Tahir",
+    "series": "All My Rage",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Secret History",
+    "author": "Donna Tartt",
+    "series": "The Secret History",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "How are you supposed to say that???"
+  },
+  {
+    "title": "We are Legion (We are Bob)",
+    "author": "Dennis Taylor",
+    "series": "Bobiverse",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "09/10/24",
+    "notes": "john green"
+  },
+  {
+    "title": "For We are Many",
+    "author": "Dennis Taylor",
+    "series": "Bobiverse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "15/10/24",
+    "notes": ""
+  },
+  {
+    "title": "All These Worlds",
+    "author": "Dennis Taylor",
+    "series": "Bobiverse",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "20/10/24",
+    "notes": ""
+  },
+  {
+    "title": "Heaven's River",
+    "author": "Dennis Taylor",
+    "series": "Bobiverse",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "26/10/24",
+    "notes": ""
+  },
+  {
+    "title": "Not Till We Are Lost",
+    "author": "Dennis Taylor",
+    "series": "Bobiverse",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Children of Time",
+    "author": "Adrian Tchaikovsky",
+    "series": "Children of Time",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "01/07/25",
+    "notes": ""
+  },
+  {
+    "title": "Children of Ruin",
+    "author": "Adrian Tchaikovsky",
+    "series": "Children of Time",
+    "read": "Reading",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Silver in the Wood",
+    "author": "Emily Tesh",
+    "series": "Silver in the Wood",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "18/10/20",
+    "notes": ""
+  },
+  {
+    "title": "Space Opera",
+    "author": "Catherine M. Valente",
+    "series": "Space Opera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Space Oddity",
+    "author": "Catherine M. Valente",
+    "series": "Space Opera",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "When the Tiger Came Down the Mountain",
+    "author": "Nghi Vo",
+    "series": "The Singing Hills",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "09/07/21",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Night Sky with Exit Wounds",
+    "author": "Ocean Vuong",
+    "series": "Night Sky with Exit Wounds",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": "From Hugo Awards"
+  },
+  {
+    "title": "Among Others",
+    "author": "Jo Walton",
+    "series": "Among Others",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "14/04/23",
+    "notes": ""
+  },
+  {
+    "title": "The Sword of Kaigen",
+    "author": "M. L. Wang",
+    "series": "Theonite",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "10/05/22",
+    "notes": ""
+  },
+  {
+    "title": "The Golem and the Jinni",
+    "author": "Helene Wecker",
+    "series": "The Golem and the Jinni",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Way of Shadows",
+    "author": "Brent Weeks",
+    "series": "Night Angel",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Shadow's Edge",
+    "author": "Brent Weeks",
+    "series": "Night Angel",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Black Prism",
+    "author": "Brent Weeks",
+    "series": "Lightbringer Series",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Blinding Knife",
+    "author": "Brent Weeks",
+    "series": "Lightbringer Series",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Broken Eye",
+    "author": "Brent Weeks",
+    "series": "Lightbringer Series",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Blood Mirror",
+    "author": "Brent Weeks",
+    "series": "Lightbringer Series",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Artemis",
+    "author": "Andy Weir",
+    "series": "Artemis",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "The Martian",
+    "author": "Andy Weir",
+    "series": "The Martian",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "Before 2020",
+    "notes": ""
+  },
+  {
+    "title": "Project Hail Mary",
+    "author": "Andy Weir",
+    "series": "Project Hail Mary",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "18/11/21",
+    "notes": ""
+  },
+  {
+    "title": "The Future of Work: Compulsory",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "25/02/21",
+    "notes": ""
+  },
+  {
+    "title": "All Systems Red",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "26/04/20, 16/02/21",
+    "notes": ""
+  },
+  {
+    "title": "Artificial Condition",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "27/04/20, 16/02/21",
+    "notes": "available for free"
+  },
+  {
+    "title": "Rogue Protocol",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "28/04/20, 01/03/21",
+    "notes": "a robot with social anxiety saves some humans"
+  },
+  {
+    "title": "Exit Strategy",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "29/04/20, 12/03/21",
+    "notes": "this robot is more human than most humans"
+  },
+  {
+    "title": "Network Effect",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "14/03/21, 06/06/22",
+    "notes": ""
+  },
+  {
+    "title": "Fugitive Telemetry",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "17/07/21",
+    "notes": ""
+  },
+  {
+    "title": "System Collapse",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "25/12/24",
+    "notes": ""
+  },
+  {
+    "title": "Platform Decay",
+    "author": "Martha Wells",
+    "series": "The Murderbot Diaries",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Penitent Damned",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Thousand Names",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Shadow Throne",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Shadow of Elysium",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Price of Valour",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Guns of Empire",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Infernal Battalion",
+    "author": "Django Wexler",
+    "series": "The Shadow Campaigns",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Animators",
+    "author": "Kayla Rae Whitaker",
+    "series": "The Animators",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "13/01/24",
+    "notes": ""
+  },
+  {
+    "title": "Killing Gravity",
+    "author": "Corey J. White",
+    "series": "The Voidwitch Saga",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "08/03/20",
+    "notes": ""
+  },
+  {
+    "title": "Sorcerer of the Wildeeps",
+    "author": "Kai Ashante Wilson",
+    "series": "Sorcerer of the Wildeeps",
+    "read": "Read",
+    "rating": "7.5",
+    "date_finished": "21/08/20",
+    "notes": ""
+  },
+  {
+    "title": "The Book of the New Sun",
+    "author": "Gene Wolf",
+    "series": "The Book of the New Sun",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Tomorrow, and Tomorrow, and Tomorrow",
+    "author": "Gabrielle Zevin",
+    "series": "Tomorrow, and Tomorrow, and Tomorrow",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "05/01/23",
+    "notes": ""
+  },
+  {
+    "title": "Too Like the Lightning",
+    "author": "Ada Palmer",
+    "series": "Terra Ignota",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "22/09/24",
+    "notes": ""
+  },
+  {
+    "title": "Seven Surrenders",
+    "author": "Ada Palmer",
+    "series": "Terra Ignota",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "13/10/24",
+    "notes": ""
+  },
+  {
+    "title": "The Will to Battle",
+    "author": "Ada Palmer",
+    "series": "Terra Ignota",
+    "read": "Read",
+    "rating": "10",
+    "date_finished": "04/12/24",
+    "notes": "this was not the book I expected it to be"
+  },
+  {
+    "title": "Goodnight Tokyo",
+    "author": "Atshuhiro Yoshida",
+    "series": "Goodnight Tokyo",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "23/11/24",
+    "notes": ""
+  },
+  {
+    "title": "20020: An American football story",
+    "author": "Jon Bois",
+    "series": "Secret Base",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "25/11/24",
+    "notes": ""
+  },
+  {
+    "title": "The Goldfinch",
+    "author": "Donna Tartt",
+    "series": "The Goldfinch",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Lessons",
+    "author": "Ian McEwan",
+    "series": "Lessons",
+    "read": "Unread",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Just City",
+    "author": "Jo Walton",
+    "series": "The Just City",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "04/03/25",
+    "notes": ""
+  },
+  {
+    "title": "Several People Are Typing",
+    "author": "Calvin Kasulke",
+    "series": "Serveral People Are Typing",
+    "read": "Read",
+    "rating": "8.5",
+    "date_finished": "06/03/25",
+    "notes": ""
+  },
+  {
+    "title": "Actual Air",
+    "author": "David Berman",
+    "series": "Actual Air",
+    "read": "Read",
+    "rating": "9.5",
+    "date_finished": "16/04/25",
+    "notes": ""
+  },
+  {
+    "title": "The Stars My Destination",
+    "author": "Alfred Bester",
+    "series": "The Stars My Destination",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "03/05/25",
+    "notes": ""
+  },
+  {
+    "title": "Space Struck",
+    "author": "Paige Lewis",
+    "series": "Space Struck",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "12/05/25",
+    "notes": ""
+  },
+  {
+    "title": "Ocean of Sound",
+    "author": "David Toop",
+    "series": "Ocean of Sound",
+    "read": "Read",
+    "rating": "8",
+    "date_finished": "05/08/25",
+    "notes": ""
+  },
+  {
+    "title": "Talisnam",
+    "author": "ctrlcreep",
+    "series": "Talisnam",
+    "read": "Read",
+    "rating": "9",
+    "date_finished": "21/09/25",
+    "notes": ""
+  },
+  {
+    "title": "Thinking Jazz",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Jazz Standards: A Guide to the Repertoire",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The History of Jazz",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "Playing Changes",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "But Beautiful",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "The Bass Saxophone",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  },
+  {
+    "title": "A Half-Built Garden",
+    "author": "",
+    "series": "",
+    "read": "",
+    "rating": "",
+    "date_finished": "",
+    "notes": ""
+  }
+]

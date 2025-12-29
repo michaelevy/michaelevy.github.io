@@ -1,0 +1,248 @@
+---
+layout: layouts/base.html
+title: Books | Michael Levy
+heading: Books
+width: full
+eleventyNavigation:
+  key: Books
+  parent: Media
+  order: 2
+---
+<style>
+    .filters {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    .filter-input {
+        padding: 0.5rem;
+        font-family: "FiraCode";
+        background-color: var(--background);
+        border: 2px solid var(--accent-light);
+        color: var(--text);
+    }
+
+    .filter-input:focus {
+        outline: none;
+        border-color: var(--accent);
+    }
+
+    .book-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: "FiraCode";
+    }
+
+    .book-table th {
+        text-align: left;
+        padding: 1rem;
+        background-color: var(--accent);
+        color: var(--background);
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .book-table th:hover {
+        background-color: var(--orange-dark);
+    }
+
+    .book-table th::after {
+        content: ' ↕';
+        opacity: 0.5;
+    }
+
+    .book-table td {
+        padding: 0.75rem 1rem;
+        border-bottom: 1px solid var(--accent-light);
+    }
+
+    .book-table tr:hover {
+        background-color: var(--accent-light);
+    }
+
+    .book-title {
+        font-weight: bold;
+    }
+
+    .book-rating {
+        color: var(--accent);
+        font-weight: bold;
+    }
+
+    .book-status {
+        display: inline-block;
+        padding: 0.25rem 0.5rem;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        background-color: var(--secondary-light);
+    }
+
+    @media (max-width: 800px) {
+        .book-table {
+            font-size: 0.9rem;
+        }
+
+        .book-table th,
+        .book-table td {
+            padding: 0.5rem;
+        }
+    }
+</style>
+
+<main class="content-width">
+    <div class="filters">
+        <input type="text" id="searchInput" class="filter-input" placeholder="Search books...">
+        <select id="statusFilter" class="filter-input">
+            <option value="">All Status</option>
+            <option value="Read" selected>Read</option>
+            <option value="Unread">Unread</option>
+        </select>
+        <span id="bookCount">{{ books | size }} books</span>
+    </div>
+
+    <div style="overflow-x: auto;">
+        <table class="book-table" id="bookTable">
+            <thead>
+                <tr>
+                    <th data-column="title">Title</th>
+                    <th data-column="author">Author</th>
+                    <th data-column="series">Series</th>
+                    <th data-column="rating">Rating</th>
+                    <th data-column="date_finished">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%- for book in books %}
+                <tr data-status="{{ book.read }}" data-title="{{ book.title | downcase }}" data-author="{{ book.author | downcase }}" data-series="{{ book.series | downcase }}" data-notes="{{ book.notes | downcase }}">
+                    <td class="book-title">{{ book.title }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.series }}</td>
+                    <td><span class="book-rating">{{ book.rating }}</span></td>
+                    <td>{{ book.date_finished }}</td>
+                </tr>
+                {%- endfor %}
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<script>
+    const searchInput = document.getElementById('searchInput');
+    const statusFilter = document.getElementById('statusFilter');
+    const bookTable = document.getElementById('bookTable');
+    const bookCount = document.getElementById('bookCount');
+    const tbody = bookTable.querySelector('tbody');
+    const rows = Array.from(tbody.querySelectorAll('tr'));
+
+    // Filter function
+    function filterBooks() {
+        const searchTerm = searchInput.value.toLowerCase();
+        const status = statusFilter.value;
+
+        let visibleCount = 0;
+
+        rows.forEach(row => {
+            const rowStatus = row.dataset.status;
+            const title = row.dataset.title;
+            const author = row.dataset.author;
+            const series = row.dataset.series;
+            const notes = row.dataset.notes;
+
+            const matchesStatus = !status || rowStatus === status;
+            const matchesSearch = !searchTerm ||
+                title.includes(searchTerm) ||
+                author.includes(searchTerm) ||
+                series.includes(searchTerm) ||
+                notes.includes(searchTerm);
+
+            if (matchesStatus && matchesSearch) {
+                row.style.display = '';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        bookCount.textContent = `${visibleCount} books`;
+    }
+
+    // Parse date in DD/MM/YY format
+    function parseDate(dateStr) {
+        if (!dateStr) return 0;
+        
+        // Take last date if multiple (e.g., "Before 2020, 18/01/22" -> use "18/01/22")
+        const dates = dateStr.split(',');
+        const lastDate = dates[dates.length - 1].trim();
+        
+        if (lastDate.includes('Before 2020')) return new Date('2019-12-31').getTime();
+        
+        const parts = lastDate.split('/');
+        if (parts.length === 3) {
+            const day = parseInt(parts[0]);
+            const month = parseInt(parts[1]) - 1;
+            let year = parseInt(parts[2]);
+            
+            // Convert 2-digit year to 4-digit
+            year = year < 100 ? (year < 50 ? 2000 + year : 1900 + year) : year;
+            
+            return new Date(year, month, day).getTime();
+        }
+        
+        return 0;
+    }
+
+    // Sorting function
+    let sortDirection = {};
+    document.querySelectorAll('th[data-column]').forEach(th => {
+        const column = th.dataset.column;
+        sortDirection[column] = 1;
+
+        th.addEventListener('click', () => {
+            const isNumeric = column === 'rating';
+            const isDate = column === 'date_finished';
+
+            rows.sort((a, b) => {
+                let aVal = a.querySelector(`td:nth-child(${Array.from(th.parentNode.children).indexOf(th) + 1})`).textContent;
+                let bVal = b.querySelector(`td:nth-child(${Array.from(th.parentNode.children).indexOf(th) + 1})`).textContent;
+
+                if (isNumeric) {
+                    aVal = parseFloat(aVal) || 0;
+                    bVal = parseFloat(bVal) || 0;
+                } else if (isDate) {
+                    aVal = parseDate(aVal);
+                    bVal = parseDate(bVal);
+                }
+
+                if (aVal < bVal) return -1 * sortDirection[column];
+                if (aVal > bVal) return 1 * sortDirection[column];
+                return 0;
+            });
+
+            sortDirection[column] *= -1;
+
+            rows.forEach(row => tbody.appendChild(row));
+        });
+    });
+
+    // Event listeners
+    searchInput.addEventListener('input', filterBooks);
+    statusFilter.addEventListener('change', filterBooks);
+
+    // Sort by date descending by default
+    function sortByDate() {
+        rows.sort((a, b) => {
+            const aVal = parseDate(a.querySelector('td:nth-child(5)').textContent);
+            const bVal = parseDate(b.querySelector('td:nth-child(5)').textContent);
+            return bVal - aVal; // Descending order (most recent first)
+        });
+        rows.forEach(row => tbody.appendChild(row));
+        sortDirection['date_finished'] = 1; // Next click will sort ascending
+    }
+
+    // Initial sort and filter
+    sortByDate();
+    filterBooks();
+</script>

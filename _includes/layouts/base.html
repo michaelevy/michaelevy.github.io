@@ -18,12 +18,12 @@
     {% endif %}
     <style>
         {% if width == 'full' %}
-        main {
+        .content-width {
             max-width: 1800px;
         }
         {% else %}
         @media screen and (min-width: 930px) {
-            main {
+            .content-width {
                 max-width: 900px;
             }
         }
@@ -34,7 +34,7 @@
 </head>
 
 <body>
-    <nav class="animated-links">
+    <nav class="main-nav animated-links">
         <div class = "flex-row width-full center-aligned" id="me-link">
             <img id="square" src="/resources/rect2.svg" width="20" height="20" alt="An orange square"></img>
             <a href = "/"><h1 class="mondia-thin accent">Michael Levy</h1></a>
@@ -46,7 +46,7 @@
             <img src="/resources/circle.svg" class="svg" alt="Decorative circle"></img>
             <a href="/lab/">Lab</a>
             <img src="/resources/circle.svg" class="svg" alt="Decorative circle"></img>
-            <a href="/music/">Music</a>
+            <a href="/media/">Media</a>
             <img src="/resources/circle.svg" class="svg" alt="Decorative circle"></img>
             <a href="/about/">About</a>
             <img src="/resources/circle.svg" class="svg" alt="Decorative circle"></img>
@@ -55,6 +55,18 @@
     </nav>
     {%if heading %}
         <div id="page-heading"><h1 class="bar accent">{{heading}}</h1></div>
+    {% endif %}
+    {% if page.url != '/' and eleventyNavigation.key %}
+    <nav class="breadcrumb content-width" aria-label="Breadcrumb">
+        <a href="/">Home</a>
+        {%- assign crumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key %}
+        {%- for crumb in crumbs %}
+        <span> / </span>
+        <a href="{{ crumb.url }}">{{ crumb.key }}</a>
+        {%- endfor %}
+        <span> / </span>
+        <span>{{ eleventyNavigation.key }}</span>
+    </nav>
     {% endif %}
 
     {{ content }}
