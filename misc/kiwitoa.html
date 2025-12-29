@@ -1,0 +1,63 @@
+---
+layout: layouts/base.html
+title: Kiwitoa Posts Archive | Michael Levy
+heading: Kiwitoa Posts Archive
+---
+<style>
+    .thread-heading {
+        font-family: EBGaramond;
+        font-size: 2em;
+        color: var(--text);
+    }
+
+    .thread-text {
+        line-height: 1.6;
+        font-family: "EBGaramond";
+    }
+
+    .thread-date {
+        color: var(--secondary);
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+
+    .stats {
+        background-color: var(--accent);
+        color: var(--background);
+        padding: 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.5rem;
+        border: none;
+        position: relative;
+    }
+
+    .stats::before {
+        position: absolute;
+        inset: 0.5rem;
+        display: block;
+        content: "";
+        user-select: none;
+        pointer-events: none;
+        border: 1px solid var(--background);
+    }
+</style>
+
+<main>
+    <div class="stats card">
+        <p style="margin: 0;"><strong>User DID:</strong> {{ kiwitoa.user_did }}</p>
+        <p style="margin: 0;"><strong>Total Posts:</strong> {{ kiwitoa.total_posts }}</p>
+    </div>
+
+    {%- for section in kiwitoa.threads %}
+    <div class="thread-section">
+        <h2 class="thread-heading">{{ section.heading }}</h2>
+
+        {%- for thread in section.threads %}
+        <div class="thread-card card">
+            <p class="thread-text">{{ thread.text }}</p>
+            <div class="thread-date">{{ thread.date }}</div>
+        </div>
+        {%- endfor %}
+    </div>
+    {%- endfor %}
+</main>
