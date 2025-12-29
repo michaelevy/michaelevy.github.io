@@ -86,6 +86,23 @@
         pointer-events: none;
         border: 1px solid var(--background);
     }
+
+    .toc-list {
+        list-style: none;
+        columns: 2;
+        column-gap: 2rem;
+    }
+
+    .toc-list li {
+        break-inside: avoid;
+        font-family: "EBGaramond";
+    }
+
+    @media (max-width: 800px) {
+        .toc-list {
+            columns: 1;
+        }
+    }
 </style>
 
 <main>
@@ -93,7 +110,38 @@
         <p style="margin: 0;"><strong>User DID:</strong> did:plc:df3lywqavto6r3r6hh5ycokg</p>
         <p style="margin: 0;"><strong>Total Posts:</strong> 944</p>
     </div>
-    <div class="thread-section">
+
+    <nav class="toc card">
+        <h2>Table of Contents</h2>
+        <ul class="toc-list">
+            <li><a href="#nga-tuwahi-locative-nouns">Ngā tūwāhi (Locative nouns)</a></li>
+            <li><a href="#nga-tumahi-verbs">Ngā tūmahi (verbs)</a></li>
+            <li><a href="#nga-tuahua-adjectives">Ngā tūāhua (adjectives)</a></li>
+            <li><a href="#nga-tukapi-whakaata">Ngā tūkapi whakaata</a></li>
+            <li><a href="#nga-tukapi">Ngā tūkapi</a></li>
+            <li><a href="#unusual-use-of-words-of-one-class-as-another">Unusual use of words of one class as another</a></li>
+            <li><a href="#personification">Personification</a></li>
+            <li><a href="#one-of-the-most-versatile-words-in-maori-is-mea">One of the most versatile words in Māori is 'mea'</a></li>
+            <li><a href="#te-tumu">Te tumu</a></li>
+            <li><a href="#tuingoa-tuahua-noun-adjective">Tūingoa + tūāhua (noun + adjective)</a></li>
+            <li><a href="#tumahi-tuahua-verb-adjective">Tūmahi + tūāhua (verb + adjective)</a></li>
+            <li><a href="#tumahi-whiti-tuingoa-transitive-verb-noun">Tūmahi whiti + tūingoa (transitive verb + noun)</a></li>
+            <li><a href="#phrases-with-katoa">Phrases with katoa</a></li>
+            <li><a href="#phrases-with-haere">Phrases with haere</a></li>
+            <li><a href="#more-on-hanga">More on 'hanga'</a></li>
+            <li><a href="#modifiers-preceding-verbs-and-adjectives">Modifiers preceding verbs and adjectives</a></li>
+            <li><a href="#modifiers-for-verbs-and-adjectives">Modifiers for verbs and adjectives</a></li>
+            <li><a href="#verbal-particles">Verbal Particles</a></li>
+            <li><a href="#the-definite-artice">The definite artice</a></li>
+            <li><a href="#demonstratives">Demonstratives</a></li>
+            <li><a href="#possessive-determiners">Possessive determiners</a></li>
+            <li><a href="#personal-article">Personal article</a></li>
+            <li><a href="#determiner">Determiner</a></li>
+            <li><a href="#prepositions">Prepositions</a></li>
+            <li><a href="#order-of-particles">Order of Particles</a></li>
+        </ul>
+    </nav>
+    <div class="thread-section" id="nga-tuwahi-locative-nouns">
         <h2 class="thread-heading">Ngā tūwāhi (Locative nouns)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Ngā tūwāhi (Locative nouns).  Rāwāhi/tāwāhi - the other side, from the speaker's perspective. I titiro ia ki tāwāhi o te awa. She looked across to the other side of the river. Kei rāwāhi o te pātiki rāua e tū ana. They're standing on the other side of the field.</p>
@@ -114,7 +162,7 @@
             <p class="thread-text">1/ Ngā tūwāhi (Locative nouns).  Hea/whea - where? Strictly speaking  hea/whea should be used when the expected answer is a locative or placename. E haere ana koe ki whea? Where are you going to? Ki Te Whanganui-a-Tara mō tētahi anō o ngā hīkoi mautohe ki tēnei Kāwanatanga.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="nga-tumahi-verbs">
         <h2 class="thread-heading">Ngā tūmahi (verbs)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Ngā tūmahi (verbs).  Tūmahi whiti - transitive verb. There are 3 types of tūmahi whiti in Māori. 1. Tūmahi hāoho - active verb. Here the object (who or what is receiving the action) is marked with either i or ki.</p>
@@ -129,7 +177,7 @@
             <p class="thread-text">1/ Ngā tūmahi (verbs).  Tūmahi oti - statives (or neuter verbs). A small group of verbs that refer to a state (as a result of an action), rather than the action itself. I pakaru tana waea. Her phone is busted. Kua oti te mahi. The job is completed.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="nga-tuahua-adjectives">
         <h2 class="thread-heading">Ngā tūāhua (adjectives)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Ngā tūāhua (adjectives).  Tūāhua are frequently found following a tumu (base word), be it noun or verb, which they qualify. He tangata pai. A good person. Hoki pai atu. Get home safely.</p>
@@ -141,13 +189,13 @@
             <p class="thread-text">1/ Ngā tūāhua (adjectives).  Rawa can be added after an adjective to give the sense of 'too, overly, unduly'. He roa rawa tēnā tūwiri. Rapua he mea poto ake. That screw's too long. Look for a shorter one. Kua taikaha rawa tāu i kī ai. That was unduly harsh what you said. 2/ With the addition of 'atu' after rawa or following 'tino' it becomes the superlative, i.e. the most... Ko Aoraki te maunga teitei rawa atu o Aotearoa. Aoraki is New Zealand's highest mountain. Ko ia te tangata tino arero rua rawa kua tūtakina rawatia e au. He the most... 3/ hypocritical person I have ever met. Ko Waikato te awa roa rawa atu o Aotearoa. Waikato is the longest river in New Zealand. Note that the preposition 'o' is used in Māori before the object, person or group within which the comparison is being made, in this case Aotearoa.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="nga-tukapi-whakaata">
         <h2 class="thread-heading">Ngā tūkapi whakaata</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Ngā tūkapi whakaata - reflexive pronouns - These refer back to someone already mentioned. Look at this sentence - E kōrero ana ia ki a ia - This could mean s/he is talking to him/her, or it could mean S/he is talking to himself/herself. 2/ We don't really know (with no context). It is ambiguous. However with the addition of anō or ake, the meaning is clear. Kei te kōrero ia ki a ia anō - S/he is talking to herself/himself. Some more examples. Māna anō tērā e mahi - she will do that herself. 3/ Kua ako kē ki te tāwharu i a ia ake. She's already learnt to dress herself.  Me mahi e koe anō, hei aha te tatari kia mahia e tētahi atu. You should do it yourself and not bother waiting for someone else (to do it).</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="nga-tukapi">
         <h2 class="thread-heading">Ngā tūkapi</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Ngā tūkapi - (personal) pronouns. Māori has 3 tūkapi takitahi (singular pronouns). Tūkapi kiritūnei (1st person pronoun) - au or ahau (I, me). The ahau version tends to be used more often in Northern Māori. Around Gisborne and Ngāti Porou you may hear 'awau' 2/ instead or 'au' or 'ahau'. Tūkapi kiritūnā (2nd person pronoun) - koe (you singular). Tūkapi kiritūrā (3rd person pronoun) - ia (he/she or it). Then there are the tūkapi takirua (dual pronouns) that refer to two people. There are 2 tūkapi takirua kiritūnei (first person dual pronouns) tāua and māua. Tāua (we two, including you) and māua (we two, excluding you, he/she and I). One helpful way of remembering - tāua starts with a 't' and 'takes in' the person you are talking to. Māua starts with am 'm' and 'misses' out the person you are talking to. The 'ua' on the end originally was rua - two. The dual pronouns all end in -ua. Logical, ne rā? More tomorrow.</p>
@@ -168,67 +216,67 @@
             <p class="thread-text">1/ Ngā tūkapi - using pronouns for things cont'd. - In some cases you can use pronouns for things or animals if they are treated as if they were people, that is personified. Ki te kitea ngā mea ora hou e te kaipūtaiao, ko te tikanga māna e hoatu ingoa ki a rātou e ai ki ngā... 2/ tikanga pūtaiao. If a scientist discovers new living things they customarily name them according to scientific conventions. Here rātou is not confined to people. Kua whakahoutia te whare nui rāua ko te whare kai o tērā marae. The meeting house and dining hall of that marae... 3/ have been refurbished. Here the meeting house and the dining hall are regarded as people (and may carry the names of ancestors), hence 'rāua ko' for 'and'. 4/ However, in modern Māori you will see pronouns being used more and more for things other than people – most likely due to the influence of English. Is this ok? However, languages are not static – they are always changing.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="unusual-use-of-words-of-one-class-as-another">
         <h2 class="thread-heading">Unusual use of words of one class as another</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Unusual use of words of one class as another. Examples. Takurua - winter. But it is possible to say in Māori - I takurua ia i Whītī. He spent the winter/He wintered in Fiji. Koroua - elderly man. Kua koroua rawa au ki te koropiko rawa atu ki reira. 2/ I've grown too old to stoop right down there. (Speaking from experience). Mā hea means by what route. Here it's used as a verb. I mā hea mai koe? How did you get here (by what route)? Usually though, the initial 'i' is left off - Mā hea mai koe? 3/ And another most unusual example. Matapihitia atu tēnā pouaka - Pass that box out the window. Here matapihi (window) is used as a verb meaning to pass out (or in) through the window. You'll find lots more examples of these in classical Māori, marae language and karakia.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="personification">
         <h2 class="thread-heading">Personification</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Personification. Idiomatically many nouns can be personified and treated as if they were people. E hoa, kua rongo māua ko taringa - (literally, ear and I have heard) = Look, I have heard. You have sat down to a hākari (feast) and eaten your fill you could say to 2/ your hosts, by way of compliment - Kua puta a Pito - Navel has popped out.  Note the personal 'a' and the capital letter. Kua riro ia i a Aituā - he has been taken by disaster and death - he was killed/he died in an accident. 3/ Conversely personal nouns can be used as common nouns. Kāore au i te mōhio ki tērā Hēmi e kōrero nā koe. I don't know that Hēmi you're talking about. Ehara tērā i te Mere e mōhio ana au. That's not the Mary I know.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="one-of-the-most-versatile-words-in-maori-is-mea">
         <h2 class="thread-heading">One of the most versatile words in Māori is 'mea'</h2>
         <div class="thread-card card">
             <p class="thread-text">1/  One of the most versatile words in Māori is 'mea' - thing, reason, purpose; so-and-so; to say, put, do, try. Ka mea atu ia ki a Mea kia meatia ngā mea katoa ki mea wāhi. Engari nā te kōroiroi o mea kia pērā, ka mea anō ia, 'Meinga ināia tonu nei!' 2/ She told so-and-so to put everything in such-and-such place. But because of so-and-so's reluctance to do that, she said again, "Do it right now!' (Meinga is an alternative passive form, instead of meatia, for mea, the verb - do, put, say.) Enough of mea for the day!</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="te-tumu">
         <h2 class="thread-heading">Te tumu</h2>
         <div class="thread-card card">
             <p class="thread-text">1/  Te tumu - nucleus of a sentence. In older texts there are examples of a phrase being used as a tumu of a sentence. Examples. I rā moana mai rātou - They came by way of the sea. I mā runga pahi rātou ki Paeroa. They went to Paeroa by bus. 2/ In modern Māori these would most likely be: I haere rātou mā runga poti. I haere rātou ki Paeroa mā runga pahi (or something similar).</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="tuingoa-tuahua-noun-adjective">
         <h2 class="thread-heading">Tūingoa + tūāhua (noun + adjective)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/  Tūingoa + tūāhua (noun + adjective).  Traditionally Māori only allowed one adjective to qualify a noun, e.g, he whare nui - a big house. If you wanted to add a second adjective, there are a number of ways. For a 'big red house' you can say 'he whare nui, whero (anō) hoki' 2/ Or - He whare nui, he whare whero – repeating the phrase and substituting the adjective, or use a second phrase with 'mea' - He whare nui, he mea whero. Nowadays however it will most likely be: He whare nui me te whero. English often qualifies an noun with multiple adjectives. 3/ And, probably due to the pervasive nature of English, Māori now can have multiple adjectives qualifying a noun, separated by commas, and often with 'me te' before the last one. He tangata tāroaroa, tūpuhi, whakamanea me te hūmārie. 4/ A tall, thin, charismatic, (and) humble person.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="tumahi-tuahua-verb-adjective">
         <h2 class="thread-heading">Tūmahi + tūāhua (verb + adjective)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Tūmahi + tūāhua (verb + adjective).  In Māori, you can qualify a verb with an adjective such as kōrero tere - speak fast, and hoki pai atu - return safe, as in American English. (In NZ English, however, we would use an adverb instead - 'speak quickly' and 'return safely'.) 2/ Māori does not often do that, however. Rather than saying: E mahi pai ana ia - he works well, Māori would use a noun phrase and say He pai tana mahi (His work is good). Other examples. He tere rawa tana kōrero mai - He spoke too fast (to me). He tere ia ki te kōrero - She ... 3/ speaks fast (i.e. She is fast at talking). One way it is acceptable to qualify a verb with an adjective is when it's in the passive form, and in that case the adjective takes a passive suffix. I rangona paitia ia (e au) ki aku oko whakamōroto hou. I heard him well with my new 4/ hearing aids. You can even leave out the passive suffix on the verb when there is one on the adjective, and say correctly - I rongo paitia ia (e au) ki aku oko whakamōroto hou.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="tumahi-whiti-tuingoa-transitive-verb-noun">
         <h2 class="thread-heading">Tūmahi whiti + tūingoa (transitive verb + noun)</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Tūmahi whiti + tūingoa (transitive verb + noun).  In Māori, you can add a noun to transitive verb. E.g. tito waiata - compose songs, kai kōura - eat crayfish. In this case, the speaker has no definite song or crayfish in mind, just a general statement. 2/ Me hoko rawa rāua i tō rāua whare nā te korenga e taea te utu te mōkete. Kei te kimi whare anō rāua, he mea ngāwari ake te utu. They had to sell their house 'cause they couldn't meet the mortgage. They're house hunting again, for a cheaper one. 'Kimi whare' here, as they are 3/ not looking for a particular one, just a cheaper one. This process is called object incorporation - the object is added to the verb. However if you are referring to specific objects, you use an object phrase marked by 'i'. E.g. I tito ia i ngā waiata e rua inapō. He composed 4/ the two songs last night. He momo tonu, i kai ia i te kōura nui rawa. True to form, he ate the biggest crayfish.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="phrases-with-katoa">
         <h2 class="thread-heading">Phrases with katoa</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Phrases with katoa. As a noun it can be used at the start of a phrase. Katoa ngā tāngata i tae atu i manaaki paitia. Everybody who arrived was well looked after. It can also be used with 'te'. Kua kotahi te katoa o Kānata ki te ātete i ā Trump tākehoko tāwāhi kaupēhi. 2/ All of Canada are united in their opposition to Trump's punishing trade tariffs. Mostly though, it follows the noun, rather like an adjective. Kāore anō ngā pirimia katoa o Aotearoa kia kounu i te haere ki Waitangi ina kōkirikiritia e ngāi Māori. Not all prime ministers... 3/ chicken out of going to Waitangi when under pressure from Māori. It can follow a verb. Kua tae katoa mai rātou, hāunga ngā moeroa. They've all arrived, apart from the sleepyheads. Or like this. Kei konei katoa (nei) tātou, ki te hoe! We're all here, let's get on with it!</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="phrases-with-haere">
         <h2 class="thread-heading">Phrases with haere</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Phrases with haere. Haere can be added after adjectives or statives (neuter verbs, e.g. pau) to denote a progressive increase in a state or attribute. Kua pau katoa aku moni, kua pakaru te pūkoro. My money's all gone, I'm broke. With haere - Kua pau haere taku moni,... 2/ ā, kaore anō kia utua te nama hiko mō tērā marama. My money's running out, and I haven't paid last month's power bill yet. Kua ora haere mai anō ia i muri i te hauata. She's getting better again after the accident (the implication here is that she could improve further yet). 3/ After other verbs it can imply that the activity is carried out as one goes around. I hariru haere ia i te iwi kāinga. He went around shaking hands with the locals. E tangi haere mai ana te ope. The group are weeping as they come. 4/ Sometimes it seems redundant as in - Kei te piki haere ngā utu. Prices are increasing. Following a passive verb, it agrees. Kua tīhore(tia) haeretia ngā papa gib i muri i te waipuke. The gib panels have been progressively stripped out after the flood.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="more-on-hanga">
         <h2 class="thread-heading">More on 'hanga'</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ More on 'hanga'. Idioms - te hanga a te - there were lots of, many. I reira te hanga a te taiohi e whakarārangi ana me te tūmanako kia hopukina e te kiriawe Tik Tok. There were lots of youngsters there posing hoping to be videoed by the Tik Tok influencer. 2/ Ehara i te hanga - it's not something insignificant, it's no ordinary thing, it's pretty amazing. Ehara i te hanga tō Trump hiahia ki te taunaha i Kānata. It's no ordinary thing Trump's desire to annex Canada. Ko te hanga e..  just so long as. Ko te hanga e kore au e waiho... 3/ ki muri - Just so long as I'm not left behind. Hanga aroha (ana) - it's heartbreaking, it's sad, it's tragic, it's heart-rending, it's pitiful. Can be real as in - Hanga aroha ana kua turakina tana whare e te huripari. It's tragic that the hurricane destroyed her home. 4. Or it can be sarcastic. Hanga aroha i tangohia tana hopuoro. It's tragic his microphone was taken away.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="modifiers-preceding-verbs-and-adjectives">
         <h2 class="thread-heading">Modifiers preceding verbs and adjectives</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Modifiers preceding verbs and adjectives. Āhua -quite, fairly, somewhat. I whakaaro ia he āhua pai ngā whakaritenga, taea noatia te tangohanga atu o tana hopuoro. He thought the arrangements were quite good until his microphone was taken away. 2/ Before numbers, āhua means 'about, approximately'. Āhua whā tekau ngā tāngata i tae atu ki te hui. About forty people arrived at the meeting. 3/ In some areas, i.e. Te Taitokerau, hanga can be used as an alternative to 'āhua'. I hanga pai te hui, mā te aha anō kāore tētahi tangata i reira e ngongoro ana. The meeting was ok, at least there was nobody there snoring. More on 'hanga' tomorrow.</p>
@@ -243,7 +291,7 @@
             <p class="thread-text">1/ Modifiers preceding verbs and adjectives. Mātua - implies that something should/was/will be carried out first. I mātua waea ia ki a ia, i mua i te pekanga atu. He telephoned her first, before calling in. 2/ Usually though it is used in commands. Me mātua kōrero ki a ia i mua i te whāki ki tōna hoa wahine. You must speak to him first, before informing his girlfriend. 3/ Sometimes it is found in constructions like 'in order to achieve... you must first...' E taea ai tēnei te whakatau, me mātua matapaki ngā take ki te hapori. In order to resolve this, you must first discuss the issues with the community.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="modifiers-for-verbs-and-adjectives">
         <h2 class="thread-heading">Modifiers for verbs and adjectives</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Modifiers for verbs and adjectives. Paku - a little. Haere tonu, ki kō paku atu, ki kō paku atu, anā, kua tae, hurō! Keep going, a little bit futher, a little bit futher, there, you've arrived, hurray! 2/ When added to the front of verb it has the effect of downplaying, or being modest. Ki te paku āwhina mai koe, ko te painga atu tērā. If you just give me a little bit of help, I'd really appreciate it. He paku raruraru tōku. I have a little bit of a problem. (A big problem... 3/ really, but I'm downplaying it.) In negative sentences used before a verb = in the slightest, at all. Kīhai ia i paku aro mai ki tāki i kī ai, me te aha i tino puku taku rae. He didn't take the slightest notice of what I said, so I was really pissed off. Aroha mai. It should be: Kīhai ia i paku aro mai ki tāku i kī ai,....</p>
@@ -264,7 +312,7 @@
             <p class="thread-text">1/ Modifiers for verbs and adjectives. It is possible to add two modifiers before a verb. Me tino āta haere a Ukareina me ana whakariteritenga ki Te Hononga o Amerika, kei raro e putu ana i te mutunga iho. Ukraine needs to to go very carefully in its negotiations with.. 2/ the USA, so it doesn't become the loser in the end. Me mātua paku matapaki te take i mua i te whakatau rawa. We should first discuss the issue a bit before finally deciding. Kia paku tere ai te neke i tēnā tauaru, me mātua tango i ngā wēti i mua i ngā wīra. 3/ So that trailer will move a little bit faster, you should first remove the chocks in front of the wheels. (Being sarcastic)</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="verbal-particles">
         <h2 class="thread-heading">Verbal Particles</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Verbal Particles. 2.  Kua is often used to indicate a change of state has come about as a result of an action. Kua tino ngenge ia - He's really tired. (i.e. he wasn't  before, but as a result of some action he now is.) Kua ora mai anō ia. She's well again. Kua pai - It's ok. 2/ (i.e. -there may have been a problem before, but's ok. now.) E hika, kua tino tāroaroa tō tama! Gee, your son has really grown (i.e. from when I last saw him).</p>
@@ -408,13 +456,13 @@
             <p class="thread-text">1/Verbal Particles. Me used in combination with i can be used to express wishes. Me i patowaea mai ia, me i konei ia,... If he had only texted me, if he had only been here,...</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="the-definite-artice">
         <h2 class="thread-heading">The definite artice</h2>
         <div class="thread-card card">
             <p class="thread-text">1/The definite artice - Te. While the pural form ngā always indicates plural, te does not always indicate singular – te can also be used to indicate plural, particularly if it refers to a whole class of things or persons. Kua kī te hōro i te tamariki. The hall was full of... 2/ children. $157 te utu mō te pakeke? E hika, tērā mure tērā! The adult price is $157? My god, that's just extortion!</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="demonstratives">
         <h2 class="thread-heading">Demonstratives</h2>
         <div class="thread-card card">
             <p class="thread-text">1/Demonstratives – tēnei, tēnā, tērā - in addition to usual meanings, tēnei and tērā are also used in time expressions. Tēnei tau - this year, the current year. Tēnei rā/rangi - today. Tēnei wiki - this week. 2/ national competition was held there last year. Ka ngana au ki te penapena kia nui ake ā tērā tau. I'm going to try and save more next year.</p>
@@ -438,7 +486,7 @@
             <p class="thread-text">1/ Demonstratives – Tēnā, tēnā is an idiom used to signal that someone thinks a task is complete, equivalent to 'well then! right then! OK, that's that done'. Ko wai e tautoko ana i te pire paerewa ture? Kāore tētahi? Kāti, ko tēnā, tēnā. Kua kēhi! Who supports the ... 2/ regulatory standards bill? Nobody? Okay, that's that then. Case closed!</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="possessive-determiners">
         <h2 class="thread-heading">Possessive determiners</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Possessive determiners – The neutral forms taku/aku, tō/ō, and tana/ana can be used before both 'a' and 'o' category possessions, except for three conditions where the full forms tōku/ōku, tōu/ōu, tōna/ōna or tāku/āku, tāu/āu, tāna/āna must be used. 2/ 1. When there is a particle immediately following the possessive determiner. Tōku nei whare - this house of mine. Tāu nā pukapuka - that book of yours. Āna ake tamariki - her own children.  Ōu anō pūkenga - your own skills. 3/ Note- If there's no particle immediately after the posessive the neutral forms can be used. Tō pukapuka - your book. Taku whare - my house. Ana tamariki ake - her own children. Ō pūkenga anō - your own skills.</p>
@@ -459,13 +507,13 @@
             <p class="thread-text">1/ Possessive determiners – Tōna is used in four idiomatic expressions where it does not indicate possession. 3. Tōna with a number expresses an estimate. Tōna rima rau pea ngā tāngata i reira. There were some 500 people there. Tōna whā tekau i tae mai. About 40 came.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="personal-article">
         <h2 class="thread-heading">Personal article</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Personal article - A. 1. Used before personal nouns when there is no preposition. A Rewi - Dave. A wai - who. 2. Before personal nouns preceded by i, ki, kei, and hei. Ki a Hūhana - to Susan. Hei a Mahuru - in September (in the future). 3. Before pronouns preceded by... 2/ i, ki kei, and hei. Kei a au tō pēne - I've got your pen. Hoatu ki a rātou - Give it to them. 4. Before locative nouns with no preceding preposition. Engari he papatahi a raro - At least the bottom is flat. Kei runga rawa a Pōneke mō ngā mahi whakatika rori. Wellington is... 3/ tops for roadworks.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="determiner">
         <h2 class="thread-heading">Determiner</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Determiners – He (2). With the exception of 'me' (me he manu rere ahau - if I were a bird), 'he' cannot be used after a preposition. For the sentence - He's looking for a new employee, there are three ways of conveying this in Māori. 1. Kei te kimi kaimahi hou ia. 2. Kei te... 2/ kimihia he kaimahi hou (e ia). or 3. Kei te kimi ia i tētahi kaimahi hou. This last is the most common method in modern Māori. After the 'i', which is a preposition in Maori that marks the object, 'he' cannot be used. 3. However, some speakers may say - Kei te kimi ia he kaimahi hou - dropping the 'i'. This is no doubt a construction influenced by English, an anglicism. To many Māori speakers it is ungrammatical.</p>
@@ -480,7 +528,7 @@
             <p class="thread-text">1/ Determiner. In modern Māori it's possible to use a phrase without a determiner. They are resticted usually to two types. 1. With words such as tangata, iwi, wāhi, followed by kē. I wāhi kē ia inapō nei. He was somewhere else last night. E hoa, kaua e pātai mai, kōrero atu... 2/ ki tangata kē. Hey, don't ask me, speak to somebody else. 2. Listing different types without a deteminer, but followed by mai. Te tini o rātou i tae atu, tāne mai, wāhine mai, tamariki mai, mōkai mai. Heaps of them turned up, men, women, kids and pets.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="prepositions">
         <h2 class="thread-heading">Prepositions</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Prepositions. The preposition 'i' has the most uses of all Māori prepositions. 2. It can indicate who had posession of something in the past. I a ia ngā kī inapō nei. He had the keys last night. Ahakoa i a koe tēnei i mua, i ngaro i a koe, ā, kei a au ināianei. 2/ Although you had it before, you lost it and I have it now.</p>
@@ -528,7 +576,7 @@
             <p class="thread-text">1/ Prepositions. Uses of  'me'. 4. When two actions are performed at the same time they can joined by 'me'. If the subject of the second action is different from the first then add a possessive determiner. I puta mai tētahi anō puakanga e uapare ana i te kāwanatanga o mua mō ... 2/ te auheke ohaoha, me tētahi anō ngaru kiritōpū a te iwi. Another statement was issued blaming the economic recession on the previous government, with another collective groan on the part of the people.</p>
         </div>
     </div>
-    <div class="thread-section">
+    <div class="thread-section" id="order-of-particles">
         <h2 class="thread-heading">Order of Particles</h2>
         <div class="thread-card card">
             <p class="thread-text">1/ Order of Particles. They usually go after the word they refer to in this order: 1. Manner particles (kau, kē, mā, noa, rawa, tonu). 2. Directional particles (mai, atu, ake, iho). 3. Locative particles (nei, nā, rā, ai, ana). 4. Others (anō, hoki, anake, koa, rānei, pea). 2/ Mai and rā anō can occur as 'mai rā anō' or 'rā anō mai' but with a slight change of meaning. Nō tana hokinga rā anō mai ki te kāinga, ka mōhio pū ki te mahi tika māna. It wasn't until she returned home that she knew what would be the right job for her. Mai rā anō i tana... 3/ ohinga, kua mōhio kē he aha tana mahi ina pakeke. Right from when she was a child she knew what her job would be as an adult. (ohinga = childhood)</p>
