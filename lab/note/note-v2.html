@@ -1,0 +1,32 @@
+---
+layout: layouts/experiment.html
+title: NOTE v2
+pageTitle: Note v2
+description: Leave a message (postgres)
+draft: false
+order: 6
+onload: get()
+customHead: |
+    <link rel="stylesheet" type="text/css" href="/lab/note/note.css" />
+    <script src="/lab/note/note-v2.js"></script>
+    <script src="/src/js/utility.js"></script>
+    <script src="/src/js/load.js"></script>
+---
+<div class = "container">
+    <div class = "note previous">
+        <h1>Previous message:</h1>
+        <p>From: </p>
+        <p class="response" id="previous-name"></p>
+        <p>Message:</p>
+        <p class="response" id="previous-note"></p>
+    </div>
+    <div class="note new">
+        <h1>Note</h1>
+        <p>Leave a note for the next person who visits</p>
+        <p>From:</p>
+        <input id="name" type="text" size="10" maxlength="50"></input>
+        <p>Message:</p>
+        <textarea id="note"  maxlength="255"></textarea>
+        <button id="submit" class="button" onclick="submit()">Submit</button>
+    </div>
+</div>
