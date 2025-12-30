@@ -12,7 +12,7 @@ type Note struct {
 	CreatedAt time.Time      `json:"created_at"`
 	UpdatedAt time.Time      `json:"updated_at"`
 	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
-	
+
 	From    string `json:"from" binding:"required,max=50"`
 	Message string `json:"message" binding:"required,max=255"`
 }

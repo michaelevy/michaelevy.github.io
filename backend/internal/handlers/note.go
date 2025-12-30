@@ -7,10 +7,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// GetLatestNote retrieves the most recent note (for displaying "previous message")
 func (h *Handler) GetLatestNote(c *gin.Context) {
 	var note models.Note
-	
+
 	// Get the most recent note ordered by creation time
 	if err := h.db.Order("created_at desc").First(&note).Error; err != nil {
 		// If no notes exist yet, return empty note
@@ -24,10 +23,9 @@ func (h *Handler) GetLatestNote(c *gin.Context) {
 	c.JSON(http.StatusOK, note)
 }
 
-// CreateNote creates a new note
 func (h *Handler) CreateNote(c *gin.Context) {
 	var note models.Note
-	
+
 	if err := c.ShouldBindJSON(&note); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -41,10 +39,9 @@ func (h *Handler) CreateNote(c *gin.Context) {
 	c.JSON(http.StatusCreated, note)
 }
 
-// GetAllNotes retrieves all notes (optional - for viewing history)
 func (h *Handler) GetAllNotes(c *gin.Context) {
 	var notes []models.Note
-	
+
 	if err := h.db.Order("created_at desc").Find(&notes).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to fetch notes"})
 		return
