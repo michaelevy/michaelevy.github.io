@@ -77,7 +77,7 @@
     }
 
     &::before{
-        background-image: url('/resources/leaf.svg');
+        background-image: url('/public/resources/leaf.svg');
         background-position: center;
         background-repeat: no-repeat;
         background-size:contain;

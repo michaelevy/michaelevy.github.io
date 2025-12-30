@@ -1,4 +1,5 @@
 .vscode
-_site
+frontend/_site
 node_modules
 .env
+.idea

@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-ghpages": "npx @11ty/eleventy --pathprefix=/michaelevy.github.io/",
+    "build": "cd frontend && npx @11ty/eleventy",
+    "build-ghpages": "cd frontend && npx @11ty/eleventy --pathprefix=/michaelevy.github.io/",
     "compose": "docker-compose down && docker-compose up -d --build",
     "compose-web": "docker-compose up -d --build website",
     "compose-api": "docker-compose up -d --build backend"

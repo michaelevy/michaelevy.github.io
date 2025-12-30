@@ -2,13 +2,12 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import eleventyNavigationPlugin from "@11ty/eleventy-navigation";
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("**/*.css");
-  eleventyConfig.addPassthroughCopy("**/favicon.png");
-  eleventyConfig.addPassthroughCopy("**/*.js");
-  eleventyConfig.addPassthroughCopy("**/*.ttf");
-  eleventyConfig.addPassthroughCopy("**/*.otf");
-  eleventyConfig.addPassthroughCopy("**/*.woff2");
-  eleventyConfig.addPassthroughCopy("**/leaf.svg");
+  // Copy all static assets from public/
+  eleventyConfig.addPassthroughCopy("public");
+  
+  // Copy CSS and JS
+  eleventyConfig.addPassthroughCopy("src/**/*.css");
+  eleventyConfig.addPassthroughCopy("src/**/*.js");
 
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
   eleventyConfig.addPlugin(eleventyImageTransformPlugin);
@@ -27,4 +26,16 @@ export default function (eleventyConfig) {
         return (a.data.order || 999) - (b.data.order || 999);
       });
   });
+
+  // Set input/output directories to remove src/pages from URLs
+  return {
+    dir: {
+      input: ".",
+      output: "_site",
+      includes: "_includes",
+      data: "_data"
+    },
+    templateFormats: ["html", "liquid", "md"],
+    pathPrefix: "/"
+  };
 }

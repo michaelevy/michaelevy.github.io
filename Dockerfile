@@ -9,17 +9,18 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy all project files
-COPY . .
+# Copy frontend project files
+COPY frontend ./frontend
 
 # Build the site
+WORKDIR /app/frontend
 RUN npx @11ty/eleventy
 
 # Production stage
 FROM nginx:alpine
 
 # Copy built site from builder stage
-COPY --from=builder /app/_site /usr/share/nginx/html
+COPY --from=builder /app/frontend/_site /usr/share/nginx/html
 
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf

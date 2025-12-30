@@ -1,57 +1,57 @@
 
 @font-face {
     font-family: MondiaThin;
-    src: url("/resources/fonts/MondiaThin.otf") format("opentype");
+    src: url("/public/resources/fonts/MondiaThin.otf") format("opentype");
     font-display: swap;
 }
 
 @font-face {
     font-family: BasalteFond;
-    src: url("/resources/fonts/Deghest/Basalte-Fond.woff2") format("woff2");
+    src: url("/public/resources/fonts/Deghest/Basalte-Fond.woff2") format("woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: FiraCode;
-    src: url("/resources/fonts/FiraCode-Regular.ttf") format("truetype");
+    src: url("/public/resources/fonts/FiraCode-Regular.ttf") format("truetype");
     font-display: swap;
 }
 
 @font-face {
     font-family: Karrik;
-    src: url("/resources/fonts/Karrik-Regular.woff2") format("woff2");
+    src: url("/public/resources/fonts/Karrik-Regular.woff2") format("woff2");
     font-display: swap;
     font-style: normal;
 }
 
 @font-face {
     font-family: Karrik;
-    src: url("/resources/fonts/Karrik-Italic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Karrik-Italic.woff2") format("woff2");
     font-display: swap;
     font-style: italic;
 }
 
 @font-face {
     font-family: Abordage;
-    src: url("/resources/fonts/Deghest/Abordage-Regular.woff2") format("woff2");
+    src: url("/public/resources/fonts/Deghest/Abordage-Regular.woff2") format("woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: BasalteVolume;
-    src: url("/resources/fonts/Deghest/Basalte-Volume.woff2") format("woff2");
+    src: url("/public/resources/fonts/Deghest/Basalte-Volume.woff2") format("woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: Equateur;
-    src: url("/resources/fonts/Deghest/Equateur-Regular.woff2") format("woff2");
+    src: url("/public/resources/fonts/Deghest/Equateur-Regular.woff2") format("woff2");
     font-display: swap;
 }
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-Light.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-Light.woff2") format("woff2");
     font-display: swap;
     font-weight: 300;
     font-style: normal;
@@ -59,7 +59,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-LightItalic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-LightItalic.woff2") format("woff2");
     font-display: swap;
     font-weight: 300;
     font-style: italic;
@@ -67,7 +67,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-Medium.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-Medium.woff2") format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: normal;
@@ -75,7 +75,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-MediumItalic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-MediumItalic.woff2") format("woff2");
     font-display: swap;
     font-weight: 500;
     font-style: italic;
@@ -83,7 +83,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-SemiBold.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-SemiBold.woff2") format("woff2");
     font-display: swap;
     font-weight: 600;
     font-style: normal;
@@ -91,7 +91,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-SemiBoldItalic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-SemiBoldItalic.woff2") format("woff2");
     font-display: swap;
     font-weight: 600;
     font-style: italic;
@@ -99,7 +99,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-Bold.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-Bold.woff2") format("woff2");
     font-display: swap;
     font-weight: 700;
     font-style: normal;
@@ -107,7 +107,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-BoldItalic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-BoldItalic.woff2") format("woff2");
     font-display: swap;
     font-weight: 700;
     font-style: italic;
@@ -115,7 +115,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-Italic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-Italic.woff2") format("woff2");
     font-display: swap;
     font-weight: 400;
     font-style: italic;
@@ -123,7 +123,7 @@
 
 @font-face {
     font-family: CormorantGaramond;
-    src: url("/resources/fonts/Cormorant/CormorantGaramond-BoldItalic.woff2") format("woff2");
+    src: url("/public/resources/fonts/Cormorant/CormorantGaramond-BoldItalic.woff2") format("woff2");
     font-display: swap;
     font-weight: 700;
     font-style: italic;
@@ -131,42 +131,42 @@
 
 @font-face {
     font-family: Isenheim;
-    src: url("/resources/fonts/Tunera/Isenheim_Fin.otf") format("opentype");
+    src: url("/public/resources/fonts/Tunera/Isenheim_Fin.otf") format("opentype");
     font-display: swap;
     font-weight: 300;
 }
 
 @font-face {
     font-family: Isenheim;
-    src: url("/resources/fonts/Tunera/Isenheim_Regulier.otf") format("opentype");
+    src: url("/public/resources/fonts/Tunera/Isenheim_Regulier.otf") format("opentype");
     font-display: swap;
     font-weight: 500;
 }
 
 @font-face {
     font-family: Barlow;
-    src: url("/resources/fonts/Tunera/Barlow-TypoDesBois.otf") format("opentype");
+    src: url("/public/resources/fonts/Tunera/Barlow-TypoDesBois.otf") format("opentype");
     font-display: swap;
     font-weight: 500;
 }
 
 @font-face {
     font-family: Punctata;
-    src: url("/resources/fonts/PUNCTATA-Regular.otf") format("opentype");
+    src: url("/public/resources/fonts/PUNCTATA-Regular.otf") format("opentype");
     font-display: swap;
     font-weight: 500;
 }
 
 @font-face {
     font-family: SupernotoriousDot;
-    src: url("/resources/fonts/SuperNotoriousDot.otf") format("opentype");
+    src: url("/public/resources/fonts/SuperNotoriousDot.otf") format("opentype");
     font-display: swap;
     font-weight: 500;
 }
 
 @font-face {
     font-family: EBGaramond;
-    src: url("/resources/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
+    src: url("/public/resources/fonts/EBGaramond-VariableFont_wght.ttf") format("truetype");
     font-display: swap;
     font-weight: 400 800;
     font-style: normal;
@@ -174,7 +174,7 @@
 
 @font-face {
     font-family: EBGaramond;
-    src: url("/resources/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
+    src: url("/public/resources/fonts/EBGaramond-Italic-VariableFont_wght.ttf") format("truetype");
     font-display: swap;
     font-weight: 400 800;
     font-style: italic;
@@ -182,7 +182,7 @@
 
 @font-face {
     font-family: WorkSans;
-    src: url("/resources/fonts/WorkSans[wght].ttf") format("truetype");
+    src: url("/public/resources/fonts/WorkSans[wght].ttf") format("truetype");
     font-display: swap;
     font-weight: 100 900;
     font-style: normal;
@@ -190,7 +190,7 @@
 
 @font-face {
     font-family: WorkSans;
-    src: url("/resources/fonts/WorkSans-Italic[wght].ttf") format("truetype");
+    src: url("/public/resources/fonts/WorkSans-Italic[wght].ttf") format("truetype");
     font-display: swap;
     font-weight: 100 900;
     font-style: italic;

@@ -8,8 +8,8 @@
     
     <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
     <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css" />
-    <link rel="stylesheet" type="text/css" href="/lab/lab.css" />
-    <link rel="icon" href="/resources/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/src/pages/lab/lab.css" />
+    <link rel="icon" href="/public/resources/favicon.png">
     {%- if customHead %}
     {{ customHead }}
     {%- endif %}
@@ -17,8 +17,8 @@
 
 <body{% if onload %} onload="{{ onload }}"{% endif %}>
     <div id="escape">
-        <img class="back-arrow" src="/resources/arrow.svg" width="10" height="10" alt="back arrow"></img>
-        <a href="/lab">Escape</a>
+        <img class="back-arrow" src="/public/resources/arrow.svg" width="10" height="10" alt="back arrow"></img>
+        <a href="/lab/">Escape</a>
     </div>
     <main>
         {{ content }}
