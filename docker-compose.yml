@@ -21,6 +21,8 @@ services:
       - GIN_MODE=${GIN_MODE:-release}
       - PORT=${PORT:-8080}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
     depends_on:
       - db
     networks:

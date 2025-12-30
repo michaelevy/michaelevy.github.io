@@ -1,0 +1,128 @@
+---
+layout: layouts/base.html
+title: Book Admin | Michael Levy
+heading: Book Administration
+width: full
+css:
+  - /src/pages/media/books/admin.css
+js:
+  - /src/pages/media/books/admin.js
+permalink: /media/books/admin/
+---
+
+<main class="content-width">
+    <div id="auth-section">
+        <p>You must be logged in to manage books.</p>
+        <p><small>Use HTTP Basic Auth credentials to access this page.</small></p>
+    </div>
+
+    <div id="admin-section" style="display: none;">
+        <div class="admin-header">
+            <h2>Manage Books</h2>
+            <p>(You will be prompted for credentials, so it won't work if you're just some guy)</p>
+            <div>
+                <button id="add-book-btn" class="btn btn-primary">Add New Book</button>
+                <button id="import-csv-btn" class="btn btn-secondary">Import CSV</button>
+            </div>
+        </div>
+
+        <div id="import-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close import-close">&times;</span>
+                <h3>Import Books from CSV</h3>
+                <form id="import-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="csv-file">Select CSV File</label>
+                        <input type="file" id="csv-file" accept=".csv" required />
+                        <small>Expected format: Title, Author, Series, , Read, Re-Read, Owned, Rating, 5 Star, Date Finished, Notes, Read Soon</small>
+                    </div>
+                    <div id="import-progress" style="display: none;">
+                        Importing...
+                    </div>
+                    <div id="import-result" style="display: none;"></div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Upload & Import</button>
+                        <button type="button" class="btn btn-secondary import-cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="book-form" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="form-title">Add Book</h3>
+                <form id="book-edit-form">
+                    <input type="hidden" id="book-id" />
+
+                    <div class="form-group">
+                        <label for="title">Title *</label>
+                        <input type="text" id="title" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="authors">Authors (comma-separated)</label>
+                        <input type="text" id="authors" placeholder="e.g., Brandon Sanderson, Terry Pratchett" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="series">Series</label>
+                        <input type="text" id="series" />
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="read">
+                                <input type="checkbox" id="read" />
+                                Read
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="owned">
+                                <input type="checkbox" id="owned" />
+                                Owned
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="rating">Rating (6-10)</label>
+                            <input type="number" id="rating" step="0.5" min="6" max="10" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date-finished">Date Finished</label>
+                            <input type="text" id="date-finished" placeholder="e.g., 01/01/22" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="read-soon">
+                                <input type="checkbox" id="read-soon" />
+                                Read Soon
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Notes</label>
+                        <textarea id="notes" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="loading" style="display: none;">Loading books...</div>
+        <div id="error" style="display: none;"></div>
+
+        <div id="books-list">
+            <!-- Books will be loaded here -->
+        </div>
+    </div>
+</main>

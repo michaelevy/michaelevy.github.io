@@ -1,0 +1,122 @@
+.filters {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-input {
+    padding: 0.5rem;
+    font-family: "FiraCode";
+    background-color: var(--background);
+    border: 2px solid var(--accent-light);
+    color: var(--text);
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: "FiraCode";
+}
+
+.book-table th {
+    text-align: left;
+    padding: 1rem;
+    background-color: var(--accent);
+    color: var(--background);
+    user-select: none;
+}
+
+.sortable:hover {
+    background-color: var(--orange-dark);
+}
+
+.sortable::after {
+    content: ' ↕';
+    opacity: 0.5;
+}
+
+.book-table td {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--accent-light);
+}
+
+.book-table tr{
+    font-size: 0.9rem;
+}
+
+.series-row {
+    background-color: var(--background);
+    font-weight: bold;
+}
+
+.series-row.expandable {
+    cursor: pointer;
+}
+
+.series-row.expandable:hover {
+    cursor: pointer;
+    background-color: var(--accent-light);
+}
+
+.book-row {
+    display: none;
+    border-left: 3px solid var(--background);
+}
+
+.book-row.expanded {
+    display: table-row;
+    border-left: 3px solid var(--accent);
+}
+
+.book-title {
+    padding-left: 2rem !important;
+}
+
+.book-rating {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Set minimum widths for specific columns */
+.book-table th:nth-child(3),
+.book-table td:nth-child(3) {
+    min-width: 120px;
+    width: 120px;
+}
+
+.book-table th:nth-child(6),
+.book-table td:nth-child(6) {
+    min-width: 180px;
+    width: 180px;
+}
+
+#loading, #error {
+    padding: 2rem;
+    text-align: center;
+}
+
+#error {
+    color: #ff0000;
+}
+
+@media (max-width: 800px) {
+    .book-table {
+        font-size: 0.9rem;
+    }
+
+    .book-table th,
+    .book-table td {
+        padding: 0.5rem;
+    }
+
+    .book-title {
+        padding-left: 1rem;
+    }
+}

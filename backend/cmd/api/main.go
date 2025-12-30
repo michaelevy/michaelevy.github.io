@@ -79,6 +79,7 @@ func main() {
 
 	// Initialize handlers
 	h := handlers.NewHandler(db)
+	bookHandler := &handlers.BookHandler{DB: db}
 
 	// API routes
 	api := r.Group("/api")
@@ -94,6 +95,19 @@ func main() {
 		api.POST("/items", h.CreateItem)
 		api.PUT("/items/:id", h.UpdateItem)
 		api.DELETE("/items/:id", h.DeleteItem)
+
+		// Public book routes (anyone can view)
+		api.GET("/books", bookHandler.GetBooks)
+		api.GET("/books/:id", bookHandler.GetBook)
+		api.GET("/authors", bookHandler.GetAuthors)
+		api.GET("/series", bookHandler.GetSeries)
+
+		// Protected book routes (admin only)
+		adminAuth := middleware.BasicAuth()
+		api.POST("/books", adminAuth, bookHandler.CreateBook)
+		api.PUT("/books/:id", adminAuth, bookHandler.UpdateBook)
+		api.DELETE("/books/:id", adminAuth, bookHandler.DeleteBook)
+		api.POST("/books/import", adminAuth, bookHandler.ImportCSV)
 	}
 
 	// Start server

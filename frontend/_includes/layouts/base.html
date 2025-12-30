@@ -70,6 +70,11 @@
     {% endif %}
 
     {{ content }}
+    {% if js %}
+        {% for file in js %}
+            <script src="{{ file }}"></script>
+        {% endfor %}
+    {% endif %}
     <footer>
         <div class="flex-column">
             <div class="footer-list"><p><a href="michaelevy.com" rel="me">michaelevy.com</a> personal website</p></div>
