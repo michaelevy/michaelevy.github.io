@@ -105,9 +105,10 @@ func main() {
 			seriesName = strings.TrimSpace(record[2])
 		}
 
-		readStatus := ""
+		read := false
 		if len(record) > 4 {
-			readStatus = strings.TrimSpace(record[4])
+			readStatus := strings.TrimSpace(record[4])
+			read = readStatus != ""
 		}
 
 		reReadStatus := ""
@@ -115,9 +116,10 @@ func main() {
 			reReadStatus = strings.TrimSpace(record[5])
 		}
 
-		ownedStatus := ""
+		owned := false
 		if len(record) > 6 {
-			ownedStatus = strings.TrimSpace(record[6])
+			ownedStatus := strings.TrimSpace(record[6])
+			owned = ownedStatus != ""
 		}
 
 		rating := 0.0
@@ -168,9 +170,9 @@ func main() {
 		book := models.Book{
 			Title:        title,
 			SeriesID:     seriesID,
-			ReadStatus:   readStatus,
+			Read:         read,
 			ReReadStatus: reReadStatus,
-			OwnedStatus:  ownedStatus,
+			Owned:        owned,
 			Rating:       rating,
 			DateFinished: dateFinished,
 			Notes:        notes,
