@@ -129,7 +129,7 @@ eleventyNavigation:
                     </tr>
                 </thead>
                 <tbody>
-                    <template v-for="(series, seriesIdx) in filteredAndSortedSeries" :key="series.name">
+                    <template v-for="(series, seriesIdx) in paginatedSeries" :key="series.name">
                         <!-- Series Row -->
                         <tr
                             :class="['series-row', { 'expandable': series.isExpandable }]"
@@ -182,7 +182,7 @@ eleventyNavigation:
                                             v-if="book.notes"
                                             @click.stop="toggleBookNotes(seriesIdx, bookIdx)"
                                             class="notes-toggle"
-                                            style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text); border: 1px solid var(--accent);"
+                                            style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text); "
                                         >
                                             [[ book.showNotes ? '−' : '+' ]]
                                         </button>
@@ -198,6 +198,13 @@ eleventyNavigation:
                     </template>
                 </tbody>
             </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div v-if="totalPages > 1" class="pagination">
+            <button @click="prevPage" :disabled="currentPage === 1" class="pagination-btn">Previous</button>
+            <span class="pagination-info">Page [[ currentPage ]] of [[ totalPages ]]</span>
+            <button @click="nextPage" :disabled="currentPage === totalPages" class="pagination-btn">Next</button>
         </div>
     </template>
 </main>

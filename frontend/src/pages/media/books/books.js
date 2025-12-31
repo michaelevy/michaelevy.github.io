@@ -195,6 +195,18 @@ createApp({
         // Series count
         seriesCount() {
             return this.filteredSeries.length;
+        },
+
+        // Paginated series
+        paginatedSeries() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.filteredAndSortedSeries.slice(start, end);
+        },
+
+        // Total pages
+        totalPages() {
+            return Math.ceil(this.filteredAndSortedSeries.length / this.itemsPerPage);
         }
     },
 
@@ -386,22 +398,69 @@ createApp({
         },
 
         toggleSeries(seriesIdx) {
-            const series = this.filteredAndSortedSeries[seriesIdx];
+            const series = this.paginatedSeries[seriesIdx];
             this.expandedSeries[series.name] = !this.expandedSeries[series.name];
         },
 
         toggleSingleNotes(seriesIdx) {
-            const series = this.filteredAndSortedSeries[seriesIdx];
+            const series = this.paginatedSeries[seriesIdx];
             this.seriesNotesVisible[series.name] = !this.seriesNotesVisible[series.name];
         },
 
         toggleBookNotes(seriesIdx, bookIdx) {
-            const book = this.filteredAndSortedSeries[seriesIdx].books[bookIdx];
+            const book = this.paginatedSeries[seriesIdx].books[bookIdx];
             this.bookNotesVisible[book.id] = !this.bookNotesVisible[book.id];
         },
 
         toggleRecommendedBooks() {
             this.recommendedBooksExpanded = !this.recommendedBooksExpanded;
+        },
+
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+                this.clearExpansionState();
+            }
+        },
+
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.clearExpansionState();
+            }
+        },
+
+        goToPage(page) {
+            if (page >= 1 && page <= this.totalPages) {
+                this.currentPage = page;
+                this.clearExpansionState();
+            }
+        },
+
+        clearExpansionState() {
+            this.expandedSeries = {};
+            this.seriesNotesVisible = {};
+            this.bookNotesVisible = {};
+        }
+    },
+
+    watch: {
+        // Reset to page 1 when filters change
+        searchTerm() {
+            this.currentPage = 1;
+            this.clearExpansionState();
+        },
+        statusFilter() {
+            this.currentPage = 1;
+            this.clearExpansionState();
+        },
+        sortColumn() {
+            this.currentPage = 1;
+            this.clearExpansionState();
+        },
+        sortDirection() {
+            this.currentPage = 1;
+            this.clearExpansionState();
         }
     },
 
