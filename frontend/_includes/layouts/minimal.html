@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/style.css" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/index.css" />
+    <link rel="stylesheet" type="text/css" href="/src/styles/fonts.css" />
+    {% if css %}
+        {% for file in css %}
+            <link rel="stylesheet" type="text/css" href="{{ file }}" />
+        {% endfor %}
+    {% endif %}
+    <style>
+        {% if width == 'full' %}
+        .content-width {
+            max-width: 1800px;
+        }
+        {% else %}
+        @media screen and (min-width: 930px) {
+            .content-width {
+                max-width: 900px;
+            }
+        }
+        {% endif %}
+    </style>
+    <link rel="icon" href="/public/resources/favicon.png">
+</head>
+
+<body>
+    {{ content }}
+    {% if js %}
+        {% for file in js %}
+            <script src="{{ file }}"></script>
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
