@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Temporarily Unavailable</title>
+    <style>
+        :root {
+            --orange: rgb(212, 76, 80);
+            --black: oklch(18% 0.003 17.5);
+            --bright_grey: oklch(47% 0.005 17.3);
+            --bright_white: oklch(94.75% 0.04 73);
+            --dark-white: oklch(0.8027 0.04 73);
+            --background: var(--bright_white);
+            --accent: var(--orange);
+            --accent-light: var(--dark-white);
+            --text: var(--black);
+            --secondary: var(--bright_grey);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family:"EBGaramond";
+            background-color: var(--background);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+            padding: 3rem 2rem;
+            border: 2px solid var(--accent-light);
+            border-radius: 0.5rem;
+            background-color: var(--background);
+        }
+
+        h2 {
+            font-family: 'FiraCode', 'Courier New', monospace;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            letter-spacing: 0.1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .spinner {
+            margin: 2rem auto;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--accent-light);
+            border-top: 3px solid var(--accent);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .info {
+            font-size: 0.9rem;
+            color: var(--secondary);
+            margin-top: 1rem;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        a:hover {
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .fire{
+            font-family: 'FiraCode', 'Courier New', monospace;
+        }
+    </style>
+    <script>
+        // Auto-refresh every 5 seconds
+        setTimeout(function() {
+            location.reload();
+        }, 5000);
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Deployment in Progress</h2>
+        <p class="fire">Patience, grasshopper.</p>
+        <div class="spinner"></div>
+        <p class="info">This page will automatically refresh in 5 seconds...</p>
+        <p class="info">Feel free to <a href="https://bsky.app/profile/michaelevy.com">complain</a></p>
+    </div>
+</body>
+</html>
