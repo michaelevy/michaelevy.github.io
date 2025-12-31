@@ -28,6 +28,10 @@ title: Kiwitoa Posts Archive | Michael Levy
         border-radius: 0.5rem;
         border: none;
         position: relative;
+
+        a {
+            color: var(--accent-light);
+        }
     }
 
     .stats::before {
@@ -66,8 +70,7 @@ title: Kiwitoa Posts Archive | Michael Levy
 
 <main class="content-width">
     <div class="stats card">
-        <p style="margin: 0;"><strong>User DID:</strong> {{ kiwitoa.user_did }}</p>
-        <p style="margin: 0;"><strong>Total Posts:</strong> {{ kiwitoa.total_posts }}</p>
+        <p style="margin: 0;">These are the unrolled threads of Ian Cormack (Kiwitoa) posted on Bluesky: <a href="bsky.app/profile/kiwitoa.bsky.social">kiwitoa.bsky.social</a></p>
     </div>
 
     <nav class="toc card">
