@@ -45,14 +45,27 @@ function groupBooksBySeries() {
             };
         }
 
+        // Determine if book is read and get all dates
+        const hasReadLogs = book.read_logs && book.read_logs.length > 0;
+        const dateFinished = hasReadLogs 
+            ? book.read_logs
+                .sort((a, b) => new Date(a.date_finished) - new Date(b.date_finished))
+                .map(log => new Date(log.date_finished).toLocaleDateString('en-GB', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: '2-digit'
+                }).replace(/\//g, '/'))
+                .join(', ')
+            : '';
+
         seriesMap[seriesName].books.push({
             ...book,
             author: authorName,
             series: book.series?.name || '',
-            read: book.read || false,
+            read: hasReadLogs,
             owned: book.owned || false,
             rating: book.rating ? (book.rating - 5).toFixed(1) : '',
-            date_finished: book.date_finished || '',
+            date_finished: dateFinished,
             read_soon: book.read_soon || false
         });
     });

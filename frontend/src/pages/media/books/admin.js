@@ -102,15 +102,24 @@ window.editBook = function(id) {
     const book = books.find(b => b.id === id);
     if (!book) return;
     
+    // Convert read_logs to comma-separated date strings
+    const datesFinished = book.read_logs?.map(log => {
+        const date = new Date(log.date_finished);
+        return date.toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit'
+        });
+    }).join(', ') || '';
+    
     document.getElementById('form-title').textContent = 'Edit Book';
     document.getElementById('book-id').value = book.id;
     document.getElementById('title').value = book.title || '';
     document.getElementById('authors').value = book.authors?.map(a => a.name).join(', ') || '';
     document.getElementById('series').value = book.series?.name || '';
-    document.getElementById('read').checked = book.read || false;
     document.getElementById('owned').checked = book.owned || false;
     document.getElementById('rating').value = book.rating || '';
-    document.getElementById('date-finished').value = book.date_finished || '';
+    document.getElementById('date-finished').value = datesFinished;
     document.getElementById('notes').value = book.notes || '';
     document.getElementById('read-soon').checked = book.read_soon || false;
     
@@ -146,14 +155,19 @@ document.getElementById('book-edit-form').addEventListener('submit', async (e) =
         .map(a => a.trim())
         .filter(a => a);
     
+    // Parse dates_finished from comma-separated string
+    const datesFinishedStr = document.getElementById('date-finished').value;
+    const datesFinished = datesFinishedStr
+        ? datesFinishedStr.split(',').map(d => d.trim()).filter(d => d)
+        : [];
+    
     const data = {
         title: document.getElementById('title').value,
         author_names: authorNames,
         series_name: document.getElementById('series').value,
-        read: document.getElementById('read').checked,
         owned: document.getElementById('owned').checked,
         rating: parseFloat(document.getElementById('rating').value) || 0,
-        date_finished: document.getElementById('date-finished').value,
+        dates_finished: datesFinished,
         notes: document.getElementById('notes').value,
         read_soon: document.getElementById('read-soon').checked
     };

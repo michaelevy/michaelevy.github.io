@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"time"
 	"website-backend/internal/models"
 
 	"github.com/gin-gonic/gin"
@@ -16,11 +17,34 @@ type BookHandler struct {
 	DB *gorm.DB
 }
 
+// parseDate parses date string in DD/MM/YY or DD/MM/YYYY format
+func parseDate(dateStr string) (time.Time, error) {
+	dateStr = strings.TrimSpace(dateStr)
+	if dateStr == "" {
+		return time.Time{}, nil
+	}
+
+	// Handle "Before 2020" special case
+	if strings.Contains(dateStr, "Before 2020") {
+		return time.Date(2019, 12, 31, 0, 0, 0, 0, time.UTC), nil
+	}
+
+	// Try DD/MM/YY format
+	layouts := []string{"02/01/06", "02/01/2006", "2006-01-02"}
+	for _, layout := range layouts {
+		if t, err := time.Parse(layout, dateStr); err == nil {
+			return t, nil
+		}
+	}
+
+	return time.Time{}, nil
+}
+
 // GetBooks returns all books (public endpoint)
 func (h *BookHandler) GetBooks(c *gin.Context) {
 	var books []models.Book
 	
-	result := h.DB.Preload("Authors").Preload("Series").Find(&books)
+	result := h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").Find(&books)
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return
@@ -34,7 +58,7 @@ func (h *BookHandler) GetBook(c *gin.Context) {
 	id := c.Param("id")
 	var book models.Book
 
-	result := h.DB.Preload("Authors").Preload("Series").First(&book, id)
+	result := h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, id)
 	if result.Error != nil {
 		if result.Error == gorm.ErrRecordNotFound {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Book not found"})
@@ -50,15 +74,14 @@ func (h *BookHandler) GetBook(c *gin.Context) {
 // CreateBook creates a new book (protected endpoint)
 func (h *BookHandler) CreateBook(c *gin.Context) {
 	var input struct {
-		Title        string   `json:"title" binding:"required"`
-		AuthorNames  []string `json:"author_names"`
-		SeriesName   string   `json:"series_name"`
-		Read         bool     `json:"read"`
-		Owned        bool     `json:"owned"`
-		Rating       float64  `json:"rating"`
-		DateFinished string   `json:"date_finished"`
-		Notes        string   `json:"notes"`
-		ReadSoon     bool     `json:"read_soon"`
+		Title         string    `json:"title" binding:"required"`
+		AuthorNames   []string  `json:"author_names"`
+		SeriesName    string    `json:"series_name"`
+		DatesFinished []string  `json:"dates_finished"` // Array of date strings
+		Owned         bool      `json:"owned"`
+		Rating        float64   `json:"rating"`
+		Notes         string    `json:"notes"`
+		ReadSoon      bool      `json:"read_soon"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -67,13 +90,11 @@ func (h *BookHandler) CreateBook(c *gin.Context) {
 	}
 
 	book := models.Book{
-		Title:        input.Title,
-		Read:         input.Read,
-		Owned:        input.Owned,
-		Rating:       input.Rating,
-		DateFinished: input.DateFinished,
-		Notes:        input.Notes,
-		ReadSoon:     input.ReadSoon,
+		Title:    input.Title,
+		Owned:    input.Owned,
+		Rating:   input.Rating,
+		Notes:    input.Notes,
+		ReadSoon: input.ReadSoon,
 	}
 
 	// Handle authors (many-to-many)
@@ -107,8 +128,28 @@ func (h *BookHandler) CreateBook(c *gin.Context) {
 		return
 	}
 
+	// Create read log entries for each date finished
+	for _, dateStr := range input.DatesFinished {
+		if dateStr == "" {
+			continue
+		}
+		// Parse date string (DD/MM/YY format)
+		parsedDate, err := parseDate(dateStr)
+		if err != nil {
+			continue // Skip invalid dates
+		}
+		readLog := models.ReadLog{
+			BookID:       book.ID,
+			DateFinished: parsedDate,
+		}
+		if err := h.DB.Create(&readLog).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+	}
+
 	// Reload with associations
-	h.DB.Preload("Authors").Preload("Series").First(&book, book.ID)
+	h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, book.ID)
 
 	c.JSON(http.StatusCreated, book)
 }
@@ -118,7 +159,7 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 	id := c.Param("id")
 	var book models.Book
 
-	if err := h.DB.Preload("Authors").Preload("Series").First(&book, id).Error; err != nil {
+	if err := h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, id).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Book not found"})
 			return
@@ -128,15 +169,14 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 	}
 
 	var input struct {
-		Title        string   `json:"title"`
-		AuthorNames  []string `json:"author_names"`
-		SeriesName   string   `json:"series_name"`
-		Read         bool     `json:"read"`
-		Owned        bool     `json:"owned"`
-		Rating       float64  `json:"rating"`
-		DateFinished string   `json:"date_finished"`
-		Notes        string   `json:"notes"`
-		ReadSoon     bool     `json:"read_soon"`
+		Title         string   `json:"title"`
+		AuthorNames   []string `json:"author_names"`
+		SeriesName    string   `json:"series_name"`
+		DatesFinished []string `json:"dates_finished"` // Array of date strings
+		Owned         bool     `json:"owned"`
+		Rating        float64  `json:"rating"`
+		Notes         string   `json:"notes"`
+		ReadSoon      bool     `json:"read_soon"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -146,10 +186,8 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 
 	// Update basic fields
 	book.Title = input.Title
-	book.Read = input.Read
 	book.Owned = input.Owned
 	book.Rating = input.Rating
-	book.DateFinished = input.DateFinished
 	book.Notes = input.Notes
 	book.ReadSoon = input.ReadSoon
 
@@ -181,13 +219,33 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 		book.SeriesID = nil
 	}
 
+	// Clear existing read logs and create new ones
+	h.DB.Where("book_id = ?", book.ID).Delete(&models.ReadLog{})
+	for _, dateStr := range input.DatesFinished {
+		if dateStr == "" {
+			continue
+		}
+		parsedDate, err := parseDate(dateStr)
+		if err != nil {
+			continue // Skip invalid dates
+		}
+		readLog := models.ReadLog{
+			BookID:       book.ID,
+			DateFinished: parsedDate,
+		}
+		if err := h.DB.Create(&readLog).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+	}
+
 	if err := h.DB.Save(&book).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
 	// Reload with associations
-	h.DB.Preload("Authors").Preload("Series").First(&book, book.ID)
+	h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, book.ID)
 
 	c.JSON(http.StatusOK, book)
 }
@@ -370,11 +428,9 @@ func (h *BookHandler) ImportCSV(c *gin.Context) {
 		book := models.Book{
 			Title:        title,
 			SeriesID:     seriesID,
-			Read:         read,
 			ReReadStatus: reReadStatus,
 			Owned:        owned,
 			Rating:       rating,
-			DateFinished: dateFinished,
 			Notes:        notes,
 			ReadSoon:     readSoon,
 		}
@@ -388,6 +444,29 @@ func (h *BookHandler) ImportCSV(c *gin.Context) {
 		if len(authors) > 0 {
 			if err := h.DB.Model(&book).Association("Authors").Append(authors); err != nil {
 				errors = append(errors, "Error associating authors for book "+title+": "+err.Error())
+			}
+		}
+
+		// Create read log entries if book was read
+		if read && dateFinished != "" {
+			// Handle comma-separated dates
+			dates := strings.Split(dateFinished, ",")
+			for _, dateStr := range dates {
+				dateStr = strings.TrimSpace(dateStr)
+				if dateStr == "" {
+					continue
+				}
+				parsedDate, err := parseDate(dateStr)
+				if err != nil || parsedDate.IsZero() {
+					continue // Skip invalid dates
+				}
+				readLog := models.ReadLog{
+					BookID:       book.ID,
+					DateFinished: parsedDate,
+				}
+				if err := h.DB.Create(&readLog).Error; err != nil {
+					errors = append(errors, "Error creating read log for book "+title+": "+err.Error())
+				}
 			}
 		}
 

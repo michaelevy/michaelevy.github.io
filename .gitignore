@@ -1,5 +1,6 @@
 .vscode
 frontend/_site
 node_modules
+.clauderc
 .env
 .idea
