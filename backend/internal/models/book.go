@@ -59,3 +59,30 @@ type Book struct {
 	Notes        string  `json:"notes" gorm:"type:text"`
 	ReadSoon     bool    `json:"read_soon"`     // Whether to read soon
 }
+
+// TopSeries represents a favorite series for display in the "My Top Series" widget
+type TopSeries struct {
+	ID        uint           `gorm:"primarykey" json:"id"`
+	CreatedAt time.Time      `json:"created_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
+	
+	SeriesID  uint    `json:"series_id" binding:"required" gorm:"uniqueIndex;not null"`
+	Series    *Series `json:"series,omitempty" gorm:"foreignKey:SeriesID"`
+	SortOrder int     `json:"sort_order" gorm:"default:0"` // Order for display (lower = higher priority)
+}
+
+// RecommendedBook represents a book recommendation for display in the "Recommended Books" widget
+type RecommendedBook struct {
+	ID        uint           `gorm:"primarykey" json:"id"`
+	CreatedAt time.Time      `json:"created_at"`
+	UpdatedAt time.Time      `json:"updated_at"`
+	DeletedAt gorm.DeletedAt `gorm:"index" json:"-"`
+	
+	SeriesID  uint    `json:"series_id" binding:"required" gorm:"not null"`
+	Series    *Series `json:"series,omitempty" gorm:"foreignKey:SeriesID"`
+	Summary   string  `json:"summary" gorm:"type:text"`
+	Quote     string  `json:"quote" gorm:"type:text"`
+	Review    string  `json:"review" gorm:"type:text"`
+	SortOrder int     `json:"sort_order" gorm:"default:0"` // Order for display (lower = higher priority)
+}

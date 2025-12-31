@@ -27,5 +27,7 @@ func Migrate(db *gorm.DB) error {
 		&models.Author{},
 		&models.Series{},
 		&models.ReadLog{},
+		&models.TopSeries{},
+		&models.RecommendedBook{},
 	)
 }

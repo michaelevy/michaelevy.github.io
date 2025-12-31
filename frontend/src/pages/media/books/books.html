@@ -6,6 +6,7 @@ width: full
 css:
   - /src/pages/media/books/books.css
 js:
+  - https://unpkg.com/vue@3/dist/vue.global.js
   - /src/pages/media/books/books.js
 eleventyNavigation:
   key: Books
@@ -13,36 +14,190 @@ eleventyNavigation:
   order: 2
 ---
 
-<main class="content-width">
-    <div id="loading" style="display: none;">Loading books...</div>
-    <div id="error" style="display: none;"></div>
+<main class="content-width" id="app">
+    <div v-if="loading" style="padding: 2rem; text-align: center;">Loading books...</div>
+    <div v-if="error" style="padding: 2rem; text-align: center; color: #ff0000;">[[ error ]]</div>
 
-    <div class="filters">
-        <input type="text" id="searchInput" class="filter-input" placeholder="Search books...">
-        <select id="statusFilter" class="filter-input">
-            <option value="" selected>All Status</option>
-            <option value="true">Read</option>
-            <option value="false">Unread</option>
-        </select>
-        <span id="bookCount"></span>
-    </div>
+    <template v-if="!loading && !error">
+        <!-- Widgets -->
+        <div class="widgets-container">
+            <!-- To Read Soon -->
+            <div class="widget">
+                <h3>To Read Soon</h3>
+                <div v-if="toReadSoonBooks.length === 0" style="margin: 0; font-style: italic;">No books marked to read soon</div>
+                <ul v-else>
+                    <li v-for="book in toReadSoonBooks" :key="book.id">
+                        [[ book.title ]]<span v-if="book.series"> ([[ book.series.name ]])</span>
+                    </li>
+                </ul>
+            </div>
 
-    <div style="overflow-x: auto;">
-        <table class="book-table" id="bookTable">
-            <thead>
-                <tr>
-                    <th data-column="series" class="sortable">Series / Title</th>
-                    <th data-column="author" class="sortable">Author</th>
-                    <th data-column="rating" class="sortable">Rating</th>
-                    <th>Read</th>
-                    <th>Owned</th>
-                    <th data-column="date" class="sortable">Date Finished</th>
-                    <th>Read Soon</th>
-                    <th>Notes</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody">
-            </tbody>
-        </table>
-    </div>
+            <!-- My Top Series -->
+            <div class="widget">
+                <h3>My Favourite Series</h3>
+                <div v-if="topSeriesConfig.length === 0" style="margin: 0; font-style: italic;">No top series configured</div>
+                <div v-else-if="topSeriesData.length === 0" style="margin: 0; font-style: italic;">No matching series found</div>
+                <ol v-else>
+                    <li v-for="series in topSeriesData" :key="series.name">
+                        [[ series.name ]]
+                    </li>
+                </ol>
+            </div>
+
+            <!-- Stats -->
+            <div class="widget">
+                <h3>Stats</h3>
+                <div class="stats-grid">
+                    <div class="stat-label">Read:</div>
+                    <div class="stat-value">[[ stats.read ]]</div>
+                    <div class="stat-label">To Read:</div>
+                    <div class="stat-value">[[ stats.toRead ]]</div>
+                    <div class="stat-label">Reread:</div>
+                    <div class="stat-value">[[ stats.reread ]]</div>
+                    <div class="stat-label">Owned:</div>
+                    <div class="stat-value">[[ stats.owned ]]</div>
+                </div>
+            </div>
+
+            <!-- Year Stats -->
+            <div class="widget">
+                <h3>Year Stats</h3>
+                <div class="year-stats-grid">
+                    <div class="stat-label">Year:</div>
+                    <div class="stat-value">[[ yearStats.year ]]</div>
+                    <div class="stat-label">Total:</div>
+                    <div class="stat-value">[[ yearStats.total ]]</div>
+                    <div class="stat-label">Per Month:</div>
+                    <div class="stat-value">[[ yearStats.perMonth ]]</div>
+                    <div class="stat-label">Projected:</div>
+                    <div class="stat-value">[[ yearStats.projected ]]</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recommended Books -->
+        <div class="widget widget-full-width">
+            <h3 @click="toggleRecommendedBooks" style="cursor: pointer; user-select: none;">
+                [[ recommendedBooksExpanded ? '▼' : '▶' ]] My Top Recommendations
+            </h3>
+            <div v-if="recommendedBooksExpanded && recommendedBooks.length === 0" style="margin: 0; font-style: italic;">No recommendations configured</div>
+            <div v-else-if="recommendedBooksExpanded" class="recommended-books-grid">
+                <div v-for="rec in recommendedBooks" :key="rec.id" class="recommended-book">
+                    <h4>[[ rec.series?.name ]]</h4>
+                    <div class="rec-horizontal">
+                        <div v-if="rec.summary" class="rec-section">
+                            <strong>Summary:</strong>
+                            <p>[[ rec.summary ]]</p>
+                        </div>
+                        <div v-if="rec.quote" class="rec-section">
+                            <strong>Quote:</strong>
+                            <blockquote>[[ rec.quote ]]</blockquote>
+                        </div>
+                    </div>
+                    <div v-if="rec.review" class="rec-section">
+                        <strong>Review:</strong>
+                        <p>[[ rec.review ]]</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters">
+            <input type="text" v-model="searchTerm" class="filter-input" placeholder="Search books...">
+            <select v-model="statusFilter" class="filter-input">
+                <option value="">All Status</option>
+                <option value="read">Read</option>
+                <option value="unread">Unread</option>
+            </select>
+            <span>[[ seriesCount ]] series, [[ bookCount ]] books</span>
+        </div>
+
+        <!-- Books Table -->
+        <div style="overflow-x: auto;">
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th @click="sortBy('series')" class="sortable">Series / Title</th>
+                        <th @click="sortBy('author')" class="sortable">Author</th>
+                        <th @click="sortBy('rating')" class="sortable">Rating</th>
+                        <th>Read</th>
+                        <th>Owned</th>
+                        <th @click="sortBy('date')" class="sortable">Date Finished</th>
+                        <th>Read Soon</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template v-for="(series, seriesIdx) in filteredAndSortedSeries" :key="series.name">
+                        <!-- Series Row -->
+                        <tr
+                            :class="['series-row', { 'expandable': series.isExpandable }]"
+                            @click="series.isExpandable ? toggleSeries(seriesIdx) : null"
+                            :title="series.isSeries ? 'Series ID: ' + series.seriesId : 'Book ID: ' + series.bookId"
+                        >
+                            <td>
+                                <span :style="{ cursor: series.isExpandable ? 'pointer' : 'default' }">
+                                    [[ series.isExpanded ? '▼' : (series.isExpandable ? '▶' : '') ]] [[ series.displayName ]]
+                                </span>
+                            </td>
+                            <td>[[ series.author ]]</td>
+                            <td><span class="book-rating">[[ series.avgRating ]]</span></td>
+                            <td>[[ series.readDisplay ]]</td>
+                            <td>[[ series.ownedDisplay ]]</td>
+                            <td>[[ series.latestDate ]]</td>
+                            <td>[[ series.singleBook?.read_soon ? '✓' : '' ]]</td>
+                            <td>
+                                <button
+                                    v-if="!series.isExpandable && series.singleBook?.notes"
+                                    @click.stop="toggleSingleNotes(seriesIdx)"
+                                    class="notes-toggle-single"
+                                    style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text);"
+                                >
+                                    [[ series.showNotes ? '−' : '+' ]]
+                                </button>
+                            </td>
+                        </tr>
+
+                        <!-- Single Book Notes Row -->
+                        <tr v-if="!series.isExpandable && series.singleBook?.notes && series.showNotes" class="single-notes-row">
+                            <td colspan="8" style="padding: 1rem; background-color: var(--accent-light); font-style: italic;">
+                                [[ series.singleBook.notes ]]
+                            </td>
+                        </tr>
+
+                        <!-- Book Rows (for expandable series) -->
+                        <template v-if="series.isExpandable && series.isExpanded">
+                            <template v-for="(book, bookIdx) in series.books" :key="book.id">
+                                <tr class="book-row expanded" :title="'Book ID: ' + book.id">
+                                    <td class="book-title">[[ book.title ]]</td>
+                                    <td>[[ book.author ]]</td>
+                                    <td><span class="book-rating">[[ book.rating ]]</span></td>
+                                    <td>[[ book.read ? '✓' : '' ]]</td>
+                                    <td>[[ book.owned ? '✓' : '' ]]</td>
+                                    <td>[[ book.date_finished ]]</td>
+                                    <td>[[ book.read_soon ? '✓' : '' ]]</td>
+                                    <td>
+                                        <button
+                                            v-if="book.notes"
+                                            @click.stop="toggleBookNotes(seriesIdx, bookIdx)"
+                                            class="notes-toggle"
+                                            style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text); border: 1px solid var(--accent);"
+                                        >
+                                            [[ book.showNotes ? '−' : '+' ]]
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr v-if="book.notes && book.showNotes" class="notes-row">
+                                    <td colspan="8" style="padding: 1rem; background-color: var(--accent-light); font-style: italic; border-left: 3px solid var(--accent);">
+                                        [[ book.notes ]]
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </template>
 </main>

@@ -298,6 +298,32 @@ func (h *BookHandler) GetSeries(c *gin.Context) {
 	c.JSON(http.StatusOK, series)
 }
 
+// GetTopSeries returns top/favorite series ordered by sort_order (public endpoint)
+func (h *BookHandler) GetTopSeries(c *gin.Context) {
+	var topSeries []models.TopSeries
+	
+	result := h.DB.Preload("Series").Order("sort_order ASC").Find(&topSeries)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, topSeries)
+}
+
+// GetRecommendedBooks returns recommended books ordered by sort_order (public endpoint)
+func (h *BookHandler) GetRecommendedBooks(c *gin.Context) {
+	var recommendedBooks []models.RecommendedBook
+	
+	result := h.DB.Preload("Series").Order("sort_order ASC").Find(&recommendedBooks)
+	if result.Error != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, recommendedBooks)
+}
+
 // ImportCSV imports books from a CSV file (protected endpoint)
 func (h *BookHandler) ImportCSV(c *gin.Context) {
 	file, _, err := c.Request.FormFile("file")

@@ -101,6 +101,8 @@ func main() {
 		api.GET("/books/:id", bookHandler.GetBook)
 		api.GET("/authors", bookHandler.GetAuthors)
 		api.GET("/series", bookHandler.GetSeries)
+		api.GET("/top-series", bookHandler.GetTopSeries)
+		api.GET("/recommended-books", bookHandler.GetRecommendedBooks)
 
 		// Protected book routes (admin only)
 		adminAuth := middleware.BasicAuth()
