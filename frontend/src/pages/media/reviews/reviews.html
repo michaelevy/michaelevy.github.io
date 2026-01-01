@@ -1,0 +1,71 @@
+---
+layout: layouts/base.html
+title: Book Reviews | Michael Levy
+heading: Book Reviews
+width: full
+permalink: /media/reviews/index.html
+css:
+  - /src/pages/media/reviews/reviews.css
+js:
+  - https://unpkg.com/vue@3/dist/vue.global.js
+  - /src/pages/media/reviews/reviews.js
+eleventyNavigation:
+  key: Reviews
+  parent: Media
+  order: 3
+---
+
+<main class="content-width" id="app">
+    <div v-if="loading" style="padding: 2rem; text-align: center;">Loading reviews...</div>
+    <div v-if="error" style="padding: 2rem; text-align: center; color: #ff0000;">[[ error ]]</div>
+
+    <template v-if="!loading && !error">
+        <!-- Filters -->
+        <div class="filters">
+            <input type="text" v-model="searchTerm" class="filter-input" placeholder="Search reviews...">
+            <select v-model="typeFilter" class="filter-input">
+                <option value="">All Reviews</option>
+                <option value="long">Long Reviews</option>
+                <option value="short">Short Reviews</option>
+            </select>
+            <select v-model="minRating" class="filter-input">
+                <option :value="1">All Ratings</option>
+                <option :value="2">2+ Stars</option>
+                <option :value="3">3+ Stars</option>
+                <option :value="4">4+ Stars</option>
+                <option :value="5">5 Stars</option>
+            </select>
+            <span class="filter-count">[[ filteredReviews.length ]] review[[ filteredReviews.length === 1 ? '' : 's' ]]</span>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="reviews-grid">
+            <div v-for="review in paginatedReviews" :key="review.slug" class="review-card">
+                <a :href="'/media/reviews/review/?slug=' + review.slug" class="review-link">
+                    <div class="review-cover">
+                        <img v-if="review.cover && review.cover.url" :src="review.cover.url" :alt="review.alt || review.title">
+                        <div v-else class="no-cover">No Cover</div>
+                    </div>
+                    <div class="review-content">
+                        <span class="review-type">[[ review.type === 'long' ? 'Full Review' : 'Short Review' ]]</span>
+                        <h3 class="review-title">[[ review.title ]]</h3>
+                        <p v-if="review.summary" class="review-summary">[[ review.summary ]]</p>
+                        <div class="review-rating">[[ review.rating ]]/5</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Pagination -->
+        <div v-if="totalPages > 1" class="pagination">
+            <button @click="prevPage" :disabled="currentPage === 1" class="pagination-btn">Previous</button>
+            <span class="pagination-info">Page [[ currentPage ]] of [[ totalPages ]]</span>
+            <button @click="nextPage" :disabled="currentPage === totalPages" class="pagination-btn">Next</button>
+        </div>
+
+        <!-- Empty state -->
+        <div v-if="filteredReviews.length === 0" class="empty-state">
+            <p>No reviews found matching your filters.</p>
+        </div>
+    </template>
+</main>

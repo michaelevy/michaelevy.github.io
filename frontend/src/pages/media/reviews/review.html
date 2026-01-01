@@ -1,0 +1,71 @@
+---
+layout: layouts/base.html
+title: Book Review | Michael Levy
+heading: Book Review
+width: full
+permalink: /media/reviews/review.html
+css:
+  - /src/pages/media/reviews/review-detail.css
+js:
+  - https://unpkg.com/vue@3/dist/vue.global.js
+  - /src/pages/media/reviews/review-detail.js
+---
+
+<main class="content-width" id="app">
+    <div v-if="loading" style="padding: 2rem; text-align: center;">Loading review...</div>
+    <div v-if="error" style="padding: 2rem; text-align: center; color: #ff0000;">[[ error ]]</div>
+
+    <template v-if="!loading && !error && review">
+        <div class="review-container">
+            <!-- Sidebar with cover -->
+            <aside class="review-sidebar">
+                <div class="cover-container">
+                    <img v-if="review.cover && review.cover.url" :src="review.cover.url" :alt="review.alt || review.title" class="cover-image">
+                    <div v-else class="no-cover">No Cover</div>
+                </div>
+                <div class="sidebar-info">
+                    <div class="review-rating">
+                        <span v-for="i in 5" :key="i" class="star" :class="{ 'filled': i <= review.rating }">★</span>
+                        <span class="rating-text">[[ review.rating ]]/5</span>
+                    </div>
+                    <p class="review-type">[[ review.type === 'long' ? 'Full Review' : 'Short Review' ]]</p>
+                    <p v-if="review.date" class="review-date">Reviewed: [[ formatDate(review.date) ]]</p>
+                    <p v-if="review.series" class="review-series-link">
+                        <a :href="'/media/books/#series-' + review.series.id">View Series: [[ review.series.name ]]</a>
+                    </p>
+                </div>
+                <div class="back-link">
+                    <a href="/media/reviews/">← Back to Reviews</a>
+                </div>
+            </aside>
+
+            <!-- Main content -->
+            <article class="review-main">
+                <h1 class="review-title">[[ review.title ]]</h1>
+
+                <!-- Quote section -->
+                <blockquote v-if="review.quote" class="review-quote">
+                    <p>"[[ review.quote ]]"</p>
+                </blockquote>
+
+                <!-- Main review text -->
+                <div class="review-text">
+                    <div v-html="renderedText"></div>
+                </div>
+
+                <!-- Long text section (if available) -->
+                <div v-if="review.longText" class="review-longtext">
+                    <div v-html="renderedLongText"></div>
+                </div>
+            </article>
+        </div>
+    </template>
+
+    <template v-if="!loading && !error && !review">
+        <div class="not-found">
+            <h2>Review Not Found</h2>
+            <p>The review you're looking for doesn't exist or has been removed.</p>
+            <a href="/media/reviews/">← Back to Reviews</a>
+        </div>
+    </template>
+</main>

@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 	"time"
+	"website-backend/internal/contentful"
 	"website-backend/internal/database"
 	"website-backend/internal/handlers"
 	"website-backend/internal/middleware"
@@ -80,6 +81,20 @@ func main() {
 	// Initialize handlers
 	h := handlers.NewHandler(db)
 	bookHandler := &handlers.BookHandler{DB: db}
+	
+	// Initialize Contentful client
+	contentfulSpaceID := os.Getenv("CONTENTFUL_SPACE_ID")
+	contentfulAccessToken := os.Getenv("CONTENTFUL_ACCESS_TOKEN")
+	var reviewHandler *handlers.ReviewHandler
+	if contentfulSpaceID != "" && contentfulAccessToken != "" {
+		contentfulClient := contentful.NewClient(contentfulSpaceID, contentfulAccessToken)
+		reviewHandler = &handlers.ReviewHandler{
+			DB:               db,
+			ContentfulClient: contentfulClient,
+		}
+	} else {
+		log.Println("Warning: CONTENTFUL_SPACE_ID or CONTENTFUL_ACCESS_TOKEN not set, review endpoints will not be available")
+	}
 
 	// API routes
 	api := r.Group("/api")
@@ -110,6 +125,14 @@ func main() {
 		api.PUT("/books/:id", adminAuth, bookHandler.UpdateBook)
 		api.DELETE("/books/:id", adminAuth, bookHandler.DeleteBook)
 		api.POST("/books/import", adminAuth, bookHandler.ImportCSV)
+		
+		// Review routes (public, read-only)
+		if reviewHandler != nil {
+			api.GET("/reviews", reviewHandler.GetReviews)
+			api.GET("/reviews/:slug", reviewHandler.GetReview)
+			api.GET("/series/:id/reviews", reviewHandler.GetSeriesReviews)
+			api.GET("/reviews/mappings", reviewHandler.GetMappings)
+		}
 	}
 
 	// Start server

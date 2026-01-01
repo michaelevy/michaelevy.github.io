@@ -7,6 +7,7 @@ createApp({
             books: [],
             topSeriesFromDB: [], // Top series fetched from database
             recommendedBooks: [], // Recommended books fetched from database
+            reviewMappings: [], // Review-to-series mappings
             loading: true,
             error: null,
             searchTerm: '',
@@ -35,7 +36,7 @@ createApp({
             if (this.topSeriesFromDB.length === 0) return [];
 
             const seriesGroups = this.groupBooksBySeries(this.books);
-            
+
             // Create a map of series name to sort_order
             const sortOrderMap = {};
             this.topSeriesFromDB.forEach(ts => {
@@ -43,9 +44,9 @@ createApp({
                     sortOrderMap[ts.series.name] = ts.sort_order;
                 }
             });
-            
+
             const topSeriesNames = Object.keys(sortOrderMap);
-            
+
             return seriesGroups
                 .filter(series => topSeriesNames.includes(series.name))
                 .map(series => ({
@@ -214,34 +215,42 @@ createApp({
         async fetchBooks() {
             try {
                 this.loading = true;
-                
-                // Fetch books, top series, and recommended books in parallel
-                const [booksResponse, topSeriesResponse, recommendedBooksResponse] = await Promise.all([
+
+                // Fetch books, top series, recommended books, and review mappings in parallel
+                const [booksResponse, topSeriesResponse, recommendedBooksResponse, mappingsResponse] = await Promise.all([
                     fetch('/api/books'),
                     fetch('/api/top-series'),
-                    fetch('/api/recommended-books')
+                    fetch('/api/recommended-books'),
+                    fetch('/api/reviews/mappings')
                 ]);
-                
+
                 if (!booksResponse.ok) {
                     throw new Error(`HTTP error! status: ${booksResponse.status}`);
                 }
-                
+
                 this.books = await booksResponse.json();
-                
+
                 // Top series fetch is optional - don't fail if it errors
                 if (topSeriesResponse.ok) {
                     this.topSeriesFromDB = await topSeriesResponse.json();
                 } else {
                     console.warn('Failed to load top series');
                 }
-                
+
                 // Recommended books fetch is optional - don't fail if it errors
                 if (recommendedBooksResponse.ok) {
                     this.recommendedBooks = await recommendedBooksResponse.json();
                 } else {
                     console.warn('Failed to load recommended books');
                 }
-                
+
+                // Review mappings fetch is optional - don't fail if it errors
+                if (mappingsResponse.ok) {
+                    this.reviewMappings = await mappingsResponse.json();
+                } else {
+                    console.warn('Failed to load review mappings');
+                }
+
                 this.loading = false;
             } catch (error) {
                 console.error('Error fetching books:', error);
@@ -288,7 +297,7 @@ createApp({
                     series: book.series?.name || '',
                     read: hasReadLogs,
                     owned: book.owned || false,
-                    rating: book.rating ? (book.rating - 5).toFixed(1) : '',
+                    rating: book.rating ? (book.rating).toFixed(1) : '',
                     date_finished: dateFinished,
                     read_soon: book.read_soon || false,
                     showNotes: false
@@ -326,6 +335,14 @@ createApp({
                     ownedDisplay = singleBook.owned ? '✓' : '';
                 }
 
+                // Check if this series has a review
+                const hasReview = series.isSeries && series.seriesId &&
+                    this.reviewMappings.some(m => m.series_id === series.seriesId);
+
+                // Get review slug for linking
+                const reviewMapping = hasReview ?
+                    this.reviewMappings.find(m => m.series_id === series.seriesId) : null;
+
                 return {
                     ...series,
                     bookCount,
@@ -336,7 +353,9 @@ createApp({
                     displayName,
                     readDisplay,
                     ownedDisplay,
-                    bookId: singleBook ? singleBook.id : null
+                    bookId: singleBook ? singleBook.id : null,
+                    hasReview,
+                    reviewSlug: reviewMapping?.review_slug
                 };
             });
         },
@@ -441,6 +460,23 @@ createApp({
             this.expandedSeries = {};
             this.seriesNotesVisible = {};
             this.bookNotesVisible = {};
+        },
+
+        getReviewLink(series) {
+            if (series.reviewSlug) {
+                return `/media/reviews/review/?slug=${series.reviewSlug}`;
+            }
+            return '#';
+        },
+
+        getRecommendationReviewLink(recommendation) {
+            if (!recommendation.series_id) return null;
+            
+            const mapping = this.reviewMappings.find(m => m.series_id === recommendation.series_id);
+            if (mapping?.review_slug) {
+                return `/media/reviews/review/?slug=${mapping.review_slug}`;
+            }
+            return null;
         }
     },
 

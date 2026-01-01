@@ -56,7 +56,7 @@ type Book struct {
 	ReReadStatus string  `json:"reread_status"` // Deprecated - kept for backward compatibility
 	Owned        bool    `json:"owned"`         // Whether book is owned
 	Rating       float64 `json:"rating"`        // 6.0-10.0 scale (5-star = rating - 5)
-	Notes        string  `json:"notes" gorm:"type:text"`
+	// Notes        string  `json:"notes" gorm:"type:text"` // Commented out - kept for potential future use
 	ReadSoon     bool    `json:"read_soon"`     // Whether to read soon
 }
 

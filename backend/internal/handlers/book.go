@@ -93,7 +93,7 @@ func (h *BookHandler) CreateBook(c *gin.Context) {
 		Title:    input.Title,
 		Owned:    input.Owned,
 		Rating:   input.Rating,
-		Notes:    input.Notes,
+		// Notes:    input.Notes, // Commented out - Notes field removed from model
 		ReadSoon: input.ReadSoon,
 	}
 
@@ -188,7 +188,7 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 	book.Title = input.Title
 	book.Owned = input.Owned
 	book.Rating = input.Rating
-	book.Notes = input.Notes
+	// book.Notes = input.Notes // Commented out - Notes field removed from model
 	book.ReadSoon = input.ReadSoon
 
 	// Clear existing authors and add new ones
@@ -416,10 +416,11 @@ func (h *BookHandler) ImportCSV(c *gin.Context) {
 			dateFinished = strings.TrimSpace(record[9])
 		}
 
-		notes := ""
-		if len(record) > 10 {
-			notes = strings.TrimSpace(record[10])
-		}
+		// notes := ""
+		// if len(record) > 10 {
+		// 	notes = strings.TrimSpace(record[10])
+		// }
+		// Commented out - Notes field removed from model but kept for potential future use
 
 		readSoon := false
 		if len(record) > 11 {
@@ -457,7 +458,7 @@ func (h *BookHandler) ImportCSV(c *gin.Context) {
 			ReReadStatus: reReadStatus,
 			Owned:        owned,
 			Rating:       rating,
-			Notes:        notes,
+			// Notes:        notes, // Commented out - Notes field removed from model
 			ReadSoon:     readSoon,
 		}
 

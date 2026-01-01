@@ -95,8 +95,9 @@ eleventyNavigation:
                         </div>
                     </div>
                     <div v-if="rec.review" class="rec-section">
-                        <strong>Review:</strong>
-                        <p>[[ rec.review ]]</p>
+                        <a v-if="getRecommendationReviewLink(rec)" :href="getRecommendationReviewLink(rec)" class="review-link">
+                            <strong>Review</strong>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -125,7 +126,8 @@ eleventyNavigation:
                         <th>Owned</th>
                         <th @click="sortBy('date')" class="sortable">Date Finished</th>
                         <th>Read Soon</th>
-                        <th>Notes</th>
+                        <th>Review</th>
+                        <!-- <th>Notes</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -148,23 +150,28 @@ eleventyNavigation:
                             <td>[[ series.latestDate ]]</td>
                             <td>[[ series.singleBook?.read_soon ? '✓' : '' ]]</td>
                             <td>
+                                <a v-if="series.hasReview" :href="getReviewLink(series)" class="review-link" @click.stop>
+                                    Read Review
+                                </a>
+                            </td>
+                            <!-- <td>
                                 <button
                                     v-if="!series.isExpandable && series.singleBook?.notes"
                                     @click.stop="toggleSingleNotes(seriesIdx)"
                                     class="notes-toggle-single"
-                                    style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text);"
+                                    style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--background-dark); color: var(--text);"
                                 >
                                     [[ series.showNotes ? '−' : '+' ]]
                                 </button>
-                            </td>
+                            </td> -->
                         </tr>
 
                         <!-- Single Book Notes Row -->
-                        <tr v-if="!series.isExpandable && series.singleBook?.notes && series.showNotes" class="single-notes-row">
-                            <td colspan="8" style="padding: 1rem; background-color: var(--accent-light); font-style: italic;">
+                        <!-- <tr v-if="!series.isExpandable && series.singleBook?.notes && series.showNotes" class="single-notes-row">
+                            <td colspan="9" style="padding: 1rem; background-color: var(--background-mid); font-style: italic;">
                                 [[ series.singleBook.notes ]]
                             </td>
-                        </tr>
+                        </tr> -->
 
                         <!-- Book Rows (for expandable series) -->
                         <template v-if="series.isExpandable && series.isExpanded">
@@ -177,22 +184,23 @@ eleventyNavigation:
                                     <td>[[ book.owned ? '✓' : '' ]]</td>
                                     <td>[[ book.date_finished ]]</td>
                                     <td>[[ book.read_soon ? '✓' : '' ]]</td>
-                                    <td>
+                                    <td></td>
+                                    <!-- <td>
                                         <button
                                             v-if="book.notes"
                                             @click.stop="toggleBookNotes(seriesIdx, bookIdx)"
                                             class="notes-toggle"
-                                            style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--accent-light); color: var(--text); "
+                                            style="cursor: pointer; padding: 0.25rem 0.5rem; font-family: 'FiraCode'; font-size: 0.8rem; background-color: var(--background-dark); color: var(--text); "
                                         >
                                             [[ book.showNotes ? '−' : '+' ]]
                                         </button>
-                                    </td>
+                                    </td> -->
                                 </tr>
-                                <tr v-if="book.notes && book.showNotes" class="notes-row">
-                                    <td colspan="8" style="padding: 1rem; background-color: var(--accent-light); font-style: italic; border-left: 3px solid var(--accent);">
+                                <!-- <tr v-if="book.notes && book.showNotes" class="notes-row">
+                                    <td colspan="9" style="padding: 1rem; background-color: var(--background-mid); font-style: italic; border-left: 3px solid var(--accent);">
                                         [[ book.notes ]]
                                     </td>
-                                </tr>
+                                </tr> -->
                             </template>
                         </template>
                     </template>

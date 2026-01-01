@@ -1,7 +1,7 @@
 :root {
     --orange: rgb(212, 76, 80);
     --orange-dark:  #600;
-    --orange-light: rgb(255, 180, 200);
+    --orange-light: oklch(84% 0.171 22.2);
     --white: white;
     --grey:  #afafaf;
     --grey-dark: #2a2722;
@@ -12,12 +12,14 @@
     --bright_grey: oklch(47% 0.005 17.3);
     --brighter_grey: oklch(0.6068 0.005 17.3);
     --bright_white: oklch(94.75% 0.04 73);
+    --mid-white: oklch(0.9027 0.04 73);
     --dark-white: oklch(0.8027 0.04 73);
 
     --background: var(--bright_white);
-    --background-dark:var(--grey);
+    --background-mid: var(--mid-white);
+    --background-dark: var(--dark-white);
     --accent: var(--orange);
-    --accent-light:var(--dark-white);
+    --accent-light:var(--orange-light);
     --secondary: var(--bright_grey);
     --secondary-light: var(--brighter_grey);
     --text: var(--black);
@@ -205,7 +207,7 @@ main {
     padding: 2rem;
     position: relative;
     margin: 1rem 0 1rem 0;
-    border: 2px solid var(--accent-light);
+    border: 2px solid var(--background-dark );
 
     h2{
         margin-top: 0;
@@ -381,7 +383,7 @@ a.button {
 
 p, li, th, tr {
     line-height: 1.6;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     -webkit-font-smoothing: antialiased;
     @media only screen and (min-width: 800px) {
         font-size: 1rem;
