@@ -100,7 +100,6 @@
 .back-link {
     margin-top: 1.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid var(--accent);
 }
 
 .back-link a {
@@ -131,7 +130,7 @@ p {
 }
 
 .review-quote {
-    border-left: 4px solid var(--accent-bright);
+    border-left: 4px solid var(--accent-light);
     padding: 1.5rem;
     margin: 2rem 0;
     font-style: italic;

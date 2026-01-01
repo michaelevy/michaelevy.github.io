@@ -30,9 +30,6 @@ js:
                     </div>
                     <p class="review-type">[[ review.type === 'long' ? 'Full Review' : 'Short Review' ]]</p>
                     <p v-if="review.date" class="review-date">Reviewed: [[ formatDate(review.date) ]]</p>
-                    <p v-if="review.series" class="review-series-link">
-                        <a :href="'/media/books/#series-' + review.series.id">View Series: [[ review.series.name ]]</a>
-                    </p>
                 </div>
                 <div class="back-link">
                     <a href="/media/reviews/">← Back to Reviews</a>

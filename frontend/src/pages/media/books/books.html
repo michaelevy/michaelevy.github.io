@@ -125,7 +125,7 @@ eleventyNavigation:
                         <th>Read</th>
                         <th>Owned</th>
                         <th @click="sortBy('date')" class="sortable">Date Finished</th>
-                        <th>Read Soon</th>
+                        <!-- <th>Read Soon</th> -->
                         <th>Review</th>
                         <!-- <th>Notes</th> -->
                     </tr>
@@ -148,7 +148,7 @@ eleventyNavigation:
                             <td>[[ series.readDisplay ]]</td>
                             <td>[[ series.ownedDisplay ]]</td>
                             <td>[[ series.latestDate ]]</td>
-                            <td>[[ series.singleBook?.read_soon ? '✓' : '' ]]</td>
+                            <!-- <td>[[ series.singleBook?.read_soon ? '✓' : '' ]]</td> -->
                             <td>
                                 <a v-if="series.hasReview" :href="getReviewLink(series)" class="review-link" @click.stop>
                                     Read Review
@@ -183,7 +183,7 @@ eleventyNavigation:
                                     <td>[[ book.read ? '✓' : '' ]]</td>
                                     <td>[[ book.owned ? '✓' : '' ]]</td>
                                     <td>[[ book.date_finished ]]</td>
-                                    <td>[[ book.read_soon ? '✓' : '' ]]</td>
+                                    <!-- <td>[[ book.read_soon ? '✓' : '' ]]</td> -->
                                     <td></td>
                                     <!-- <td>
                                         <button
