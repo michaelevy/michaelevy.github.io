@@ -41,7 +41,7 @@ eleventyNavigation:
         <!-- Reviews Grid -->
         <div class="reviews-grid">
             <div v-for="review in paginatedReviews" :key="review.slug" class="review-card">
-                <a :href="'/media/reviews/review/?slug=' + review.slug" class="review-link">
+                <a :href="'/media/reviews/' + review.slug + '/'" class="review-link">
                     <div class="review-cover">
                         <img v-if="review.cover && review.cover.url" :src="review.cover.url" :alt="review.alt || review.title">
                         <div v-else class="no-cover">No Cover</div>

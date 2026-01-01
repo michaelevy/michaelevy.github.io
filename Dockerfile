@@ -22,6 +22,9 @@ FROM nginx:alpine
 # Copy built site from builder stage
 COPY --from=builder /app/frontend/_site /usr/share/nginx/html
 
+# Copy custom error pages
+COPY frontend/502.html /usr/share/nginx/html/502.html
+
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 

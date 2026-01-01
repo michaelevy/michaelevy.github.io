@@ -515,7 +515,8 @@ createApp({
 
         getReviewLink(series) {
             if (series.reviewSlug) {
-                return `/media/reviews/review/?slug=${series.reviewSlug}`;
+                // Use static URL instead of dynamic query param
+                return `/media/reviews/${series.reviewSlug}/`;
             }
             return '#';
         },
@@ -525,7 +526,8 @@ createApp({
             
             const mapping = this.reviewMappings.find(m => m.series_id === recommendation.series_id);
             if (mapping?.review_slug) {
-                return `/media/reviews/review/?slug=${mapping.review_slug}`;
+                // Use static URL instead of dynamic query param
+                return `/media/reviews/${mapping.review_slug}/`;
             }
             return null;
         }
