@@ -7,6 +7,16 @@
     align-items: center;
 }
 
+.filter-input {
+    padding: 0.5rem;
+    background-color: var(--background-mid);
+    color: var(--text);
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    font-family: 'FiraCode', monospace;
+    font-size: 0.9rem;
+}
+
 .filter-input:focus {
     outline: none;
     border-color: var(--accent-light);
@@ -26,7 +36,7 @@
 }
 
 .review-card {
-    background-color: var(--background-dark);
+    background-color: var(--background-mid);
     border: 1px solid var(--accent);
     border-radius: 50px;
     overflow: hidden;

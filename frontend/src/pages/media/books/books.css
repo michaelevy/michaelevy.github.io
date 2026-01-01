@@ -22,6 +22,10 @@ p, li, tr {
     margin-bottom: 2rem;
 }
 
+.widget-half-width {
+    grid-column: span 1;
+}
+
 .widget h3 {
     margin: 0 0 1rem 0;
     color: var(--accent);

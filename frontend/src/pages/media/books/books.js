@@ -114,6 +114,32 @@ createApp({
             };
         },
 
+        // Books Per Year (from 2020 onwards)
+        booksPerYear() {
+            if (!this.books || this.books.length === 0) return [];
+            
+            const yearCounts = {};
+
+            this.books.forEach(book => {
+                if (!book.read_logs || book.read_logs.length === 0) return;
+
+                book.read_logs.forEach(log => {
+                    const logDate = new Date(log.date_finished);
+                    const year = logDate.getFullYear();
+
+                    // Only include data from 2020 onwards
+                    if (year >= 2020) {
+                        yearCounts[year] = (yearCounts[year] || 0) + 1;
+                    }
+                });
+            });
+
+            // Convert to array and sort by year descending
+            return Object.entries(yearCounts)
+                .map(([year, count]) => ({ year: parseInt(year), count }))
+                .sort((a, b) => b.year - a.year);
+        },
+
         // Grouped and processed series
         seriesGroups() {
             return this.groupBooksBySeries(this.books);
@@ -166,8 +192,8 @@ createApp({
                         bVal = parseFloat(b.avgRating);
                         break;
                     case 'date':
-                        aVal = this.parseDate(a.latestDate);
-                        bVal = this.parseDate(b.latestDate);
+                        aVal = this.parseDate(a.latestDateSort);
+                        bVal = this.parseDate(b.latestDateSort);
                         break;
                 }
 
@@ -308,7 +334,9 @@ createApp({
             return Object.values(seriesMap).map(series => {
                 const bookCount = series.books.length;
                 const avgRating = this.calculateAvgRating(series.books);
-                const latestDate = this.getLatestDate(series.books);
+                const latestDateObj = this.getLatestDate(series.books);
+                const latestDate = latestDateObj.display;
+                const latestDateSort = latestDateObj.sort;
                 const isExpandable = series.isSeries && bookCount > 1;
                 const singleBook = bookCount === 1 ? series.books[0] : null;
 
@@ -348,6 +376,7 @@ createApp({
                     bookCount,
                     avgRating,
                     latestDate,
+                    latestDateSort,
                     isExpandable,
                     singleBook,
                     displayName,
@@ -382,9 +411,31 @@ createApp({
                 })
                 .filter(d => d && d.val > 0);
 
-            if (dates.length === 0) return '';
+            if (dates.length === 0) return { display: '', sort: '' };
             dates.sort((a, b) => b.val - a.val);
-            return dates[0].str;
+            
+            const latestDateStr = dates[0].str;
+            const displayDate = this.formatDateDisplay(latestDateStr);
+            
+            return { display: displayDate, sort: latestDateStr };
+        },
+
+        formatDateDisplay(dateStr) {
+            if (!dateStr) return '';
+            
+            // Parse the date (assuming DD/MM/YY format)
+            const parts = dateStr.split('/');
+            if (parts.length !== 3) return dateStr;
+            
+            const year = parseInt(parts[2]);
+            const fullYear = year < 50 ? 2000 + year : 1900 + year;
+            
+            // If the year is 2019 or earlier, display "Before 2020"
+            if (fullYear <= 2019) {
+                return 'Before 2020';
+            }
+            
+            return dateStr;
         },
 
         parseDate(dateStr) {

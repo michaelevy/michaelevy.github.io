@@ -60,7 +60,7 @@ eleventyNavigation:
             </div>
 
             <!-- Year Stats -->
-            <div class="widget">
+            <div class="widget widget-half-width">
                 <h3>Year Stats</h3>
                 <div class="year-stats-grid">
                     <div class="stat-label">Year:</div>
@@ -71,6 +71,18 @@ eleventyNavigation:
                     <div class="stat-value">[[ yearStats.perMonth ]]</div>
                     <div class="stat-label">Projected:</div>
                     <div class="stat-value">[[ yearStats.projected ]]</div>
+                </div>
+            </div>
+
+            <!-- Books Per Year -->
+            <div class="widget widget-half-width">
+                <h3>Books Per Year</h3>
+                <div v-if="booksPerYear.length === 0" style="margin: 0; font-style: italic;">No data available</div>
+                <div v-else class="year-stats-grid">
+                    <template v-for="yearData in booksPerYear" :key="yearData.year">
+                        <div class="stat-label">[[ yearData.year ]]:</div>
+                        <div class="stat-value">[[ yearData.count ]]</div>
+                    </template>
                 </div>
             </div>
         </div>
