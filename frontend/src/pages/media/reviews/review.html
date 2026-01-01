@@ -16,11 +16,11 @@ js:
     <div v-if="error" style="padding: 2rem; text-align: center; color: #ff0000;">[[ error ]]</div>
 
     <template v-if="!loading && !error && review">
-        <div class="review-container">
+        <div class="review-container h-entry">
             <!-- Sidebar with cover -->
             <aside class="review-sidebar">
                 <div class="cover-container">
-                    <img v-if="review.cover && review.cover.url" :src="review.cover.url" :alt="review.alt || review.title" class="cover-image">
+                    <img v-if="review.cover && review.cover.url" :src="review.cover.url" :alt="review.alt || review.title" class="cover-image u-photo">
                     <div v-else class="no-cover">No Cover</div>
                 </div>
                 <div class="sidebar-info">
@@ -28,8 +28,8 @@ js:
                         <span v-for="i in 5" :key="i" class="star" :class="{ 'filled': i <= review.rating }">★</span>
                         <span class="rating-text">[[ review.rating ]]/5</span>
                     </div>
-                    <p class="review-type">[[ review.type === 'long' ? 'Full Review' : 'Short Review' ]]</p>
-                    <p v-if="review.date" class="review-date">Reviewed: [[ formatDate(review.date) ]]</p>
+                    <p class="review-type p-category">[[ review.type === 'long' ? 'Full Review' : 'Short Review' ]]</p>
+                    <p v-if="review.date" class="review-date">Reviewed: <time class="dt-published" :datetime="review.date">[[ formatDate(review.date) ]]</time></p>
                 </div>
                 <div class="back-link">
                     <a href="/media/reviews/">← Back to Reviews</a>
@@ -38,21 +38,23 @@ js:
 
             <!-- Main content -->
             <article class="review-main">
-                <h1 class="review-title">[[ review.title ]]</h1>
+                <h1 class="review-title p-name">[[ review.title ]]</h1>
+                <a class="u-url" :href="'/media/reviews/review/?slug=' + review.slug" style="display: none;"></a>
+                <a class="u-uid" :href="'/media/reviews/review/?slug=' + review.slug" style="display: none;"></a>
 
                 <!-- Quote section -->
-                <blockquote v-if="review.quote" class="review-quote">
+                <blockquote v-if="review.quote" class="review-quote p-summary">
                     <p>"[[ review.quote ]]"</p>
                 </blockquote>
 
                 <!-- Main review text -->
-                <div class="review-text">
+                <div class="review-text e-content">
                     <div v-html="renderedText"></div>
-                </div>
-
-                <!-- Long text section (if available) -->
-                <div v-if="review.longText" class="review-longtext">
-                    <div v-html="renderedLongText"></div>
+                
+                    <!-- Long text section (if available) -->
+                    <div v-if="review.longText">
+                        <div v-html="renderedLongText"></div>
+                    </div>
                 </div>
             </article>
         </div>
