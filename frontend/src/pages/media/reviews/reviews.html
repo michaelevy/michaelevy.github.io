@@ -23,11 +23,22 @@ eleventyNavigation:
         <!-- Filters -->
         <div class="filters">
             <input type="text" v-model="searchTerm" class="filter-input" placeholder="Search reviews...">
-            <select v-model="typeFilter" class="filter-input">
-                <option value="">All Reviews</option>
-                <option value="long">Long Reviews</option>
-                <option value="short">Short Reviews</option>
-            </select>
+            
+            <div class="radio-group">
+                <label class="radio-label">
+                    <input type="radio" v-model="typeFilter" value="" name="reviewType">
+                    <span>All Reviews</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" v-model="typeFilter" value="long" name="reviewType">
+                    <span>Long Reviews</span>
+                </label>
+                <label class="radio-label">
+                    <input type="radio" v-model="typeFilter" value="short" name="reviewType">
+                    <span>Short Reviews</span>
+                </label>
+            </div>
+
             <select v-model="minRating" class="filter-input">
                 <option :value="1">All Ratings</option>
                 <option :value="2">2+ Stars</option>

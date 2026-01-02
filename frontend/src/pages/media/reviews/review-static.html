@@ -46,9 +46,9 @@ css:
             <h1 class="review-title p-name">{{ review.title }}</h1>
             <a class="u-url" href="https://michaelevy.com/media/reviews/{{ review.slug }}/" style="display: none;"></a>
             <a class="u-uid" href="https://michaelevy.com/media/reviews/{{ review.slug }}/" style="display: none;"></a>
-
+            <a rel="author" class="p-author h-card" href="https://michaelevy.com" style="display:none">Michael Levy</a>
             <!-- Quote section -->
-            {% if review.quote %}
+            {% if review.quote and review.type == 'short' %}
             <blockquote class="review-quote p-summary">
                 <p>"{{ review.quote }}"</p>
             </blockquote>
@@ -57,7 +57,7 @@ css:
             <!-- Main review text -->
             <div class="review-text e-content">
                 {{ review.text | renderRichText | safe }}
-                
+
                 {% if review.longText %}
                 <div>
                     {{ review.longText | renderRichText | safe }}
