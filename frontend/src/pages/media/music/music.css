@@ -141,6 +141,8 @@
     flex-direction: row;
     max-height: 155px;
     line-height: 0.9;
+    cursor: pointer;
+    transition: all 0.1s;
     img {
         filter: saturate(0.75);
     }
@@ -150,6 +152,16 @@
 }
 
 .album-wrapper:hover {
+    border-color: var(--accent-light);
+    border-radius: 55px;
+    img {
+        filter: saturate(1.1);
+    }
+}
+
+.album-wrapper.selected {
+    border-color: var(--accent);
+    border-width: 2px;
     img {
         filter: saturate(1.1);
     }

@@ -116,10 +116,9 @@
 /* Main Content */
 .review-main {
     min-width: 0;
-}
-
-p {
-    font-family: "EBGaramond";
+    p {
+        font-family: "EBGaramond";
+    }
 }
 
 .review-title {

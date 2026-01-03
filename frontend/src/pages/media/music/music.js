@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             albumWrapper.innerHTML = `
                 <div class="album-cover">
-                    <img src="/public/resources/${album.image}.jpg" alt="${album.name} by ${album.artist}">
+                    <img src="/public/resources/${album.image}" alt="${album.name} by ${album.artist}">
                 </div>
                 <div class="album-info">
                     <h2 class="album-title">${album.name}</h2>
@@ -176,6 +176,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             sidebarText.innerHTML = textContent;
         }
 
+        // Remove selected class from all albums
+        document.querySelectorAll('.album-wrapper').forEach(w => w.classList.remove('selected'));
+        
+        // Add selected class to current album
+        wrapper.classList.add('selected');
+
         // Show sidebar on mobile when album is clicked
         sidebar.classList.add('visible');
     }
@@ -190,16 +196,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         const albumWrappers = document.querySelectorAll('.album-wrapper');
 
         albumWrappers.forEach(wrapper => {
-            // Handle hover for desktop
-            wrapper.addEventListener('mouseenter', () => {
-                updateSidebar(wrapper);
-            });
-
-            // Handle click/tap for mobile
+            // Handle click for both desktop and mobile
             wrapper.addEventListener('click', (e) => {
                 updateSidebar(wrapper);
             });
         });
+
+        // Select the first album by default
+        if (albumWrappers.length > 0) {
+            updateSidebar(albumWrappers[0]);
+        }
     }
 
     // Close button event listener
