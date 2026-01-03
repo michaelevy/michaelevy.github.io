@@ -7,3 +7,4 @@ _site
 .vscode
 npm-debug.log
 .DS_Store
+.cache
