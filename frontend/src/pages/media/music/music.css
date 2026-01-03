@@ -139,7 +139,7 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    max-height: 155px;
+    max-height: 130px;
     line-height: 0.9;
     cursor: pointer;
     transition: all 0.1s;
@@ -169,7 +169,7 @@
 
 .album-cover {
     flex-shrink: 0;
-    width: 33%;
+    width: 25%;
     height: 100%;
     overflow: hidden;
 }
@@ -197,14 +197,14 @@
 }
 
 .album-title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
     font-weight: 700;
     color: var(--accent)
 }
 
 .album-artist {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin: 0 0 0.5rem 0;
     color: var(--text);
     opacity: 0.8;
@@ -237,10 +237,6 @@
 @media (max-width: 1024px) {
     .music-container {
         flex-direction: column;
-    }
-
-    .album-wrapper {
-        max-height: 135px;;
     }
 
     .album-sidebar {
@@ -282,6 +278,6 @@
     }
 
     .album-title {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
 }
