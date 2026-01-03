@@ -16,7 +16,7 @@ type AlbumHandler struct {
 func (h *AlbumHandler) GetAlbums(c *gin.Context) {
 	var albums []models.Album
 	
-	result := h.DB.Preload("Links").Find(&albums)
+	result := h.DB.Preload("Links").Preload("Genres").Find(&albums)
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return
@@ -30,7 +30,7 @@ func (h *AlbumHandler) GetAlbum(c *gin.Context) {
 	id := c.Param("id")
 	var album models.Album
 
-	result := h.DB.Preload("Links").First(&album, id)
+	result := h.DB.Preload("Links").Preload("Genres").First(&album, id)
 	if result.Error != nil {
 		if result.Error == gorm.ErrRecordNotFound {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Album not found"})
@@ -53,8 +53,9 @@ func (h *AlbumHandler) CreateAlbum(c *gin.Context) {
 			Type string `json:"type" binding:"required"`
 			Link string `json:"link" binding:"required"`
 		} `json:"links"`
-		Text  string `json:"text"`
-		Image string `json:"image"`
+		GenreIDs []uint `json:"genre_ids"`
+		Text     string `json:"text"`
+		Image    string `json:"image"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -89,8 +90,18 @@ func (h *AlbumHandler) CreateAlbum(c *gin.Context) {
 		}
 	}
 
+	// Associate genres
+	if len(input.GenreIDs) > 0 {
+		var genres []models.Genre
+		h.DB.Find(&genres, input.GenreIDs)
+		if err := h.DB.Model(&album).Association("Genres").Replace(genres); err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+	}
+
 	// Reload with associations
-	h.DB.Preload("Links").First(&album, album.ID)
+	h.DB.Preload("Links").Preload("Genres").First(&album, album.ID)
 
 	c.JSON(http.StatusCreated, album)
 }
@@ -100,7 +111,7 @@ func (h *AlbumHandler) UpdateAlbum(c *gin.Context) {
 	id := c.Param("id")
 	var album models.Album
 
-	if err := h.DB.Preload("Links").First(&album, id).Error; err != nil {
+	if err := h.DB.Preload("Links").Preload("Genres").First(&album, id).Error; err != nil {
 		if err == gorm.ErrRecordNotFound {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Album not found"})
 			return
@@ -110,15 +121,16 @@ func (h *AlbumHandler) UpdateAlbum(c *gin.Context) {
 	}
 
 	var input struct {
-		Name   string `json:"name"`
-		Artist string `json:"artist"`
-		Year   string `json:"year"`
-		Links  []struct {
+		Name     string `json:"name"`
+		Artist   string `json:"artist"`
+		Year     string `json:"year"`
+		Links    []struct {
 			Type string `json:"type"`
 			Link string `json:"link"`
 		} `json:"links"`
-		Text  string `json:"text"`
-		Image string `json:"image"`
+		GenreIDs []uint `json:"genre_ids"`
+		Text     string `json:"text"`
+		Image    string `json:"image"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -147,13 +159,23 @@ func (h *AlbumHandler) UpdateAlbum(c *gin.Context) {
 		}
 	}
 
+	// Update genre associations
+	var genres []models.Genre
+	if len(input.GenreIDs) > 0 {
+		h.DB.Find(&genres, input.GenreIDs)
+	}
+	if err := h.DB.Model(&album).Association("Genres").Replace(genres); err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
 	if err := h.DB.Save(&album).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
 
 	// Reload with associations
-	h.DB.Preload("Links").First(&album, album.ID)
+	h.DB.Preload("Links").Preload("Genres").First(&album, album.ID)
 
 	c.JSON(http.StatusOK, album)
 }

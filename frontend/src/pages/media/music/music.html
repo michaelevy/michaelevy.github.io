@@ -13,15 +13,25 @@ eleventyNavigation:
   order: 1
 ---
 
-<main class="music-container">
-    <div class="albums-grid">
-        <!-- Albums will be loaded dynamically via JavaScript -->
+<main class="content-width">
+    <div class="genre-filters">
+        <p class="genre-filters-label">Filter by genre:</p>
+        <div id="genre-filter-buttons">
+            <!-- Genre filter buttons will be loaded dynamically via JavaScript -->
+        </div>
     </div>
 
-    <aside class="album-sidebar">
-        <div class="sidebar-content">
-            <h3 class="sidebar-title">Hover over an album</h3>
-            <p class="sidebar-text garamond">Album information will appear here</p>
+    <div class="music-container">
+        <div class="albums-grid">
+            <!-- Albums will be loaded dynamically via JavaScript -->
         </div>
-    </aside>
+
+        <aside class="album-sidebar">
+            <div class="sidebar-content">
+                <button class="sidebar-close" aria-label="Close album info">&times;</button>
+                <h3 class="sidebar-title">Hover over an album</h3>
+                <p class="sidebar-text garamond">Album information will appear here</p>
+            </div>
+        </aside>
+    </div>
 </main>

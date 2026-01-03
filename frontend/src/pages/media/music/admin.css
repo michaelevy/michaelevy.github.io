@@ -178,3 +178,61 @@
     display: flex;
     gap: 0.5rem;
 }
+
+/* Genre management */
+.admin-section {
+    margin-bottom: 3rem;
+}
+
+.genre-item {
+    border: 1px solid var(--accent-light);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.genre-info {
+    font-weight: 500;
+}
+
+.genre-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Genre checkboxes in form */
+#genres-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.genre-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--accent-light);
+    background: var(--background);
+    transition: all 0.2s;
+}
+
+.genre-checkbox:hover {
+    border-color: var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+.genre-checkbox input[type="checkbox"] {
+    width: auto;
+    cursor: pointer;
+    margin: 0;
+}
+
+.genre-checkbox span {
+    font-size: 0.9rem;
+    user-select: none;
+}

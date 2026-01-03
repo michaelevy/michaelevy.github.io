@@ -82,6 +82,7 @@ func main() {
 	h := handlers.NewHandler(db)
 	bookHandler := &handlers.BookHandler{DB: db}
 	albumHandler := &handlers.AlbumHandler{DB: db}
+	genreHandler := &handlers.GenreHandler{DB: db}
 	imageHandler := &handlers.ImageHandler{DB: db}
 	
 	// Initialize Contentful client
@@ -136,6 +137,15 @@ func main() {
 		api.POST("/albums", adminAuth, albumHandler.CreateAlbum)
 		api.PUT("/albums/:id", adminAuth, albumHandler.UpdateAlbum)
 		api.DELETE("/albums/:id", adminAuth, albumHandler.DeleteAlbum)
+
+		// Public genre routes (anyone can view)
+		api.GET("/genres", genreHandler.GetGenres)
+		api.GET("/genres/:id", genreHandler.GetGenre)
+
+		// Protected genre routes (admin only)
+		api.POST("/genres", adminAuth, genreHandler.CreateGenre)
+		api.PUT("/genres/:id", adminAuth, genreHandler.UpdateGenre)
+		api.DELETE("/genres/:id", adminAuth, genreHandler.DeleteGenre)
 
 		// Image management routes (admin only)
 		api.POST("/images/upload", adminAuth, imageHandler.UploadImage)

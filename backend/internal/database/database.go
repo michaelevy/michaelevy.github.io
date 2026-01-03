@@ -32,5 +32,6 @@ func Migrate(db *gorm.DB) error {
 		&models.ReviewSeriesMapping{},
 		&models.Album{},
 		&models.AlbumLink{},
+		&models.Genre{},
 	)
 }

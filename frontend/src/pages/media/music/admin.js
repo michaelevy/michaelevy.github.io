@@ -1,21 +1,30 @@
 const API_URL = '/api/albums';
+const GENRE_API_URL = '/api/genres';
 let albums = [];
+let genres = [];
 let credentials = null;
 
 // Check authentication and fetch albums
 async function init() {
     try {
         // Try fetching albums (public endpoint) first to check if API is available
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('API not available');
+        const albumResponse = await fetch(API_URL);
+        if (!albumResponse.ok) throw new Error('API not available');
         
-        albums = await response.json();
+        albums = await albumResponse.json();
+        
+        // Fetch genres
+        const genreResponse = await fetch(GENRE_API_URL);
+        if (genreResponse.ok) {
+            genres = await genreResponse.json();
+        }
         
         // Show admin section (user will be prompted for auth when they try to edit/delete)
         document.getElementById('auth-section').style.display = 'none';
         document.getElementById('admin-section').style.display = 'block';
         
         renderAlbums();
+        renderGenres();
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('error').textContent = 'Failed to load albums.';
@@ -60,13 +69,14 @@ function renderAlbums() {
     
     containerEl.innerHTML = albums.map(album => {
         const links = album.links?.map(l => l.type).join(', ') || '';
+        const genreNames = album.genres?.map(g => g.name).join(', ') || '';
         
         return `
             <div class="album-item">
                 <div class="album-info">
                     <h4>${album.name}</h4>
                     <div class="album-meta">
-                        ${album.artist}${album.year ? ` • ${album.year}` : ''}${links ? ` • Links: ${links}` : ''}
+                        ${album.artist}${album.year ? ` • ${album.year}` : ''}${genreNames ? ` • Genres: ${genreNames}` : ''}${links ? ` • Links: ${links}` : ''}
                     </div>
                 </div>
                 <div class="album-actions">
@@ -76,6 +86,51 @@ function renderAlbums() {
             </div>
         `;
     }).join('');
+}
+
+// Render genres list
+function renderGenres() {
+    const containerEl = document.getElementById('genres-container');
+    if (!genres.length) {
+        containerEl.innerHTML = '<p>No genres found.</p>';
+        return;
+    }
+    
+    containerEl.innerHTML = genres.map(genre => {
+        return `
+            <div class="genre-item">
+                <div class="genre-info">
+                    <span>${genre.name}</span>
+                </div>
+                <div class="genre-actions">
+                    <button class="btn btn-secondary" onclick="editGenre(${genre.id})">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteGenre(${genre.id})">Delete</button>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+// Render genre checkboxes in form
+function renderGenreCheckboxes(selectedGenreIds = []) {
+    const container = document.getElementById('genres-checkboxes');
+    container.innerHTML = '';
+    
+    if (genres.length === 0) {
+        container.innerHTML = '<p style="color: #666; font-size: 0.9rem;">No genres available. Create some genres first.</p>';
+        return;
+    }
+    
+    genres.forEach(genre => {
+        const isChecked = selectedGenreIds.includes(genre.id);
+        const checkbox = document.createElement('label');
+        checkbox.className = 'genre-checkbox';
+        checkbox.innerHTML = `
+            <input type="checkbox" name="genre" value="${genre.id}" ${isChecked ? 'checked' : ''}>
+            <span>${genre.name}</span>
+        `;
+        container.appendChild(checkbox);
+    });
 }
 
 // Render link inputs in form
@@ -120,6 +175,7 @@ document.getElementById('add-album-btn').addEventListener('click', () => {
     document.getElementById('album-edit-form').reset();
     document.getElementById('album-id').value = '';
     renderLinkInputs([]);
+    renderGenreCheckboxes([]);
     document.getElementById('album-form').style.display = 'block';
 });
 
@@ -151,6 +207,9 @@ window.editAlbum = function(id) {
     document.getElementById('text').value = album.text || '';
     
     renderLinkInputs(album.links || []);
+    
+    const selectedGenreIds = album.genres?.map(g => g.id) || [];
+    renderGenreCheckboxes(selectedGenreIds);
     
     document.getElementById('album-form').style.display = 'block';
 };
@@ -191,13 +250,18 @@ document.getElementById('album-edit-form').addEventListener('submit', async (e) 
         }
     });
     
+    // Collect selected genre IDs
+    const genreCheckboxes = document.querySelectorAll('input[name="genre"]:checked');
+    const genre_ids = Array.from(genreCheckboxes).map(cb => parseInt(cb.value));
+    
     const data = {
         name: document.getElementById('name').value,
         artist: document.getElementById('artist').value,
         year: document.getElementById('year').value,
         image: document.getElementById('image').value,
         text: document.getElementById('text').value,
-        links: links
+        links: links,
+        genre_ids: genre_ids
     };
     
     try {
@@ -229,6 +293,85 @@ document.getElementById('album-edit-form').addEventListener('submit', async (e) 
         alert('Failed to save album: ' + error.message);
     }
 });
+
+// Genre management functions
+window.showAddGenreForm = function() {
+    const name = prompt('Enter genre name:');
+    if (!name || !name.trim()) return;
+    
+    createGenre(name.trim());
+};
+
+window.editGenre = function(id) {
+    const genre = genres.find(g => g.id === id);
+    if (!genre) return;
+    
+    const newName = prompt('Edit genre name:', genre.name);
+    if (!newName || !newName.trim()) return;
+    
+    updateGenre(id, newName.trim());
+};
+
+window.deleteGenre = async function(id) {
+    if (!confirm('Are you sure you want to delete this genre?')) return;
+    
+    try {
+        const response = await authFetch(`${GENRE_API_URL}/${id}`, { method: 'DELETE' });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        genres = genres.filter(g => g.id !== id);
+        renderGenres();
+        alert('Genre deleted successfully');
+    } catch (error) {
+        alert('Failed to delete genre: ' + error.message);
+    }
+};
+
+async function createGenre(name) {
+    try {
+        const response = await authFetch(GENRE_API_URL, {
+            method: 'POST',
+            body: JSON.stringify({ name })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const newGenre = await response.json();
+        genres.push(newGenre);
+        genres.sort((a, b) => a.name.localeCompare(b.name));
+        renderGenres();
+        alert('Genre created successfully');
+    } catch (error) {
+        alert('Failed to create genre: ' + error.message);
+    }
+}
+
+async function updateGenre(id, name) {
+    try {
+        const response = await authFetch(`${GENRE_API_URL}/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify({ name })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const updatedGenre = await response.json();
+        const index = genres.findIndex(g => g.id === id);
+        genres[index] = updatedGenre;
+        genres.sort((a, b) => a.name.localeCompare(b.name));
+        renderGenres();
+        alert('Genre updated successfully');
+    } catch (error) {
+        alert('Failed to update genre: ' + error.message);
+    }
+}
 
 // Initialize
 init();
