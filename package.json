@@ -12,7 +12,8 @@
     "build-ghpages": "cd frontend && npx @11ty/eleventy --pathprefix=/michaelevy.github.io/",
     "compose": "docker-compose down && docker-compose up -d --build",
     "compose-web": "docker-compose up -d --build website",
-    "compose-api": "docker-compose up -d --build backend"
+    "compose-api": "docker-compose up -d --build backend",
+    "compose-no-cache": "docker-compose down && docker-compose build --no-cache && docker-compose up -d && docker image prune -f"
   },
   "author": "",
   "license": "ISC",

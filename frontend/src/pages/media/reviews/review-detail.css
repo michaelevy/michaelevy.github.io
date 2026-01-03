@@ -183,7 +183,7 @@ p {
 /* Rich Text Content Styling */
 .review-text p,
 .review-longtext p {
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 .review-text h1,
@@ -344,7 +344,7 @@ p {
 
     .review-text,
     .review-longtext{
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     .cover-container {

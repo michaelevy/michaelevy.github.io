@@ -96,7 +96,6 @@
 
 .sidebar-text {
     font-size: 1rem;
-    line-height: 1.6;
     margin: 0;
     color: var(--text);
 }
@@ -140,16 +139,19 @@
     overflow: hidden;
     display: flex;
     flex-direction: row;
-    max-height: 175px;
+    max-height: 155px;
     line-height: 0.9;
     img {
-        filter: saturate(0.5);
+        filter: saturate(0.75);
+    }
+    p {
+        line-height: 1;
     }
 }
 
 .album-wrapper:hover {
     img {
-        filter: saturate(1);
+        filter: saturate(1.1);
     }
 }
 
@@ -225,6 +227,10 @@
         flex-direction: column;
     }
 
+    .album-wrapper {
+        max-height: 135px;;
+    }
+
     .album-sidebar {
         position: fixed;
         top: auto;
@@ -259,7 +265,11 @@
         font-size: 1.2rem;
     }
 
-    .sidebar-text {
-        font-size: 0.9rem;
+    .sidebar-text p {
+        font-size: 1.1rem;
+    }
+
+    .album-title {
+        font-size: 1.3rem;
     }
 }

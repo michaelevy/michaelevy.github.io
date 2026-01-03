@@ -383,7 +383,7 @@ a.button {
 
 p, li, th, tr {
     line-height: 1.6;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     -webkit-font-smoothing: antialiased;
     @media only screen and (min-width: 800px) {
         font-size: 1rem;
