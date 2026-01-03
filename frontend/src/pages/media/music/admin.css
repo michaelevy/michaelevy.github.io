@@ -63,12 +63,12 @@
 
 .modal-content {
     background-color: var(--background);
-    margin: 5% auto;
+    margin: 2% auto;
     padding: 2rem;
     border: 2px solid var(--accent);
-    width: 80%;
-    max-width: 600px;
-    max-height: 80vh;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
     overflow-y: auto;
 }
 
@@ -104,6 +104,13 @@
     color: var(--text);
     font-family: "FiraCode";
     box-sizing: border-box;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 200px;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .form-group input:focus,

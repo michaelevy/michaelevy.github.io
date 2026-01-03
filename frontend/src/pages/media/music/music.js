@@ -142,7 +142,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         sidebarTitle.textContent = `${albumTitle} - ${albumArtist}`;
 
         // Build the text content with links
+        // Parse markdown if marked is available
         let textContent = albumText || '';
+        if (textContent && typeof marked !== 'undefined') {
+            try {
+                textContent = marked.parse(textContent);
+                // Wrap in a div to preserve garamond styling
+                textContent = `<div class="garamond">${textContent}</div>`;
+            } catch (e) {
+                console.error('Error parsing markdown:', e);
+            }
+        }
 
         if (albumLinksData) {
             try {
@@ -156,14 +166,14 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                     sidebarText.innerHTML = textContent + (textContent ? '<br><br>' : '') + linksHTML;
                 } else {
-                    sidebarText.textContent = textContent;
+                    sidebarText.innerHTML = textContent;
                 }
             } catch (e) {
                 console.error('Error parsing album links:', e);
-                sidebarText.textContent = textContent;
+                sidebarText.innerHTML = textContent;
             }
         } else {
-            sidebarText.textContent = textContent;
+            sidebarText.innerHTML = textContent;
         }
 
         // Show sidebar on mobile when album is clicked
