@@ -48,7 +48,7 @@ css:
             <a class="u-uid" href="https://michaelevy.com/media/reviews/{{ review.slug }}/" style="display: none;"></a>
             <a rel="author" class="p-author h-card" href="https://michaelevy.com" style="display:none">Michael Levy</a>
             <!-- Quote section -->
-            {% if review.quote and review.type == 'short' %}
+            {% if review.quote != "" and review.type == 'short' %}
             <blockquote class="review-quote p-summary">
                 <p>"{{ review.quote }}"</p>
             </blockquote>
