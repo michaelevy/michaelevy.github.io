@@ -1,0 +1,260 @@
+.admin-header {
+    margin-bottom: 2rem;
+}
+
+.admin-header p {
+    color: var(--accent-light);
+    margin: 0.5rem 0 1rem 0;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--accent);
+    background: var(--background);
+    color: var(--text);
+    cursor: pointer;
+    font-family: "FiraCode";
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--background);
+}
+
+.btn-primary:hover {
+    background: var(--background);
+    color: var(--accent);
+}
+
+.btn-secondary {
+    background: var(--background);
+    border-color: var(--accent-light);
+}
+
+.btn-secondary:hover {
+    background: var(--accent-light);
+    color: var(--background);
+}
+
+.btn-danger {
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+.btn-danger:hover {
+    background: #ff0000;
+    color: var(--background);
+}
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    background-color: var(--background);
+    margin: 5% auto;
+    padding: 2rem;
+    border: 2px solid var(--accent);
+    width: 80%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.close {
+    color: var(--accent);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--text);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 2px solid var(--accent-light);
+    background: var(--background);
+    color: var(--text);
+    font-family: "FiraCode";
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.25rem;
+    color: var(--accent-light);
+    font-size: 0.85rem;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+#upload-preview {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+#upload-preview img {
+    border: 2px solid var(--accent-light);
+    margin-top: 0.5rem;
+}
+
+#upload-progress {
+    padding: 1rem;
+    text-align: center;
+    color: var(--accent);
+}
+
+#upload-result {
+    padding: 1rem;
+    margin: 1rem 0;
+    border: 2px solid;
+}
+
+#upload-result.success {
+    border-color: #00ff00;
+    color: #00ff00;
+}
+
+#upload-result.error {
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
+#images-section {
+    margin-top: 2rem;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.filter-bar input,
+.filter-bar select {
+    padding: 0.5rem;
+    border: 2px solid var(--accent-light);
+    background: var(--background);
+    color: var(--text);
+    font-family: "FiraCode";
+}
+
+.filter-bar input {
+    flex: 1;
+}
+
+#images-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.image-card {
+    border: 2px solid var(--accent-light);
+    padding: 1rem;
+    background: var(--background);
+    transition: border-color 0.2s;
+}
+
+.image-card:hover {
+    border-color: var(--accent);
+}
+
+.image-preview {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid var(--accent-light);
+    margin-bottom: 0.5rem;
+}
+
+.image-info {
+    font-size: 0.9rem;
+}
+
+.image-filename {
+    font-weight: bold;
+    color: var(--accent);
+    word-break: break-all;
+    margin-bottom: 0.25rem;
+}
+
+.image-meta {
+    color: var(--accent-light);
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.image-path {
+    font-size: 0.75rem;
+    color: var(--accent-light);
+    word-break: break-all;
+    margin-bottom: 0.5rem;
+    font-family: monospace;
+}
+
+.image-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.image-actions button {
+    flex: 1;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+}
+
+#loading, #error {
+    padding: 2rem;
+    text-align: center;
+}
+
+#error {
+    color: #ff0000;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--accent-light);
+}

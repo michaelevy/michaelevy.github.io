@@ -81,6 +81,8 @@ func main() {
 	// Initialize handlers
 	h := handlers.NewHandler(db)
 	bookHandler := &handlers.BookHandler{DB: db}
+	albumHandler := &handlers.AlbumHandler{DB: db}
+	imageHandler := &handlers.ImageHandler{DB: db}
 	
 	// Initialize Contentful client
 	contentfulSpaceID := os.Getenv("CONTENTFUL_SPACE_ID")
@@ -125,6 +127,20 @@ func main() {
 		api.PUT("/books/:id", adminAuth, bookHandler.UpdateBook)
 		api.DELETE("/books/:id", adminAuth, bookHandler.DeleteBook)
 		api.POST("/books/import", adminAuth, bookHandler.ImportCSV)
+
+		// Public album routes (anyone can view)
+		api.GET("/albums", albumHandler.GetAlbums)
+		api.GET("/albums/:id", albumHandler.GetAlbum)
+
+		// Protected album routes (admin only)
+		api.POST("/albums", adminAuth, albumHandler.CreateAlbum)
+		api.PUT("/albums/:id", adminAuth, albumHandler.UpdateAlbum)
+		api.DELETE("/albums/:id", adminAuth, albumHandler.DeleteAlbum)
+
+		// Image management routes (admin only)
+		api.POST("/images/upload", adminAuth, imageHandler.UploadImage)
+		api.GET("/images", adminAuth, imageHandler.ListImages)
+		api.DELETE("/images/:filename", adminAuth, imageHandler.DeleteImage)
 		
 		// Review routes (public, read-only)
 		if reviewHandler != nil {

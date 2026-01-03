@@ -1,6 +1,9 @@
 # Build stage
 FROM node:18-alpine AS builder
 
+# Accept build argument
+ARG SKIP_API=false
+
 WORKDIR /app
 
 # Copy package files
@@ -12,8 +15,9 @@ RUN npm install
 # Copy frontend project files
 COPY frontend ./frontend
 
-# Build the site
+# Build the site with environment variable
 WORKDIR /app/frontend
+ENV SKIP_API=${SKIP_API}
 RUN npx @11ty/eleventy
 
 # Production stage

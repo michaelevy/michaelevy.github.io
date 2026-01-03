@@ -391,6 +391,10 @@ p, li, th, tr {
     font-family: "FiraCode";
 }
 
+p.garamond , li.garamond , th.garamond , tr.garamond  {
+    font-family: "EBGaramond";
+}
+
 h1,
 h2,
 h3,

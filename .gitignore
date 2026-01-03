@@ -1,7 +1,7 @@
 .vscode
 frontend/_site
 node_modules
-.clauderc
+CLAUDE.md
 .env
 .idea
 eleventy-fetch*

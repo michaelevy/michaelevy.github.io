@@ -1,0 +1,86 @@
+---
+layout: layouts/base.html
+title: Album Admin | Michael Levy
+heading: Album Administration
+width: full
+css:
+  - /src/pages/media/music/admin.css
+js:
+  - /src/pages/media/music/admin.js
+permalink: /media/music/admin/
+---
+
+<main class="content-width">
+    <div id="auth-section">
+        <p>You must be logged in to manage albums.</p>
+        <p><small>Use HTTP Basic Auth credentials to access this page.</small></p>
+    </div>
+
+    <div id="admin-section" style="display: none;">
+        <div class="admin-header">
+            <h2>Manage Albums</h2>
+            <div>
+                <button id="add-album-btn" class="btn btn-primary">Add New Album</button>
+            </div>
+        </div>
+
+        <div id="album-form" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3 id="form-title">Add Album</h3>
+                <form id="album-edit-form">
+                    <input type="hidden" id="album-id" />
+
+                    <div class="form-group">
+                        <label for="name">Album Name *</label>
+                        <input type="text" id="name" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="artist">Artist *</label>
+                        <input type="text" id="artist" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="text" id="year" placeholder="e.g., 2023" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">Image Filename (without extension)</label>
+                        <input type="text" id="image" placeholder="e.g., the-record" list="image-list" />
+                        <datalist id="image-list">
+                            <!-- Available images will be loaded here -->
+                        </datalist>
+                        <small>Image should be in /public/resources/ as .jpg - <button type="button" id="refresh-images-btn" class="btn-link">Refresh list</button></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="text">Description</label>
+                        <textarea id="text" rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Links</label>
+                        <div id="links-container">
+                            <!-- Links will be added here -->
+                        </div>
+                        <button type="button" id="add-link-btn" class="btn btn-secondary">Add Link</button>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Album</button>
+                        <button type="button" class="btn btn-secondary cancel-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="albums-list">
+            <h3>Albums</h3>
+            <div id="albums-container">
+                <!-- Albums will be loaded here -->
+            </div>
+        </div>
+    </div>
+</main>
