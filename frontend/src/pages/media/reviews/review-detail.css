@@ -342,6 +342,11 @@ p {
         grid-template-columns: 1fr;
     }
 
+    .review-text,
+    .review-longtext{
+        font-size: 1.2rem;
+    }
+
     .cover-container {
         max-width: 250px;
         margin: 0 auto 1.5rem;
@@ -352,6 +357,6 @@ p {
     }
 
     .review-quote p {
-        font-size: 1rem;
+        font-size: 1.2rem;
     }
 }

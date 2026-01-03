@@ -146,3 +146,91 @@ func (h *ReviewHandler) GetMappings(c *gin.Context) {
 
 	c.JSON(http.StatusOK, mappings)
 }
+
+// CreateMapping creates a new review-to-series mapping (protected endpoint)
+func (h *ReviewHandler) CreateMapping(c *gin.Context) {
+	var input struct {
+		ReviewSlug string `json:"review_slug" binding:"required"`
+		SeriesID   uint   `json:"series_id" binding:"required"`
+	}
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	mapping := models.ReviewSeriesMapping{
+		ReviewSlug: input.ReviewSlug,
+		SeriesID:   input.SeriesID,
+	}
+
+	if err := h.DB.Create(&mapping).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Reload with series
+	h.DB.Preload("Series").First(&mapping, mapping.ID)
+
+	c.JSON(http.StatusCreated, mapping)
+}
+
+// UpdateMapping updates an existing review-to-series mapping (protected endpoint)
+func (h *ReviewHandler) UpdateMapping(c *gin.Context) {
+	id := c.Param("id")
+	var mapping models.ReviewSeriesMapping
+
+	if err := h.DB.First(&mapping, id).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Mapping not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	var input struct {
+		ReviewSlug string `json:"review_slug" binding:"required"`
+		SeriesID   uint   `json:"series_id" binding:"required"`
+	}
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	mapping.ReviewSlug = input.ReviewSlug
+	mapping.SeriesID = input.SeriesID
+
+	if err := h.DB.Save(&mapping).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Reload with series
+	h.DB.Preload("Series").First(&mapping, mapping.ID)
+
+	c.JSON(http.StatusOK, mapping)
+}
+
+// DeleteMapping deletes a review-to-series mapping (protected endpoint)
+func (h *ReviewHandler) DeleteMapping(c *gin.Context) {
+	id := c.Param("id")
+	var mapping models.ReviewSeriesMapping
+
+	if err := h.DB.First(&mapping, id).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Mapping not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	if err := h.DB.Delete(&mapping).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "Mapping deleted successfully"})
+}

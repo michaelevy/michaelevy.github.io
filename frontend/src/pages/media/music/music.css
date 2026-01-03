@@ -32,8 +32,6 @@
 
 .genre-filter-btn:hover {
     border-color: var(--accent);
-    background: var(--accent-light);
-    color: var(--background);
 }
 
 .genre-filter-btn.active {

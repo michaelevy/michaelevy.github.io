@@ -158,6 +158,11 @@ func main() {
 			api.GET("/reviews/:slug", reviewHandler.GetReview)
 			api.GET("/series/:id/reviews", reviewHandler.GetSeriesReviews)
 			api.GET("/reviews/mappings", reviewHandler.GetMappings)
+			
+			// Protected mapping routes (admin only)
+			api.POST("/reviews/mappings", adminAuth, reviewHandler.CreateMapping)
+			api.PUT("/reviews/mappings/:id", adminAuth, reviewHandler.UpdateMapping)
+			api.DELETE("/reviews/mappings/:id", adminAuth, reviewHandler.DeleteMapping)
 		}
 	}
 

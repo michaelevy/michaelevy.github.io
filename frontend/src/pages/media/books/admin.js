@@ -292,5 +292,154 @@ document.getElementById('import-form').addEventListener('submit', async (e) => {
     }
 });
 
+// ===== Review Series Mapping Management =====
+
+const MAPPING_API_URL = '/api/reviews/mappings';
+let mappings = [];
+let allSeries = [];
+
+// Fetch and render mappings
+async function loadMappings() {
+    try {
+        const response = await fetch(MAPPING_API_URL);
+        if (!response.ok) throw new Error('Failed to fetch mappings');
+        
+        mappings = await response.json();
+        renderMappings();
+    } catch (error) {
+        console.error('Error loading mappings:', error);
+    }
+}
+
+// Fetch all series for the dropdown
+async function loadSeriesForMappings() {
+    try {
+        const response = await fetch('/api/series');
+        if (!response.ok) throw new Error('Failed to fetch series');
+        
+        allSeries = await response.json();
+        populateSeriesDropdown();
+    } catch (error) {
+        console.error('Error loading series:', error);
+    }
+}
+
+// Populate series dropdown
+function populateSeriesDropdown() {
+    const select = document.getElementById('mapping-series');
+    select.innerHTML = '<option value="">Select a series...</option>';
+    
+    allSeries.forEach(series => {
+        const option = document.createElement('option');
+        option.value = series.id;
+        option.textContent = series.name;
+        select.appendChild(option);
+    });
+}
+
+// Render mappings list
+function renderMappings() {
+    const container = document.getElementById('mappings-container');
+    
+    if (!mappings.length) {
+        container.innerHTML = '<p>No review-series mappings found.</p>';
+        return;
+    }
+    
+    container.innerHTML = mappings.map(mapping => `
+        <div class="mapping-item">
+            <div class="mapping-info">
+                <strong>${mapping.review_slug}</strong> → ${mapping.series?.name || 'Unknown Series'}
+            </div>
+            <div class="mapping-actions">
+                <button class="btn btn-secondary" onclick="editMapping(${mapping.id})">Edit</button>
+                <button class="btn btn-danger" onclick="deleteMapping(${mapping.id})">Delete</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Show add mapping form
+window.showAddMappingForm = function() {
+    document.getElementById('mapping-form-title').textContent = 'Add Review Mapping';
+    document.getElementById('mapping-edit-form').reset();
+    document.getElementById('mapping-id').value = '';
+    document.getElementById('mapping-form').style.display = 'block';
+};
+
+// Edit mapping
+window.editMapping = function(id) {
+    const mapping = mappings.find(m => m.id === id);
+    if (!mapping) return;
+    
+    document.getElementById('mapping-form-title').textContent = 'Edit Review Mapping';
+    document.getElementById('mapping-id').value = mapping.id;
+    document.getElementById('review-slug').value = mapping.review_slug;
+    document.getElementById('mapping-series').value = mapping.series_id;
+    document.getElementById('mapping-form').style.display = 'block';
+};
+
+// Delete mapping
+window.deleteMapping = async function(id) {
+    if (!confirm('Are you sure you want to delete this mapping?')) return;
+    
+    try {
+        const response = await authFetch(`${MAPPING_API_URL}/${id}`, {
+            method: 'DELETE'
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        await loadMappings();
+        alert('Mapping deleted successfully');
+    } catch (error) {
+        alert('Failed to delete mapping: ' + error.message);
+    }
+};
+
+// Close mapping form
+document.querySelector('.mapping-close').addEventListener('click', () => {
+    document.getElementById('mapping-form').style.display = 'none';
+});
+
+document.querySelector('.mapping-cancel-btn').addEventListener('click', () => {
+    document.getElementById('mapping-form').style.display = 'none';
+});
+
+// Submit mapping form
+document.getElementById('mapping-edit-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const id = document.getElementById('mapping-id').value;
+    const data = {
+        review_slug: document.getElementById('review-slug').value,
+        series_id: parseInt(document.getElementById('mapping-series').value)
+    };
+    
+    try {
+        const url = id ? `${MAPPING_API_URL}/${id}` : MAPPING_API_URL;
+        const method = id ? 'PUT' : 'POST';
+        
+        const response = await authFetch(url, {
+            method,
+            body: JSON.stringify(data)
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        await loadMappings();
+        document.getElementById('mapping-form').style.display = 'none';
+        alert('Mapping saved successfully');
+    } catch (error) {
+        alert('Failed to save mapping: ' + error.message);
+    }
+});
+
 // Initialize
 init();
+loadMappings();
+loadSeriesForMappings();
