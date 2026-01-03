@@ -273,8 +273,17 @@
         font-size: 1.2rem;
     }
 
+    .sidebar-text {
+        font-size: 1.3rem;
+    }
+
     .sidebar-text p {
-        font-size: 1.1rem;
+        font-size: 1.3rem;
+    }
+
+    .sidebar-text .garamond,
+    .sidebar-text .garamond p {
+        font-size: 1.3rem;
     }
 
     .album-title {

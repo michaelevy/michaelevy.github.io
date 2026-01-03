@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function closeSidebar() {
         sidebar.classList.remove('visible');
-        sidebarTitle.textContent = 'Hover over an album';
+        sidebarTitle.textContent = 'Select an album';
         sidebarText.textContent = 'Album information will appear here';
     }
 
@@ -211,7 +211,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Close button event listener
     sidebarClose.addEventListener('click', (e) => {
         e.stopPropagation();
+        e.preventDefault();
         closeSidebar();
+    });
+
+    // Prevent clicks on sidebar from triggering album clicks
+    sidebar.addEventListener('click', (e) => {
+        e.stopPropagation();
     });
 
     // Load albums and genres on page load
