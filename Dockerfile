@@ -18,7 +18,7 @@ COPY frontend ./frontend
 # Build the site with environment variable
 WORKDIR /app/frontend
 ENV SKIP_API=${SKIP_API}
-ENV REVIEW_API_URL=http://backend:8080/api/reviews
+ENV REVIEW_API_URL=http://localhost:8080/api/reviews
 RUN npx @11ty/eleventy
 
 # Production stage

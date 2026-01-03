@@ -4,6 +4,7 @@ services:
       context: .
       args:
         - SKIP_API=${SKIP_API:-false}
+      network: host
     container_name: michaelevy-website
     restart: unless-stopped
     ports:
