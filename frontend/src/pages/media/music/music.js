@@ -90,11 +90,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Filter and render albums
     function filterAndRenderAlbums() {
         const filteredAlbums = getFilteredAlbums();
-        renderAlbums(filteredAlbums);
+        renderAlbums(filteredAlbums, false); // Don't auto-select on filter
     }
 
     // Render albums to the DOM
-    function renderAlbums(albums) {
+    function renderAlbums(albums, autoSelectFirst = true) {
         albumsGrid.innerHTML = '';
 
         albums.forEach(album => {
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             albumsGrid.appendChild(albumWrapper);
         });
 
-        attachEventListeners();
+        attachEventListeners(autoSelectFirst);
     }
 
     function updateSidebar(wrapper) {
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         sidebarText.textContent = 'Album information will appear here';
     }
 
-    function attachEventListeners() {
+    function attachEventListeners(autoSelectFirst = true) {
         const albumWrappers = document.querySelectorAll('.album-wrapper');
 
         albumWrappers.forEach(wrapper => {
@@ -202,8 +202,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
 
-        // Select the first album by default
-        if (albumWrappers.length > 0) {
+        // Select the first album by default only on initial load
+        if (autoSelectFirst && albumWrappers.length > 0) {
             updateSidebar(albumWrappers[0]);
         }
     }
