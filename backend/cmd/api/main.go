@@ -54,9 +54,11 @@ func main() {
 			allowedOrigins[i] = strings.TrimSpace(allowedOrigins[i])
 		}
 	} else {
-		// Fallback to wildcard for development (not recommended for production)
+		if os.Getenv("GIN_MODE") == "release" {
+			log.Fatal("ALLOWED_ORIGINS must be set in production mode")
+		}
 		allowedOrigins = []string{"*"}
-		log.Println("Warning: ALLOWED_ORIGINS not set, allowing all origins")
+		log.Println("Warning: ALLOWED_ORIGINS not set, allowing all origins (development mode only)")
 	}
 
 	// CORS middleware
@@ -70,6 +72,9 @@ func main() {
 	// Rate limiting middleware (100 requests per minute per IP)
 	rateLimiter := middleware.NewRateLimiter(100, time.Minute)
 	r.Use(rateLimiter.Middleware())
+
+	// Stricter rate limiter for public write endpoints (5 requests per hour per IP)
+	strictRateLimiter := middleware.NewRateLimiter(5, time.Hour)
 
 	// Health check endpoint
 	r.GET("/health", func(c *gin.Context) {
@@ -104,7 +109,7 @@ func main() {
 	{
 		// Note routes
 		api.GET("/notes/latest", h.GetLatestNote)
-		api.POST("/notes", h.CreateNote)
+		api.POST("/notes", strictRateLimiter.Middleware(), h.CreateNote) // Strict rate limit: 5/hour
 		api.GET("/notes", h.GetAllNotes) // Optional: view all notes history
 		
 		// Example resource routes

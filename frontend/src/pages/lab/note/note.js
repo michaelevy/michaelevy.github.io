@@ -30,8 +30,8 @@ function get(){
             var message = response.message;
             var fromElem  = document.getElementById("previous-name");
             var messageElem = document.getElementById("previous-note");
-            fromElem.innerHTML = from;
-            messageElem.innerHTML = message;
+            fromElem.textContent = from;
+            messageElem.textContent = message;
         } else if (xhr.readyState == 4) {
             alert("Error fetching notes: " + xhr.statusText);
         }

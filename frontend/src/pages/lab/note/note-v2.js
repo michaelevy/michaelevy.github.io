@@ -54,8 +54,8 @@ function get() {
         const messageElem = document.getElementById("previous-note");
 
         if (fromElem && messageElem) {
-            fromElem.innerHTML = data.from || "Nobody yet";
-            messageElem.innerHTML = data.message || "Be the first to leave a note!";
+            fromElem.textContent = data.from || "Nobody yet";
+            messageElem.textContent = data.message || "Be the first to leave a note!";
         }
     })
     .catch(error => {
@@ -64,8 +64,8 @@ function get() {
         const messageElem = document.getElementById("previous-note");
 
         if (fromElem && messageElem) {
-            fromElem.innerHTML = "Error";
-            messageElem.innerHTML = "Could not load previous note";
+            fromElem.textContent = "Error";
+            messageElem.textContent = "Could not load previous note";
         }
     });
 }

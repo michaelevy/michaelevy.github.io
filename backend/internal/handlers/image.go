@@ -24,7 +24,7 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 		return
 	}
 
-	// Validate file type
+	// Validate file extension
 	ext := strings.ToLower(filepath.Ext(file.Filename))
 	allowedExts := map[string]bool{
 		".jpg":  true,
@@ -32,11 +32,42 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 		".png":  true,
 		".gif":  true,
 		".webp": true,
-		".svg":  true,
+		// SVG removed - can contain embedded JavaScript (XSS risk)
 	}
 
 	if !allowedExts[ext] {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Only image files are allowed (jpg, png, gif, webp, svg)"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Only image files are allowed (jpg, jpeg, png, gif, webp)"})
+		return
+	}
+
+	// Validate actual file content by checking magic bytes
+	src, err := file.Open()
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to read uploaded file"})
+		return
+	}
+	
+	// Read first 512 bytes for content type detection
+	buffer := make([]byte, 512)
+	n, err := src.Read(buffer)
+	if err != nil && err != io.EOF {
+		src.Close()
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to read file content"})
+		return
+	}
+	src.Close()
+
+	// Detect content type from actual file bytes
+	contentType := http.DetectContentType(buffer[:n])
+	allowedMIME := map[string]bool{
+		"image/jpeg": true,
+		"image/png":  true,
+		"image/gif":  true,
+		"image/webp": true,
+	}
+
+	if !allowedMIME[contentType] {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "File content does not match an allowed image type"})
 		return
 	}
 
@@ -131,7 +162,6 @@ func (h *ImageHandler) ListImages(c *gin.Context) {
 		".png":  true,
 		".gif":  true,
 		".webp": true,
-		".svg":  true,
 	}
 
 	for _, file := range files {

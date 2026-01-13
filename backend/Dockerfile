@@ -20,10 +20,21 @@ FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 
-WORKDIR /root/
+# Create non-root user for security
+RUN addgroup -g 1001 -S appgroup && \
+    adduser -u 1001 -S appuser -G appgroup
+
+WORKDIR /app
 
 # Copy the binary from builder
 COPY --from=builder /app/main .
+
+# Create uploads directory and set ownership
+RUN mkdir -p /app/uploads/resources && \
+    chown -R appuser:appgroup /app
+
+# Switch to non-root user
+USER appuser
 
 EXPOSE 8080
 
