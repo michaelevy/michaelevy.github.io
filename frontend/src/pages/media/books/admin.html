@@ -4,158 +4,226 @@ title: Book Admin | Michael Levy
 heading: Book Administration
 width: full
 css:
+  - /src/pages/media/books/books.css
   - /src/pages/media/books/admin.css
 js:
+  - https://unpkg.com/vue@3/dist/vue.global.js
   - /src/pages/media/books/admin.js
 permalink: /media/books/admin/
 ---
 
-<main class="content-width">
-    <div id="auth-section">
-        <p>You must be logged in to manage books.</p>
-        <p><small>Use HTTP Basic Auth credentials to access this page.</small></p>
-    </div>
+<main class="content-width" id="app">
+    <div v-if="loading" style="padding: 2rem; text-align: center;">Loading books...</div>
+    <div v-if="error" style="padding: 2rem; text-align: center; color: #ff0000;">[[ error ]]</div>
 
-    <div id="admin-section" style="display: none;">
+    <template v-if="!loading && !error">
+        <!-- Admin Header -->
         <div class="admin-header">
-            <h2>Manage Books</h2>
-            <p>(You will be prompted for credentials, so it won't work if you're just some guy)</p>
             <div>
-                <button id="add-book-btn" class="btn btn-primary">Add New Book</button>
-                <button id="import-csv-btn" class="btn btn-secondary">Import CSV</button>
+                <button @click="showAddBookModal" class="btn btn-primary">Add New Book</button>
+                <button @click="showImportModal" class="btn btn-secondary">Import CSV</button>
             </div>
         </div>
 
-        <div id="import-modal" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close import-close">&times;</span>
-                <h3>Import Books from CSV</h3>
-                <form id="import-form" enctype="multipart/form-data">
+        <!-- Filters -->
+        <div class="filters">
+            <input type="text" v-model="searchTerm" class="filter-input" placeholder="Search books...">
+            <select v-model="statusFilter" class="filter-input">
+                <option value="">All Status</option>
+                <option value="read">Read</option>
+                <option value="unread">Unread</option>
+            </select>
+            <span>[[ seriesCount ]] series, [[ bookCount ]] books</span>
+        </div>
+
+        <!-- Books Table -->
+        <div style="overflow-x: auto;">
+            <table class="book-table">
+                <thead>
+                    <tr>
+                        <th @click="sortBy('series')" class="sortable">Series / Title</th>
+                        <th @click="sortBy('author')" class="sortable">Author</th>
+                        <th @click="sortBy('rating')" class="sortable">Rating</th>
+                        <th>Read</th>
+                        <th>Owned</th>
+                        <th @click="sortBy('date')" class="sortable">Date Finished</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template v-for="(series, seriesIdx) in paginatedSeries" :key="series.name">
+                        <!-- Series Row -->
+                        <tr
+                            :class="['series-row', { 'expandable': series.isExpandable }]"
+                            @click="series.isExpandable ? toggleSeries(seriesIdx) : null"
+                        >
+                            <td>
+                                <span :style="{ cursor: series.isExpandable ? 'pointer' : 'default' }">
+                                    [[ series.isExpanded ? '▼' : (series.isExpandable ? '▶' : '') ]] [[ series.displayName ]]
+                                </span>
+                            </td>
+                            <td>[[ series.author ]]</td>
+                            <td><span class="book-rating">[[ series.avgRating ]]</span></td>
+                            <td>[[ series.readDisplay ]]</td>
+                            <td>[[ series.ownedDisplay ]]</td>
+                            <td>[[ series.latestDate ]]</td>
+                            <td>
+                                <div class="action-buttons" v-if="!series.isExpandable">
+                                    <button @click.stop="openEditModal(series.singleBook)" class="action-btn edit-btn">Edit</button>
+                                    <button @click.stop="openLogReadModal(series.singleBook)" class="action-btn log-btn">Log</button>
+                                    <button @click.stop="deleteBook(series.singleBook)" class="action-btn delete-btn">Delete</button>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <!-- Book Rows (for expandable series) -->
+                        <template v-if="series.isExpandable && series.isExpanded">
+                            <tr v-for="book in series.books" :key="book.id" class="book-row expanded">
+                                <td class="book-title">[[ book.title ]]</td>
+                                <td>[[ book.author ]]</td>
+                                <td><span class="book-rating">[[ book.rating ]]</span></td>
+                                <td>[[ book.read ? '✓' : '' ]]</td>
+                                <td>[[ book.owned ? '✓' : '' ]]</td>
+                                <td>[[ book.date_finished ]]</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button @click.stop="openEditModal(book)" class="action-btn edit-btn">Edit</button>
+                                        <button @click.stop="openLogReadModal(book)" class="action-btn log-btn">Log</button>
+                                        <button @click.stop="deleteBook(book)" class="action-btn delete-btn">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </template>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination Controls -->
+        <div v-if="totalPages > 1" class="pagination">
+            <button @click="prevPage" :disabled="currentPage === 1" class="pagination-btn">Previous</button>
+            <span class="pagination-info">Page [[ currentPage ]] of [[ totalPages ]]</span>
+            <button @click="nextPage" :disabled="currentPage === totalPages" class="pagination-btn">Next</button>
+        </div>
+
+        <!-- Edit/Add Book Modal -->
+        <div v-if="showEditModal" class="modal-overlay" @click="closeEditModal">
+            <div class="modal-content" @click.stop>
+                <div class="modal-header">
+                    <h3>[[ editingBook ? 'Edit Book' : 'Add New Book' ]]</h3>
+                    <button class="modal-close" @click="closeEditModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="edit-title">Title *</label>
+                        <input type="text" id="edit-title" v-model="editForm.title" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-authors">Authors (comma-separated)</label>
+                        <input type="text" id="edit-authors" v-model="editForm.authors" class="form-input" placeholder="e.g., Brandon Sanderson, Terry Pratchett">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-series">Series</label>
+                        <input type="text" id="edit-series" v-model="editForm.series" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-rating">Rating (6-10)</label>
+                        <input type="number" id="edit-rating" v-model.number="editForm.rating" min="6" max="10" step="0.1" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-dates">Dates Finished (comma-separated)</label>
+                        <input type="text" id="edit-dates" v-model="editForm.datesFinished" class="form-input" placeholder="e.g., 01/01/22, 15/06/23">
+                        <small>Enter multiple dates if re-read</small>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" v-model="editForm.owned">
+                            Owned
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" v-model="editForm.readSoon">
+                            Read Soon
+                        </label>
+                    </div>
+                    <div v-if="editError" class="error-message">
+                        [[ editError ]]
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeEditModal" class="btn-secondary">Cancel</button>
+                    <button @click="submitEdit" class="btn-primary" :disabled="editSubmitting">
+                        [[ editSubmitting ? 'Saving...' : 'Save' ]]
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Log Read Modal -->
+        <div v-if="showLogReadModal" class="modal-overlay" @click="closeLogReadModal">
+            <div class="modal-content" @click.stop>
+                <div class="modal-header">
+                    <h3>Log Read: [[ logReadBook?.title ]]</h3>
+                    <button class="modal-close" @click="closeLogReadModal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="log-date">Date Finished</label>
+                        <input type="text" id="log-date" v-model="logReadForm.dateFinished" placeholder="DD/MM/YY or DD/MM/YYYY" class="form-input">
+                        <small>Format: DD/MM/YY (e.g., 14/01/26) or DD/MM/YYYY</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="log-rating">Rating (optional)</label>
+                        <input type="number" id="log-rating" v-model.number="logReadForm.rating" min="6" max="10" step="0.1" class="form-input" placeholder="Leave empty to keep current rating">
+                        <small>6.0 - 10.0 scale (current: [[ logReadBook?.rating || 'not set' ]])</small>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" v-model="logReadForm.owned">
+                            I own this book
+                        </label>
+                    </div>
+                    <div v-if="logReadError" class="error-message">
+                        [[ logReadError ]]
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeLogReadModal" class="btn-secondary">Cancel</button>
+                    <button @click="submitLogRead" class="btn-primary" :disabled="logReadSubmitting">
+                        [[ logReadSubmitting ? 'Submitting...' : 'Log Read' ]]
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Import CSV Modal -->
+        <div v-if="showImportCsvModal" class="modal-overlay" @click="closeImportModal">
+            <div class="modal-content" @click.stop>
+                <div class="modal-header">
+                    <h3>Import Books from CSV</h3>
+                    <button class="modal-close" @click="closeImportModal">&times;</button>
+                </div>
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="csv-file">Select CSV File</label>
-                        <input type="file" id="csv-file" accept=".csv" required />
+                        <input type="file" id="csv-file" @change="handleFileSelect" accept=".csv" class="form-input">
                         <small>Expected format: Title, Author, Series, , Read, Re-Read, Owned, Rating, 5 Star, Date Finished, Notes, Read Soon</small>
                     </div>
-                    <div id="import-progress" style="display: none;">
+                    <div v-if="importProgress" style="padding: 1rem; text-align: center; color: var(--accent);">
                         Importing...
                     </div>
-                    <div id="import-result" style="display: none;"></div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Upload & Import</button>
-                        <button type="button" class="btn btn-secondary import-cancel-btn">Cancel</button>
+                    <div v-if="importResult" :class="['import-result', importResult.success ? 'success' : 'error']">
+                        <div v-html="importResult.message"></div>
                     </div>
-                </form>
+                </div>
+                <div class="modal-footer">
+                    <button @click="closeImportModal" class="btn-secondary">Cancel</button>
+                    <button @click="submitImport" class="btn-primary" :disabled="!csvFile || importProgress">
+                        [[ importProgress ? 'Importing...' : 'Upload & Import' ]]
+                    </button>
+                </div>
             </div>
         </div>
-
-        <div id="book-form" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <h3 id="form-title">Add Book</h3>
-                <form id="book-edit-form">
-                    <input type="hidden" id="book-id" />
-
-                    <div class="form-group">
-                        <label for="title">Title *</label>
-                        <input type="text" id="title" required />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="authors">Authors (comma-separated)</label>
-                        <input type="text" id="authors" placeholder="e.g., Brandon Sanderson, Terry Pratchett" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="series">Series</label>
-                        <input type="text" id="series" />
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="owned">
-                                <input type="checkbox" id="owned" />
-                                Owned
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="rating">Rating (6-10)</label>
-                            <input type="number" id="rating" step="0.5" min="6" max="10" />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="date-finished">Dates Finished (comma-separated)</label>
-                            <input type="text" id="date-finished" placeholder="e.g., 01/01/22, 15/06/23" />
-                            <small>Enter multiple dates if re-read</small>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="read-soon">
-                                <input type="checkbox" id="read-soon" />
-                                Read Soon
-                            </label>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="notes">Notes</label>
-                        <textarea id="notes" rows="4"></textarea>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <div id="loading" style="display: none;">Loading books...</div>
-        <div id="error" style="display: none;"></div>
-
-        <div id="books-list">
-            <!-- Books will be loaded here -->
-        </div>
-
-        <div class="admin-section">
-            <div class="admin-header">
-                <h3>Review Series Mappings</h3>
-                <button onclick="showAddMappingForm()" class="btn btn-primary">Add New Mapping</button>
-            </div>
-            <div id="mappings-container">
-                <!-- Mappings will be loaded here -->
-            </div>
-        </div>
-
-        <div id="mapping-form" class="modal" style="display: none;">
-            <div class="modal-content">
-                <span class="close mapping-close">&times;</span>
-                <h3 id="mapping-form-title">Add Review Mapping</h3>
-                <form id="mapping-edit-form">
-                    <input type="hidden" id="mapping-id" />
-
-                    <div class="form-group">
-                        <label for="review-slug">Review Slug *</label>
-                        <input type="text" id="review-slug" required placeholder="e.g., stormlight-archive-review" />
-                        <small>The slug from the review URL in Contentful</small>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="mapping-series">Series *</label>
-                        <select id="mapping-series" required>
-                            <option value="">Select a series...</option>
-                            <!-- Series options will be populated by JavaScript -->
-                        </select>
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" class="btn btn-primary">Save Mapping</button>
-                        <button type="button" class="btn btn-secondary mapping-cancel-btn">Cancel</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    </template>
 </main>

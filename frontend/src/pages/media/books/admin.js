@@ -1,445 +1,606 @@
-const API_URL = '/api/books';
-let books = [];
-let credentials = null;
+const { createApp } = Vue;
 
-// Check authentication and fetch books
-async function init() {
-    try {
-        // Try fetching books (public endpoint) first to check if API is available
-        const response = await fetch(API_URL);
-        if (!response.ok) throw new Error('API not available');
-        
-        books = await response.json();
-        
-        // Show admin section (user will be prompted for auth when they try to edit/delete)
-        document.getElementById('auth-section').style.display = 'none';
-        document.getElementById('admin-section').style.display = 'block';
-        
-        renderBooks();
-    } catch (error) {
-        console.error('Error:', error);
-        document.getElementById('error').textContent = 'Failed to load books.';
-        document.getElementById('error').style.display = 'block';
-    }
-}
-
-// Make authenticated request
-async function authFetch(url, options = {}) {
-    if (!credentials) {
-        const username = prompt('Enter admin username:');
-        const password = prompt('Enter admin password:');
-        if (!username || !password) {
-            throw new Error('Authentication cancelled');
-        }
-        credentials = btoa(`${username}:${password}`);
-    }
-    
-    options.headers = {
-        ...options.headers,
-        'Authorization': `Basic ${credentials}`,
-        'Content-Type': 'application/json'
-    };
-    
-    const response = await fetch(url, options);
-    
-    if (response.status === 401) {
-        credentials = null; // Reset credentials
-        throw new Error('Authentication failed');
-    }
-    
-    return response;
-}
-
-// Render books list
-function renderBooks() {
-    const listEl = document.getElementById('books-list');
-    if (!books.length) {
-        listEl.innerHTML = '<p>No books found.</p>';
-        return;
-    }
-    
-    listEl.innerHTML = books.map(book => {
-        const authors = book.authors?.map(a => a.name).join(', ') || 'Unknown';
-        const series = book.series?.name || '';
-        const rating = book.rating ? (book.rating - 5).toFixed(1) : '';
-        
-        return `
-            <div class="book-item">
-                <div class="book-info">
-                    <h4>${book.title}</h4>
-                    <div class="book-meta">
-                        ${authors}${series ? ` • ${series}` : ''}${rating ? ` • ${rating}★` : ''}
-                    </div>
-                </div>
-                <div class="book-actions">
-                    <button class="btn btn-secondary" onclick="editBook(${book.id})">Edit</button>
-                    <button class="btn btn-danger" onclick="deleteBook(${book.id})">Delete</button>
-                </div>
-            </div>
-        `;
-    }).join('');
-}
-
-// Show add book form
-document.getElementById('add-book-btn').addEventListener('click', () => {
-    document.getElementById('form-title').textContent = 'Add Book';
-    document.getElementById('book-edit-form').reset();
-    document.getElementById('book-id').value = '';
-    document.getElementById('book-form').style.display = 'block';
-});
-
-// Close modal
-document.querySelector('.close').addEventListener('click', () => {
-    document.getElementById('book-form').style.display = 'none';
-});
-
-document.getElementById('cancel-btn').addEventListener('click', () => {
-    document.getElementById('book-form').style.display = 'none';
-});
-
-// Edit book
-window.editBook = function(id) {
-    const book = books.find(b => b.id === id);
-    if (!book) return;
-    
-    // Convert read_logs to comma-separated date strings
-    const datesFinished = book.read_logs?.map(log => {
-        const date = new Date(log.date_finished);
-        return date.toLocaleDateString('en-GB', {
-            day: '2-digit',
-            month: '2-digit',
-            year: '2-digit'
-        });
-    }).join(', ') || '';
-    
-    document.getElementById('form-title').textContent = 'Edit Book';
-    document.getElementById('book-id').value = book.id;
-    document.getElementById('title').value = book.title || '';
-    document.getElementById('authors').value = book.authors?.map(a => a.name).join(', ') || '';
-    document.getElementById('series').value = book.series?.name || '';
-    document.getElementById('owned').checked = book.owned || false;
-    document.getElementById('rating').value = book.rating || '';
-    document.getElementById('date-finished').value = datesFinished;
-    document.getElementById('notes').value = book.notes || '';
-    document.getElementById('read-soon').checked = book.read_soon || false;
-    
-    document.getElementById('book-form').style.display = 'block';
-};
-
-// Delete book
-window.deleteBook = async function(id) {
-    if (!confirm('Are you sure you want to delete this book?')) return;
-    
-    try {
-        const response = await authFetch(`${API_URL}/${id}`, { method: 'DELETE' });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        books = books.filter(b => b.id !== id);
-        renderBooks();
-        alert('Book deleted successfully');
-    } catch (error) {
-        alert('Failed to delete book: ' + error.message);
-    }
-};
-
-// Submit form
-document.getElementById('book-edit-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const id = document.getElementById('book-id').value;
-    const authorNames = document.getElementById('authors').value
-        .split(',')
-        .map(a => a.trim())
-        .filter(a => a);
-    
-    // Parse dates_finished from comma-separated string
-    const datesFinishedStr = document.getElementById('date-finished').value;
-    const datesFinished = datesFinishedStr
-        ? datesFinishedStr.split(',').map(d => d.trim()).filter(d => d)
-        : [];
-    
-    const data = {
-        title: document.getElementById('title').value,
-        author_names: authorNames,
-        series_name: document.getElementById('series').value,
-        owned: document.getElementById('owned').checked,
-        rating: parseFloat(document.getElementById('rating').value) || 0,
-        dates_finished: datesFinished,
-        notes: document.getElementById('notes').value,
-        read_soon: document.getElementById('read-soon').checked
-    };
-    
-    try {
-        const url = id ? `${API_URL}/${id}` : API_URL;
-        const method = id ? 'PUT' : 'POST';
-        
-        const response = await authFetch(url, {
-            method,
-            body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const savedBook = await response.json();
-        
-        if (id) {
-            const index = books.findIndex(b => b.id == id);
-            books[index] = savedBook;
-        } else {
-            books.push(savedBook);
-        }
-        
-        renderBooks();
-        document.getElementById('book-form').style.display = 'none';
-        alert('Book saved successfully');
-    } catch (error) {
-        alert('Failed to save book: ' + error.message);
-    }
-});
-
-// Show import modal
-document.getElementById('import-csv-btn').addEventListener('click', () => {
-    document.getElementById('import-form').reset();
-    document.getElementById('import-result').style.display = 'none';
-    document.getElementById('import-progress').style.display = 'none';
-    document.getElementById('import-modal').style.display = 'block';
-});
-
-// Close import modal
-document.querySelector('.import-close').addEventListener('click', () => {
-    document.getElementById('import-modal').style.display = 'none';
-});
-
-document.querySelector('.import-cancel-btn').addEventListener('click', () => {
-    document.getElementById('import-modal').style.display = 'none';
-});
-
-// Handle CSV import
-document.getElementById('import-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const fileInput = document.getElementById('csv-file');
-    const file = fileInput.files[0];
-    
-    if (!file) {
-        alert('Please select a CSV file');
-        return;
-    }
-    
-    const formData = new FormData();
-    formData.append('file', file);
-    
-    const progressEl = document.getElementById('import-progress');
-    const resultEl = document.getElementById('import-result');
-    
-    progressEl.style.display = 'block';
-    resultEl.style.display = 'none';
-    
-    try {
-        if (!credentials) {
-            const username = prompt('Enter admin username:');
-            const password = prompt('Enter admin password:');
-            if (!username || !password) {
-                throw new Error('Authentication cancelled');
-            }
-            credentials = btoa(`${username}:${password}`);
-        }
-        
-        const response = await fetch(`${API_URL}/import`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Basic ${credentials}`
+createApp({
+    delimiters: ['[[', ']]'],
+    data() {
+        return {
+            books: [],
+            loading: true,
+            error: null,
+            searchTerm: '',
+            statusFilter: '',
+            sortColumn: 'date',
+            sortDirection: -1,
+            expandedSeries: {},
+            currentPage: 1,
+            itemsPerPage: 15,
+            credentials: null,
+            
+            // Edit modal
+            showEditModal: false,
+            editingBook: null,
+            editForm: {
+                title: '',
+                authors: '',
+                series: '',
+                rating: null,
+                datesFinished: '',
+                owned: false,
+                readSoon: false
             },
-            body: formData
-        });
-        
-        if (response.status === 401) {
-            credentials = null;
-            throw new Error('Authentication failed');
+            editError: null,
+            editSubmitting: false,
+            
+            // Log Read modal
+            showLogReadModal: false,
+            logReadBook: null,
+            logReadForm: {
+                dateFinished: '',
+                rating: null,
+                owned: false
+            },
+            logReadError: null,
+            logReadSubmitting: false,
+            
+            // Import CSV modal
+            showImportCsvModal: false,
+            csvFile: null,
+            importProgress: false,
+            importResult: null
+        };
+    },
+
+    computed: {
+        seriesGroups() {
+            return this.groupBooksBySeries(this.books);
+        },
+
+        filteredSeries() {
+            let filtered = this.seriesGroups;
+
+            if (this.searchTerm || this.statusFilter) {
+                filtered = filtered.map(series => {
+                    const filteredBooks = series.books.filter(book => {
+                        const matchesStatus = !this.statusFilter ||
+                            (this.statusFilter === 'read' && book.read) ||
+                            (this.statusFilter === 'unread' && !book.read);
+
+                        const matchesSearch = !this.searchTerm ||
+                            book.title.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                            book.author.toLowerCase().includes(this.searchTerm.toLowerCase()) ||
+                            (book.series && book.series.toLowerCase().includes(this.searchTerm.toLowerCase()));
+
+                        return matchesStatus && matchesSearch;
+                    });
+
+                    return { ...series, books: filteredBooks };
+                }).filter(series => series.books.length > 0);
+            }
+
+            return filtered;
+        },
+
+        filteredAndSortedSeries() {
+            const sorted = [...this.filteredSeries].sort((a, b) => {
+                let aVal, bVal;
+
+                switch(this.sortColumn) {
+                    case 'series':
+                        aVal = a.name.toLowerCase();
+                        bVal = b.name.toLowerCase();
+                        break;
+                    case 'author':
+                        aVal = a.author.toLowerCase();
+                        bVal = b.author.toLowerCase();
+                        break;
+                    case 'rating':
+                        aVal = parseFloat(a.avgRating);
+                        bVal = parseFloat(b.avgRating);
+                        break;
+                    case 'date':
+                        aVal = this.parseDate(a.latestDateSort);
+                        bVal = this.parseDate(b.latestDateSort);
+                        break;
+                }
+
+                if (aVal < bVal) return -1 * this.sortDirection;
+                if (aVal > bVal) return 1 * this.sortDirection;
+                return 0;
+            });
+
+            return sorted.map(series => ({
+                ...series,
+                isExpanded: !!this.expandedSeries[series.name]
+            }));
+        },
+
+        bookCount() {
+            return this.filteredSeries.reduce((sum, s) => sum + s.books.length, 0);
+        },
+
+        seriesCount() {
+            return this.filteredSeries.length;
+        },
+
+        paginatedSeries() {
+            const start = (this.currentPage - 1) * this.itemsPerPage;
+            const end = start + this.itemsPerPage;
+            return this.filteredAndSortedSeries.slice(start, end);
+        },
+
+        totalPages() {
+            return Math.ceil(this.filteredAndSortedSeries.length / this.itemsPerPage);
         }
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    },
+
+    methods: {
+        async fetchBooks() {
+            try {
+                this.loading = true;
+                const response = await fetch('/api/books');
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                this.books = await response.json();
+                this.loading = false;
+            } catch (error) {
+                console.error('Error fetching books:', error);
+                this.error = 'Failed to load books. Please try again later.';
+                this.loading = false;
+            }
+        },
+
+        groupBooksBySeries(books) {
+            const seriesMap = {};
+
+            books.forEach(book => {
+                const seriesName = book.series?.name || book.title;
+                const authorName = book.authors?.map(a => a.name).join(', ') || 'Unknown';
+
+                if (!seriesMap[seriesName]) {
+                    seriesMap[seriesName] = {
+                        name: seriesName,
+                        author: authorName,
+                        books: [],
+                        isSeries: !!book.series,
+                        seriesId: book.series?.id
+                    };
+                }
+
+                const hasReadLogs = book.read_logs && book.read_logs.length > 0;
+                const dateFinished = hasReadLogs
+                    ? book.read_logs
+                        .sort((a, b) => new Date(a.date_finished) - new Date(b.date_finished))
+                        .map(log => new Date(log.date_finished).toLocaleDateString('en-GB', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: '2-digit'
+                        }).replace(/\//g, '/'))
+                        .join(', ')
+                    : '';
+
+                seriesMap[seriesName].books.push({
+                    ...book,
+                    author: authorName,
+                    series: book.series?.name || '',
+                    read: hasReadLogs,
+                    owned: book.owned || false,
+                    rating: book.rating ? book.rating.toFixed(1) : '',
+                    date_finished: dateFinished,
+                    read_soon: book.read_soon || false
+                });
+            });
+
+            return Object.values(seriesMap).map(series => {
+                const bookCount = series.books.length;
+                const avgRating = this.calculateAvgRating(series.books);
+                const latestDateObj = this.getLatestDate(series.books);
+                const latestDate = latestDateObj.display;
+                const latestDateSort = latestDateObj.sort;
+                const isExpandable = series.isSeries && bookCount > 1;
+                const singleBook = bookCount === 1 ? series.books[0] : null;
+                const displayName = (series.isSeries && bookCount === 1) ? singleBook.title : series.name;
+
+                let readDisplay = '';
+                if (isExpandable) {
+                    const readCount = series.books.filter(b => b.read).length;
+                    const percentage = Math.round((readCount / bookCount) * 100);
+                    readDisplay = `${percentage}%`;
+                } else if (singleBook) {
+                    readDisplay = singleBook.read ? '✓' : '';
+                }
+
+                let ownedDisplay = '';
+                if (isExpandable) {
+                    const ownedCount = series.books.filter(b => b.owned).length;
+                    const percentage = Math.round((ownedCount / bookCount) * 100);
+                    ownedDisplay = `${percentage}%`;
+                } else if (singleBook) {
+                    ownedDisplay = singleBook.owned ? '✓' : '';
+                }
+
+                return {
+                    ...series,
+                    bookCount,
+                    avgRating,
+                    latestDate,
+                    latestDateSort,
+                    isExpandable,
+                    singleBook,
+                    displayName,
+                    readDisplay,
+                    ownedDisplay
+                };
+            });
+        },
+
+        calculateAvgRating(seriesBooks) {
+            const ratings = seriesBooks
+                .map(b => parseFloat(b.rating))
+                .filter(r => !isNaN(r) && r > 0);
+
+            if (ratings.length === 0) return 0;
+            return (ratings.reduce((a, b) => a + b, 0) / ratings.length).toFixed(1);
+        },
+
+        getLatestDate(seriesBooks) {
+            const dates = seriesBooks
+                .map(b => {
+                    const dateStr = b.date_finished;
+                    if (!dateStr) return null;
+
+                    const dateParts = dateStr.split(',');
+                    const lastDate = dateParts[dateParts.length - 1].trim();
+
+                    return { str: lastDate, val: this.parseDate(dateStr) };
+                })
+                .filter(d => d && d.val > 0);
+
+            if (dates.length === 0) return { display: '', sort: '' };
+            dates.sort((a, b) => b.val - a.val);
+            
+            return { display: dates[0].str, sort: dates[0].str };
+        },
+
+        parseDate(dateStr) {
+            if (!dateStr) return 0;
+
+            const dates = dateStr.split(',');
+            const lastDate = dates[dates.length - 1].trim();
+
+            const parts = lastDate.split('/');
+            if (parts.length === 3) {
+                const day = parseInt(parts[0]);
+                const month = parseInt(parts[1]) - 1;
+                let year = parseInt(parts[2]);
+                year = year < 100 ? (year < 50 ? 2000 + year : 1900 + year) : year;
+                return new Date(year, month, day).getTime();
+            }
+
+            return 0;
+        },
+
+        sortBy(column) {
+            if (this.sortColumn === column) {
+                this.sortDirection *= -1;
+            } else {
+                this.sortColumn = column;
+                this.sortDirection = -1;
+            }
+        },
+
+        toggleSeries(seriesIdx) {
+            const series = this.paginatedSeries[seriesIdx];
+            this.expandedSeries[series.name] = !this.expandedSeries[series.name];
+        },
+
+        nextPage() {
+            if (this.currentPage < this.totalPages) {
+                this.currentPage++;
+                this.expandedSeries = {};
+            }
+        },
+
+        prevPage() {
+            if (this.currentPage > 1) {
+                this.currentPage--;
+                this.expandedSeries = {};
+            }
+        },
+
+        async authFetch(url, options = {}) {
+            if (!this.credentials) {
+                const username = prompt('Enter admin username:');
+                const password = prompt('Enter admin password:');
+                if (!username || !password) {
+                    throw new Error('Authentication cancelled');
+                }
+                this.credentials = btoa(`${username}:${password}`);
+            }
+
+            options.headers = {
+                ...options.headers,
+                'Authorization': `Basic ${this.credentials}`,
+                'Content-Type': 'application/json'
+            };
+
+            const response = await fetch(url, options);
+
+            if (response.status === 401) {
+                this.credentials = null;
+                throw new Error('Authentication failed');
+            }
+
+            return response;
+        },
+
+        // Edit Modal Methods
+        showAddBookModal() {
+            this.editingBook = null;
+            this.editForm = {
+                title: '',
+                authors: '',
+                series: '',
+                rating: null,
+                datesFinished: '',
+                owned: false,
+                readSoon: false
+            };
+            this.editError = null;
+            this.showEditModal = true;
+        },
+
+        openEditModal(book) {
+            this.editingBook = book;
+            this.editForm = {
+                title: book.title || '',
+                authors: book.authors?.map(a => a.name).join(', ') || '',
+                series: book.series || '',
+                rating: book.rating ? parseFloat(book.rating) : null,
+                datesFinished: book.date_finished || '',
+                owned: book.owned || false,
+                readSoon: book.read_soon || false
+            };
+            this.editError = null;
+            this.showEditModal = true;
+        },
+
+        closeEditModal() {
+            this.showEditModal = false;
+            this.editingBook = null;
+            this.editError = null;
+        },
+
+        async submitEdit() {
+            this.editError = null;
+            this.editSubmitting = true;
+
+            try {
+                const authorNames = this.editForm.authors
+                    .split(',')
+                    .map(a => a.trim())
+                    .filter(a => a);
+
+                const datesFinished = this.editForm.datesFinished
+                    ? this.editForm.datesFinished.split(',').map(d => d.trim()).filter(d => d)
+                    : [];
+
+                const data = {
+                    title: this.editForm.title,
+                    author_names: authorNames,
+                    series_name: this.editForm.series,
+                    owned: this.editForm.owned,
+                    rating: this.editForm.rating || 0,
+                    dates_finished: datesFinished,
+                    read_soon: this.editForm.readSoon
+                };
+
+                const url = this.editingBook ? `/api/books/${this.editingBook.id}` : '/api/books';
+                const method = this.editingBook ? 'PUT' : 'POST';
+
+                const response = await this.authFetch(url, {
+                    method,
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to save book');
+                }
+
+                await this.fetchBooks();
+                this.closeEditModal();
+            } catch (error) {
+                console.error('Error saving book:', error);
+                this.editError = error.message;
+            } finally {
+                this.editSubmitting = false;
+            }
+        },
+
+        async deleteBook(book) {
+            if (!confirm(`Are you sure you want to delete "${book.title}"?`)) return;
+
+            try {
+                const response = await this.authFetch(`/api/books/${book.id}`, {
+                    method: 'DELETE'
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to delete book');
+                }
+
+                await this.fetchBooks();
+            } catch (error) {
+                alert('Failed to delete book: ' + error.message);
+            }
+        },
+
+        // Log Read Modal Methods
+        openLogReadModal(book) {
+            this.logReadBook = book;
+            this.logReadForm.dateFinished = this.getTodayFormatted();
+            this.logReadForm.rating = book.rating ? parseFloat(book.rating) : null;
+            this.logReadForm.owned = book.owned || false;
+            this.logReadError = null;
+            this.showLogReadModal = true;
+        },
+
+        closeLogReadModal() {
+            this.showLogReadModal = false;
+            this.logReadBook = null;
+            this.logReadForm = {
+                dateFinished: '',
+                rating: null,
+                owned: false
+            };
+            this.logReadError = null;
+        },
+
+        getTodayFormatted() {
+            const today = new Date();
+            const day = String(today.getDate()).padStart(2, '0');
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const year = String(today.getFullYear()).slice(-2);
+            return `${day}/${month}/${year}`;
+        },
+
+        async submitLogRead() {
+            this.logReadError = null;
+            this.logReadSubmitting = true;
+
+            try {
+                const payload = {
+                    date_finished: this.logReadForm.dateFinished
+                };
+
+                if (this.logReadForm.rating !== null && this.logReadForm.rating !== '') {
+                    payload.rating = parseFloat(this.logReadForm.rating);
+                }
+
+                payload.owned = this.logReadForm.owned;
+
+                const response = await this.authFetch(`/api/books/${this.logReadBook.id}/read-log`, {
+                    method: 'POST',
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    throw new Error(error.error || 'Failed to log read');
+                }
+
+                await this.fetchBooks();
+                this.closeLogReadModal();
+            } catch (error) {
+                console.error('Error logging read:', error);
+                this.logReadError = error.message;
+            } finally {
+                this.logReadSubmitting = false;
+            }
+        },
+
+        // Import CSV Methods
+        showImportModal() {
+            this.csvFile = null;
+            this.importProgress = false;
+            this.importResult = null;
+            this.showImportCsvModal = true;
+        },
+
+        closeImportModal() {
+            this.showImportCsvModal = false;
+            this.csvFile = null;
+            this.importResult = null;
+        },
+
+        handleFileSelect(event) {
+            this.csvFile = event.target.files[0];
+            this.importResult = null;
+        },
+
+        async submitImport() {
+            if (!this.csvFile) return;
+
+            this.importProgress = true;
+            this.importResult = null;
+
+            try {
+                const formData = new FormData();
+                formData.append('file', this.csvFile);
+
+                if (!this.credentials) {
+                    const username = prompt('Enter admin username:');
+                    const password = prompt('Enter admin password:');
+                    if (!username || !password) {
+                        throw new Error('Authentication cancelled');
+                    }
+                    this.credentials = btoa(`${username}:${password}`);
+                }
+
+                const response = await fetch('/api/books/import', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Basic ${this.credentials}`
+                    },
+                    body: formData
+                });
+
+                if (response.status === 401) {
+                    this.credentials = null;
+                    throw new Error('Authentication failed');
+                }
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+
+                this.importResult = {
+                    success: true,
+                    message: `
+                        <strong>Import Complete!</strong><br>
+                        Imported: ${result.imported} books<br>
+                        Skipped: ${result.skipped} rows<br>
+                        ${result.errors && result.errors.length > 0 ? `<br><strong>Errors:</strong><br>${result.errors.join('<br>')}` : ''}
+                    `
+                };
+
+                await this.fetchBooks();
+            } catch (error) {
+                this.importResult = {
+                    success: false,
+                    message: 'Import failed: ' + error.message
+                };
+            } finally {
+                this.importProgress = false;
+            }
         }
-        
-        const result = await response.json();
-        
-        progressEl.style.display = 'none';
-        resultEl.style.display = 'block';
-        resultEl.className = 'success';
-        resultEl.innerHTML = `
-            <strong>Import Complete!</strong><br>
-            Imported: ${result.imported} books<br>
-            Skipped: ${result.skipped} rows<br>
-            ${result.errors && result.errors.length > 0 ? `<br><strong>Errors:</strong><br>${result.errors.join('<br>')}` : ''}
-        `;
-        
-        // Refresh the book list
-        const booksResponse = await fetch(API_URL);
-        books = await booksResponse.json();
-        renderBooks();
-        
-    } catch (error) {
-        progressEl.style.display = 'none';
-        resultEl.style.display = 'block';
-        resultEl.className = 'error';
-        resultEl.textContent = 'Import failed: ' + error.message;
-    }
-});
+    },
 
-// ===== Review Series Mapping Management =====
-
-const MAPPING_API_URL = '/api/reviews/mappings';
-let mappings = [];
-let allSeries = [];
-
-// Fetch and render mappings
-async function loadMappings() {
-    try {
-        const response = await fetch(MAPPING_API_URL);
-        if (!response.ok) throw new Error('Failed to fetch mappings');
-        
-        mappings = await response.json();
-        renderMappings();
-    } catch (error) {
-        console.error('Error loading mappings:', error);
-    }
-}
-
-// Fetch all series for the dropdown
-async function loadSeriesForMappings() {
-    try {
-        const response = await fetch('/api/series');
-        if (!response.ok) throw new Error('Failed to fetch series');
-        
-        allSeries = await response.json();
-        populateSeriesDropdown();
-    } catch (error) {
-        console.error('Error loading series:', error);
-    }
-}
-
-// Populate series dropdown
-function populateSeriesDropdown() {
-    const select = document.getElementById('mapping-series');
-    select.innerHTML = '<option value="">Select a series...</option>';
-    
-    allSeries.forEach(series => {
-        const option = document.createElement('option');
-        option.value = series.id;
-        option.textContent = series.name;
-        select.appendChild(option);
-    });
-}
-
-// Render mappings list
-function renderMappings() {
-    const container = document.getElementById('mappings-container');
-    
-    if (!mappings.length) {
-        container.innerHTML = '<p>No review-series mappings found.</p>';
-        return;
-    }
-    
-    container.innerHTML = mappings.map(mapping => `
-        <div class="mapping-item">
-            <div class="mapping-info">
-                <strong>${mapping.review_slug}</strong> → ${mapping.series?.name || 'Unknown Series'}
-            </div>
-            <div class="mapping-actions">
-                <button class="btn btn-secondary" onclick="editMapping(${mapping.id})">Edit</button>
-                <button class="btn btn-danger" onclick="deleteMapping(${mapping.id})">Delete</button>
-            </div>
-        </div>
-    `).join('');
-}
-
-// Show add mapping form
-window.showAddMappingForm = function() {
-    document.getElementById('mapping-form-title').textContent = 'Add Review Mapping';
-    document.getElementById('mapping-edit-form').reset();
-    document.getElementById('mapping-id').value = '';
-    document.getElementById('mapping-form').style.display = 'block';
-};
-
-// Edit mapping
-window.editMapping = function(id) {
-    const mapping = mappings.find(m => m.id === id);
-    if (!mapping) return;
-    
-    document.getElementById('mapping-form-title').textContent = 'Edit Review Mapping';
-    document.getElementById('mapping-id').value = mapping.id;
-    document.getElementById('review-slug').value = mapping.review_slug;
-    document.getElementById('mapping-series').value = mapping.series_id;
-    document.getElementById('mapping-form').style.display = 'block';
-};
-
-// Delete mapping
-window.deleteMapping = async function(id) {
-    if (!confirm('Are you sure you want to delete this mapping?')) return;
-    
-    try {
-        const response = await authFetch(`${MAPPING_API_URL}/${id}`, {
-            method: 'DELETE'
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+    watch: {
+        searchTerm() {
+            this.currentPage = 1;
+            this.expandedSeries = {};
+        },
+        statusFilter() {
+            this.currentPage = 1;
+            this.expandedSeries = {};
+        },
+        sortColumn() {
+            this.currentPage = 1;
+            this.expandedSeries = {};
+        },
+        sortDirection() {
+            this.currentPage = 1;
+            this.expandedSeries = {};
         }
-        
-        await loadMappings();
-        alert('Mapping deleted successfully');
-    } catch (error) {
-        alert('Failed to delete mapping: ' + error.message);
+    },
+
+    mounted() {
+        this.fetchBooks();
     }
-};
-
-// Close mapping form
-document.querySelector('.mapping-close').addEventListener('click', () => {
-    document.getElementById('mapping-form').style.display = 'none';
-});
-
-document.querySelector('.mapping-cancel-btn').addEventListener('click', () => {
-    document.getElementById('mapping-form').style.display = 'none';
-});
-
-// Submit mapping form
-document.getElementById('mapping-edit-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const id = document.getElementById('mapping-id').value;
-    const data = {
-        review_slug: document.getElementById('review-slug').value,
-        series_id: parseInt(document.getElementById('mapping-series').value)
-    };
-    
-    try {
-        const url = id ? `${MAPPING_API_URL}/${id}` : MAPPING_API_URL;
-        const method = id ? 'PUT' : 'POST';
-        
-        const response = await authFetch(url, {
-            method,
-            body: JSON.stringify(data)
-        });
-        
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        await loadMappings();
-        document.getElementById('mapping-form').style.display = 'none';
-        alert('Mapping saved successfully');
-    } catch (error) {
-        alert('Failed to save mapping: ' + error.message);
-    }
-});
-
-// Initialize
-init();
-loadMappings();
-loadSeriesForMappings();
+}).mount('#app');

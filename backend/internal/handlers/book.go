@@ -272,6 +272,73 @@ func (h *BookHandler) DeleteBook(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"message": "Book deleted successfully"})
 }
 
+// LogRead creates a new read log entry for a book and optionally updates book metadata (protected endpoint)
+func (h *BookHandler) LogRead(c *gin.Context) {
+	id := c.Param("id")
+	var book models.Book
+
+	if err := h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, id).Error; err != nil {
+		if err == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Book not found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	var input struct {
+		DateFinished string   `json:"date_finished" binding:"required"`
+		Rating       *float64 `json:"rating"`
+		Owned        *bool    `json:"owned"`
+	}
+
+	if err := c.ShouldBindJSON(&input); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Parse the date
+	parsedDate, err := parseDate(input.DateFinished)
+	if err != nil || parsedDate.IsZero() {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid date format. Use DD/MM/YY or DD/MM/YYYY"})
+		return
+	}
+
+	// Create the read log entry
+	readLog := models.ReadLog{
+		BookID:       book.ID,
+		DateFinished: parsedDate,
+	}
+
+	if err := h.DB.Create(&readLog).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+		return
+	}
+
+	// Update book metadata if provided
+	updated := false
+	if input.Rating != nil {
+		book.Rating = *input.Rating
+		updated = true
+	}
+	if input.Owned != nil {
+		book.Owned = *input.Owned
+		updated = true
+	}
+
+	if updated {
+		if err := h.DB.Save(&book).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
+			return
+		}
+	}
+
+	// Reload with associations
+	h.DB.Preload("Authors").Preload("Series").Preload("ReadLogs").First(&book, book.ID)
+
+	c.JSON(http.StatusCreated, book)
+}
+
 // GetAuthors returns all authors (public endpoint)
 func (h *BookHandler) GetAuthors(c *gin.Context) {
 	var authors []models.Author

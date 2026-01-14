@@ -110,7 +110,7 @@ func main() {
 		// Note routes
 		api.GET("/notes/latest", h.GetLatestNote)
 		api.POST("/notes", strictRateLimiter.Middleware(), h.CreateNote) // Strict rate limit: 5/hour
-		api.GET("/notes", h.GetAllNotes) // Optional: view all notes history
+		api.GET("/notes", h.GetAllNotes)
 		
 		// Example resource routes
 		api.GET("/items", h.GetItems)
@@ -132,6 +132,7 @@ func main() {
 		api.POST("/books", adminAuth, bookHandler.CreateBook)
 		api.PUT("/books/:id", adminAuth, bookHandler.UpdateBook)
 		api.DELETE("/books/:id", adminAuth, bookHandler.DeleteBook)
+		api.POST("/books/:id/read-log", adminAuth, bookHandler.LogRead)
 		api.POST("/books/import", adminAuth, bookHandler.ImportCSV)
 
 		// Public album routes (anyone can view)

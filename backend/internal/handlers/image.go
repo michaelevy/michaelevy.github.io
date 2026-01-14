@@ -32,7 +32,6 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 		".png":  true,
 		".gif":  true,
 		".webp": true,
-		// SVG removed - can contain embedded JavaScript (XSS risk)
 	}
 
 	if !allowedExts[ext] {
@@ -40,14 +39,12 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 		return
 	}
 
-	// Validate actual file content by checking magic bytes
 	src, err := file.Open()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to read uploaded file"})
 		return
 	}
 	
-	// Read first 512 bytes for content type detection
 	buffer := make([]byte, 512)
 	n, err := src.Read(buffer)
 	if err != nil && err != io.EOF {
@@ -57,7 +54,6 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 	}
 	src.Close()
 
-	// Detect content type from actual file bytes
 	contentType := http.DetectContentType(buffer[:n])
 	allowedMIME := map[string]bool{
 		"image/jpeg": true,
@@ -110,7 +106,7 @@ func (h *ImageHandler) UploadImage(c *gin.Context) {
 	}
 
 	// Open source file
-	src, err := file.Open()
+	src, err = file.Open()
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to open uploaded file"})
 		return
