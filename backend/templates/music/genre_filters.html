@@ -1,0 +1,14 @@
+{{if .Genres}}
+{{range .Genres}}
+<button class="genre-filter-btn {{if .Active}}active{{end}}"
+        hx-get="/api/albums-html?{{.QueryString}}"
+        hx-target=".albums-grid"
+        hx-swap="innerHTML"
+        hx-on::after-request="htmx.ajax('GET', '/api/genres-html?{{.QueryString}}', {target: '#genre-filter-buttons', swap: 'innerHTML'})"
+        data-genre-id="{{.ID}}">
+    {{.Name}}
+</button>
+{{end}}
+{{else}}
+<span style="color: var(--accent-light); font-size: 0.9rem;">No genres available</span>
+{{end}}

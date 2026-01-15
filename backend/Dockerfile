@@ -29,6 +29,9 @@ WORKDIR /app
 # Copy the binary from builder
 COPY --from=builder /app/main .
 
+# Copy templates directory
+COPY --from=builder /app/templates ./templates
+
 # Create uploads directory and set ownership
 RUN mkdir -p /app/uploads/resources && \
     chown -R appuser:appgroup /app

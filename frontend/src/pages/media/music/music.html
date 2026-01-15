@@ -6,8 +6,7 @@ width: full
 css:
   - /src/pages/media/music/music.css
 js:
-  - /public/lib/marked.min.js
-  - /src/pages/media/music/music.js
+  - /public/lib/htmx.min.js
 eleventyNavigation:
   key: Music
   parent: Media
@@ -18,14 +17,20 @@ eleventyNavigation:
     <p>This is a sampling of my favourite records, and why I like them.</p>
     <div class="genre-filters">
         <p class="genre-filters-label">Filter by genre:</p>
-        <div id="genre-filter-buttons">
-            <!-- Genre filter buttons will be loaded dynamically via JavaScript -->
+        <div id="genre-filter-buttons" 
+             hx-get="/api/genres-html" 
+             hx-trigger="load"
+             hx-swap="innerHTML">
+            <!-- Genre filter buttons will be loaded via htmx -->
         </div>
     </div>
 
     <div class="music-container">
-        <div class="albums-grid">
-            <!-- Albums will be loaded dynamically via JavaScript -->
+        <div class="albums-grid" 
+             hx-get="/api/albums-html" 
+             hx-trigger="load"
+             hx-swap="innerHTML">
+            <!-- Albums will be loaded via htmx -->
         </div>
 
         <aside class="album-sidebar">

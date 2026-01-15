@@ -1,0 +1,31 @@
+<button class="sidebar-close" 
+        hx-get="/api/albums-html/clear-sidebar"
+        hx-target=".album-sidebar .sidebar-content"
+        hx-swap="innerHTML"
+        aria-label="Close album info">&times;</button>
+<h3 class="sidebar-title">{{.Name}} - {{.Artist}}</h3>
+<div class="sidebar-text">
+    {{if .Text}}
+    <div class="garamond">{{.TextHTML}}</div>
+    {{end}}
+    {{if .Links}}
+    <br><br>
+    {{range .Links}}
+    <a href="{{.Link}}" class="sidebar-link code" target="_blank" rel="noopener noreferrer">
+        {{.Type | title}}
+    </a>
+    {{end}}
+    {{end}}
+</div>
+
+<script>
+// Mark the selected album
+document.querySelectorAll('.album-wrapper').forEach(w => w.classList.remove('selected'));
+const albumWrapper = document.querySelector('[data-album-id="{{.ID}}"]');
+if (albumWrapper) {
+    albumWrapper.classList.add('selected');
+}
+
+// Show sidebar on mobile
+document.querySelector('.album-sidebar').classList.add('visible');
+</script>

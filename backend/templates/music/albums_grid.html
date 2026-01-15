@@ -1,0 +1,23 @@
+{{range .Albums}}
+<div class="album-wrapper"
+     hx-get="/api/albums-html/{{.ID}}/details"
+     hx-target=".album-sidebar .sidebar-content"
+     hx-swap="innerHTML"
+     data-album-id="{{.ID}}">
+    <div class="album-cover">
+        <img src="/public/resources/{{.Image}}" alt="{{.Name}} by {{.Artist}}">
+    </div>
+    <div class="album-info">
+        <h2 class="album-title">{{.Name}}</h2>
+        <p class="album-artist">{{.Artist}}</p>
+        <p class="album-year">{{.Year}}</p>
+        {{if .Genres}}
+        <div class="album-genres">
+            {{range .Genres}}
+            <span class="genre-tag">{{.Name}}</span>
+            {{end}}
+        </div>
+        {{end}}
+    </div>
+</div>
+{{end}}

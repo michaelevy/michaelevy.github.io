@@ -1,0 +1,10 @@
+<button class="sidebar-close" aria-label="Close album info">&times;</button>
+<h3 class="sidebar-title">Select an album</h3>
+<p class="sidebar-text garamond">Album information will appear here</p>
+
+<script>
+// Hide sidebar on mobile
+document.querySelector('.album-sidebar').classList.remove('visible');
+// Remove all selected states
+document.querySelectorAll('.album-wrapper').forEach(w => w.classList.remove('selected'));
+</script>

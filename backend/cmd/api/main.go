@@ -1,6 +1,7 @@
 package main
 
 import (
+	"html/template"
 	"log"
 	"os"
 	"strings"
@@ -83,6 +84,15 @@ func main() {
 		})
 	})
 
+	// Load HTML templates
+	tmpl, err := template.New("").Funcs(template.FuncMap{
+		"title": strings.Title,
+	}).ParseGlob("templates/music/*.html")
+	if err != nil {
+		log.Printf("Warning: Failed to load HTML templates: %v", err)
+		log.Println("HTML endpoints will not be available")
+	}
+
 	// Initialize handlers
 	h := handlers.NewHandler(db)
 	bookHandler := &handlers.BookHandler{DB: db}
@@ -90,6 +100,15 @@ func main() {
 	genreHandler := &handlers.GenreHandler{DB: db}
 	imageHandler := &handlers.ImageHandler{DB: db}
 	listeningHandler := &handlers.ListeningHandler{}
+	
+	// Initialize HTML handler if templates loaded successfully
+	var albumHTMLHandler *handlers.AlbumHTMLHandler
+	if tmpl != nil {
+		albumHTMLHandler = &handlers.AlbumHTMLHandler{
+			DB:        db,
+			Templates: tmpl,
+		}
+	}
 	
 	// Initialize Contentful client
 	contentfulSpaceID := os.Getenv("CONTENTFUL_SPACE_ID")
@@ -140,6 +159,14 @@ func main() {
 		// Public album routes (anyone can view)
 		api.GET("/albums", albumHandler.GetAlbums)
 		api.GET("/albums/:id", albumHandler.GetAlbum)
+
+		// Album HTML routes (htmx endpoints)
+		if albumHTMLHandler != nil {
+			api.GET("/albums-html", albumHTMLHandler.GetAlbumsHTML)
+			api.GET("/albums-html/:id/details", albumHTMLHandler.GetAlbumDetails)
+			api.GET("/albums-html/clear-sidebar", albumHTMLHandler.ClearSidebar)
+			api.GET("/genres-html", albumHTMLHandler.GetGenreFilters)
+		}
 
 		// Listening history routes (public)
 		api.GET("/listening/last", listeningHandler.GetLastListened)
