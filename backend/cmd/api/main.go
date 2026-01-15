@@ -89,6 +89,7 @@ func main() {
 	albumHandler := &handlers.AlbumHandler{DB: db}
 	genreHandler := &handlers.GenreHandler{DB: db}
 	imageHandler := &handlers.ImageHandler{DB: db}
+	listeningHandler := &handlers.ListeningHandler{}
 	
 	// Initialize Contentful client
 	contentfulSpaceID := os.Getenv("CONTENTFUL_SPACE_ID")
@@ -122,6 +123,7 @@ func main() {
 		// Public book routes (anyone can view)
 		api.GET("/books", bookHandler.GetBooks)
 		api.GET("/books/:id", bookHandler.GetBook)
+		api.GET("/books/last-read", bookHandler.GetLastRead)
 		api.GET("/authors", bookHandler.GetAuthors)
 		api.GET("/series", bookHandler.GetSeries)
 		api.GET("/top-series", bookHandler.GetTopSeries)
@@ -138,6 +140,9 @@ func main() {
 		// Public album routes (anyone can view)
 		api.GET("/albums", albumHandler.GetAlbums)
 		api.GET("/albums/:id", albumHandler.GetAlbum)
+
+		// Listening history routes (public)
+		api.GET("/listening/last", listeningHandler.GetLastListened)
 
 		// Protected album routes (admin only)
 		api.POST("/albums", adminAuth, albumHandler.CreateAlbum)

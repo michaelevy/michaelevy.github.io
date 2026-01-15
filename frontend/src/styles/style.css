@@ -1,6 +1,6 @@
 :root {
     --orange: rgb(212, 76, 80);
-    --orange-dark:  #600;
+    --orange-dark: oklch(0.3932 0.0928 22.18);
     --orange-light: oklch(84% 0.171 22.2);
     --white: white;
     --grey:  #afafaf;
@@ -20,6 +20,7 @@
     --background-dark: var(--dark-white);
     --accent: var(--orange);
     --accent-light:var(--orange-light);
+    --accent-dark:var(--orange-dark);
     --secondary: var(--bright_grey);
     --secondary-light: var(--brighter_grey);
     --text: var(--black);

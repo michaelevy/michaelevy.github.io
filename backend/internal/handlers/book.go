@@ -53,6 +53,24 @@ func (h *BookHandler) GetBooks(c *gin.Context) {
 	c.JSON(http.StatusOK, books)
 }
 
+// GetLastRead returns the most recently read book based on ReadLogs (public endpoint)
+func (h *BookHandler) GetLastRead(c *gin.Context) {
+	var readLog models.ReadLog
+	
+	// Find the most recent read log entry
+	result := h.DB.Preload("Book.Authors").Preload("Book.Series").Order("date_finished DESC").First(&readLog)
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			c.JSON(http.StatusNotFound, gin.H{"error": "No read books found"})
+			return
+		}
+		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
+		return
+	}
+
+	c.JSON(http.StatusOK, readLog)
+}
+
 // GetBook returns a single book by ID (public endpoint)
 func (h *BookHandler) GetBook(c *gin.Context) {
 	id := c.Param("id")

@@ -4,33 +4,35 @@ title: Media | Michael Levy
 heading: Media
 css:
   - /src/styles/home.css
+  - /src/pages/media/media.css
+js:
+  - /src/pages/media/media.js
 eleventyNavigation:
   key: Media
   order: 1
 ---
 
     <main class="content-width">
-        <img src="/public/resources/show.jpg" class="head-image" alt="You are at the back of a crowd in a concert hall. The lights are shining, the drum kit is gleaming, but there is no one to play"></img>
-        <h2 class ="bar-right">Books</h2>
-        <ul>
-            <li>
-                <a href="/media/books/" class="accent">
-                    View the database of everything that I have read
-                </a>
-            </li>
-            <li>
-                <a href="/media/reviews/" class="accent">
-                    Read my reviews
-                </a>
-            </li>
-        </ul>
+        <div class="media-grid">
+            <div class="media-card" id="last-read-card">
+                <h3>Last Read</h3>
+                <div id="last-read-content" class="card-content">
+                    <p class="loading">Loading...</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/media/books/" class="media-button">Look upon the Book Machine</a>
+                    <a href="/media/reviews/" class="media-button">Read my reviews</a>
+                </div>
+            </div>
 
-        <h2 class ="bar-right">Music</h2>
-        <ul>
-            <li>
-                <a href="/media/music/" class="accent">
-                    Albums that I like
-                </a>
-            </li>
-        </ul>
+            <div class="media-card" id="last-listened-card">
+                <h3>Last Listened</h3>
+                <div id="last-listened-content" class="card-content">
+                    <p class="placeholder">Coming soon...</p>
+                </div>
+                <div class="card-actions">
+                    <a href="/media/music/" class="media-button">Albums that I like</a>
+                </div>
+            </div>
+        </div>
     </main>
