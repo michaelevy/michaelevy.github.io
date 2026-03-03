@@ -243,3 +243,31 @@
     font-size: 0.9rem;
     user-select: none;
 }
+
+/* Image upload */
+.image-upload-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.upload-btn {
+    cursor: pointer;
+    display: inline-block;
+}
+
+#upload-status {
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+#image-preview {
+    margin-top: 0.5rem;
+}
+
+#image-preview img {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid var(--accent-light);
+}

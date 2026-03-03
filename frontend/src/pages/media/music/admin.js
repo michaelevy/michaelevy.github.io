@@ -1,5 +1,6 @@
 const API_URL = '/api/albums';
 const GENRE_API_URL = '/api/genres';
+const IMAGE_API_URL = '/api/images';
 let albums = [];
 let genres = [];
 let credentials = null;
@@ -57,6 +58,54 @@ async function authFetch(url, options = {}) {
     }
     
     return response;
+}
+
+// Make authenticated request for file uploads (no Content-Type header -- browser sets multipart boundary)
+async function authFetchMultipart(url, formData) {
+    if (!credentials) {
+        const username = prompt('Enter admin username:');
+        const password = prompt('Enter admin password:');
+        if (!username || !password) {
+            throw new Error('Authentication cancelled');
+        }
+        credentials = btoa(`${username}:${password}`);
+    }
+
+    const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Authorization': `Basic ${credentials}` },
+        body: formData
+    });
+
+    if (response.status === 401) {
+        credentials = null;
+        throw new Error('Authentication failed');
+    }
+
+    return response;
+}
+
+// Load available images into datalist
+async function loadImageList() {
+    try {
+        const response = await authFetch(IMAGE_API_URL);
+        if (!response.ok) return;
+        const images = await response.json();
+        const datalist = document.getElementById('image-list');
+        datalist.innerHTML = (images || []).map(img => `<option value="${img.filename}">`).join('');
+    } catch (e) {
+        // Silently fail -- datalist is a nice-to-have
+    }
+}
+
+// Show image preview
+function showImagePreview(filename) {
+    const preview = document.getElementById('image-preview');
+    if (!filename) {
+        preview.innerHTML = '';
+        return;
+    }
+    preview.innerHTML = `<img src="/public/resources/${filename}" alt="Preview" />`;
 }
 
 // Render albums list
@@ -191,6 +240,52 @@ document.querySelector('.close').addEventListener('click', () => {
 
 document.querySelector('.cancel-btn').addEventListener('click', () => {
     document.getElementById('album-form').style.display = 'none';
+});
+
+// Upload image on file select
+document.getElementById('image-upload').addEventListener('change', async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const statusEl = document.getElementById('upload-status');
+    statusEl.textContent = 'Uploading...';
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+        const response = await authFetchMultipart(`${IMAGE_API_URL}/upload`, formData);
+        const text = await response.text();
+        let result;
+        try { result = JSON.parse(text); } catch { throw new Error('Server returned non-JSON response (check file size < 10MB)'); }
+
+        if (!response.ok) {
+            throw new Error(result.error || 'Upload failed');
+        }
+
+        document.getElementById('image').value = result.filename;
+        showImagePreview(result.filename);
+        statusEl.textContent = 'Uploaded!';
+        setTimeout(() => { statusEl.textContent = ''; }, 3000);
+
+        // Refresh datalist
+        loadImageList();
+    } catch (error) {
+        statusEl.textContent = 'Failed: ' + error.message;
+    }
+
+    // Reset file input so same file can be re-selected
+    e.target.value = '';
+});
+
+// Refresh images button
+document.getElementById('refresh-images-btn').addEventListener('click', () => {
+    loadImageList();
+});
+
+// Preview on image field change
+document.getElementById('image').addEventListener('input', (e) => {
+    showImagePreview(e.target.value);
 });
 
 // Edit album

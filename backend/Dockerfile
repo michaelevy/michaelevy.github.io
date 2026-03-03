@@ -36,9 +36,13 @@ COPY --from=builder /app/templates ./templates
 RUN mkdir -p /app/uploads/resources && \
     chown -R appuser:appgroup /app
 
-# Switch to non-root user
-USER appuser
+# Create entrypoint script that fixes volume permissions then drops to appuser
+RUN printf '#!/bin/sh\nchown appuser:appgroup /app/uploads/resources\nexec su-exec appuser "$@"\n' > /app/entrypoint.sh && \
+    chmod +x /app/entrypoint.sh
+
+RUN apk --no-cache add su-exec
 
 EXPOSE 8080
 
+ENTRYPOINT ["/app/entrypoint.sh"]
 CMD ["./main"]
