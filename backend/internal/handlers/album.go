@@ -16,7 +16,7 @@ type AlbumHandler struct {
 func (h *AlbumHandler) GetAlbums(c *gin.Context) {
 	var albums []models.Album
 	
-	result := h.DB.Preload("Links").Preload("Genres").Find(&albums)
+	result := h.DB.Preload("Links").Preload("Genres").Order("year DESC").Find(&albums)
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return

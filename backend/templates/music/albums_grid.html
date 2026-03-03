@@ -3,6 +3,7 @@
      hx-get="/api/albums-html/{{.ID}}/details"
      hx-target=".album-sidebar .sidebar-content"
      hx-swap="innerHTML"
+     hx-on::after-request="document.querySelectorAll('.album-wrapper').forEach(w => w.classList.remove('selected')); this.classList.add('selected'); document.querySelector('.album-sidebar').classList.add('visible')"
      data-album-id="{{.ID}}">
     <div class="album-cover">
         <img src="/public/resources/{{.Image}}" alt="{{.Name}} by {{.Artist}}">

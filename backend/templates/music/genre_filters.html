@@ -4,6 +4,7 @@
         hx-get="/api/albums-html?{{.QueryString}}"
         hx-target=".albums-grid"
         hx-swap="innerHTML"
+        hx-on:click="this.classList.toggle('active')"
         hx-on::after-request="htmx.ajax('GET', '/api/genres-html?{{.QueryString}}', {target: '#genre-filter-buttons', swap: 'innerHTML'})"
         data-genre-id="{{.ID}}">
     {{.Name}}

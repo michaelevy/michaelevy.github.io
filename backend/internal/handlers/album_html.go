@@ -47,7 +47,7 @@ func (h *AlbumHTMLHandler) GetAlbumsHTML(c *gin.Context) {
 		}
 	}
 
-	result := query.Find(&albums)
+	result := query.Order("year DESC").Find(&albums)
 	if result.Error != nil {
 		c.String(http.StatusInternalServerError, "Error loading albums")
 		return
