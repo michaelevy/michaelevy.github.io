@@ -9,7 +9,7 @@ let credentials = null;
 async function init() {
     try {
         // Try fetching albums (public endpoint) first to check if API is available
-        const albumResponse = await fetch(API_URL);
+        const albumResponse = await fetch(API_URL + '?include_hidden=true');
         if (!albumResponse.ok) throw new Error('API not available');
         
         albums = await albumResponse.json();
@@ -117,16 +117,19 @@ function renderAlbums() {
     containerEl.innerHTML = albums.map(album => {
         const links = album.links?.map(l => l.type).join(', ') || '';
         const genreNames = album.genres?.map(g => g.name).join(', ') || '';
-        
+        const hiddenLabel = album.hidden ? ' <span class="hidden-badge">Hidden</span>' : '';
+        const toggleLabel = album.hidden ? 'Show' : 'Hide';
+
         return `
-            <div class="album-item">
+            <div class="album-item${album.hidden ? ' album-hidden' : ''}">
                 <div class="album-info">
-                    <h4>${album.name}</h4>
+                    <h4>${album.name}${hiddenLabel}</h4>
                     <div class="album-meta">
                         ${album.artist}${album.year ? ` • ${album.year}` : ''}${genreNames ? ` • Genres: ${genreNames}` : ''}${links ? ` • Links: ${links}` : ''}
                     </div>
                 </div>
                 <div class="album-actions">
+                    <button class="btn btn-secondary" onclick="toggleAlbumVisibility(${album.id})">${toggleLabel}</button>
                     <button class="btn btn-secondary" onclick="editAlbum(${album.id})">Edit</button>
                     <button class="btn btn-danger" onclick="deleteAlbum(${album.id})">Delete</button>
                 </div>
@@ -286,6 +289,39 @@ document.getElementById('image').addEventListener('input', (e) => {
     showImagePreview(e.target.value);
 });
 
+// Toggle album visibility
+window.toggleAlbumVisibility = async function(id) {
+    const album = albums.find(a => a.id === id);
+    if (!album) return;
+
+    const data = {
+        name: album.name,
+        artist: album.artist,
+        year: album.year || '',
+        image: album.image || '',
+        text: album.text || '',
+        links: album.links || [],
+        genre_ids: album.genres?.map(g => g.id) || [],
+        hidden: !album.hidden
+    };
+
+    try {
+        const response = await authFetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+        const updatedAlbum = await response.json();
+        const index = albums.findIndex(a => a.id === id);
+        albums[index] = updatedAlbum;
+        renderAlbums();
+    } catch (error) {
+        alert('Failed to toggle visibility: ' + error.message);
+    }
+};
+
 // Edit album
 window.editAlbum = function(id) {
     const album = albums.find(a => a.id === id);
@@ -347,6 +383,9 @@ document.getElementById('album-edit-form').addEventListener('submit', async (e) 
     const genreCheckboxes = document.querySelectorAll('input[name="genre"]:checked');
     const genre_ids = Array.from(genreCheckboxes).map(cb => parseInt(cb.value));
     
+    // Preserve hidden state when editing
+    const existingAlbum = id ? albums.find(a => a.id == id) : null;
+
     const data = {
         name: document.getElementById('name').value,
         artist: document.getElementById('artist').value,
@@ -354,7 +393,8 @@ document.getElementById('album-edit-form').addEventListener('submit', async (e) 
         image: document.getElementById('image').value,
         text: document.getElementById('text').value,
         links: links,
-        genre_ids: genre_ids
+        genre_ids: genre_ids,
+        hidden: existingAlbum ? existingAlbum.hidden : false
     };
     
     try {
