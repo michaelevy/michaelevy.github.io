@@ -13,10 +13,16 @@ type AlbumHandler struct {
 }
 
 // GetAlbums returns all albums (public endpoint)
+// Pass ?include_hidden=true to include hidden albums (for admin use)
 func (h *AlbumHandler) GetAlbums(c *gin.Context) {
 	var albums []models.Album
-	
-	result := h.DB.Preload("Links").Preload("Genres").Order("year DESC").Find(&albums)
+
+	query := h.DB.Preload("Links").Preload("Genres")
+	if c.Query("include_hidden") != "true" {
+		query = query.Where("hidden = ?", false)
+	}
+
+	result := query.Order("year DESC").Find(&albums)
 	if result.Error != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": result.Error.Error()})
 		return
@@ -56,6 +62,7 @@ func (h *AlbumHandler) CreateAlbum(c *gin.Context) {
 		GenreIDs []uint `json:"genre_ids"`
 		Text     string `json:"text"`
 		Image    string `json:"image"`
+		Hidden   bool   `json:"hidden"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -69,6 +76,7 @@ func (h *AlbumHandler) CreateAlbum(c *gin.Context) {
 		Year:   input.Year,
 		Text:   input.Text,
 		Image:  input.Image,
+		Hidden: input.Hidden,
 	}
 
 	// Create the album
@@ -131,6 +139,7 @@ func (h *AlbumHandler) UpdateAlbum(c *gin.Context) {
 		GenreIDs []uint `json:"genre_ids"`
 		Text     string `json:"text"`
 		Image    string `json:"image"`
+		Hidden   bool   `json:"hidden"`
 	}
 
 	if err := c.ShouldBindJSON(&input); err != nil {
@@ -144,6 +153,7 @@ func (h *AlbumHandler) UpdateAlbum(c *gin.Context) {
 	album.Year = input.Year
 	album.Text = input.Text
 	album.Image = input.Image
+	album.Hidden = input.Hidden
 
 	// Clear existing links and create new ones
 	h.DB.Where("album_id = ?", album.ID).Delete(&models.AlbumLink{})

@@ -271,3 +271,18 @@
     max-height: 200px;
     border: 1px solid var(--accent-light);
 }
+
+/* Hidden album styling */
+.album-item.album-hidden {
+    opacity: 0.5;
+    border-style: dashed;
+}
+
+.hidden-badge {
+    font-size: 0.75rem;
+    padding: 0.1rem 0.4rem;
+    margin-left: 0.5rem;
+    border: 1px solid var(--accent-light);
+    color: var(--accent-light);
+    vertical-align: middle;
+}

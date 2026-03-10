@@ -60,7 +60,6 @@ async function authFetch(url, options = {}) {
     return response;
 }
 
-// Make authenticated request for file uploads (no Content-Type header -- browser sets multipart boundary)
 async function authFetchMultipart(url, formData) {
     if (!credentials) {
         const username = prompt('Enter admin username:');
@@ -94,7 +93,6 @@ async function loadImageList() {
         const datalist = document.getElementById('image-list');
         datalist.innerHTML = (images || []).map(img => `<option value="${img.filename}">`).join('');
     } catch (e) {
-        // Silently fail -- datalist is a nice-to-have
     }
 }
 

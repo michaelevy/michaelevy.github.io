@@ -19,6 +19,7 @@ type Album struct {
 	Genres []Genre      `gorm:"many2many:album_genres;" json:"genres"`
 	Text   string       `json:"text" gorm:"type:text"`
 	Image  string       `json:"image"`
+	Hidden bool         `json:"hidden" gorm:"default:false"`
 }
 
 type AlbumLink struct {

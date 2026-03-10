@@ -28,7 +28,7 @@ func (h *AlbumHTMLHandler) GetAlbumsHTML(c *gin.Context) {
 	genreParam := c.Query("genres")
 	var albums []models.Album
 
-	query := h.DB.Preload("Links").Preload("Genres")
+	query := h.DB.Preload("Links").Preload("Genres").Where("hidden = ?", false)
 
 	// Filter by genres if provided
 	if genreParam != "" {
