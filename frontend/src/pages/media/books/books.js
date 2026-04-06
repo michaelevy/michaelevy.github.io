@@ -20,6 +20,7 @@ createApp({
             recommendedBooksExpanded: false, // Track if recommended books section is expanded
             currentPage: 1, // Current page for pagination
             itemsPerPage: 15, // Number of series to show per page
+            yearFilter: null, // Filter books by year read
         };
     },
 
@@ -140,9 +141,17 @@ createApp({
                 .sort((a, b) => b.year - a.year);
         },
 
+        filteredBooks() {
+            if (!this.yearFilter) return this.books;
+            return this.books.filter(book => {
+                if (!book.read_logs || book.read_logs.length === 0) return false;
+                return book.read_logs.some(log => new Date(log.date_finished).getFullYear() === this.yearFilter);
+            });
+        },
+
         // Grouped and processed series
         seriesGroups() {
-            return this.groupBooksBySeries(this.books);
+            return this.groupBooksBySeries(this.filteredBooks);
         },
 
         // Filtered series
@@ -511,6 +520,12 @@ createApp({
             this.expandedSeries = {};
             this.seriesNotesVisible = {};
             this.bookNotesVisible = {};
+        },
+
+        filterByYear(year) {
+            this.yearFilter = this.yearFilter === year ? null : year;
+            this.currentPage = 1;
+            this.clearExpansionState();
         },
 
         getReviewLink(series) {

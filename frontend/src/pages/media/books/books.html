@@ -73,18 +73,6 @@ eleventyNavigation:
                     <div class="stat-value">[[ yearStats.projected ]]</div>
                 </div>
             </div>
-
-            <!-- Books Per Year -->
-            <div class="widget widget-half-width">
-                <h3>Books Per Year</h3>
-                <div v-if="booksPerYear.length === 0" style="margin: 0; font-style: italic;">No data available</div>
-                <div v-else class="year-stats-grid">
-                    <template v-for="yearData in booksPerYear" :key="yearData.year">
-                        <div class="stat-label">[[ yearData.year ]]:</div>
-                        <div class="stat-value">[[ yearData.count ]]</div>
-                    </template>
-                </div>
-            </div>
         </div>
 
         <!-- Recommended Books -->
@@ -113,6 +101,16 @@ eleventyNavigation:
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Year Filter Buttons -->
+        <div class="year-filters">
+            <button
+                v-for="yearData in booksPerYear"
+                :key="yearData.year"
+                @click="filterByYear(yearData.year)"
+                :class="['year-filter-btn', { active: yearFilter === yearData.year }]"
+            >[[ yearData.year ]] ([[ yearData.count ]])</button>
         </div>
 
         <!-- Filters -->
