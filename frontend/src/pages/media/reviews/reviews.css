@@ -154,7 +154,6 @@
     margin: 0.5rem 0 0 0;
 }
 
-/* Hide stars - we're using large rating instead */
 .star {
     display: none;
 }

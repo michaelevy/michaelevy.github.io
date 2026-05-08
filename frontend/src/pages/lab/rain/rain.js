@@ -118,13 +118,13 @@ function drawBackground() {
 }
 
 function onMouseMove(event){
-    
-    let diffX = event.clientX - (canvas.width / 2)
-    let diffY = event.clientY - (canvas.height / 2)
+    const rect = canvas.getBoundingClientRect();
+    let diffX = event.clientX - (rect.left + rect.width / 2)
+    let diffY = event.clientY - (rect.top + rect.height / 2)
 
     // normalise to +-1
-    diffX = (diffX / (canvas.width / 2))
-    diffY = (diffY / (canvas.height / 2)) 
+    diffX = (diffX / (rect.width / 2))
+    diffY = (diffY / (rect.height / 2))
 
     // if (frame % 84 ==0){
     //     console.log(diffX,diffY)
@@ -154,7 +154,7 @@ function init(compass, rainColour, useSquareEnds, useRandom, layers) {
     let drops = []
 
     if (compass){
-        canvas.addEventListener('mousemove', event => {onMouseMove(event)})
+        window.addEventListener('mousemove', event => {onMouseMove(event)})
     }
     window.addEventListener("resize", handleResize);
 
