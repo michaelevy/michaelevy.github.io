@@ -1,0 +1,15 @@
+#sequencer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 8px;
+    height: 90vh;
+    padding: 5%;
+    box-sizing: border-box;
+    background-color: black;
+}
+
+sequencer-track {
+    display: grid;
+    gap: 3px;
+}

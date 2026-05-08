@@ -23,28 +23,47 @@ function noteHierarchyEquals(note1, note2) {
 
 // Voice.js
 class Voice {
-    constructor(id, beats, bars) {
+    constructor(id, beats, bars, params = {}) {
         this.id = id;
-        this.synth = new Tone.PolySynth(Tone.Synth);
+        this.scheduled = 0;
+        this.onBeat = null;
+        this.synth = new Tone.PolySynth(Tone.MonoSynth).toDestination();
         this.notes = [];
         this.noteDict = new Map();
         this.key = Note.C;
         this.length = beats * bars;
 
-        const filter = new Tone.Filter(250, "lowpass").toDestination();
-        Tone.connect(this.synth, filter);
+        const {
+            waveform = 'sawtooth',
+            volume = 0,
+            envelope = {},
+            filter = {},
+            filterEnvelope = {}
+        } = params;
+
+        this.synth.volume.value = volume;
 
         this.synth.set({
-            oscillator: {
-                type: "sawtooth"
-            },
+            oscillator: { type: waveform },
             envelope: {
-                attack: 0.5,
-                decay: 0.1,
-                sustain: 0.5,
-                release: 1
+                attack:  envelope.attack  ?? 0.01,
+                decay:   envelope.decay   ?? 0.1,
+                sustain: envelope.sustain ?? 0.5,
+                release: envelope.release ?? 1
+            },
+            filter: {
+                frequency: filter.cutoff    ?? 800,
+                Q:         filter.resonance ?? 1
+            },
+            filterEnvelope: {
+                attack:        filterEnvelope.attack  ?? 0.01,
+                decay:         filterEnvelope.decay   ?? 0.2,
+                sustain:       filterEnvelope.sustain ?? 0.5,
+                release:       filterEnvelope.release ?? 0.5,
+                baseFrequency: filter.cutoff          ?? 800,
+                octaves:       filterEnvelope.amount  ?? 2
             }
-        });    
+        });
     }
 
     schedule(note, time) {
@@ -79,9 +98,11 @@ class Brain {
     static voices = [];
     static lookahead = 0.25
     static interval = 0.05;
-    static scheduled = 0;
+    static initialised = false;
 
     static init() {
+        if (this.initialised) return;
+        this.initialised = true;
         Tone.start();
         Tone.getTransport().bpm.value = this.bpm;
         this.loop()
@@ -112,17 +133,14 @@ class Brain {
                     } else {
                         scheduleTime = time - sequencePartialDuration + noteTime;
                     }
-                    
-                    if (scheduleTime < time + this.lookahead && scheduleTime > Brain.scheduled) {
-                        // console.log(`${time}: Scheduling note ${note.note} at time ${scheduleTime}`);
+
+                    if (scheduleTime < time + this.lookahead && scheduleTime > voice.scheduled) {
                         voice.schedule(note, scheduleTime);
                         lastNote = Math.max(lastNote, scheduleTime)
-                    } else{
-                        // console.log(`${time}: Skipping note ${note.note} at time ${scheduleTime} (too far in the future)`);
                     }
                 }
 
-                Brain.scheduled = Math.max(Brain.scheduled, lastNote);
+                voice.scheduled = Math.max(voice.scheduled, lastNote);
             }
             Brain.loop()
         }, this.interval);
@@ -133,35 +151,20 @@ class Brain {
         var loop = new Tone.Loop(function(time){
             Tone.Draw.schedule(() => {
                 Brain.voices.forEach(voice => {
-                    const currentTimeOfEightNote = Tone.getTransport().seconds / Tone.Time("4n").toSeconds();
-                    const currentBeat = currentTimeOfEightNote % voice.length;
+                    if (!voice.onBeat) return;
+                    const currentTimeOfQuarterNote = Tone.getTransport().seconds / Tone.Time("4n").toSeconds();
+                    const currentBeat = currentTimeOfQuarterNote % voice.length;
                     const roundedBeat = Math.round(currentBeat * 2) / 2;
-                    Brain.highlightCurrentBeat(roundedBeat);
+                    voice.onBeat(roundedBeat);
                 });
-
             }, time)
         },"32n")
 
         loop.start(0);
     }
 
-    static highlightCurrentBeat(currentBeat){
-        console.log(`Highlighting beat ${currentBeat}`);
-        const beatElements = document.getElementsByClassName("grid-square");
-        // grid-squares from sequencer.js
-        for (let i = 0; i < beatElements.length; i++) {
-            const element = beatElements[i];
-            const beat = element.getAttribute("beat");
-            if (beat == currentBeat) {
-                element.classList.add("current-beat");
-            } else {
-                element.classList.remove("current-beat");
-            }
-        }
-    }
-
-    static newVoice(beats, bars) {
-        const v = new Voice(this.voices.length, beats, bars);
+    static newVoice(beats, bars, params = {}) {
+        const v = new Voice(this.voices.length, beats, bars, params);
         this.voices.push(v);
         return v;
     }

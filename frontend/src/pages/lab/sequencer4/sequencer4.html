@@ -1,0 +1,36 @@
+---
+layout: layouts/experiment.html
+title: SEQUENCER4
+pageTitle: Four-Track Sequencer
+description: Four-track music sequencer
+draft: false
+order: 8
+customHead: |
+    <link rel="stylesheet" type="text/css" href="/src/pages/lab/sequencer4/sequencer4.css" />
+    <script src="https://unpkg.com/tone"></script>
+    <script src="/public/lib/sol.js"></script>
+    <script src="/public/lib/sequencer-track.js"></script>
+---
+
+<div id="sequencer-grid">
+    <sequencer-track id="t0" waveform="sawtooth" volume="-6"
+        attack="0.03" decay="0.1"  sustain="0.6" release="0.8"
+        cutoff="900"  resonance="2"
+        f-attack="0.01" f-decay="0.3" f-sustain="0.4" f-release="0.5" f-amount="3">
+    </sequencer-track>
+    <sequencer-track id="t1" waveform="square"
+        attack="0.01" decay="0.05" sustain="0.3" release="0.3"
+        cutoff="600"  resonance="4"
+        f-attack="0.01" f-decay="0.1" f-sustain="0.1" f-release="0.2" f-amount="1">
+    </sequencer-track>
+    <sequencer-track id="t2" waveform="triangle"
+        attack="0.05" decay="0.2"  sustain="0.7" release="1.2"
+        cutoff="2000" resonance="1"
+        f-attack="0.1"  f-decay="0.4" f-sustain="0.6" f-release="1.0" f-amount="2">
+    </sequencer-track>
+    <sequencer-track id="t3" waveform="sine"
+        attack="0.1"  decay="0.3"  sustain="0.8" release="2.0"
+        cutoff="400"  resonance="1"
+        f-attack="0.2"  f-decay="0.5" f-sustain="0.7" f-release="1.5" f-amount="1.5">
+    </sequencer-track>
+</div>
