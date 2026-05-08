@@ -1,0 +1,120 @@
+---
+layout: layouts/experiment.html
+title: TIC-TAC-TOE
+pageTitle: Tic-Tac-Toe
+description: Remote html multiplayer
+draft: false
+order: 7
+---
+
+<div class="ttt-board">
+  <svg class="ttt-grid" viewBox="0 0 270 270" width="270" height="270">
+    <line x1="90" y1="8"   x2="90"  y2="262"/>
+    <line x1="180" y1="8"  x2="180" y2="262"/>
+    <line x1="8"   y1="90" x2="262" y2="90"/>
+    <line x1="8"   y1="180" x2="262" y2="180"/>
+  </svg>
+
+  <span class="ttt-label ttt-label-x">X</span>
+  <span class="ttt-label ttt-label-o">O</span>
+
+  <div id="ttt-x-1" can-move class="ttt-piece ttt-x"><svg viewBox="0 0 50 50"><line x1="10" y1="10" x2="40" y2="40"/><line x1="40" y1="10" x2="10" y2="40"/></svg></div>
+  <div id="ttt-x-2" can-move class="ttt-piece ttt-x"><svg viewBox="0 0 50 50"><line x1="10" y1="10" x2="40" y2="40"/><line x1="40" y1="10" x2="10" y2="40"/></svg></div>
+  <div id="ttt-x-3" can-move class="ttt-piece ttt-x"><svg viewBox="0 0 50 50"><line x1="10" y1="10" x2="40" y2="40"/><line x1="40" y1="10" x2="10" y2="40"/></svg></div>
+  <div id="ttt-x-4" can-move class="ttt-piece ttt-x"><svg viewBox="0 0 50 50"><line x1="10" y1="10" x2="40" y2="40"/><line x1="40" y1="10" x2="10" y2="40"/></svg></div>
+  <div id="ttt-x-5" can-move class="ttt-piece ttt-x"><svg viewBox="0 0 50 50"><line x1="10" y1="10" x2="40" y2="40"/><line x1="40" y1="10" x2="10" y2="40"/></svg></div>
+
+  <div id="ttt-o-1" can-move class="ttt-piece ttt-o"><svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="17"/></svg></div>
+  <div id="ttt-o-2" can-move class="ttt-piece ttt-o"><svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="17"/></svg></div>
+  <div id="ttt-o-3" can-move class="ttt-piece ttt-o"><svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="17"/></svg></div>
+  <div id="ttt-o-4" can-move class="ttt-piece ttt-o"><svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="17"/></svg></div>
+  <div id="ttt-o-5" can-move class="ttt-piece ttt-o"><svg viewBox="0 0 50 50"><circle cx="25" cy="25" r="17"/></svg></div>
+</div>
+
+<p class="ttt-hint">drag pieces onto the board &mdash; shift+drag to reset a piece</p>
+
+<script type="module">
+  import { playhtml } from "/public/lib/playhtml-init.js";
+  playhtml.init();
+</script>
+
+<style>
+  .ttt-board {
+    position: relative;
+    width: 460px;
+    height: 340px;
+    margin: 0 auto;
+  }
+
+  .ttt-grid {
+    position: absolute;
+    left: 20px;
+    top: 35px;
+  }
+
+  .ttt-grid line {
+    stroke: var(--accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+
+  .ttt-label {
+    position: absolute;
+    top: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    opacity: 0.6;
+  }
+
+  .ttt-label-x { left: 333px; }
+  .ttt-label-o { left: 403px; }
+
+  .ttt-piece {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    cursor: grab;
+    user-select: none;
+  }
+
+  .ttt-piece:active { cursor: grabbing; }
+
+  .ttt-piece svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .ttt-x svg line {
+    stroke: white;
+    stroke-width: 7;
+    stroke-linecap: round;
+  }
+
+  .ttt-o svg circle {
+    fill: none;
+    stroke: var(--secondary);;
+    stroke-width: 7;
+  }
+
+  /* tray positions — x column then o column, 5 rows each */
+  #ttt-x-1 { left: 310px; top: 35px; }
+  #ttt-x-2 { left: 310px; top: 93px; }
+  #ttt-x-3 { left: 310px; top: 151px; }
+  #ttt-x-4 { left: 310px; top: 209px; }
+  #ttt-x-5 { left: 310px; top: 267px; }
+
+  #ttt-o-1 { left: 390px; top: 35px; }
+  #ttt-o-2 { left: 390px; top: 93px; }
+  #ttt-o-3 { left: 390px; top: 151px; }
+  #ttt-o-4 { left: 390px; top: 209px; }
+  #ttt-o-5 { left: 390px; top: 267px; }
+
+  .ttt-hint {
+    font-size: 0.75rem;
+    opacity: 0.5;
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+</style>
