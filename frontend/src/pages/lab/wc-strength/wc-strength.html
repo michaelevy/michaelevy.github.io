@@ -5,173 +5,540 @@ pageTitle: World Cup 2026 Team Strength
 description: Composite team strength ratings for the 48 teams at the 2026 World Cup, blending Elo, betting odds, squad value, and Opta's finalist probability.
 draft: false
 order: 9
-customHead: |
-    <link rel="stylesheet" type="text/css" href="/src/pages/lab/wc-strength/wc-strength.css" />
 ---
-<main class="content-width">
-    <h1>World Cup 2026 Team Strength</h1>
-    <p class="intro">
-        A composite rating of all 48 qualified teams, blending four sources.
-        Click any column header to re-sort. Last refreshed
-        <time>2026-05-28</time>.
-    </p>
 
-    <details class="method">
-        <summary>How it's calculated</summary>
-        <ul>
-            <li><strong>30%</strong> &mdash; Elo rating (<a href="https://www.eloratings.net/" target="_blank" rel="noopener">eloratings.net</a>)</li>
-            <li><strong>30%</strong> &mdash; Median outright winner odds across 9 bookmakers (DraftKings, Unibet, FanDuel, Betfair, BetRivers, William Hill, TAB&hellip;), via the <a href="https://mundial-26-production.up.railway.app/" target="_blank" rel="noopener">Mundial '26</a> aggregate. Converted to implied probability.</li>
-            <li><strong>20%</strong> &mdash; Squad market value in &euro;M (Transfermarkt, via Mundial '26)</li>
-            <li><strong>20%</strong> &mdash; Probability of reaching the final, per the Opta supercomputer (<a href="https://theanalyst.com/competition/fifa-world-cup/predictions" target="_blank" rel="noopener">theanalyst.com</a>)</li>
-        </ul>
-        <p>
-            Each input is min-max scaled to 0&ndash;100 across the 48 teams, then
-            weighted and summed. Lower odds give higher scores.
-        </p>
-    </details>
+<style>
+    .content-width {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 24px 80px;
+    }
+    .table-wrap {
+        overflow-x: auto;
+    }
+    table#strength {
+        width: 100%;
+        border-collapse: collapse;
+        color: white;
+        font-size: 14px;
+    }
+    #strength thead {
+        background: #14202c;
+        position: sticky;
+        top: 0;
+    }
+    #strength th {
+        text-align: right;
+        padding: 10px 14px;
+        font-weight: 500;
+        color: #aab3c0;
+        border-bottom: 1px solid #1c2733;
+    }
+    #strength td {
+        padding: 8px 14px;
+        text-align: right;
+        border-bottom: 1px solid #1a242f;
+        font-variant-numeric: tabular-nums;
+    }
+    #strength tbody tr:hover {
+        background: #16212d;
+    }
+    #strength td.rank {
+        color: #6b7787;
+    }
+    #strength td.team {
+        text-align: left;
+        font-weight: 500;
+    }
+</style>
+
+<div class="content-width">
+    <h1>World Cup 2026 Team Strength</h1>
 
     <div class="table-wrap">
-    <table id="strength">
-        <thead>
-            <tr>
-                <th data-key="rank" data-dir="asc">#</th>
-                <th data-key="team" data-type="str">Team</th>
-                <th data-key="composite_score" data-dir="desc" class="active">Score</th>
-                <th data-key="elo" title="Elo rating (30% weight)">Elo</th>
-                <th data-key="odds_median" title="Median outright odds (30% weight). Lower is better.">Odds</th>
-                <th data-key="squad_value_m_eur" title="Squad market value in &euro;M (20% weight)">Squad &euro;M</th>
-                <th data-key="finalist_pct" title="Opta probability of reaching the final (20% weight)">Final %</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <table id="strength">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th style="text-align: left">Team</th>
+                    <th>Score</th>
+                    <th>Elo</th>
+                    <th>Odds</th>
+                    <th>Squad &euro;M</th>
+                    <th>Final %</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
     </div>
-
-    <p class="footnote">
-        Data and build script:
-        <a href="https://github.com/michaelevy/michaelevy.github.io" target="_blank" rel="noopener">GitHub</a>.
-        Spreadex's outright odds aren't accessible via API, so the median across 9
-        bookmakers is used as the betting-market signal.
-    </p>
-</main>
+</div>
 
 <script>
-const ROWS = [
-    {rank:1,team:"Spain",elo:2165,odds_median:6.0,squad_value_m_eur:1310.0,finalist_pct:24.97,composite_score:96.13},
-    {rank:2,team:"France",elo:2081,odds_median:6.0,squad_value_m_eur:1360.0,finalist_pct:21.1,composite_score:90.25},
-    {rank:3,team:"England",elo:2020,odds_median:7.5,squad_value_m_eur:1620.0,finalist_pct:18.85,composite_score:83.20},
-    {rank:4,team:"Argentina",elo:2113,odds_median:9.5,squad_value_m_eur:761.2,finalist_pct:17.76,composite_score:70.32},
-    {rank:5,team:"Brazil",elo:1984,odds_median:10.0,squad_value_m_eur:778.5,finalist_pct:12.25,composite_score:59.95},
-    {rank:6,team:"Portugal",elo:1984,odds_median:12.0,squad_value_m_eur:864.5,finalist_pct:13.01,composite_score:58.62},
-    {rank:7,team:"Germany",elo:1923,odds_median:13.0,squad_value_m_eur:773.5,finalist_pct:11.23,composite_score:52.43},
-    {rank:8,team:"Netherlands",elo:1961,odds_median:21.0,squad_value_m_eur:766.0,finalist_pct:7.9,composite_score:45.92},
-    {rank:9,team:"Norway",elo:1912,odds_median:29.0,squad_value_m_eur:504.0,finalist_pct:7.22,composite_score:37.75},
-    {rank:10,team:"Belgium",elo:1867,odds_median:34.0,squad_value_m_eur:534.2,finalist_pct:5.77,composite_score:34.22},
-    {rank:11,team:"Colombia",elo:1975,odds_median:41.0,squad_value_m_eur:300.5,finalist_pct:5.03,composite_score:34.19},
-    {rank:12,team:"Ecuador",elo:1933,odds_median:100.0,squad_value_m_eur:366.73,finalist_pct:3.62,composite_score:29.58},
-    {rank:13,team:"Croatia",elo:1930,odds_median:81.0,squad_value_m_eur:283.3,finalist_pct:3.76,composite_score:28.96},
-    {rank:14,team:"Uruguay",elo:1892,odds_median:81.0,squad_value_m_eur:362.45,finalist_pct:4.12,composite_score:28.69},
-    {rank:15,team:"Morocco",elo:1822,odds_median:51.0,squad_value_m_eur:456.0,finalist_pct:4.53,composite_score:28.66},
-    {rank:16,team:"Türkiye",elo:1902,odds_median:100.0,squad_value_m_eur:440.2,finalist_pct:2.71,composite_score:28.51},
-    {rank:17,team:"Switzerland",elo:1889,odds_median:67.0,squad_value_m_eur:322.1,finalist_pct:4.04,composite_score:28.47},
-    {rank:18,team:"Japan",elo:1904,odds_median:51.0,squad_value_m_eur:264.2,finalist_pct:3.1,composite_score:28.45},
-    {rank:19,team:"Senegal",elo:1878,odds_median:101.0,squad_value_m_eur:474.0,finalist_pct:2.38,composite_score:27.68},
-    {rank:20,team:"Mexico",elo:1860,odds_median:81.0,squad_value_m_eur:79.8,finalist_pct:4.2,composite_score:23.93},
-    {rank:21,team:"United States",elo:1721,odds_median:61.0,squad_value_m_eur:356.7,finalist_pct:3.31,composite_score:21.77},
-    {rank:22,team:"Austria",elo:1827,odds_median:151.0,squad_value_m_eur:263.4,finalist_pct:1.54,composite_score:21.72},
-    {rank:23,team:"Paraguay",elo:1833,odds_median:151.0,squad_value_m_eur:134.7,finalist_pct:1.48,composite_score:20.31},
-    {rank:24,team:"Sweden",elo:1719,odds_median:101.0,squad_value_m_eur:363.98,finalist_pct:1.33,composite_score:19.02},
-    {rank:25,team:"Canada",elo:1784,odds_median:201.0,squad_value_m_eur:129.38,finalist_pct:2.53,composite_score:18.80},
-    {rank:26,team:"Scotland",elo:1767,odds_median:250.0,squad_value_m_eur:198.15,finalist_pct:0.85,composite_score:17.45},
-    {rank:27,team:"Algeria",elo:1743,odds_median:401.0,squad_value_m_eur:227.75,finalist_pct:0.78,composite_score:16.52},
-    {rank:28,team:"Côte d'Ivoire",elo:1676,odds_median:300.0,squad_value_m_eur:425.9,finalist_pct:0.74,composite_score:16.39},
-    {rank:29,team:"South Korea",elo:1752,odds_median:410.0,squad_value_m_eur:136.75,finalist_pct:1.35,composite_score:16.19},
-    {rank:30,team:"Australia",elo:1783,odds_median:501.0,squad_value_m_eur:51.23,finalist_pct:1.09,composite_score:16.10},
-    {rank:31,team:"Czechia",elo:1726,odds_median:301.0,squad_value_m_eur:176.8,finalist_pct:0.82,composite_score:15.37},
-    {rank:32,team:"Iran",elo:1760,odds_median:501.0,squad_value_m_eur:23.08,finalist_pct:0.84,composite_score:14.61},
-    {rank:33,team:"Egypt",elo:1689,odds_median:301.0,squad_value_m_eur:108.0,finalist_pct:1.13,composite_score:13.26},
-    {rank:34,team:"Panama",elo:1737,odds_median:1001.0,squad_value_m_eur:32.4,finalist_pct:0.32,composite_score:13.20},
-    {rank:35,team:"Uzbekistan",elo:1727,odds_median:1001.0,squad_value_m_eur:63.75,finalist_pct:0.25,composite_score:13.13},
-    {rank:36,team:"DR Congo",elo:1655,odds_median:751.0,squad_value_m_eur:153.4,finalist_pct:0.34,composite_score:11.46},
-    {rank:37,team:"Jordan",elo:1690,odds_median:2001.0,squad_value_m_eur:16.0,finalist_pct:0.2,composite_score:10.90},
-    {rank:38,team:"Tunisia",elo:1636,odds_median:501.0,squad_value_m_eur:52.3,finalist_pct:0.42,composite_score:9.61},
-    {rank:39,team:"Bosnia and Herzegovina",elo:1594,odds_median:251.0,squad_value_m_eur:127.1,finalist_pct:0.93,composite_score:9.61},
-    {rank:40,team:"Iraq",elo:1607,odds_median:1000.0,squad_value_m_eur:19.18,finalist_pct:0.24,composite_score:7.70},
-    {rank:41,team:"New Zealand",elo:1585,odds_median:1001.0,squad_value_m_eur:22.2,finalist_pct:0.33,composite_score:6.92},
-    {rank:42,team:"Ghana",elo:1503,odds_median:401.0,squad_value_m_eur:199.28,finalist_pct:0.71,composite_score:6.38},
-    {rank:43,team:"Saudi Arabia",elo:1568,odds_median:1001.0,squad_value_m_eur:27.63,finalist_pct:0.23,composite_score:6.22},
-    {rank:44,team:"Cabo Verde",elo:1549,odds_median:1001.0,squad_value_m_eur:44.85,finalist_pct:0.13,composite_score:5.58},
-    {rank:45,team:"Haiti",elo:1532,odds_median:2001.0,squad_value_m_eur:55.35,finalist_pct:0.0,composite_score:4.83},
-    {rank:46,team:"South Africa",elo:1524,odds_median:1000.0,squad_value_m_eur:41.15,finalist_pct:0.29,composite_score:4.65},
-    {rank:47,team:"Curaçao",elo:1436,odds_median:2001.0,squad_value_m_eur:28.73,finalist_pct:0.02,composite_score:0.62},
-    {rank:48,team:"Qatar",elo:1425,odds_median:1001.0,squad_value_m_eur:18.3,finalist_pct:0.27,composite_score:0.34},
-];
+    const ROWS = [
+        {
+            rank: 1,
+            team: "Spain",
+            elo: 2165,
+            odds_median: 6.0,
+            squad_value_m_eur: 1310.0,
+            finalist_pct: 24.97,
+            composite_score: 96.13,
+        },
+        {
+            rank: 2,
+            team: "France",
+            elo: 2081,
+            odds_median: 6.0,
+            squad_value_m_eur: 1360.0,
+            finalist_pct: 21.1,
+            composite_score: 90.25,
+        },
+        {
+            rank: 3,
+            team: "England",
+            elo: 2020,
+            odds_median: 7.5,
+            squad_value_m_eur: 1620.0,
+            finalist_pct: 18.85,
+            composite_score: 83.2,
+        },
+        {
+            rank: 4,
+            team: "Argentina",
+            elo: 2113,
+            odds_median: 9.5,
+            squad_value_m_eur: 761.2,
+            finalist_pct: 17.76,
+            composite_score: 70.32,
+        },
+        {
+            rank: 5,
+            team: "Brazil",
+            elo: 1984,
+            odds_median: 10.0,
+            squad_value_m_eur: 778.5,
+            finalist_pct: 12.25,
+            composite_score: 59.95,
+        },
+        {
+            rank: 6,
+            team: "Portugal",
+            elo: 1984,
+            odds_median: 12.0,
+            squad_value_m_eur: 864.5,
+            finalist_pct: 13.01,
+            composite_score: 58.62,
+        },
+        {
+            rank: 7,
+            team: "Germany",
+            elo: 1923,
+            odds_median: 13.0,
+            squad_value_m_eur: 773.5,
+            finalist_pct: 11.23,
+            composite_score: 52.43,
+        },
+        {
+            rank: 8,
+            team: "Netherlands",
+            elo: 1961,
+            odds_median: 21.0,
+            squad_value_m_eur: 766.0,
+            finalist_pct: 7.9,
+            composite_score: 45.92,
+        },
+        {
+            rank: 9,
+            team: "Norway",
+            elo: 1912,
+            odds_median: 29.0,
+            squad_value_m_eur: 504.0,
+            finalist_pct: 7.22,
+            composite_score: 37.75,
+        },
+        {
+            rank: 10,
+            team: "Belgium",
+            elo: 1867,
+            odds_median: 34.0,
+            squad_value_m_eur: 534.2,
+            finalist_pct: 5.77,
+            composite_score: 34.22,
+        },
+        {
+            rank: 11,
+            team: "Colombia",
+            elo: 1975,
+            odds_median: 41.0,
+            squad_value_m_eur: 300.5,
+            finalist_pct: 5.03,
+            composite_score: 34.19,
+        },
+        {
+            rank: 12,
+            team: "Ecuador",
+            elo: 1933,
+            odds_median: 100.0,
+            squad_value_m_eur: 366.73,
+            finalist_pct: 3.62,
+            composite_score: 29.58,
+        },
+        {
+            rank: 13,
+            team: "Croatia",
+            elo: 1930,
+            odds_median: 81.0,
+            squad_value_m_eur: 283.3,
+            finalist_pct: 3.76,
+            composite_score: 28.96,
+        },
+        {
+            rank: 14,
+            team: "Uruguay",
+            elo: 1892,
+            odds_median: 81.0,
+            squad_value_m_eur: 362.45,
+            finalist_pct: 4.12,
+            composite_score: 28.69,
+        },
+        {
+            rank: 15,
+            team: "Morocco",
+            elo: 1822,
+            odds_median: 51.0,
+            squad_value_m_eur: 456.0,
+            finalist_pct: 4.53,
+            composite_score: 28.66,
+        },
+        {
+            rank: 16,
+            team: "Türkiye",
+            elo: 1902,
+            odds_median: 100.0,
+            squad_value_m_eur: 440.2,
+            finalist_pct: 2.71,
+            composite_score: 28.51,
+        },
+        {
+            rank: 17,
+            team: "Switzerland",
+            elo: 1889,
+            odds_median: 67.0,
+            squad_value_m_eur: 322.1,
+            finalist_pct: 4.04,
+            composite_score: 28.47,
+        },
+        {
+            rank: 18,
+            team: "Japan",
+            elo: 1904,
+            odds_median: 51.0,
+            squad_value_m_eur: 264.2,
+            finalist_pct: 3.1,
+            composite_score: 28.45,
+        },
+        {
+            rank: 19,
+            team: "Senegal",
+            elo: 1878,
+            odds_median: 101.0,
+            squad_value_m_eur: 474.0,
+            finalist_pct: 2.38,
+            composite_score: 27.68,
+        },
+        {
+            rank: 20,
+            team: "Mexico",
+            elo: 1860,
+            odds_median: 81.0,
+            squad_value_m_eur: 79.8,
+            finalist_pct: 4.2,
+            composite_score: 23.93,
+        },
+        {
+            rank: 21,
+            team: "United States",
+            elo: 1721,
+            odds_median: 61.0,
+            squad_value_m_eur: 356.7,
+            finalist_pct: 3.31,
+            composite_score: 21.77,
+        },
+        {
+            rank: 22,
+            team: "Austria",
+            elo: 1827,
+            odds_median: 151.0,
+            squad_value_m_eur: 263.4,
+            finalist_pct: 1.54,
+            composite_score: 21.72,
+        },
+        {
+            rank: 23,
+            team: "Paraguay",
+            elo: 1833,
+            odds_median: 151.0,
+            squad_value_m_eur: 134.7,
+            finalist_pct: 1.48,
+            composite_score: 20.31,
+        },
+        {
+            rank: 24,
+            team: "Sweden",
+            elo: 1719,
+            odds_median: 101.0,
+            squad_value_m_eur: 363.98,
+            finalist_pct: 1.33,
+            composite_score: 19.02,
+        },
+        {
+            rank: 25,
+            team: "Canada",
+            elo: 1784,
+            odds_median: 201.0,
+            squad_value_m_eur: 129.38,
+            finalist_pct: 2.53,
+            composite_score: 18.8,
+        },
+        {
+            rank: 26,
+            team: "Scotland",
+            elo: 1767,
+            odds_median: 250.0,
+            squad_value_m_eur: 198.15,
+            finalist_pct: 0.85,
+            composite_score: 17.45,
+        },
+        {
+            rank: 27,
+            team: "Algeria",
+            elo: 1743,
+            odds_median: 401.0,
+            squad_value_m_eur: 227.75,
+            finalist_pct: 0.78,
+            composite_score: 16.52,
+        },
+        {
+            rank: 28,
+            team: "Côte d'Ivoire",
+            elo: 1676,
+            odds_median: 300.0,
+            squad_value_m_eur: 425.9,
+            finalist_pct: 0.74,
+            composite_score: 16.39,
+        },
+        {
+            rank: 29,
+            team: "South Korea",
+            elo: 1752,
+            odds_median: 410.0,
+            squad_value_m_eur: 136.75,
+            finalist_pct: 1.35,
+            composite_score: 16.19,
+        },
+        {
+            rank: 30,
+            team: "Australia",
+            elo: 1783,
+            odds_median: 501.0,
+            squad_value_m_eur: 51.23,
+            finalist_pct: 1.09,
+            composite_score: 16.1,
+        },
+        {
+            rank: 31,
+            team: "Czechia",
+            elo: 1726,
+            odds_median: 301.0,
+            squad_value_m_eur: 176.8,
+            finalist_pct: 0.82,
+            composite_score: 15.37,
+        },
+        {
+            rank: 32,
+            team: "Iran",
+            elo: 1760,
+            odds_median: 501.0,
+            squad_value_m_eur: 23.08,
+            finalist_pct: 0.84,
+            composite_score: 14.61,
+        },
+        {
+            rank: 33,
+            team: "Egypt",
+            elo: 1689,
+            odds_median: 301.0,
+            squad_value_m_eur: 108.0,
+            finalist_pct: 1.13,
+            composite_score: 13.26,
+        },
+        {
+            rank: 34,
+            team: "Panama",
+            elo: 1737,
+            odds_median: 1001.0,
+            squad_value_m_eur: 32.4,
+            finalist_pct: 0.32,
+            composite_score: 13.2,
+        },
+        {
+            rank: 35,
+            team: "Uzbekistan",
+            elo: 1727,
+            odds_median: 1001.0,
+            squad_value_m_eur: 63.75,
+            finalist_pct: 0.25,
+            composite_score: 13.13,
+        },
+        {
+            rank: 36,
+            team: "DR Congo",
+            elo: 1655,
+            odds_median: 751.0,
+            squad_value_m_eur: 153.4,
+            finalist_pct: 0.34,
+            composite_score: 11.46,
+        },
+        {
+            rank: 37,
+            team: "Jordan",
+            elo: 1690,
+            odds_median: 2001.0,
+            squad_value_m_eur: 16.0,
+            finalist_pct: 0.2,
+            composite_score: 10.9,
+        },
+        {
+            rank: 38,
+            team: "Tunisia",
+            elo: 1636,
+            odds_median: 501.0,
+            squad_value_m_eur: 52.3,
+            finalist_pct: 0.42,
+            composite_score: 9.61,
+        },
+        {
+            rank: 39,
+            team: "Bosnia and Herzegovina",
+            elo: 1594,
+            odds_median: 251.0,
+            squad_value_m_eur: 127.1,
+            finalist_pct: 0.93,
+            composite_score: 9.61,
+        },
+        {
+            rank: 40,
+            team: "Iraq",
+            elo: 1607,
+            odds_median: 1000.0,
+            squad_value_m_eur: 19.18,
+            finalist_pct: 0.24,
+            composite_score: 7.7,
+        },
+        {
+            rank: 41,
+            team: "New Zealand",
+            elo: 1585,
+            odds_median: 1001.0,
+            squad_value_m_eur: 22.2,
+            finalist_pct: 0.33,
+            composite_score: 6.92,
+        },
+        {
+            rank: 42,
+            team: "Ghana",
+            elo: 1503,
+            odds_median: 401.0,
+            squad_value_m_eur: 199.28,
+            finalist_pct: 0.71,
+            composite_score: 6.38,
+        },
+        {
+            rank: 43,
+            team: "Saudi Arabia",
+            elo: 1568,
+            odds_median: 1001.0,
+            squad_value_m_eur: 27.63,
+            finalist_pct: 0.23,
+            composite_score: 6.22,
+        },
+        {
+            rank: 44,
+            team: "Cabo Verde",
+            elo: 1549,
+            odds_median: 1001.0,
+            squad_value_m_eur: 44.85,
+            finalist_pct: 0.13,
+            composite_score: 5.58,
+        },
+        {
+            rank: 45,
+            team: "Haiti",
+            elo: 1532,
+            odds_median: 2001.0,
+            squad_value_m_eur: 55.35,
+            finalist_pct: 0.0,
+            composite_score: 4.83,
+        },
+        {
+            rank: 46,
+            team: "South Africa",
+            elo: 1524,
+            odds_median: 1000.0,
+            squad_value_m_eur: 41.15,
+            finalist_pct: 0.29,
+            composite_score: 4.65,
+        },
+        {
+            rank: 47,
+            team: "Curaçao",
+            elo: 1436,
+            odds_median: 2001.0,
+            squad_value_m_eur: 28.73,
+            finalist_pct: 0.02,
+            composite_score: 0.62,
+        },
+        {
+            rank: 48,
+            team: "Qatar",
+            elo: 1425,
+            odds_median: 1001.0,
+            squad_value_m_eur: 18.3,
+            finalist_pct: 0.27,
+            composite_score: 0.34,
+        },
+    ];
 
-const MAX_SCORE = Math.max(...ROWS.map(r => r.composite_score));
+    function fmt(v, key) {
+        if (key === "squad_value_m_eur")
+            return (
+                "€" +
+                v.toLocaleString(undefined, { maximumFractionDigits: 1 }) +
+                "M"
+            );
+        if (key === "odds_median") return v.toLocaleString();
+        if (key === "finalist_pct") return v.toFixed(2) + "%";
+        if (key === "composite_score") return v.toFixed(1);
+        return v;
+    }
 
-function fmt(v, key) {
-    if (key === "squad_value_m_eur") return "€" + v.toLocaleString(undefined, {maximumFractionDigits: 1}) + "M";
-    if (key === "odds_median") return v.toLocaleString();
-    if (key === "finalist_pct") return v.toFixed(2) + "%";
-    if (key === "composite_score") return v.toFixed(1);
-    return v;
-}
-
-function render(rows) {
-    const tbody = document.querySelector("#strength tbody");
-    tbody.innerHTML = "";
-    rows.forEach(r => {
-        const tr = document.createElement("tr");
-        const barPct = (r.composite_score / MAX_SCORE) * 100;
-        tr.innerHTML = `
+    function render(rows) {
+        const tbody = document.querySelector("#strength tbody");
+        tbody.innerHTML = "";
+        rows.forEach((r) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
             <td class="rank">${r.rank}</td>
             <td class="team">${r.team}</td>
-            <td class="score">
-                <div class="score-cell">
-                    <span class="score-num">${fmt(r.composite_score, "composite_score")}</span>
-                    <span class="bar" style="width:${barPct}%"></span>
-                </div>
-            </td>
+            <td>${fmt(r.composite_score, "composite_score")}</td>
             <td>${fmt(r.elo, "elo")}</td>
             <td>${fmt(r.odds_median, "odds_median")}</td>
             <td>${fmt(r.squad_value_m_eur, "squad_value_m_eur")}</td>
             <td>${fmt(r.finalist_pct, "finalist_pct")}</td>
         `;
-        tbody.appendChild(tr);
-    });
-}
-
-let sortKey = "composite_score";
-let sortDir = "desc";
-
-function sort(key) {
-    const ths = document.querySelectorAll("#strength th");
-    ths.forEach(th => th.classList.remove("active", "asc", "desc"));
-    const th = document.querySelector(`#strength th[data-key="${key}"]`);
-
-    if (sortKey === key) {
-        sortDir = sortDir === "asc" ? "desc" : "asc";
-    } else {
-        sortKey = key;
-        // sensible defaults: name -> asc, everything else desc; odds lower-is-better
-        if (key === "team" || key === "rank" || key === "odds_median") sortDir = "asc";
-        else sortDir = "desc";
+            tbody.appendChild(tr);
+        });
     }
-    th.classList.add("active", sortDir);
 
-    const isStr = th.dataset.type === "str";
-    const sorted = [...ROWS].sort((a, b) => {
-        const va = a[key], vb = b[key];
-        if (isStr) return sortDir === "asc" ? va.localeCompare(vb) : vb.localeCompare(va);
-        return sortDir === "asc" ? va - vb : vb - va;
-    });
-    render(sorted);
-}
-
-document.querySelectorAll("#strength th").forEach(th => {
-    th.addEventListener("click", () => sort(th.dataset.key));
-});
-
-render(ROWS);
-document.querySelector('#strength th[data-key="composite_score"]').classList.add("active", "desc");
+    render(ROWS);
 </script>
