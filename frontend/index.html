@@ -8,7 +8,32 @@ css:
 ---
     <main class="content-width">
         <div id="header-grid">
-            <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div>
+            <!-- <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div> -->
+            <div id="side-wrapper" class="magic">
+                <div id="quote-rotator">
+                    {%- for quote in quotes.items %}
+                    <blockquote class="rotating-quote{% if loop.first %} active{% endif %}">
+                        <p>{{ quote.text }}</p>
+                        {%- if quote.author %}<footer>— {{ quote.author }}</footer>{%- endif %}
+                    </blockquote>
+                    {%- endfor %}
+                </div>
+                <script>
+                    (function() {
+                        const quotes = document.querySelectorAll('.rotating-quote');
+                        let current = 0;
+                        const DISPLAY_MS = 5000;
+                        const FADE_MS = 1000;
+                        setInterval(function() {
+                            quotes[current].classList.remove('active');
+                            setTimeout(function() {
+                                current = (current + 1) % quotes.length;
+                                quotes[current].classList.add('active');
+                            }, FADE_MS);
+                        }, DISPLAY_MS + FADE_MS);
+                    })();
+                </script>
+            </div>
             <div id="welcome">
                 <h1>I'm Michael, and this is my website.</h1>
                 <p>This is the home page, and on it there are some things that you can look at.</p>
