@@ -12,7 +12,7 @@ css:
             <div id="side-wrapper" class="magic">
                 <div id="quote-rotator">
                     {%- for quote in quotes.items %}
-                    <blockquote class="rotating-quote{% if loop.first %} active{% endif %}">
+                    <blockquote class="rotating-quote">
                         <p>{{ quote.text }}</p>
                         {%- if quote.author %}<footer>— {{ quote.author }}</footer>{%- endif %}
                     </blockquote>
@@ -24,6 +24,16 @@ css:
                         let current = 0;
                         const DISPLAY_MS = 5000;
                         const FADE_MS = 1000;
+
+                        // Show first quote immediately without transition
+                        quotes[0].style.transition = 'none';
+                        quotes[0].classList.add('active');
+                        requestAnimationFrame(function() {
+                            requestAnimationFrame(function() {
+                                quotes[0].style.transition = '';
+                            });
+                        });
+
                         setInterval(function() {
                             quotes[current].classList.remove('active');
                             setTimeout(function() {
