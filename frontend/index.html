@@ -5,12 +5,14 @@ heading: Hello
 width: full
 css:
     - /src/styles/home.css
+js:
+    - /src/js/home.js
 ---
 
 <main class="content-width">
     <div id="header-grid">
         <!-- <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div> -->
-        <div id="side-wrapper" class="magic">
+        <div id="side-wrapper" class="magic inset">
             <div id="quote-rotator">
                 {%- for quote in quotes.items %}
                 <blockquote class="rotating-quote">
@@ -43,7 +45,11 @@ css:
                         quotes[current].classList.remove("active");
                         setTimeout(function () {
                             let next;
-                            do { next = Math.floor(Math.random() * quotes.length); } while (next === current);
+                            do {
+                                next = Math.floor(
+                                    Math.random() * quotes.length,
+                                );
+                            } while (next === current);
                             current = next;
                             quotes[current].classList.add("active");
                         }, FADE_MS);
@@ -61,18 +67,42 @@ css:
                 I change this site regularly, so expect it to shift, and watch
                 for hidden dangers.
             </p>
+            <div id="status-lines" class="card accent-bg">
+                <div class="status-line">
+                    <span class="status-label">listening</span>
+                    <span class="status-value" id="status-listening-value"
+                        >…</span
+                    >
+                </div>
+                <div class="status-line">
+                    <span class="status-label">last read</span>
+                    <span class="status-value" id="status-reading-value"
+                        >…</span
+                    >
+                </div>
+                <div class="status-line">
+                    <span class="status-label">last committed</span>
+                    <span class="status-value" id="status-commit-value">…</span>
+                </div>
+                <div class="status-line">
+                    <span class="status-label">last posted</span>
+                    <span class="status-value" id="status-post-value">…</span>
+                </div>
+            </div>
         </div>
     </div>
     <div id="marquee-back" class="marquee">
-        <div class="marquee_item reverse">
-            {%- for item in marquee.items %}
-            <span> {{ item }} &bull; </span>
-            {%- endfor %}
-        </div>
-        <div class="marquee_item reverse">
-            {%- for item in marquee.items %}
-            <span> {{ item }} &bull; </span>
-            {%- endfor %}
+        <div class="marquee_track">
+            <div class="marquee_item">
+                {%- for item in marquee.items %}
+                <span> {{ item }} &bull; </span>
+                {%- endfor %}
+            </div>
+            <div class="marquee_item" aria-hidden="true">
+                {%- for item in marquee.items %}
+                <span> {{ item }} &bull; </span>
+                {%- endfor %}
+            </div>
         </div>
     </div>
     <ul id="home-links" class="no-list flex-row">
