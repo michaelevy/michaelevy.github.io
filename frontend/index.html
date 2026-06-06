@@ -4,80 +4,101 @@ title: Home | Michael Levy
 heading: Hello
 width: full
 css:
-  - /src/styles/home.css
+    - /src/styles/home.css
 ---
-    <main class="content-width">
-        <div id="header-grid">
-            <!-- <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div> -->
-            <div id="side-wrapper" class="magic">
-                <div id="quote-rotator">
-                    {%- for quote in quotes.items %}
-                    <blockquote class="rotating-quote">
-                        <p>{{ quote.text }}</p>
-                        {%- if quote.author %}<footer>— {{ quote.author }}</footer>{%- endif %}
-                    </blockquote>
-                    {%- endfor %}
-                </div>
-                <script>
-                    (function() {
-                        const quotes = document.querySelectorAll('.rotating-quote');
-                        let current = 0;
-                        const DISPLAY_MS = 5000;
-                        const FADE_MS = 1000;
 
-                        // Show first quote immediately without transition
-                        quotes[0].style.transition = 'none';
-                        quotes[0].classList.add('active');
-                        requestAnimationFrame(function() {
-                            requestAnimationFrame(function() {
-                                quotes[0].style.transition = '';
-                            });
+<main class="content-width">
+    <div id="header-grid">
+        <!-- <div id="side-wrapper" class="magic"><figure id="side"><span class="smaller">TAKE</span><span>SHELTER</span><span class="smaller">FROM THE</span><span>STORM</span></figure></div> -->
+        <div id="side-wrapper" class="magic">
+            <div id="quote-rotator">
+                {%- for quote in quotes.items %}
+                <blockquote class="rotating-quote">
+                    <p>{{ quote.text }}</p>
+                    {%- if quote.author %}
+                    <footer>— {{ quote.author }}</footer>
+                    {%- endif %}
+                </blockquote>
+                {%- endfor %}
+            </div>
+            <script>
+                (function () {
+                    const quotes = document.querySelectorAll(".rotating-quote");
+                    let current = 0;
+                    const DISPLAY_MS = 8000;
+                    const FADE_MS = 1000;
+
+                    current = Math.floor(Math.random() * quotes.length);
+
+                    // Show first quote immediately without transition
+                    quotes[current].style.transition = "none";
+                    quotes[current].classList.add("active");
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            quotes[current].style.transition = "";
                         });
+                    });
 
-                        setInterval(function() {
-                            quotes[current].classList.remove('active');
-                            setTimeout(function() {
-                                current = (current + 1) % quotes.length;
-                                quotes[current].classList.add('active');
-                            }, FADE_MS);
-                        }, DISPLAY_MS + FADE_MS);
-                    })();
-                </script>
-            </div>
-            <div id="welcome">
-                <h1>I'm Michael, and this is my website.</h1>
-                <p>This is the home page, and on it there are some things that you can look at.</p>
-                <p>I change this site regularly, so expect it to shift, and watch for hidden dangers.</p>
-            </div>
+                    setInterval(function () {
+                        quotes[current].classList.remove("active");
+                        setTimeout(function () {
+                            let next;
+                            do { next = Math.floor(Math.random() * quotes.length); } while (next === current);
+                            current = next;
+                            quotes[current].classList.add("active");
+                        }, FADE_MS);
+                    }, DISPLAY_MS + FADE_MS);
+                })();
+            </script>
         </div>
-        <div id="marquee-back" class="marquee">
-            <div class="marquee_item reverse">
-                {%- for item in marquee.items %}
-                <span> {{ item }} &bull; </span>
-                {%- endfor %}
-            </div>
-            <div class="marquee_item reverse">
-                {%- for item in marquee.items %}
-                <span> {{ item }} &bull; </span>
-                {%- endfor %}
-            </div>
+        <div id="welcome">
+            <h1>I'm Michael, and this is my website.</h1>
+            <p>
+                This is the home page, and on it there are some things that you
+                can look at.
+            </p>
+            <p>
+                I change this site regularly, so expect it to shift, and watch
+                for hidden dangers.
+            </p>
         </div>
-        <ul id="home-links" class="no-list flex-row">
-            <li class="home-card card clickable">
-                <a href="/works/" class="accent"><h2 class="accent card-title" id="works">WORKS</h2></a>
-                <p>These are the things I have done</p>
-            </li>
-            <li class="home-card card clickable" id="media">
-                <a href="/media/" class="accent"><h2 class="accent card-title">MEDIA</h2></a>
-                <p>Music, books, and more</p>
-            </li>
-            <li class="home-card card clickable" id="say hi">
-                <a href="/about/" class="accent"><h2 class="accent card-title">SAY HI</h2></a>
-                <p>hello</p>
-            </li>
-            <li class="home-card card clickable" id="typography">
-                <a href="/fonts.html" class="accent"><h2 class="accent card-title">FONTS</h2></a>
-                <p>The fonts from this website</p>
-            </li>
-        </ul>
-    </main>
+    </div>
+    <div id="marquee-back" class="marquee">
+        <div class="marquee_item reverse">
+            {%- for item in marquee.items %}
+            <span> {{ item }} &bull; </span>
+            {%- endfor %}
+        </div>
+        <div class="marquee_item reverse">
+            {%- for item in marquee.items %}
+            <span> {{ item }} &bull; </span>
+            {%- endfor %}
+        </div>
+    </div>
+    <ul id="home-links" class="no-list flex-row">
+        <li class="home-card card clickable">
+            <a href="/works/" class="accent"
+                ><h2 class="accent card-title" id="works">WORKS</h2></a
+            >
+            <p>These are the things I have done</p>
+        </li>
+        <li class="home-card card clickable" id="media">
+            <a href="/media/" class="accent"
+                ><h2 class="accent card-title">MEDIA</h2></a
+            >
+            <p>Music, books, and more</p>
+        </li>
+        <li class="home-card card clickable" id="say hi">
+            <a href="/about/" class="accent"
+                ><h2 class="accent card-title">SAY HI</h2></a
+            >
+            <p>hello</p>
+        </li>
+        <li class="home-card card clickable" id="typography">
+            <a href="/fonts.html" class="accent"
+                ><h2 class="accent card-title">FONTS</h2></a
+            >
+            <p>The fonts from this website</p>
+        </li>
+    </ul>
+</main>

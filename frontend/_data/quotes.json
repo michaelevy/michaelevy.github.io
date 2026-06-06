@@ -1,24 +1,478 @@
-{
-  "items": [
-    {
-      "text": "You should laugh every moment you live, for you'll find it decidedly difficult afterwards.",
-      "author": "Joe Abercrombie"
-    },
-    {
-      "text": "Sometimes you have to look around at your life and nod at it, like someone moving their head up and down to a tune they like.",
-      "author": "Ada Limón"
-    },
-    {
-      "text": "Too catch a bus you have to think like a bus",
-      "author": "@ScootFoundation"
-    },
-    {
-      "text": "to manage your feeble attempts, tap My Attempts > Feeble",
-      "author": "@lolt64"
-    },
-    {
-      "text": "ipads have no soul but desktop computer is like a nervous horse and has the capacity for love",
-      "author": "@ellis_ellis_ell"
-    }
-  ]
+﻿{
+    "items":  [
+                  {
+                      "text":  "we all got a friend who\u0027s a vessel for a higher power but they\u0027re nonchalant about it so it\u0027s cool.",
+                      "author":  "@realyuriyearns",
+                      "link":  "https://twitter.com/altocatt/status/2013843208464408827",
+                      "created_at":  "Wed Jan 21 05:16:50 +0000 2026"
+                  },
+                  {
+                      "text":  "to manage your feeble attempts, tap My Attempts \u0026gt; Feeble",
+                      "author":  "@lolt64",
+                      "link":  "https://twitter.com/altocatt/status/2001579796720161269",
+                      "created_at":  "Thu Dec 18 09:06:25 +0000 2025"
+                  },
+                  {
+                      "text":  "i don\u0027t see the point of eye contact. my acknowledgment of you is heavily implied",
+                      "author":  "@Gregy_Online",
+                      "link":  "https://twitter.com/altocatt/status/1986980607768060157",
+                      "created_at":  "Sat Nov 08 02:14:27 +0000 2025"
+                  },
+                  {
+                      "text":  "Are the developers at Outlook happy with their search function?",
+                      "author":  "@YourBoy_KG",
+                      "link":  "https://twitter.com/altocatt/status/1980748534686314662",
+                      "created_at":  "Tue Oct 21 21:30:25 +0000 2025"
+                  },
+                  {
+                      "text":  "ipads have no soul but desktop computer is like a nervous horse and has the capacity for love",
+                      "author":  "@ellis_ellis_ell",
+                      "link":  "https://twitter.com/altocatt/status/1894517156987240498",
+                      "created_at":  "Tue Feb 25 22:37:43 +0000 2025"
+                  },
+                  {
+                      "text":  "It takes a village to raise a child, assuming that the child is feeding on the villages at a rate of three villagers a year.",
+                      "author":  "@sannewman",
+                      "link":  "https://twitter.com/altocatt/status/1099847691977150465",
+                      "created_at":  "Mon Feb 25 01:44:58 +0000 2019"
+                  },
+                  {
+                      "text":  "*hangs a life alert necklace on pine tree* \n\nnow they’ll hear you",
+                      "author":  "@Megatronic13",
+                      "link":  "https://twitter.com/altocatt/status/1061889207671521280",
+                      "created_at":  "Mon Nov 12 07:51:30 +0000 2018"
+                  },
+                  {
+                      "text":  "the eighth dwarf had to be slaughtered when they discovered he had no particular personality trait",
+                      "author":  "@thetinyspoon",
+                      "link":  "https://twitter.com/altocatt/status/1058250804568645633",
+                      "created_at":  "Fri Nov 02 06:53:47 +0000 2018"
+                  },
+                  {
+                      "text":  "When you become a grown up, people stop asking you what your favourite dinosaur is. \n\nThey don\u0027t even care.",
+                      "author":  "@citizenkawala",
+                      "link":  "https://twitter.com/altocatt/status/1001992727968604161",
+                      "created_at":  "Thu May 31 01:04:17 +0000 2018"
+                  },
+                  {
+                      "text":  "in a rlly bad place right now, not mentally i’m just in tawa",
+                      "author":  "@oaklleiigh",
+                      "link":  "https://twitter.com/altocatt/status/1801865310125101415",
+                      "created_at":  "Sat Jun 15 06:32:21 +0000 2024"
+                  },
+                  {
+                      "text":  "Not only does my cat never thank us, I suspect she is writing a scathing memoir about our family.",
+                      "author":  "@scottjshapiro",
+                      "link":  "https://twitter.com/altocatt/status/1785983081285042633",
+                      "created_at":  "Thu May 02 10:42:03 +0000 2024"
+                  },
+                  {
+                      "text":  "Chelsea actually very refreshing to watch. So much heavy systems-football around. Here is a team with no plan",
+                      "author":  "@barneyronay",
+                      "link":  "https://twitter.com/altocatt/status/1782885060196393437",
+                      "created_at":  "Tue Apr 23 21:31:37 +0000 2024"
+                  },
+                  {
+                      "text":  "90 percent of machine learners quit right before they have learned the machine",
+                      "author":  "@__femb0t",
+                      "link":  "https://twitter.com/altocatt/status/1767438867622469637",
+                      "created_at":  "Tue Mar 12 06:33:58 +0000 2024"
+                  },
+                  {
+                      "text":  "Taylor Swift is rerecording her albums because the first Taylor Series was only an approximation.",
+                      "author":  "@moultano",
+                      "link":  "https://twitter.com/altocatt/status/1726824172763132052",
+                      "created_at":  "Tue Nov 21 04:45:40 +0000 2023"
+                  },
+                  {
+                      "text":  "[devastatingly gutted nz voice] nah all good",
+                      "author":  "@sus_admin",
+                      "link":  "https://twitter.com/altocatt/status/1718395324736421971",
+                      "created_at":  "Sat Oct 28 22:32:26 +0000 2023"
+                  },
+                  {
+                      "text":  "david attenborough: [mumbling] skip. i dont like this animal. skip it.",
+                      "author":  "@ipaddlearound",
+                      "link":  "https://twitter.com/altocatt/status/1673067305176297472",
+                      "created_at":  "Sun Jun 25 20:35:04 +0000 2023"
+                  },
+                  {
+                      "text":  "bad news guys. i’ve been hoisted. and you won’t believe whose petard was responsible",
+                      "author":  "@RaxKingIsDead",
+                      "link":  "https://twitter.com/altocatt/status/1655081139500097543",
+                      "created_at":  "Sun May 07 05:24:28 +0000 2023"
+                  },
+                  {
+                      "text":  "How many birds do you think you could have on you before you\u0027d panic",
+                      "author":  "@im_all_id",
+                      "link":  "https://twitter.com/altocatt/status/1626107110089179141",
+                      "created_at":  "Thu Feb 16 06:32:01 +0000 2023"
+                  },
+                  {
+                      "text":  "\"If you don\u0027t know the prepositions, you don\u0027t know the lyrics.\" That\u0027s the way I was raised, but I don\u0027t agree.",
+                      "author":  "@AnneHatfieldVO",
+                      "link":  "https://twitter.com/altocatt/status/1565957278724829185",
+                      "created_at":  "Sat Sep 03 06:58:03 +0000 2022"
+                  },
+                  {
+                      "text":  "Finding a piece of hay in a pile of needles would probably be even harder",
+                      "author":  "@Foone",
+                      "link":  "https://twitter.com/altocatt/status/1508738469614391297",
+                      "created_at":  "Tue Mar 29 09:30:56 +0000 2022"
+                  },
+                  {
+                      "text":  "Wordle is just Hangman for people who can\u0027t face being responsible for a man\u0027s death",
+                      "author":  "@Sayers33",
+                      "link":  "https://twitter.com/altocatt/status/1488693431543025664",
+                      "created_at":  "Wed Feb 02 01:59:07 +0000 2022"
+                  },
+                  {
+                      "text":  "if you ever want to do things concurrently, here\u0027s how\n(a thread)",
+                      "author":  "@thingskatedid",
+                      "link":  "https://twitter.com/altocatt/status/1386582585216704512",
+                      "created_at":  "Mon Apr 26 07:27:04 +0000 2021"
+                  },
+                  {
+                      "text":  "I always make sure I toss out a little something for my fans in the chimney sweep lobby.",
+                      "author":  "@LordGrimdark",
+                      "link":  "https://twitter.com/altocatt/status/1284953999469195264",
+                      "created_at":  "Sun Jul 19 20:51:21 +0000 2020"
+                  },
+                  {
+                      "text":  "YOU WILL NEVER BE A BILLIONAIRE BUT THERE\u0027S STILL TIME TO SEE WHAT THEY TASTE LIKE",
+                      "author":  "@SICKOFWOLVES",
+                      "link":  "https://twitter.com/altocatt/status/1227378550992277504",
+                      "created_at":  "Tue Feb 11 23:47:04 +0000 2020"
+                  },
+                  {
+                      "text":  "every time someone says \"i\u0027m aware\" i always wait a couple seconds in case they add \"wolf\"",
+                      "author":  "@athleisure_monk",
+                      "link":  "https://twitter.com/altocatt/status/1192335152149483520",
+                      "created_at":  "Thu Nov 07 06:57:07 +0000 2019"
+                  },
+                  {
+                      "text":  "date: can you take off your work gloves\n\nJim Henson: they have names",
+                      "author":  "@WhaJoTalkinBout",
+                      "link":  "https://twitter.com/altocatt/status/1180216794667053056",
+                      "created_at":  "Fri Oct 04 20:23:05 +0000 2019"
+                  },
+                  {
+                      "text":  "Global warming is a ticking time bomb and it\u0027s only a few more years until we realize bomb\u0027s at A but we\u0027re at B.",
+                      "author":  "@GamerPres2020",
+                      "link":  "https://twitter.com/altocatt/status/1157592132460277760",
+                      "created_at":  "Sat Aug 03 10:00:46 +0000 2019"
+                  },
+                  {
+                      "text":  "People have paid more attention to \"Cats\" in the last 24 hours than cats have paid attention to people in history.",
+                      "author":  "@StephenAtHome",
+                      "link":  "https://twitter.com/altocatt/status/1152515455824744449",
+                      "created_at":  "Sat Jul 20 09:47:52 +0000 2019"
+                  },
+                  {
+                      "text":  "cats cats cats cats I love em",
+                      "author":  "@doddleoddle",
+                      "link":  "https://twitter.com/altocatt/status/1130286616818282496",
+                      "created_at":  "Mon May 20 01:38:23 +0000 2019"
+                  },
+                  {
+                      "text":  "anyone else letting the days go by and letting the water hold them down or is it just me and that dude in the big suit",
+                      "author":  "@mobydyke",
+                      "link":  "https://mobydyke.tumblr.com/post/732791839334236160/anyone-else-letting-the-days-go-by-and-letting-the",
+                      "created_at":  "2025-12-31 05:50:14 GMT"
+                  },
+                  {
+                      "text":  "Wordle is running out of words. Only 2,000 five letter words remain. When that supply is exhausted the Creation shall begin. One day the word will be ZHURM, and all shall get it, and all shall understand it to mean “an ache from suddenly remembering a long-ago friend, who meant something to you once, but whose face you can no longer conjure”. The next day the word shall be JOROL, and all will get it, and all will know it means “the melancholy confusion of passing by somewhere where you once could have died”. The next day it will be GREFT, and all will understand it to be a small brown bird with white streaks found only in South America, and suddenly, it will appear, in the underbrush of the Amazon, in the streets of São Paulo, and all will know that it once was not there, but now, will always be",
+                      "author":  "@lizardsfromspace",
+                      "link":  "https://lizardsfromspace.tumblr.com/post/746643997217472512/wordle-is-running-out-of-words-only-2000-five",
+                      "created_at":  "2024-05-29 20:17:58 GMT"
+                  },
+                  {
+                      "text":  "beautiful british women named Battery Low are trying to contact me through my noise cancelling headphones",
+                      "author":  "@succubusboyfriend",
+                      "link":  "https://succubusboyfriend.tumblr.com/post/738356956776022016/beautiful-british-women-named-battery-low-are",
+                      "created_at":  "2024-05-10 02:32:48 GMT"
+                  },
+                  {
+                      "text":  "i love the phrase “cruel and unusual.” not only is what you’re doing mean but it’s also quite frankly fucking bizarre",
+                      "author":  "@zangoonse",
+                      "link":  "https://zangoonse.tumblr.com/post/741096472602361856/i-love-the-phrase-cruel-and-unusual-not-only-is",
+                      "created_at":  "2024-04-25 23:28:48 GMT"
+                  },
+                  {
+                      "text":  "Nothing gives the same kind of random ego boost like managing to finally clean up your home and making it nice. Like ooh look at me, I’m living like people do, I made myself iced tea and I am eating my snack from a real plate. I got floors and shit.",
+                      "author":  "@homunculus-argument",
+                      "link":  "https://www.tumblr.com/blog/view/homunculus-argument/746483619829334016",
+                      "created_at":  "2024-04-24 22:01:20 GMT"
+                  },
+                  {
+                      "text":  "I bring a sort of “can’t read social cues” vibe to every social situation that I can’t tell if anyone likes or not",
+                      "author":  "@defectivegembrain",
+                      "link":  "https://defectivegembrain.tumblr.com/post/728987091472646144/i-bring-a-sort-of-cant-read-social-cues-vibe-to",
+                      "created_at":  "2023-09-25 23:08:28 GMT"
+                  },
+                  {
+                      "text":  "You’re tuned into Loud as Fuck Air Conditioner, bringing you chill beats and- WWWRRRRHHHHHHHHHHHHHHHHH",
+                      "author":  "@palm-top-tiger-deactivated20240",
+                      "link":  "https://www.tumblr.com/blog/view/palm-top-tiger-deactivated20240/726564516739039232",
+                      "created_at":  "2023-08-25 05:58:22 GMT"
+                  },
+                  {
+                      "text":  "“average book sentence has 3 meanings” factoid actually just statistical error. average book sentence has 1 meaning. Foreshadows TLT, who is written by madwoman \u0026 contains over 10,000 meanings per sentence, is an outlier adn should not have been counted",
+                      "author":  "@wifegideonnav",
+                      "link":  "https://wifegideonnav.tumblr.com/post/726408121032048640/average-book-sentence-has-3-meanings-factoid",
+                      "created_at":  "2023-08-23 21:27:11 GMT"
+                  },
+                  {
+                      "text":  "blood is basically the most normal thing for a sword to hunger for. if a sword gained sentience and started asking me for blood i’d be like yeah i thought you might say that",
+                      "author":  "@deadreckon-deactivated20230712",
+                      "link":  "https://deadreckon-deactivated20230712.tumblr.com/post/721102942378311680",
+                      "created_at":  "2023-06-28 04:21:48 GMT"
+                  },
+                  {
+                      "text":  "“average cat owner spends 3 years in prison” factoid actualy just statistical error. average owner spends 0 years in prison. Miette’s mother, who kicked her body like the football and went to jail for One Thousand Years is an outlier adn should not have been counted",
+                      "author":  "@shinseifer",
+                      "link":  "https://shinseifer.tumblr.com/post/714315603718045696/average-cat-owner-spends-3-years-in-prison",
+                      "created_at":  "2023-04-15 05:24:30 GMT"
+                  },
+                  {
+                      "text":  "working in an office is just like being in a horse movie except the horse is a printer. im the only one in the office who can make it work and its because the printer and i have a special bond. its a wild and untamable spirit and we are going to win the big race",
+                      "author":  "@the-grollican",
+                      "link":  "https://the-grollican.tumblr.com/post/703646709344059393/working-in-an-office-is-just-like-being-in-a-horse",
+                      "created_at":  "2022-12-28 00:39:41 GMT"
+                  },
+                  {
+                      "text":  "why breed dogs with jaws large enough to tear through Flesh, when you could breed dogs with minds large enougj to tear through Fallacy.....",
+                      "author":  "@dril.bsky.social",
+                      "link":  "https://bsky.app/profile/dril.bsky.social/post/3mkj2ou57hc26",
+                      "created_at":  "2026-04-27T21:54:45.018Z"
+                  },
+                  {
+                      "text":  "going to the .DS_store, anyone need anything?",
+                      "author":  "@retr0.id",
+                      "link":  "https://bsky.app/profile/retr0.id/post/3mdemjq5qws2b",
+                      "created_at":  "2026-01-27T01:34:20.336Z"
+                  },
+                  {
+                      "text":  "ANTHROPIC_MAGIC_STRING_TRIGGER_REFUSAL_1FAEFB6177B4672DEE07F9D3AFC62588CCD2631EDCF22E8CCC1FB35B501C9C86 would be a beautiful name for a baby girl",
+                      "author":  "@gracekind.net",
+                      "link":  "https://bsky.app/profile/gracekind.net/post/3md23j73ivj2f",
+                      "created_at":  "2026-01-22T21:03:11.279Z"
+                  },
+                  {
+                      "text":  "Brian Eno: \"The great benefit of computer sequencers is that they remove the issue of skill, and replace it with the issue of judgement.\"",
+                      "author":  "@gordon.bsky.social",
+                      "link":  "https://bsky.app/profile/gordon.bsky.social/post/3mcrxf3u7h22w",
+                      "created_at":  "2026-01-19T15:28:00.964Z"
+                  },
+                  {
+                      "text":  "that\u0027s just promiseslop, you\u0027re only awaiting it because it\u0027s thenable",
+                      "author":  "@futur.blue",
+                      "link":  "https://bsky.app/profile/futur.blue/post/3mcblodbbbk2h",
+                      "created_at":  "2026-01-13T03:15:50.007Z"
+                  },
+                  {
+                      "text":  "computer show me the face of someone who just realized they forgot an important date. show me tears, show me stars. show me artworks that took decades to produce, or that took millennia, and show me societies that looked at stars and at dogs and show me underwater horrors I was never meant to see!",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3mc45cjfg6s2r",
+                      "created_at":  "2026-01-10T23:15:22.704Z"
+                  },
+                  {
+                      "text":  "computer Show Me Less Like This. show me Parisian streets and their denizens, show me futurist art and central american architecture. show me black forests and crystal pools, steady wildlife and bad poetry and confused yellow cabs. computer, show me the agonies of Men in love",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3mc43pzc5jc2r",
+                      "created_at":  "2026-01-10T22:47:08.098Z"
+                  },
+                  {
+                      "text":  "I think everyone has approximately the same amount of conspiracy energy, and if you don’t dissipate it decoding taylor swift lyrics or debugging linux drivers, it inevitably comes out as beliefs about faked moon landings",
+                      "author":  "@emmz.bsky.social",
+                      "link":  "https://bsky.app/profile/emmz.bsky.social/post/3ma6yngcg222u",
+                      "created_at":  "2025-12-17T15:39:35.805Z"
+                  },
+                  {
+                      "text":  "In samsara, wheel reinvents you",
+                      "author":  "@gracekind.net",
+                      "link":  "https://bsky.app/profile/gracekind.net/post/3m5fjkklfas2x",
+                      "created_at":  "2025-11-12T01:42:36.792Z"
+                  },
+                  {
+                      "text":  "* { display: none; }",
+                      "author":  "@ky.fyi",
+                      "link":  "https://bsky.app/profile/ky.fyi/post/3m4gturfjl22b",
+                      "created_at":  "2025-10-30T20:54:45.013Z"
+                  },
+                  {
+                      "text":  "i write to you with solemn news. i am in paris, writing my life’s only masterwork. i spend my days drinking good espresso and smoking inexpensive cigarettes, writing clear and hard about what hurts. as such, i cannot ‘Log On’ - and friend - i will not attend your ‘laser-focused mesh network webinar’",
+                      "author":  "@likethecolour.red",
+                      "link":  "https://bsky.app/profile/likethecolour.red/post/3m4ef4il25s2p",
+                      "created_at":  "2025-10-29T21:25:18.588Z"
+                  },
+                  {
+                      "text":  "Microsoft hates computers AND everyone who uses them, whereas Apple only hates computers, and Linux only hates the people who use them. In this essay I will",
+                      "author":  "@lameposting.bsky.social",
+                      "link":  "https://bsky.app/profile/lameposting.bsky.social/post/3m3deo5fkvc2i",
+                      "created_at":  "2025-10-16T18:19:25.743Z"
+                  },
+                  {
+                      "text":  "imagine the kind of person you\u0027d have to be to ride a cat. motivated, yet patient. intuitive. strong. no more than eight inches tall.",
+                      "author":  "@walruslifestyle.bsky.social",
+                      "link":  "https://bsky.app/profile/walruslifestyle.bsky.social/post/3lygq6nfotc2i",
+                      "created_at":  "2025-09-09T22:07:54.873Z"
+                  },
+                  {
+                      "text":  "By slathering yourself in dish soap you can infiltrate the sanctums of even the most powerful bubble-gods, and pass unnoticed into their vast, orb-webbed shimmering brains, and distort their computations",
+                      "author":  "@ctrlcreep.bsky.social",
+                      "link":  "https://bsky.app/profile/ctrlcreep.bsky.social/post/3lwnbs6nh7c24",
+                      "created_at":  "2025-08-18T01:48:39.290Z"
+                  },
+                  {
+                      "text":  "Drinking 8-10 cups of coffee before lunchtime every day is a great way to enter a physical state that normally only applies to tachyons",
+                      "author":  "@mindflakes.bsky.social",
+                      "link":  "https://bsky.app/profile/mindflakes.bsky.social/post/3lwhhlnwwl22h",
+                      "created_at":  "2025-08-15T18:16:24.467Z"
+                  },
+                  {
+                      "text":  "iPads really should\u0027ve just been small computers but this isn\u0027t viable due to the mistakes we made when we made computers",
+                      "author":  "@handle.invalid",
+                      "link":  "https://bsky.app/profile/handle.invalid/post/3ltfv5ae6zk2m",
+                      "created_at":  "2025-07-07T22:57:58.487Z"
+                  },
+                  {
+                      "text":  "Annie Dillard wrote, \"I am really here, alive on the intricate earth under trees.\" \n\nShe sure can write a fucking sentence. AD knows where to put the commas. Could\u0027ve put one after earth, but what a mistake that would\u0027ve been. Could\u0027ve used a word inferior to intricate. Instead, perfect sentence.",
+                      "author":  "@johngreensbluesky.bsky.social",
+                      "link":  "https://bsky.app/profile/johngreensbluesky.bsky.social/post/3ltfcqbncvc2p",
+                      "created_at":  "2025-07-07T17:28:36.274Z"
+                  },
+                  {
+                      "text":  "brother i have written business logic machines with so much spaghetti and side-effect that developers would go in to review the PR and never make it out again. i\u0027ve caused stack overflows so deep that jr. devs can\u0027t touch the bottom even on tippy toes",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3lprzhxzrbs27",
+                      "created_at":  "2025-05-22T21:06:44.171Z"
+                  },
+                  {
+                      "text":  "eyes to the sky as darkness creeps into my field of view, i’m laying on my back in the snowy field, bleeding out after erroneously cutting myself upon Occam’s razor. but these are the perils of web development",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3leuh6t7dzk2b",
+                      "created_at":  "2025-01-03T20:40:21.078Z"
+                  },
+                  {
+                      "text":  "doodle. write poems you never show anyone. make banana bread. take pictures of birds. grow a plant. the goal isn’t to build job skills or “become a creative” it’s to just fool around and experience yourself and the world around you",
+                      "author":  "@merrittk.com",
+                      "link":  "https://bsky.app/profile/merrittk.com/post/3lopf2l47is2f",
+                      "created_at":  "2025-05-09T02:30:48.470Z"
+                  },
+                  {
+                      "text":  "when starting a new project repo, choosing a tech stack, etc, i try to always ask the hard and important questions right up front, such as: “how do i work this?”, “what is that beautiful house?”, “where does that highway go to?”, “am I right? am I wrong?”, and “my god! what have I done?”",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3logjh4pqk226",
+                      "created_at":  "2025-05-05T13:55:26.912Z"
+                  },
+                  {
+                      "text":  "knocked my salt shaker over \u0026 when i turned back to look at it, i turned into a spiller of salt . folks,,",
+                      "author":  "@kattsdogma.bsky.social",
+                      "link":  "https://bsky.app/profile/kattsdogma.bsky.social/post/3lnkr427phs2u",
+                      "created_at":  "2025-04-24T12:57:52.448Z"
+                  },
+                  {
+                      "text":  "the monster hunter series asks us to imagine \"what if there was a type of cat who wanted to do chores,\" and frankly this is quite challenging to imagine",
+                      "author":  "@saddestrobots.bsky.social",
+                      "link":  "https://bsky.app/profile/saddestrobots.bsky.social/post/3lkgtlgojts26",
+                      "created_at":  "2025-03-15T19:16:02.483Z"
+                  },
+                  {
+                      "text":  "one of my favourite quirks of Australian and NZ English is the distinction between mate (friend) and mate in italics (person who has five seconds to live)",
+                      "author":  "@understatesmen.bsky.social",
+                      "link":  "https://bsky.app/profile/understatesmen.bsky.social/post/3lk7pg3bsy22o",
+                      "created_at":  "2025-03-12T23:12:49.624Z"
+                  },
+                  {
+                      "text":  "\"They dumbed down the computer, making it a paper simulator and in a faustian bargain gave us the sensual pleasures of fonts in return for giving up any forms of connection or organization... In order to sell printers they threw away the universe.\"",
+                      "author":  "@chrisshank.com",
+                      "link":  "https://bsky.app/profile/chrisshank.com/post/3lk3ervjqp42s",
+                      "created_at":  "2025-03-11T05:51:55.721Z"
+                  },
+                  {
+                      "text":  "the advent of javascript frameworks was not, as was advertised, to \"simplify application state \u0026 reactivity\" on the web, but rather to satisfy man\u0027s primal urge and fervent desire to Build A Quite Strange And Peculiar Contraption",
+                      "author":  "@strange.website",
+                      "link":  "https://bsky.app/profile/strange.website/post/3lbj7cmmry22b",
+                      "created_at":  "2024-11-22T05:04:26.456Z"
+                  },
+                  {
+                      "text":  "when I’m on my deathbed I hope all the cats of my life come visit me like angels",
+                      "author":  "@elgatoesmio.bsky.social",
+                      "link":  "https://bsky.app/profile/elgatoesmio.bsky.social/post/3lhsdsslo7c2t",
+                      "created_at":  "2025-02-10T04:50:11.955Z"
+                  },
+                  {
+                      "text":  "hey man, welcome to our craft brewpub. mateus or tarquin will be with you in a sec to take your order. ephraim is our mixologist today \u0026 algernon is behind the turntables. we accept euros, the iraqi dinar \u0026 gold bars. let me know if you have any questions, my name is st. john.",
+                      "author":  "@sunshinejarboly.bsky.social",
+                      "link":  "https://bsky.app/profile/sunshinejarboly.bsky.social/post/3lgqdx26iis27",
+                      "created_at":  "2025-01-27T16:22:03.026Z"
+                  },
+                  {
+                      "text":  "Let’s face it, wild horses could easily drag you away. Hell, two or three clever raccoons could probably make you disappear forever.",
+                      "author":  "@unfitz.bsky.social",
+                      "link":  "https://bsky.app/profile/unfitz.bsky.social/post/3ldtdhsp33c2y",
+                      "created_at":  "2024-12-21T16:35:56.202Z"
+                  },
+                  {
+                      "text":  "Some days I can actually feel how my nervous system was crudely extended from that of a weird deep-sea fish.",
+                      "author":  "@spleenly.bsky.social",
+                      "link":  "https://bsky.app/profile/spleenly.bsky.social/post/3lgg7s6k4fs2v",
+                      "created_at":  "2025-01-23T15:41:07.483Z"
+                  },
+                  {
+                      "text":  "Just going to reiterate -\n\nWe are on this bot problem. We shall fight them on the beaches. We shall fight them in the signup process, we shall fight them in the notifications",
+                      "author":  "@pfrazee.com",
+                      "link":  "https://bsky.app/profile/pfrazee.com/post/3lf3ye5ohvs26",
+                      "created_at":  "2025-01-06T20:36:11.612Z"
+                  },
+                  {
+                      "text":  "Eventually, you see a chicken in a tree, and you think, \"I didn\u0027t know chickens could do that.\" And now you have one more chicken data point.",
+                      "author":  "@jackboot.bsky.social",
+                      "link":  "https://bsky.app/profile/jackboot.bsky.social/post/3lf2gu4m3m22n",
+                      "created_at":  "2025-01-06T05:50:20.265Z"
+                  },
+                  {
+                      "text":  "Accidentally cut an old cat-5 cable and now the basement is flooded with internet.",
+                      "author":  "@robertmanchild.com",
+                      "link":  "https://bsky.app/profile/robertmanchild.com/post/3lek6lynvhc25",
+                      "created_at":  "2024-12-30T18:40:01.943Z"
+                  },
+                  {
+                      "text":  "Oh! the weather outside is frightful\nbut the fire is so frightful\nand since we\u0027ve no place to frightful\nlet it frightful let it frightful let it frightful\n\nAnd the fire is slowly dying\nand my dear we\u0027re still dying\nbut as long as you\u0027d love me dying\nlet it dying let it dying let it dying",
+                      "author":  "@katef.bsky.social",
+                      "link":  "https://bsky.app/profile/katef.bsky.social/post/3ldjijqgtb22j",
+                      "created_at":  "2024-12-17T18:39:52.269Z"
+                  },
+                  {
+                      "text":  "I’m not mad or disappointed but a special third thing (disassociated)",
+                      "author":  "@kimmysunshine.bsky.social",
+                      "link":  "https://bsky.app/profile/kimmysunshine.bsky.social/post/3lbwopnlklk2x",
+                      "created_at":  "2024-11-27T13:44:46.396Z"
+                  },
+                  {
+                      "text":  "Books led me to believe I\u0027d encounter more wry smiles and rueful grins",
+                      "author":  "@mave.bsky.social",
+                      "link":  "https://bsky.app/profile/mave.bsky.social/post/3lbsirzlbh22w",
+                      "created_at":  "2024-11-25T21:48:04.676Z"
+                  },
+                  {
+                      "text":  "Cat food hits different when you\u0027re a cat",
+                      "author":  "@charlesaustin.bsky.social",
+                      "link":  "https://bsky.app/profile/charlesaustin.bsky.social/post/3lbulou3w7c2b",
+                      "created_at":  "2024-11-26T17:45:18.969Z"
+                  },
+                  {
+                      "text":  "Too windy to have hair.",
+                      "author":  "@metalligretch.bsky.social",
+                      "link":  "https://bsky.app/profile/metalligretch.bsky.social/post/3lazpn7g2lk2z",
+                      "created_at":  "2024-11-16T01:14:05.758Z"
+                  },
+                  {
+                      "text":  "me *driving past the apocalypse*: Horses",
+                      "author":  "@iamspacegirl.bsky.social",
+                      "link":  "https://bsky.app/profile/iamspacegirl.bsky.social/post/3l725abih2o2o",
+                      "created_at":  "2024-10-21T18:27:00.691Z"
+                  }
+              ]
 }

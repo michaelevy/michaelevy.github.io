@@ -89,18 +89,31 @@
     position: relative;
     border: 3px solid var(--text);
     z-index: -2;
+    margin-top: 1.5rem;
 
     @media (min-width: 900px) {
-        min-height: 400px;
         min-width: 300px;
+    }
+
+    &::before {
+        content: "post rotator";
+        position: absolute;
+        top: -1.5rem;
+        left: 0;
+        font-family: "Fira Code", monospace;
+        font-size: 0.85rem;
+        font-style: normal;
+        line-height: 1;
+        color: black;
     }
 }
 
 #quote-rotator {
     display: grid;
+    overflow: hidden;
 
     @media (min-width: 900px) {
-        min-height: 400px;
+        height: 400px;
         align-content: center;
     }
 }
@@ -113,19 +126,21 @@
     font-family: CormorantGaramond, Georgia, serif;
     font-style: italic;
     font-weight: 300;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     text-align: center;
     color: var(--text);
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    overflow-y: auto;
+    max-height: 400px;
 
     &.active {
         opacity: 1;
     }
 
     @media (min-width: 900px) {
-        font-size: 1.6rem;
+        font-size: 1.3rem;
     }
 
     p {
