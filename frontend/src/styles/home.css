@@ -119,7 +119,7 @@
     height: 180px;
 
     @media (min-width: 900px) {
-        height: 400px;
+        height: 100%;
         align-content: center;
     }
 }
@@ -132,8 +132,8 @@
     font-family: FiraCode;
     font-style: italic;
     font-weight: 300;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.85rem;
+    line-height: 1.2;
     text-align: center;
     color: var(--text);
     opacity: 0;
@@ -146,15 +146,15 @@
     }
 
     @media (min-width: 900px) {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     p {
         margin: 0 0 0.5rem;
         overflow-wrap: break-word;
         white-space: pre-line;
-        font-size: 1.1em;
-        font-family: MondiaThin;
+        font-size: 1em;
+        font-family: FiraCode;
     }
 
     footer {
