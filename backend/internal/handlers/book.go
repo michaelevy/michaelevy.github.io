@@ -257,7 +257,7 @@ func (h *BookHandler) UpdateBook(c *gin.Context) {
 		}
 	}
 
-	if err := h.DB.Save(&book).Error; err != nil {
+	if err := h.DB.Omit("Series").Save(&book).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 		return
 	}
