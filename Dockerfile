@@ -30,6 +30,10 @@ COPY --from=builder /app/frontend/_site /usr/share/nginx/html
 # Copy custom error pages
 COPY frontend/502.html /usr/share/nginx/html/502.html
 
+# Ensure nginx workers can read copied assets regardless of source permissions.
+RUN find /usr/share/nginx/html -type d -exec chmod 755 {} + \
+    && find /usr/share/nginx/html -type f -exec chmod 644 {} +
+
 # Copy custom nginx config
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
