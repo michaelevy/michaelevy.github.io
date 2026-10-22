@@ -1,14 +1,15 @@
 services:
   website:
+    image: michaelevygithubio_website:latest
     build:
       context: .
       args:
         - SKIP_API=${SKIP_API:-false}
       network: host
-    container_name: michaelevy-website:latest
+    container_name: michaelevy-website
     restart: unless-stopped
     ports:
-      - "127.0.0.1:8080:80"
+      - "127.0.0.1:8080:8080:80"
     volumes:
       - album_images:/usr/share/nginx/html/public/resources
     depends_on:
@@ -18,8 +19,9 @@ services:
       - web
 
   backend:
+    image: michaelevygithubio_backend:latest
     build: ./backend
-    container_name: michaelevy-backend:latest
+    container_name: michaelevy-backend
     restart: unless-stopped
     expose:
       - "8080"
