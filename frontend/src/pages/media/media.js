@@ -60,7 +60,7 @@ async function fetchLastListened() {
         const data = await response.json();
 
         // Check if expired or no recent activity
-        if (data.expired) {
+        if (data.expiresAt && Date.parse(data.expiresAt) <= Date.now()) {
             contentDiv.innerHTML = '<p class="placeholder">No recent listening activity</p>';
             return;
         }
@@ -68,23 +68,22 @@ async function fetchLastListened() {
         // Build the display
         let html = '';
 
-        if (data.item) {
-            html += `<div class="book-title">${data.item.trackName}</div>`;
+        if (data.track) {
+            html += `<div class="book-title">${data.track.name}</div>`;
 
-            if (data.item.artists && data.item.artists.length > 0) {
-                const artistNames = data.item.artists.map(a => a.artistName).join(', ');
-                html += `<div class="book-author">by ${artistNames}</div>`;
+            if (data.track.artist) {
+                html += `<div class="book-author">by ${data.track.artist}</div>`;
             }
 
-            if (data.item.releaseName) {
-                html += `<div class="book-series">${data.item.releaseName}</div>`;
+            if (data.track.album) {
+                html += `<div class="book-series">${data.track.album}</div>`;
             }
 
-            html += `<div class="book-date" style="margin-top: 1rem;"><a href="https://teal.fm" target="_blank" rel="noopener noreferrer" class="accent">via teal.fm</a></div>`;
+            html += `<div class="book-date" style="margin-top: 1rem;"><a href="https://rocksky.app" target="_blank" rel="noopener noreferrer" class="accent">via Rocksky</a></div>`;
 
 
-            if (data.item.playedTime) {
-                const playedTime = new Date(data.item.playedTime);
+            if (data.startedAt) {
+                const playedTime = new Date(data.startedAt);
                 const formattedTime = playedTime.toLocaleDateString('en-GB', {
                     day: '2-digit',
                     month: '2-digit',

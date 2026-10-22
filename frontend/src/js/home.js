@@ -8,10 +8,10 @@ async function fetchListening() {
         const res = await fetch('/api/listening/last');
         if (!res.ok) throw new Error();
         const data = await res.json();
-        if (data.expired || !data.item) { el.textContent = 'nothing recent'; return; }
-        const track = data.item.trackName || '—';
-        const artist = (data.item.artists || []).map(a => a.artistName).join(', ');
-        el.innerHTML = `<a href="https://teal.fm" target="_blank" rel="noopener" class="accent">${esc(track)}</a>${artist ? ` by ${esc(artist)}` : ''}`;
+        if ((data.expiresAt && Date.parse(data.expiresAt) <= Date.now()) || !data.track) { el.textContent = 'nothing recent'; return; }
+        const track = data.track.name || '—';
+        const artist = data.track.artist || '';
+        el.innerHTML = `<a href="https://rocksky.app" target="_blank" rel="noopener" class="accent">${esc(track)}</a>${artist ? ` by ${esc(artist)}` : ''}`;
     } catch { el.textContent = '—'; }
 }
 

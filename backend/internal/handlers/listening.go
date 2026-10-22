@@ -10,30 +10,25 @@ import (
 
 type ListeningHandler struct{}
 
-// TealStatus represents the structure of a teal.fm status record
-type TealStatus struct {
-	Item struct {
-		Artists []struct {
-			ArtistMbid string `json:"artistMbid"`
-			ArtistName string `json:"artistName"`
-		} `json:"artists"`
-		Duration           int    `json:"duration"`
-		TrackName          string `json:"trackName"`
-		PlayedTime         string `json:"playedTime"`
-		ReleaseMbid        string `json:"releaseMbid"`
-		ReleaseName        string `json:"releaseName"`
-		RecordingMbid      string `json:"recordingMbId"`
-		SubmissionClient   string `json:"submissionClientAgent"`
-	} `json:"item"`
-	Time   string `json:"time"`
-	Type   string `json:"$type"`
-	Expiry string `json:"expiry"`
+// RockskyStatus represents an app.rocksky.actor.status record.
+type RockskyStatus struct {
+	Track *struct {
+		Name          string `json:"name"`
+		Artist        string `json:"artist"`
+		Album         string `json:"album"`
+		DurationMs    int    `json:"durationMs"`
+		AlbumCoverURL string `json:"albumCoverUrl,omitempty"`
+		RecordingMbid string `json:"recordingMbId,omitempty"`
+	} `json:"track"`
+	StartedAt string `json:"startedAt"`
+	ExpiresAt string `json:"expiresAt,omitempty"`
+	Type      string `json:"$type"`
 }
 
-// GetLastListened fetches the last listened track from teal.fm via AT Protocol
+// GetLastListened fetches the listening status from Rocksky via AT Protocol.
 func (h *ListeningHandler) GetLastListened(c *gin.Context) {
 	did := "did:plc:wfyk6ochxegynulld7gflsx5"
-	collection := "fm.teal.alpha.actor.status"
+	collection := "app.rocksky.actor.status"
 
 	// Construct the AT Protocol URL
 	// Use selfhosted.social PDS endpoint
@@ -54,9 +49,9 @@ func (h *ListeningHandler) GetLastListened(c *gin.Context) {
 
 	// Parse the response
 	var atProtoResponse struct {
-		URI   string      `json:"uri"`
-		CID   string      `json:"cid"`
-		Value TealStatus  `json:"value"`
+		URI   string        `json:"uri"`
+		CID   string        `json:"cid"`
+		Value RockskyStatus `json:"value"`
 	}
 
 	if err := json.NewDecoder(resp.Body).Decode(&atProtoResponse); err != nil {
