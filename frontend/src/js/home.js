@@ -8,7 +8,7 @@ async function fetchListening() {
         const res = await fetch('/api/listening/last');
         if (!res.ok) throw new Error();
         const data = await res.json();
-        if ((data.expiresAt && Date.parse(data.expiresAt) <= Date.now()) || !data.track) { el.textContent = 'nothing recent'; return; }
+        if (!data.track) { el.textContent = 'no listening history'; return; }
         const track = data.track.name || '—';
         const artist = data.track.artist || '';
         el.innerHTML = `<a href="https://rocksky.app" target="_blank" rel="noopener" class="accent">${esc(track)}</a>${artist ? ` by ${esc(artist)}` : ''}`;

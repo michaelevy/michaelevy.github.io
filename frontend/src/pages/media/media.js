@@ -59,12 +59,6 @@ async function fetchLastListened() {
 
         const data = await response.json();
 
-        // Check if expired or no recent activity
-        if (data.expiresAt && Date.parse(data.expiresAt) <= Date.now()) {
-            contentDiv.innerHTML = '<p class="placeholder">No recent listening activity</p>';
-            return;
-        }
-
         // Build the display
         let html = '';
 

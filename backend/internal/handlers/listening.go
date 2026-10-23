@@ -10,29 +10,23 @@ import (
 
 type ListeningHandler struct{}
 
-// RockskyStatus represents an app.rocksky.actor.status record.
-type RockskyStatus struct {
-	Track *struct {
-		Name          string `json:"name"`
-		Artist        string `json:"artist"`
-		Album         string `json:"album"`
-		DurationMs    int    `json:"durationMs"`
-		AlbumCoverURL string `json:"albumCoverUrl,omitempty"`
-		RecordingMbid string `json:"recordingMbId,omitempty"`
-	} `json:"track"`
-	StartedAt string `json:"startedAt"`
-	ExpiresAt string `json:"expiresAt,omitempty"`
-	Type      string `json:"$type"`
+// RockskyScrobble represents a completed listen in app.rocksky.scrobble.
+type RockskyScrobble struct {
+	Title     string `json:"title"`
+	Artist    string `json:"artist"`
+	Album     string `json:"album"`
+	CreatedAt string `json:"createdAt"`
 }
 
-// GetLastListened fetches the listening status from Rocksky via AT Protocol.
+// GetLastListened fetches the latest Rocksky scrobble via AT Protocol.
 func (h *ListeningHandler) GetLastListened(c *gin.Context) {
 	did := "did:plc:wfyk6ochxegynulld7gflsx5"
-	collection := "app.rocksky.actor.status"
+	collection := "app.rocksky.scrobble"
 
 	// Construct the AT Protocol URL
 	// Use selfhosted.social PDS endpoint
-	url := fmt.Sprintf("https://selfhosted.social/xrpc/com.atproto.repo.getRecord?repo=%s&collection=%s&rkey=self", did, collection)
+	// Scrobble record keys are chronological; descending order gives the latest listen.
+	url := fmt.Sprintf("https://selfhosted.social/xrpc/com.atproto.repo.listRecords?repo=%s&collection=%s&limit=1&reverse=false", did, collection)
 
 	// Make HTTP request
 	resp, err := http.Get(url)
@@ -49,9 +43,9 @@ func (h *ListeningHandler) GetLastListened(c *gin.Context) {
 
 	// Parse the response
 	var atProtoResponse struct {
-		URI   string        `json:"uri"`
-		CID   string        `json:"cid"`
-		Value RockskyStatus `json:"value"`
+		Records []struct {
+			Value RockskyScrobble `json:"value"`
+		} `json:"records"`
 	}
 
 	if err := json.NewDecoder(resp.Body).Decode(&atProtoResponse); err != nil {
@@ -59,6 +53,19 @@ func (h *ListeningHandler) GetLastListened(c *gin.Context) {
 		return
 	}
 
-	// Return the listening data
-	c.JSON(http.StatusOK, atProtoResponse.Value)
+	if len(atProtoResponse.Records) == 0 {
+		c.JSON(http.StatusOK, gin.H{"track": nil})
+		return
+	}
+
+	// Keep the display response consistent while using permanent listening history.
+	scrobble := atProtoResponse.Records[0].Value
+	c.JSON(http.StatusOK, gin.H{
+		"track": gin.H{
+			"name":   scrobble.Title,
+			"artist": scrobble.Artist,
+			"album":  scrobble.Album,
+		},
+		"startedAt": scrobble.CreatedAt,
+	})
 }
